@@ -285,11 +285,11 @@
     "items": {
       "sponsor": {
         "title": "Sponsor",
-        "href": "https://github.com/sponsors/Mintplex-Labs"
+        "href": "/sponsor"
       },
       "contact": {
         "title": "Contact Us",
-        "href": "mailto:team@mintplexlabs.com"
+        "href": "/contactus"
       },
       "licences": {
         "title": "Licences",

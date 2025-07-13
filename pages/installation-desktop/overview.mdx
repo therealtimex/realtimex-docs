@@ -1,168 +1,96 @@
 ---
 title: "Desktop Installation Overview"
-description: "RealTimeX desktop is the easiest way to use RealTimeX for most people."
+description: "RealTimeX Desktop is the easiest way to use RealTimeX for most people."
 ---
 
-import { Callout, Cards } from "nextra/components";
-import Image from "next/image";
+import { Callout } from "nextra/components";
+import { FeatureCard } from "../../components/FeatureCard";
+import {
+  Monitor,
+  Apple,
+  AppWindow,
+  Terminal,
+  Cloud
+} from "lucide-react";
 
-<Image
-  src="/images/getting-started/installation/header-image.png"
-  height={1080}
-  width={1920}
-  quality={100}
-  alt="RealTimeX Installation"
-/>
+# Desktop Installation Overview
 
-## Installation Overview
+RealTimeX Desktop is the easiest way to experience RealTimeX on your own terms. Just install the app on Mac, Windows, or Linux and get started with local LLMs, RAG, and Agents—no complicated setup, and your data stays private.
 
-RealTimeX Desktop is a "**single-player**" application you can install on any Mac, Windows, or Linux operating system and get local LLMs, RAG, and Agents with little to zero configuration and full privacy.
+---
 
-## Docker vs Desktop Version
+## Desktop vs Cloud: What’s Right for You?
 
-RealTimeX offers two main ways to use RealTimeX. There are some distinct differences in functionality between each offering. Both are open source.
+RealTimeX is available in two main versions, each designed for different needs. Here’s a quick comparison to help you choose:
 
-### You want RealTimeX Desktop if...
+### You’ll love **RealTimeX Desktop** if:
 
-- You want a one-click installable app to use local LLMs, RAG, and Agents locally
-- You do not need multi-user support
-- Everything needs to stay only on your device
-- You do not need to "publish" anything to the public internet. Eg: Chat widget for website
+- You want a simple, one-click app for local LLMs, RAG, and Agents
+- You don’t need multi-user access
+- You want everything to stay on your device
+- You don’t plan to publish chat widgets or make your instance public
 
-### You want RealTimeX Docker if...
+### Choose **RealTimeX Cloud** if:
 
-- You need an easy setup, but server-based service for RealTimeX to use local LLMs, RAG, and Agents locally
-- You want to run an RealTimeX instance that many people can use at the same time
-- You want to be able to share information with our users on your instance you invite
-- You need admin and rule-based access for workspaces and documents.
-- You will publish chat widgets to the public internet
-- You want to access RealTimeX from the browser
+- You need a server-based service to use cloud LLMs, RAG, and Agents
+- You want to support multiple users at once
+- You’d like to share your instance or invite team members
+- You need admin controls, workspace management, or public chat widgets
+- You want to access RealTimeX from any browser
 
-The below table is a non-exhaustive list of features supported between platforms.
+Here’s how the two options compare on key features:
 
-| Feature                        | Available on Desktop | Available on Docker |
-| :----------------------------- | :------------------: | :-----------------: |
-| Multi-user support             |          ❌          |         ✅          |
-| Emeddable chat widgets         |          ❌          |         ✅          |
-| One-click install              |          ✅          |         ❌          |
-| Private documents              |          ✅          |         ✅          |
-| Connect to any vector database |          ✅          |         ✅          |
-| Use any LLM                    |          ✅          |         ✅          |
-| Built-in embedding provider    |          ✅          |         ✅          |
-| Built-in LLM provider          |          ✅          |         ❌          |
-| White-labeling                 |          ❌          |         ✅          |
-| Chat logs                      |          ✅          |         ✅          |
-| Agent support                  |          ✅          |         ✅          |
-| Agent skills                   |          ✅          |         ✅          |
-| Third-party data connectors    |          ✅          |         ✅          |
-| Password protection            |          ❌          |         ✅          |
-| Invite new users to instance   |          ❌          |         ✅          |
-| Text splitting configuration   |          ✅          |         ✅          |
-| Whisper model support          |          ✅          |         ✅          |
-| Full developer API             |          ✅          |         ✅          |
-| User management                |          ❌          |         ✅          |
-| Workspace access management    |          ❌          |         ✅          |
-| Website scraping               |          ✅          |         ✅          |
+| Feature                        | Desktop        | Cloud         |
+| :----------------------------- | :------------: | :-----------: |
+| Multi-user support             |      ❌        |      ✅        |
+| Embeddable chat widgets        |      ❌        |      ✅        |
+| One-click install              |      ✅        |      ❌        |
+| Private documents              |      ✅        |      ✅        |
+| Connect to any vector database |      ✅        |      ✅        |
+| Use any LLM                    |      ✅        |      ✅        |
+| Built-in embedding provider    |      ✅        |      ✅        |
+| Built-in LLM provider          |      ✅        |      ❌        |
+| White-labeling                 |      ❌        |      ✅        |
+| Chat logs                      |      ✅        |      ✅        |
+| Agent support                  |      ✅        |      ✅        |
+| Agent skills                   |      ✅        |      ✅        |
+| Third-party data connectors    |      ✅        |      ✅        |
+| Password protection            |      ❌        |      ✅        |
+| Invite new users to instance   |      ❌        |      ✅        |
+| Text splitting configuration   |      ✅        |      ✅        |
+| Whisper model support          |      ✅        |      ✅        |
+| Full developer API             |      ✅        |      ✅        |
+| User management                |      ❌        |      ✅        |
+| Workspace access management    |      ❌        |      ✅        |
+| Website scraping               |      ✅        |      ✅        |
 
-<Callout type="info" emoji="️💡">
-  **Tip:** RealTimeX Desktop is the easiest way to use RealTimeX.
+<Callout type="info" emoji="✨">
+  <strong>Tip:</strong> RealTimeX Desktop is the simplest way to get started.
 </Callout>
 
-<br />
+---
 
 ## Quick Links
 
-<Cards>
-  <Card title="System Requirements" href="system-requirements"> 
-    <Image
-      src="/images/getting-started/installation/system-requirements.png" 
-      height={1080} 
-      width={1920} 
-      quality={100}
-      alt="RealTimeX System Requirements"
-    />
-  </Card>
-
-<Card title="MacOS Install" href="macos">
-  <Image
-    src="/images/getting-started/installation/macos/header-image.png"
-    height={1080}
-    width={1920}
-    quality={100}
-    alt="RealTimeX MacOS Install"
-  />
-</Card>
-
-<Card title="Windows Install" href="windows">
-  <Image
-    src="/images/getting-started/installation/windows/header-image.png"
-    height={1080}
-    width={1920}
-    quality={100}
-    alt="RealTimeX Windows Install"
-  />
-</Card>
-
-<Card title="Linux Install" href="linux">
-  <Image
-    src="/images/getting-started/installation/linux/header-image.png"
-    height={1080}
-    width={1920}
-    quality={100}
-    alt="RealTimeX Linux Install"
-  />
-</Card>
-
-<Card title="Local Docker Install" href="/installation-docker/local-docker">
-  <Image
-    src="/images/getting-started/installation/local-docker/header-image.png"
-    height={1080}
-    width={1920}
-    quality={100}
-    alt="RealTimeX Local Docker Install"
-  />
-</Card>
-
-<Card
-  title="Midori AI Subsystem Manager"
-  href="https://io.midori-ai.xyz/subsystem/manager/"
->
-  <Image
-    src="/images/getting-started/installation/local-docker/midori-subsystem.png"
-    height={1080}
-    width={1920}
-    quality={100}
-    alt="Midori AI Subsystem"
-  />
-</Card>
-
-  <Card title="Cloud Docker Install" href="/installation-docker/cloud-docker"> 
-    <Image
-      src="/images/getting-started/installation/cloud-docker/header-image.png" 
-      height={1080} 
-      width={1920} 
-      quality={100}
-      alt="RealTimeX Cloud Docker Install"
-    />
-  </Card>  
-</Cards>
-
-export const Card = Object.assign(
-  // Copy card component and add default props
-  Cards.Card.bind(),
-  {
-    displayName: "Card",
-    defaultProps: {
-      image: true,
-      arrow: true,
-      target: "_self",
-    },
-  }
-);
-
-<style global jsx>{`
-  img {
-    aspect-ratio: 16/9;
-    object-fit: cover;
-  }
-`}</style>
+<div style={{
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+  gap: "1.1rem",
+  marginTop: "1.2rem"
+}}>
+  <FeatureCard title="System Requirements" href="system-requirements" icon={<Monitor size={36} color="#226cff" />}>
+    Check your device compatibility.
+  </FeatureCard>
+  <FeatureCard title="MacOS Install" href="macos" icon={<Apple size={36} color="#000" />}>
+    Step-by-step install guide for Mac.
+  </FeatureCard>
+  <FeatureCard title="Windows Install" href="windows" icon={<AppWindow size={36} color="#0066c5" />}>
+    Easy Windows installation instructions.
+  </FeatureCard>
+  <FeatureCard title="Linux Install" href="linux" icon={<Terminal size={36} color="#222" />}>
+    How to install on Linux systems.
+  </FeatureCard>
+  <FeatureCard title="Cloud Install" href="/installation-docker/cloud-docker" icon={<Cloud size={36} color="#226cff" />}>
+    Set up RealTimeX Cloud.
+  </FeatureCard>
+</div>

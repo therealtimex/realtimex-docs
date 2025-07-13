@@ -109,7 +109,7 @@ const config: DocsThemeConfig = {
     dismissible: true,
     key: `${newRelease}-release`, // Storage key to keep the banner state (dismissed or not). If you have updated your banner text, you should change the key to make sure the banner is shown again.
     text: (
-      <a href="https://pages.realtimex.ai/download" target="_blank">
+      <a href="https://realtimex.ai/" target="_blank">
         🚀 RealTimeX {newRelease} is live! Update now →
       </a>
     )
