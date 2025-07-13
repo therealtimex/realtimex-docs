@@ -1,6 +1,6 @@
 ---
 title: "Local Docker Installation"
-description: "Local Docker Installation guide for AnythingLLM"
+description: "Local Docker Installation guide for RealTimeX"
 ---
 
 import { Callout, Tabs } from "nextra/components";
@@ -11,15 +11,15 @@ import Image from "next/image";
   height={1080}
   width={1920}
   quality={100}
-  alt="AnythingLLM Installation Local Docker"
+  alt="RealTimeX Installation Local Docker"
 />
 
-# Get Started with AnythingLLM in Docker
+# Get Started with RealTimeX in Docker
 
 ## Pull the latest image
 
 ```bash copy showLineNumbers
-docker pull mintplexlabs/anythingllm:latest
+docker pull mintplexlabs/RealTimeX:latest
 ```
 
 ## Run the image
@@ -33,7 +33,7 @@ docker pull mintplexlabs/anythingllm:latest
 <Tabs items={['Linux/Mac', 'Windows']} defaultIndex="0">
   <Tabs.Tab>
   ```shell copy showLineNumbers
-  export STORAGE_LOCATION=$HOME/anythingllm && \
+  export STORAGE_LOCATION=$HOME/RealTimeX && \
   mkdir -p $STORAGE_LOCATION && \
   touch "$STORAGE_LOCATION/.env" && \
   docker run -d -p 3001:3001 \
@@ -41,13 +41,13 @@ docker pull mintplexlabs/anythingllm:latest
   -v ${STORAGE_LOCATION}:/app/server/storage \
   -v ${STORAGE_LOCATION}/.env:/app/server/.env \
   -e STORAGE_DIR="/app/server/storage" \
-  mintplexlabs/anythingllm
+  mintplexlabs/RealTimeX
   ```
  </Tabs.Tab>
 
  <Tabs.Tab>
   ```powershell copy showLineNumbers
-  $env:STORAGE_LOCATION="$HOME\Documents\anythingllm"; `
+  $env:STORAGE_LOCATION="$HOME\Documents\RealTimeX"; `
   If(!(Test-Path $env:STORAGE_LOCATION)) {New-Item $env:STORAGE_LOCATION -ItemType Directory}; `
   If(!(Test-Path "$env:STORAGE_LOCATION\.env")) {New-Item "$env:STORAGE_LOCATION\.env" -ItemType File}; `
   docker run -d -p 3001:3001 `
@@ -55,7 +55,7 @@ docker pull mintplexlabs/anythingllm:latest
   -v "$env:STORAGE_LOCATION`:/app/server/storage" `
   -v "$env:STORAGE_LOCATION\.env:/app/server/.env" `
   -e STORAGE_DIR="/app/server/storage" `
-  mintplexlabs/anythingllm;
+  mintplexlabs/RealTimeX;
   ```
  </Tabs.Tab>
 </Tabs>
@@ -74,7 +74,7 @@ To access the full application, visit `http://localhost:3001` in your browser.
 ### Build locally from source _not recommended for casual use_
 
 - `git clone` this repo and `cd anything-llm` to get to the root directory.
-- `touch server/storage/anythingllm.db` to create empty SQLite DB file.
+- `touch server/storage/RealTimeX.db` to create empty SQLite DB file.
 - `cd docker/`
 - `cp .env.example .env` **you must do this before building**
 - `docker-compose up -d --build` to build the image - this will take a few moments.
@@ -100,17 +100,17 @@ Ask for help on our Discord [Community Server](https://discord.gg/6UyHPeGZAC)
 ---
 ## Other Deployment Options
 
-### Use the Midori AI Subsystem to Manage AnythingLLM
+### Use the Midori AI Subsystem to Manage RealTimeX
 
 <Callout type="warning" emoji="️💡">
   **Note!** ➤➤ Midori AI Subsystem Manager is currently in BETA. If you encounter any issues with the Subsystem Manager, please [contact their team](https://io.midori-ai.xyz/about-us/contact-us/)
 
-_The Midori AI Subsystem manager is **not maintained by Mintplex Labs** and is a community lead project. As such, any issues using this message should be directed to the discord link found in the link above._
+_The Midori AI Subsystem manager is **not maintained by RealTimeX, Inc** and is a community lead project. As such, any issues using this message should be directed to the discord link found in the link above._
 
 </Callout>
 
 Follow the setup found on [Midori AI Subsystem guide](https://io.midori-ai.xyz/subsystem/manager/) for your host OS.
 
-After setting that up, install the AnythingLLM docker backend to the Midori AI Subsystem.
+After setting that up, install the RealTimeX docker backend to the Midori AI Subsystem.
 
 Once that is done, you are all set!

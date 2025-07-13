@@ -1,6 +1,6 @@
 ---
 title: "Cloud Docker Installation"
-description: "Cloud Docker Installation guide for AnythingLLM"
+description: "Cloud Docker Installation guide for RealTimeX"
 ---
 
 import { Callout } from "nextra/components";
@@ -11,19 +11,19 @@ import Image from "next/image";
   height={1080}
   width={1920}
   quality={100}
-  alt="AnythingLLM Installation Cloud Docker"
+  alt="RealTimeX Installation Cloud Docker"
 />
 
-# Run AnythingLLM on Cloud using Docker
+# Run RealTimeX on Cloud using Docker
 
-Running AnythingLLM on a cloud service is the best way to run a private multi-user instance of AnythingLLM with full control while not having to worry about the underlying infrastructure.
+Running RealTimeX on a cloud service is the best way to run a private multi-user instance of RealTimeX with full control while not having to worry about the underlying infrastructure.
 
 <Callout type="info" emoji="💡">
   **Easy Cloud Deployment**
 
-    AnythingLLM offers easily integrated one-click docker deployment templates with [Railway](https://railway.app/template/HNSCS1?referralCode=WFgJkn) and [Render](https://render.com/deploy?repo=https://github.com/Mintplex-Labs/anything-llm&branch=render).
+    RealTimeX offers easily integrated one-click docker deployment templates with [Railway](https://railway.app/template/HNSCS1?referralCode=WFgJkn) and [Render](https://render.com/deploy?repo=https://github.com/Mintplex-Labs/anything-llm&branch=render).
 
-    _This is the easiest way to self-host a cloud server version of AnythingLLM_
+    _This is the easiest way to self-host a cloud server version of RealTimeX_
 
 </Callout>
 
@@ -34,19 +34,19 @@ Running AnythingLLM on a cloud service is the best way to run a private multi-us
 | Azure Cloud           | B2ps v2               |
 
 <Callout type="info" emoji="💡">
-  AnythingLLM offers community-maintained deployment templates for cloud
+  RealTimeX offers community-maintained deployment templates for cloud
   providers
   https://github.com/Mintplex-Labs/anything-llm/tree/master/cloud-deployments
 </Callout>
 
-Once you are prepared to run AnythingLLM on your server the process is quite simple.
+Once you are prepared to run RealTimeX on your server the process is quite simple.
 
-You should provision a folder somewhere on the host machine so that you can re-pull the latest versions of AnythingLLM and persist data between container rebuilds.
+You should provision a folder somewhere on the host machine so that you can re-pull the latest versions of RealTimeX and persist data between container rebuilds.
 
 <Callout type="warning" emoji="⚠️">
   **BACKWARDS COMPATIBILITY**
 
-    The Mintplex Labs team takes great care to ensure AnythingLLM is always backward compatible.
+    The RealTimeX, Inc team takes great care to ensure RealTimeX is always backward compatible.
 
     In the event this changes you will be alerted via code, deployment, or our regular communication channels on social, Discord, and email.
 
@@ -60,12 +60,12 @@ You should provision a folder somewhere on the host machine so that you can re-p
 </Callout>
 
 ```shell copy showLineNumbers
- # Assuming that you want to store app data in a folder at /var/lib/anythingllm
+ # Assuming that you want to store app data in a folder at /var/lib/RealTimeX
 
  # Pull in the latest image
- docker pull mintplexlabs/anythingllm:master
+ docker pull mintplexlabs/RealTimeX:master
 
- export STORAGE_LOCATION="/var/lib/anythingllm" && \
+ export STORAGE_LOCATION="/var/lib/RealTimeX" && \
  mkdir -p $STORAGE_LOCATION && \
  touch "$STORAGE_LOCATION/.env" && \
  docker run -d -p 3001:3001 \ # expose on port 3001 (can be any host port)
@@ -73,35 +73,35 @@ You should provision a folder somewhere on the host machine so that you can re-p
  -v ${STORAGE_LOCATION}:/app/server/storage \
  -v ${STORAGE_LOCATION}/.env:/app/server/.env \
  -e STORAGE_DIR="/app/server/storage" \
- mintplexlabs/anythingllm:master
+ mintplexlabs/RealTimeX:master
 
- # visit http://localhost:3001 to use AnythingLLM!
+ # visit http://localhost:3001 to use RealTimeX!
 ```
 
-Done! You are using AnythingLLM!
+Done! You are using RealTimeX!
 
 
 ## More Information
 
 ### Backwards Compatibility
 
-The Mintplex Labs team takes great care to ensure AnythingLLM is always backward compatible.
+The RealTimeX, Inc team takes great care to ensure RealTimeX is always backward compatible.
 In the event this changes you will be alerted via code, deployment, or our regular communication channels on social, Discord, and email.
 
 ### Scaling
 
-Since the AnythingLLM backend uses SQLite for its database, it is not recommended to attempt to scale the AnythingLLM backend horizontally
+Since the RealTimeX backend uses SQLite for its database, it is not recommended to attempt to scale the RealTimeX backend horizontally
 since you would then need to have many containers all reading and writing to the same database.
 
 In this case, we recommend using a more robust database like PostgreSQL and our [PostgreSQL image](/installation-docker/available-images#pg) which will centralize the database as well as set `PGVector` as the vector database.
 
 ### SSL/HTTPS Support
 
-In order to use SSL/HTTPS with AnythingLLM you should use a reverse proxy like [NGINX](https://www.nginx.com/) with a TLS certificate you can get from [Let's Encrypt](https://letsencrypt.org/).
+In order to use SSL/HTTPS with RealTimeX you should use a reverse proxy like [NGINX](https://www.nginx.com/) with a TLS certificate you can get from [Let's Encrypt](https://letsencrypt.org/).
 
 ### NGINX Configuration
 
-Here is an example NGINX configuration that you can use to reverse proxy to AnythingLLM:
+Here is an example NGINX configuration that you can use to reverse proxy to RealTimeX:
 
 ```nginx
 # Default server configuration

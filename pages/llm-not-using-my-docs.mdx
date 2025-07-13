@@ -11,7 +11,7 @@ import Image from "next/image";
   height={1080}
   width={1920}
   quality={100}
-  alt="AnythingLLM -- Why does the LLM not use my documents?"
+  alt="RealTimeX -- Why does the LLM not use my documents?"
 />
 
 # Why does the LLM not use my documents?
@@ -20,13 +20,13 @@ import Image from "next/image";
   **Tip:**
     This page is a deep dive on how or why your LLM is not using your documents when asking questions.
 
-    Luckily, it's simple to solve for, actually! These ideas extend beyond just AnythingLLM.
+    Luckily, it's simple to solve for, actually! These ideas extend beyond just RealTimeX.
 
 </Callout>
 
 We get this question many times a week, where someone is confused, or even upset the LLM does not appear to "just know everything" about the documents that are embedded into a workspace.
 
-So to understand why this occurs we first need to clear up some confusion on how RAG (retrieval augmented generation) works inside of AnythingLLM.
+So to understand why this occurs we first need to clear up some confusion on how RAG (retrieval augmented generation) works inside of RealTimeX.
 
 This will not be deeply technical, but once you read this you will be an expert on how traditional RAG works.
 
@@ -38,7 +38,7 @@ That being said there are a ton of factors and moving parts that can impact the 
 
 ## LLMs do not introspect
 
-In AnythingLLM, we do not read your entire filesystem and then report that to the LLM, as it would waste tokens 99% of the time.
+In RealTimeX, we do not read your entire filesystem and then report that to the LLM, as it would waste tokens 99% of the time.
 
 Instead, your query is processed against your vector database of document text and we get back 4-6 text chunks from the documents that are deemed "relevant" to your prompt.
 
@@ -48,11 +48,11 @@ When you use RAG for document chatbots your entire document text cannot possibly
 
 Your entire document set is not "embedded" into the model. It has no idea what is in each document nor where those documents even are.
 
-If this is what you want, you are thinking of agents, which are coming to AnythingLLM soon.
+If this is what you want, you are thinking of agents, which are coming to RealTimeX soon.
 
-## So how does AnythingLLM work?
+## So how does RealTimeX work?
 
-Let's think of AnythingLLM as a framework or pipeline.
+Let's think of RealTimeX as a framework or pipeline.
 
 1. A workspace is created. The LLM can only "see" documents embedded in this workspace. If a document is not embedded, there is no way the LLM can see or access that document's content.
 
@@ -66,7 +66,7 @@ Let's think of AnythingLLM as a framework or pipeline.
 
 6. Your question is then embedded just like your document text was.
 
-7. The vector database then calculates the "nearest" chunk-vector. AnythingLLM filters any "low-score" text chunks (you can modify this). Each vector has the original text it was derived from attached to it.
+7. The vector database then calculates the "nearest" chunk-vector. RealTimeX filters any "low-score" text chunks (you can modify this). Each vector has the original text it was derived from attached to it.
 
 <Callout type="warning" emoji="️⚠️">
   **IMPORTANT!**
@@ -75,7 +75,7 @@ Let's think of AnythingLLM as a framework or pipeline.
 
     It's a mathematical process using the "Cosine Distance" formula.
 
-    However, here is where the embedder model used and other AnythingLLM settings can make the most difference. Read more in the next section.
+    However, here is where the embedder model used and other RealTimeX settings can make the most difference. Read more in the next section.
 
 </Callout>
 
@@ -87,9 +87,9 @@ Done.
 
 ## How can I make retrieval better then?
 
-AnythingLLM exposes many many options to tune your workspace to better fit with your selection of LLM, embedder, and vector database.
+RealTimeX exposes many many options to tune your workspace to better fit with your selection of LLM, embedder, and vector database.
 
-The workspace options are the easiest to mess with and you should start there first. AnythingLLM makes some default assumptions in each workspace. These work for some but certainly not all use cases.
+The workspace options are the easiest to mess with and you should start there first. RealTimeX makes some default assumptions in each workspace. These work for some but certainly not all use cases.
 
 You can find these settings by hovering over a workspace and clicking the "Gear" icon.
 
@@ -98,7 +98,7 @@ You can find these settings by hovering over a workspace and clicking the "Gear"
   height={1080}
   width={1920}
   quality={100}
-  alt="AnythingLLM Workspace settings"
+  alt="RealTimeX Workspace settings"
 />
 
 ### Chat Settings > Prompt
@@ -116,10 +116,10 @@ This determines how "inventive" the LLM is with responses. This varies from mode
   height={1080}
   width={1920}
   quality={100}
-  alt="AnythingLLM Workspace RAG Search Preference"
+  alt="RealTimeX Workspace RAG Search Preference"
 />
 
-By default, AnythingLLM will search for the most relevant chunks of text. For the majority of use cases this is the best option since it is very simple to run and very fast to calculate.
+By default, RealTimeX will search for the most relevant chunks of text. For the majority of use cases this is the best option since it is very simple to run and very fast to calculate.
 
 However, if you are getting bad results, you may want to try "Accuracy Optimized" instead. This will search _more_ chunks of text and then re-rank them to the top chunks that are most relevant to your query. This process is slightly slower but will yield better results in almost all cases. This option is only available if you are using LanceDB as your vector database.
 
@@ -131,7 +131,7 @@ The reason this method is opt-in is because it is computationally more expensive
 
 This is a very critical item during the "retrieval" part of RAG. This determines "How many relevant snippets of text do I want to send to the LLM". Intuitively you may think "Well, I want all of them", but that is not possible since there is an upper limit to how many tokens each model can process. This window, called the context window, is shared with the system prompt, context, query, and history.
 
-AnythingLLM will trim data from the context if you are going to overflow the model - which will crash it. So it's best to keep this value anywhere from 4-6 for the majority of models. If using a large-context model like Claude-3, you can go higher but beware that too much "noise" in the context may mislead the LLM in response generation.
+RealTimeX will trim data from the context if you are going to overflow the model - which will crash it. So it's best to keep this value anywhere from 4-6 for the majority of models. If using a large-context model like Claude-3, you can go higher but beware that too much "noise" in the context may mislead the LLM in response generation.
 
 ### Vector Database Settings > Document similarity threshold
 
@@ -159,7 +159,7 @@ Document Pinning should be reserved for documents that can either fully fit in t
   height={1080}
   width={1920}
   quality={100}
-  alt="AnythingLLM Document Pinning"
+  alt="RealTimeX Document Pinning"
 />
 
 You can only pin a document that has already been embedded. Clicking the pushpin icon will toggle this setting for the document.

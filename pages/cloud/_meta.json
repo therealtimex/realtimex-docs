@@ -18,7 +18,7 @@
     }
   },
   "error-502": {
-    "title": "502 Error on AnythingLLM Hosted",
+    "title": "502 Error on RealTimeX Hosted",
     "theme": {
       "breadcrumb": true,
       "footer": true,

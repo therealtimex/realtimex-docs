@@ -6,7 +6,7 @@ description: "How to create custom agent skills for developers"
 import { Cards, Callout } from "nextra/components";
 import Image from "next/image";
 
-**This guide is intended for developers who want to create custom agent skills for AnythingLLM.**
+**This guide is intended for developers who want to create custom agent skills for RealTimeX.**
 
 # How to develop custom agent skills
 
@@ -14,7 +14,7 @@ import Image from "next/image";
 
 1. NodeJS 18+
 2. Yarn
-3. AnythingLLM running in some supported environment see [here](./introduction.mdx) for more information.
+3. RealTimeX running in some supported environment see [here](./introduction.mdx) for more information.
 
 ## Guidelines for creation of custom agent skills
 
@@ -35,11 +35,11 @@ If you just added a new custom agent skill you will need to revisit or reload th
 
 </Callout>
 
-AnythingLLM supports hot loading of custom agent skills. This means that you can make changes to your custom agent skill and see the changes without having to restart the agent or the instance of AnythingLLM.
+RealTimeX supports hot loading of custom agent skills. This means that you can make changes to your custom agent skill and see the changes without having to restart the agent or the instance of RealTimeX.
 
 ## Where to place your custom agent skill code
 
-All agents skills must be placed in the appropriate folder in your AnythingLLM storage directory folder. This can be found in multiple locations depending on the environment you are running AnythingLLM in.
+All agents skills must be placed in the appropriate folder in your RealTimeX storage directory folder. This can be found in multiple locations depending on the environment you are running RealTimeX in.
 In all versions you are looking for the matching folder of the `STORAGE_DIR` environment variable.
 
 <Callout type="info" emoji="️💡">
@@ -56,14 +56,14 @@ Then you will need to create this subfolder within the storage directory:
 
 ### Local Development
 
-When running AnythingLLM locally, your storage directory is likely mounted in the `server/storage` directory.
+When running RealTimeX locally, your storage directory is likely mounted in the `server/storage` directory.
 
 Then you will need to create this subfolder within the storage directory:
 `plugins/agent-skills`
 
 ### Desktop
 
-When running AnythingLLM on Desktop, your storage directory can be [found using this guide](../../installation-desktop/storage.mdx#where-is-my-data-located).
+When running RealTimeX on Desktop, your storage directory can be [found using this guide](../../installation-desktop/storage.mdx#where-is-my-data-located).
 
 Then you will need to create this subfolder within the storage directory:
 `plugins/agent-skills`

@@ -1,6 +1,6 @@
 ---
-title: "MCP Compatibility in AnythingLLM"
-description: "Use existing MCP Servers with AnythingLLM Agents"
+title: "MCP Compatibility in RealTimeX"
+description: "Use existing MCP Servers with RealTimeX Agents"
 ---
 
 import { Cards, Callout } from "nextra/components";
@@ -30,25 +30,25 @@ export const Card = Object.assign(
   }}
 />
 
-# Model Context Protocol (MCP) in AnythingLLM
+# Model Context Protocol (MCP) in RealTimeX
 
-AnythingLLM supports the all [Model Context Protocol (MCP) tools](https://github.com/modelcontextprotocol/modelcontextprotocol) for use with [AI Agents](/agent/overview).
+RealTimeX supports the all [Model Context Protocol (MCP) tools](https://github.com/modelcontextprotocol/modelcontextprotocol) for use with [AI Agents](/agent/overview).
 
 ## What is MCP?
 
 MCP is an open-source protocol developed by [Anthropic](https://www.anthropic.com/) to enable seamless integration between LLM applications and external data sources and tools.
 
-There are [many tools](https://github.com/modelcontextprotocol/servers) that exist already built with MCP in mind and AnythingLLM can work with any of them.
+There are [many tools](https://github.com/modelcontextprotocol/servers) that exist already built with MCP in mind and RealTimeX can work with any of them.
 
 > The Model Context Protocol (MCP) is an open protocol that enables seamless integration between LLM applications and external data sources and tools. Whether you're building an AI-powered IDE, enhancing a chat interface, or creating custom AI workflows, MCP provides a standardized way to connect LLMs with the context they need.
 
-## How to use MCP in AnythingLLM
+## How to use MCP in RealTimeX
 
 <Cards style={{
   display: "flex",
   flexDirection: "row",
 }}>
-  <Card title="AnythingLLM Docker" href="/mcp-compatibility/docker">
+  <Card title="RealTimeX Docker" href="/mcp-compatibility/docker">
     <Image
       src="/images/mcp-compatibility/docker-header.png"
       height={1080}
@@ -56,7 +56,7 @@ There are [many tools](https://github.com/modelcontextprotocol/servers) that exi
       quality={100}
     />
   </Card>
-  <Card title="AnythingLLM Desktop" href="/mcp-compatibility/desktop">
+  <Card title="RealTimeX Desktop" href="/mcp-compatibility/desktop">
     <Image
       src="/images/mcp-compatibility/desktop-header.png"
       height={1080}
@@ -67,13 +67,13 @@ There are [many tools](https://github.com/modelcontextprotocol/servers) that exi
 </Cards>
 
 
-MCP Servers can be added to AnythingLLM by editing the `anythingllm_mcp_servers.json` configuration file in your AnythingLLM storage `plugins` directory.
+MCP Servers can be added to RealTimeX by editing the `RealTimeX_mcp_servers.json` configuration file in your RealTimeX storage `plugins` directory.
 
 The structure of the file is the same as the [MCP Server Specification](https://github.com/modelcontextprotocol/servers?tab=readme-ov-file#using-an-mcp-client).
 
-AnythingLLM will automatically detect the MCP Servers and attempt to boot them up as needed - you can also manage your servers directly in the AnythingLLM UI.
+RealTimeX will automatically detect the MCP Servers and attempt to boot them up as needed - you can also manage your servers directly in the RealTimeX UI.
 
-### AnythingLLM MCP Configuration UI
+### RealTimeX MCP Configuration UI
 
 <Image
   src="/images/mcp-compatibility/user-interface.png"
@@ -87,7 +87,7 @@ AnythingLLM will automatically detect the MCP Servers and attempt to boot them u
   }}
 />
 
-The MCP Management UI will show you all the MCP Servers that are available to use in AnythingLLM. You can also:
+The MCP Management UI will show you all the MCP Servers that are available to use in RealTimeX. You can also:
 - Reload/Restart all MCP Servers from the configuration file (if changes are made)
 - View the status of the MCP Servers found
 - View error logs from the MCP Servers
@@ -100,7 +100,7 @@ The MCP Management UI will show you all the MCP Servers that are available to us
 _this file will be automatically generated in the proper directory if it doesn't exist before it is needed. It will be empty by default._
 
 ```json5
-// anythingllm_mcp_servers.json
+// RealTimeX_mcp_servers.json
 {
   "mcpServers": {
     "face-generator": {
@@ -151,11 +151,11 @@ The optional headers field can be used to send custom HTTP headers with requests
 
 ## Autostart prevention
 
-_This property is **specific to AnythingLLM only** and will have no effect on other tools._
+_This property is **specific to RealTimeX only** and will have no effect on other tools._
 
 Sometimes, you may want to optionally start an MCP server manually to prevent it from starting automatically and consuming resources.
 
-To do this, AnythingLLM respects the `anythingllm.autoStart` property in the MCP Server configuration file.
+To do this, RealTimeX respects the `RealTimeX.autoStart` property in the MCP Server configuration file.
 
 For example, if you want to prevent the `face-generator` MCP Server from starting automatically, you can set the `autoStart` property to `false` in the configuration file.
 
@@ -169,7 +169,7 @@ Any tool that does not have `autoStart: false` explicitly set will be started au
       "args": [
         "@dasheck0/face-generator"
       ],
-      "anythingllm": {
+      "RealTimeX": {
         "autoStart": false
       }
     },

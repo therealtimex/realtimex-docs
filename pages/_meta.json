@@ -9,7 +9,7 @@
     }
   },
   "roadmap": {
-    "title": "AnythingLLM Roadmap",
+    "title": "RealTimeX Roadmap",
     "theme": {
       "breadcrumb": true,
       "footer": true,
@@ -40,7 +40,7 @@
     }
   },
   "setup": {
-    "title": "AnythingLLM Setup",
+    "title": "RealTimeX Setup",
     "theme": {
       "breadcrumb": true,
       "footer": true,
@@ -66,12 +66,12 @@
       "toc": true
     }
   },
-  "-- AnythingLLM Community Hub": {
+  "-- RealTimeX Marketplace": {
     "type": "separator",
-    "title": "AnythingLLM Community Hub"
+    "title": "RealTimeX Marketplace"
   },
   "community-hub/about": {
-    "title": "What is the Community Hub?",
+    "title": "What is the Marketplace?",
     "href": "/community-hub/about",
     "theme": {
       "breadcrumb": true,
@@ -115,7 +115,7 @@
     "title": "Installation Guides"
   },
   "installation-desktop": {
-    "title": "AnythingLLM Desktop",
+    "title": "RealTimeX Desktop",
     "theme": {
       "breadcrumb": true,
       "footer": true,
@@ -124,7 +124,7 @@
     }
   },
   "installation-docker": {
-    "title": "AnythingLLM Self-hosted",
+    "title": "RealTimeX Self-hosted",
     "theme": {
       "breadcrumb": true,
       "footer": true,
@@ -133,7 +133,7 @@
     }
   },
   "cloud": {
-    "title": "AnythingLLM Cloud",
+    "title": "RealTimeX Cloud",
     "theme": {
       "breadcrumb": true,
       "footer": true,
@@ -182,7 +182,7 @@
     }
   },
   "browser-extension": {
-    "title": "AnythingLLM Browser Extension",
+    "title": "RealTimeX Browser Extension",
     "theme": {
       "breadcrumb": true,
       "footer": true,
@@ -280,7 +280,7 @@
     }
   },
   "company": {
-    "title": "Mintplex Labs",
+    "title": "RealTimeX, Inc",
     "type": "menu",
     "items": {
       "sponsor": {

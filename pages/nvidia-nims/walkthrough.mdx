@@ -1,6 +1,6 @@
 ---
 title: "Walkthrough"
-description: "Learn how to use NVIDIA NIM in AnythingLLM."
+description: "Learn how to use NVIDIA NIM in RealTimeX."
 ---
 
 import { Callout } from "nextra/components";
@@ -8,12 +8,12 @@ import Image from "next/image";
 
 # NVIDIA NIM Walkthrough
 
-The use of NVIDIA NIM in AnythingLLM is very simple and straightforward - all of the complexity is hidden from you by the AnythingLLM Desktop client or the NVIDIA NIM Installer.
+The use of NVIDIA NIM in RealTimeX is very simple and straightforward - all of the complexity is hidden from you by the RealTimeX Desktop client or the NVIDIA NIM Installer.
 
 
 ## Select the NVIDIA NIM LLM Provider
 
-In AnythingLLM Desktop, select the `NVIDIA NIM` LLM provider from the dropdown menu - this will show your the default NIM connector.
+In RealTimeX Desktop, select the `NVIDIA NIM` LLM provider from the dropdown menu - this will show your the default NIM connector.
 
 <Callout type="info" emoji="️💡">
   If you do not see the blue model with the button as show in the below images, your system is **not compatible with running a NIM**.
@@ -62,7 +62,7 @@ See [Swap to Managed Mode](/nvidia-nims/walkthrough#swap-to-managed-mode) for mo
  - [NVIDIA NIM AI RTX PC Discord - General Discussion & Announcements](https://discord.gg/nvidiadeveloper)
 </Callout>
 
-The official NVIDIA NIM installer is a pre-built binary that runs in the AnythingLLM Desktop client built by NVIDIA. If your system or GPU is not compatible with running a NIM, you will see an error message during this step and will be unable to run a NIM on AnythingLLM or your system in general.
+The official NVIDIA NIM installer is a pre-built binary that runs in the RealTimeX Desktop client built by NVIDIA. If your system or GPU is not compatible with running a NIM, you will see an error message during this step and will be unable to run a NIM on RealTimeX or your system in general.
 
 Clicking on the "Run NVIDIA NIM Installer" button will prompt your to run the NIM installer as a separate window.
 
@@ -91,7 +91,7 @@ Click through the installer and follow the instructions to install NVIDIA NIM. T
 
 ## Swap to Managed Mode
 
-After closing the completed NIM installer, you will see the blue button change to "Swap to Managed Mode". Clicking on this button will allow AnythingLLM to manage your NIM models for you via a simple UI.
+After closing the completed NIM installer, you will see the blue button change to "Swap to Managed Mode". Clicking on this button will allow RealTimeX to manage your NIM models for you via a simple UI.
 
 <Image
   src="/images/nvidia-nim/swap-to-managed-mode.png"
@@ -101,7 +101,7 @@ After closing the completed NIM installer, you will see the blue button change t
   style={{ borderRadius: "20px", marginBottom: 10 }}
 />
 
-This is the recommended mode of operation for AnythingLLM as it will allow you to easily update your NIM models and manage your NIM instances. Once you have swapped to managed mode, you will see the NIM manager UI with no models.
+This is the recommended mode of operation for RealTimeX as it will allow you to easily update your NIM models and manage your NIM instances. Once you have swapped to managed mode, you will see the NIM manager UI with no models.
 
 <Image
   src="/images/nvidia-nim/managed-mode.png"
@@ -216,11 +216,11 @@ Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
   style={{ borderRadius: "20px", marginBottom: 10 }}
 />
 
-This means that your NIM is ready to use! You can now start using it in AnythingLLM.
+This means that your NIM is ready to use! You can now start using it in RealTimeX.
 
-## Selecting your NIM in AnythingLLM
+## Selecting your NIM in RealTimeX
 
-To select your NIM in AnythingLLM, simply click on the model card for the NIM you want to use and click "Save changes" in the top right.
+To select your NIM in RealTimeX, simply click on the model card for the NIM you want to use and click "Save changes" in the top right.
 
 <Image
   src="/images/nvidia-nim/select-nim.png"
@@ -230,13 +230,13 @@ To select your NIM in AnythingLLM, simply click on the model card for the NIM yo
   style={{ borderRadius: "20px", marginBottom: 10 }}
 />
 
-You can now use this model in AnythingLLM as you would any other model or provider.
+You can now use this model in RealTimeX as you would any other model or provider.
 
 ## Stopping your NIM
 
 Since running a NIM will reserve VRAM on your GPU, we recommend that you stop your NIM when you are not using it. You can stop your NIM by clicking on the "Stop NIM" button in the NIM manager UI. This will begin the process of stopping the NIM and you will see the NIM status change to "Stopping NIM..." in the NIM manager UI as well as see VRAM begin to be deallocated from the NIM.
 
-Closing AnythingLLM currently does not stop the NIM - so you will need to manually stop the NIM by clicking on the "Stop NIM" button in the NIM manager UI.
+Closing RealTimeX currently does not stop the NIM - so you will need to manually stop the NIM by clicking on the "Stop NIM" button in the NIM manager UI.
 
 ## Deleting your NIM
 

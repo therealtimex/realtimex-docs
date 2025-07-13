@@ -1,6 +1,6 @@
 ---
 title: "Linux Installation"
-description: "Linux Installation guide for AnythingLLM"
+description: "Linux Installation guide for RealTimeX"
 ---
 
 import { Callout, Cards } from "nextra/components";
@@ -11,7 +11,7 @@ import Image from "next/image";
   height={1080}
   width={1920}
   quality={100}
-  alt="AnythingLLM Installation"
+  alt="RealTimeX Installation"
 />
 
 # Linux Installation
@@ -23,7 +23,7 @@ import Image from "next/image";
 <Callout type="warning" emoji="⚠️">
   **NOTICE**
 
-➤ AnythingLLM packages as an AppImage but you **will not** be able to boot if you run just the AppImage. Please only use the script below.
+➤ RealTimeX packages as an AppImage but you **will not** be able to boot if you run just the AppImage. Please only use the script below.
 
 ➤ Please open a [Github Issue](https://github.com/Mintplex-Labs/anything-llm/issues) if you have installation or bootup troubles.
 
@@ -32,12 +32,12 @@ import Image from "next/image";
 First, open a terminal on your Linux machine and run this command.
 
 ```shell copy
-curl -fsSL https://cdn.anythingllm.com/latest/installer.sh | sh
+curl -fsSL https://cdn.realtimex.ai/latest/installer.sh | sh
 ```
 
 You can view the raw script contents [here](https://github.com/Mintplex-Labs/anything-llm/blob/desktop/linux_installer.sh).
 
-This will download the latest version of AnythingLLM's AppImage, unpack it, and then supply a symlink to seamlessly run AnythingLLM.
-This script will unpack the app in `$HOME/AnythingLLMDesktop`.
+This will download the latest version of RealTimeX's AppImage, unpack it, and then supply a symlink to seamlessly run RealTimeX.
+This script will unpack the app in `$HOME/RealTimeXDesktop`.
 
-You can start the app at any time by running `./AnythingLLMDesktop/start`. This will boot the app with full logging.
+You can start the app at any time by running `./RealTimeXDesktop/start`. This will boot the app with full logging.

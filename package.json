@@ -1,7 +1,7 @@
 {
-  "name": "anythingllm-docs",
+  "name": "realtimex.ai-docs",
   "version": "1.1.0",
-  "description": "AnythingLLM Documentation",
+  "description": "RealTimeX Documentation",
   "scripts": {
     "dev": "next dev --port 3333",
     "img": "node scripts/compress-images.mjs",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Mintplex-Labs/anythingllm-docs.git"
+    "url": "git+https://github.com/Mintplex-Labs/RealTimeX-docs.git"
   },
-  "author": "Mintplex Labs",
+  "author": "RealTimeX, Inc",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Mintplex-Labs/anythingllm-docs/issues"
+    "url": "https://github.com/Mintplex-Labs/RealTimeX-docs/issues"
   },
-  "homepage": "https://github.com/Mintplex-Labs/anythingllm-docs#readme",
+  "homepage": "https://github.com/Mintplex-Labs/RealTimeX-docs#readme",
   "dependencies": {
     "@next/third-parties": "^14.2.3",
     "@vercel/og": "^0.6.2",

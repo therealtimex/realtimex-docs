@@ -8,20 +8,20 @@ import Image from "next/image";
 
 ## What is this?
 
-When you try to embed a file in AnythingLLM, you might see a "Fetch failed" error. There are a few reasons why this might happen and all of them are fixable quite easily and are all related to the machine running AnythingLLM or firewall permissions.
+When you try to embed a file in RealTimeX, you might see a "Fetch failed" error. There are a few reasons why this might happen and all of them are fixable quite easily and are all related to the machine running RealTimeX or firewall permissions.
 
 Below are the most common fixes for this error ordered from the **most** likely to the **least** likely.
 
-## Check if the machine running AnythingLLM is blocking downloads from HuggingFace or AWS.
+## Check if the machine running RealTimeX is blocking downloads from HuggingFace or AWS.
 
 This error applies to you if:
 
-- [x] You are using the default AnythingLLM embedder model
+- [x] You are using the default RealTimeX embedder model
 - [x] You may have a firewall blocking downloads from HuggingFace or AWS either by default or because you have a custom firewall installed by whoever manages your network.
 
 ### Why is this happening?
 
-This error happens when the machine running AnythingLLM is blocking downloads from HuggingFace or AWS. We do not pre-bundle the embedding model into the app, so the machine needs to download the model for its very first use. After it is downloaded, the model is cached so it doesn't need to be downloaded again.
+This error happens when the machine running RealTimeX is blocking downloads from HuggingFace or AWS. We do not pre-bundle the embedding model into the app, so the machine needs to download the model for its very first use. After it is downloaded, the model is cached so it doesn't need to be downloaded again.
 Your embeddings for the default embedder model are always done locally, this is just a problem with downloading the model GGUF and tokenizer.
 
 ### How to fix it?
@@ -31,7 +31,7 @@ Your embeddings for the default embedder model are always done locally, this is 
 - If this folder does not exist, it's likely that the machine is blocking downloads from HuggingFace or AWS.
 - Unblock the `huggingface.co` and `api.huggingface.co` domains on your machine.
 - Try embedding again.
-- Unblock this origin: `https://cdn.anythingllm.com/support/models/`
+- Unblock this origin: `https://cdn.realtimex.ai/support/models/`
 - Try embedding again.
 
 Still not working? Try the next solution.
@@ -40,12 +40,12 @@ Still not working? Try the next solution.
 
 This error applies to you if:
 
-- [x] You are using the default AnythingLLM embedder model
+- [x] You are using the default RealTimeX embedder model
 - [x] You are on Windows
 
 ### Why is this happening?
 
-This error happens when the machine running AnythingLLM is missing the Windows Visual C++ Redistributable. This is a library that is required to run the model.
+This error happens when the machine running RealTimeX is missing the Windows Visual C++ Redistributable. This is a library that is required to run the model.
 
 ### How to fix it?
 
@@ -58,11 +58,11 @@ Still not working? Try the next solution.
 
 This error applies to you if:
 
-- [x] You are using the default AnythingLLM vector database
+- [x] You are using the default RealTimeX vector database
 
 ### Why is this happening?
 
-[LanceDB](https://lancedb.github.io/lancedb/) is a vector database that is used to store the embeddings. It is the default vector database for AnythingLLM.
+[LanceDB](https://lancedb.github.io/lancedb/) is a vector database that is used to store the embeddings. It is the default vector database for RealTimeX.
 
 Your CPU is not supported if you are using a CPU that does not support AVX2.
 

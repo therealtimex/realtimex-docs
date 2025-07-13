@@ -1,13 +1,13 @@
 ---
 title: "plugin.json reference"
-description: "Understand the plugin.json file and how to use it to define custom agent skills for AnythingLLM."
+description: "Understand the plugin.json file and how to use it to define custom agent skills for RealTimeX."
 ---
 
-**This page is intended for developers who want to create custom agent skills for AnythingLLM.**
+**This page is intended for developers who want to create custom agent skills for RealTimeX.**
 
 # `plugin.json` reference
 
-The `plugin.json` file is used to define a custom agent skill for AnythingLLM. It is a **JSON** file that contains the following properties:
+The `plugin.json` file is used to define a custom agent skill for RealTimeX. It is a **JSON** file that contains the following properties:
 
 ```js
 {
@@ -84,7 +84,7 @@ The `active` property is a boolean that determines if the custom agent skill is 
 
 ## `name`
 
-The `name` property is a string that is used to identify the custom agent skill. This is the human-readable name of the skill that is displayed in the AnythingLLM UI.
+The `name` property is a string that is used to identify the custom agent skill. This is the human-readable name of the skill that is displayed in the RealTimeX UI.
 
 ## `hubId`
 
@@ -108,21 +108,21 @@ The `other_properties` property is a list of other properties that are used to d
 ## `setup_args`
 
 Setup arguments are used to configure the custom agent skill from the UI and make runtime arguments accessible in the handler.js file when the skill is called.
-The key of the setup argument is the name of the argument that is used in the handler.js file, while its properties automatically generate the UI and inputs for the argument in the AnythingLLM UI.
+The key of the setup argument is the name of the argument that is used in the handler.js file, while its properties automatically generate the UI and inputs for the argument in the RealTimeX UI.
 
 ```json
 "setup_args": {
     "OPEN_METEO_API_KEY": {
       "type": "string", // What type of value is expected
       "required": false, // Is the argument required
-      // Defines the UI of the input to be rendered in the AnythingLLM UI
+      // Defines the UI of the input to be rendered in the RealTimeX UI
       "input": {
         "type": "text", // What type of input to be rendered
         "default": "YOUR_OPEN_METEO_API_KEY", // Default value of the input
         "placeholder": "sk-1234567890", // Placeholder text for the input
         "hint": "The API key for the open-meteo API" // Hint text for the input
       },
-      "value": "" // (optional) preset value of the argument - will be replaced by the user input in the AnythingLLM UI, but can be hardcoded.
+      "value": "" // (optional) preset value of the argument - will be replaced by the user input in the RealTimeX UI, but can be hardcoded.
     }
   },
 ```

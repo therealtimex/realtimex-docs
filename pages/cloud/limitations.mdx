@@ -1,19 +1,19 @@
 ---
 title: "Limitations"
-description: "Limitations of AnythingLLM Hosted Cloud Instances"
+description: "Limitations of RealTimeX Hosted Cloud Instances"
 ---
 
 import { Callout } from "nextra/components";
 
-# AnythingLLM Cloud Limitations
+# RealTimeX Cloud Limitations
 
-AnythingLLM Hosted Cloud is the quickest way to get a multi-user, managed, and hosted version of AnythingLLM on a custom domain.
+RealTimeX Hosted Cloud is the quickest way to get a multi-user, managed, and hosted version of RealTimeX on a custom domain.
 
-While this form of accessing AnythingLLM there are some acute limitations you may not experience with other forms of AnythingLLM, like Desktop or self hosted.
+While this form of accessing RealTimeX there are some acute limitations you may not experience with other forms of RealTimeX, like Desktop or self hosted.
 
 ## No "built-in" LLM
 
-AnythingLLM hosted cloud does not ship with a built-in LLM you can use like in our desktop instance. This is due to CPU limitations of the instance we provide for you, which has no GPU and limited CPUs and RAM.
+RealTimeX hosted cloud does not ship with a built-in LLM you can use like in our desktop instance. This is due to CPU limitations of the instance we provide for you, which has no GPU and limited CPUs and RAM.
 
 Due to this, we limit access **only** to local LLMs that you can run yourself and connect to, or any supported cloud-based LLM provider.
 
@@ -24,7 +24,7 @@ Due to this, we limit access **only** to local LLMs that you can run yourself an
   5,000pg PDF, but it will crash your instance. (502 error).
 </Callout>
 
-AnythingLLM **does allow** you to use the built-in embedder model, which is extremely convenient, cannot embed on CPU any arbitrarily large document.
+RealTimeX **does allow** you to use the built-in embedder model, which is extremely convenient, cannot embed on CPU any arbitrarily large document.
 
 The Starter tier ships with **very minimal** compute resources while Professional ships with much more compute. This means that uploading a large document (in words, not file size) can overwhelm the CPU and cause
 the process to exit. This will result in a 502 error.
@@ -41,15 +41,15 @@ You can prevent this by using the `Default` search mode in the Workspace setting
 
 ## No custom Agent supported
 
-While AnythingLLM does support [custom coded Agents](/agent/custom/introduction), we do not support custom Agents in the hosted cloud due to security concerns
+While RealTimeX does support [custom coded Agents](/agent/custom/introduction), we do not support custom Agents in the hosted cloud due to security concerns
 as well other general limitations to running arbitrary code in a hosted environment.
 
 If attempting to use a custom Agent, you will see an error about the system administrator not allowing custom Agents. This cannot be changed on hosted cloud.
 
-If you need to use a custom Agent, you can use the [AnythingLLM Desktop](/installation-desktop/overview) or a [self-hosted AnythingLLM](/installation-docker/overview) instance.
+If you need to use a custom Agent, you can use the [RealTimeX Desktop](/installation-desktop/overview) or a [self-hosted RealTimeX](/installation-docker/overview) instance.
 
 ## No MCP support
 
-AnythingLLM does not support [MCP (Model-Context Protocol)](mcp-compatibility/overview) in the hosted cloud due to security concerns as well other general limitations to running arbitrary code in a hosted environment.
+RealTimeX does not support [MCP (Model-Context Protocol)](mcp-compatibility/overview) in the hosted cloud due to security concerns as well other general limitations to running arbitrary code in a hosted environment.
 
-If you need to use MCPs, you can use the [AnythingLLM Desktop](/installation-desktop/overview) or a [self-hosted AnythingLLM](/installation-docker/overview) instance.
+If you need to use MCPs, you can use the [RealTimeX Desktop](/installation-desktop/overview) or a [self-hosted RealTimeX](/installation-docker/overview) instance.

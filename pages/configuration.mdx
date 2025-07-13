@@ -1,6 +1,6 @@
 ---
 title: "Configuration"
-description: "Other settings, environment variables, and configurations for AnythingLLM"
+description: "Other settings, environment variables, and configurations for RealTimeX"
 ---
 
 import { Callout } from "nextra/components";
@@ -10,11 +10,11 @@ import { Callout } from "nextra/components";
   If you are not a developer, you should not set environment variables directly. Instead, you should use the in-app interface to manage environment variables.
 
 **Desktop:**
-If you are using AnythingLLM Desktop, do not edit the `.env` file. This guide is only for users who are using AnythingLLM Self-hosted or Docker.
+If you are using RealTimeX Desktop, do not edit the `.env` file. This guide is only for users who are using RealTimeX Self-hosted or Docker.
 
 </Callout>
 
-# Configuration of AnythingLLM
+# Configuration of RealTimeX
 
 In general, the majority of configurations you can set are through environment variables and there is typically an associated in-app interface to manage these settings so you don't have to edit them directly.
 
@@ -22,13 +22,13 @@ However, there are a few configurations that are not configurable via the in-app
 
 <Callout type="info" emoji="️💡">
   **Tip:** After you set these environment variables, you will need to restart
-  the AnythingLLM service or container for the changes to take effect.
+  the RealTimeX service or container for the changes to take effect.
 </Callout>
 
 ## Disable View Chat History
 
 Modification of the `DISABLE_VIEW_CHAT_HISTORY` environment variable allows you to disable the **frontend** ability to view chat history by anyone with an account on the instance as well as the instance administrator.
-This blocks any user, including yourself, from viewing chat history from users using the AnythingLLM chat interface **and** via external embed widgets.
+This blocks any user, including yourself, from viewing chat history from users using the RealTimeX chat interface **and** via external embed widgets.
 
 - **This does not impact users from seeing their own chat histories in chat or the LLM from being able to use them for continuous conversations.**
 - This **does not** impact the ability to use API keys to access chat histories via the associated API endpoints.
@@ -53,27 +53,27 @@ Fully remove or comment out the `DISABLE_VIEW_CHAT_HISTORY` environment variable
 <Callout type="error" emoji="️🚨">
   **Important:** You should use an independent API key for using this feature so
   you can revoke it if needed. This feature configuration is best used for
-  internally facing AnythingLLM instances that are not exposed to the public
+  internally facing RealTimeX instances that are not exposed to the public
   internet for the best security practices.
 </Callout>
 
 Modification of the `SIMPLE_SSO_ENABLED` environment variable allows easily enable third party SSO solutions that do not require a full OAuth integration. This environment variable
 will enable you to generate a temporary authentication link **per user** that can be visited in browser to automatically login the user.
 
-This feature is most useful for when you have AnythingLLM as a simple sub-service within a much larger system and you want to leverage existing user authentication flows within that system and want to provide a seamless login experience for your users to your AnythingLLM instance.
+This feature is most useful for when you have RealTimeX as a simple sub-service within a much larger system and you want to leverage existing user authentication flows within that system and want to provide a seamless login experience for your users to your RealTimeX instance.
 
 ### Prerequisites
 
 <Callout type="warning" emoji="️⚠️">
   **NOTE:** You should enable these configurations _after_ you have enabled multi-user mode, created at least one `admin` user, and have completed the onboarding flow
-  in the AnythingLLM instance.
+  in the RealTimeX instance.
   <br/>
   Do **not** enabled these configurations before you have done this or else you may find yourself soft-locked out of the instance until you disable these flags.
 </Callout>
 
 - **Your instance must be in multi-user mode** to use this feature.
-- You should provision an API key for AnythingLLM so you can create new users as well as issue temporary authentication links for users.
-- The user must already exist within AnythingLLM before using this feature. You can create a user via the in-app interface or the API.
+- You should provision an API key for RealTimeX so you can create new users as well as issue temporary authentication links for users.
+- The user must already exist within RealTimeX before using this feature. You can create a user via the in-app interface or the API.
 - You may want to disable the login page for all users in addition to using this feature. See [Disable Login Page](#disable-login-page).
 
 ### Enable
@@ -87,11 +87,11 @@ SIMPLE_SSO_ENABLED="enable"
 
 ### Integration
 
-Once enabled, you can issue a temporary authentication link for a user leveraging the `/v1/users/{id}/issue-auth-token` endpoint via the AnythingLLM API.
-You simply need to provide the user ID and the API key you created earlier to generate a temporary authentication token that can be used by the target user to login to AnythingLLM.
+Once enabled, you can issue a temporary authentication link for a user leveraging the `/v1/users/{id}/issue-auth-token` endpoint via the RealTimeX API.
+You simply need to provide the user ID and the API key you created earlier to generate a temporary authentication token that can be used by the target user to login to RealTimeX.
 
 ```bash copy
-curl -X POST "https://your-anythingllm-instance.com/v1/users/{id}/issue-auth-token" \
+curl -X POST "https://your-RealTimeX-instance.com/v1/users/{id}/issue-auth-token" \
   -H "Authorization: Bearer {api_key}"
 # Example Response
 # {
@@ -100,20 +100,20 @@ curl -X POST "https://your-anythingllm-instance.com/v1/users/{id}/issue-auth-tok
 # }
 ```
 
-Now, the user can visit the provided `loginPath` URL in their browser to be automatically logged in to AnythingLLM!
+Now, the user can visit the provided `loginPath` URL in their browser to be automatically logged in to RealTimeX!
 
 ```text copy
-https://your-anythingllm-instance.com/sso/simple?token=1234567890
+https://your-RealTimeX-instance.com/sso/simple?token=1234567890
 ```
 
 All temporary authentication tokens expire after 1 hour and are single-use only. Once logged in, the user sessions will be valid for 30 days.
-The user will be redirected to the home page of AnythingLLM after logging in.
+The user will be redirected to the home page of RealTimeX after logging in.
 You can optionally redirect the user to a different URL after logging in by appending `&redirectTo={path/to/redirect}` to the query string of the login path.
 
 For example:
 
 ```text copy
-https://your-anythingllm-instance.com/sso/simple?token=1234567890&redirectTo=/workspaces/sample-workspace
+https://your-RealTimeX-instance.com/sso/simple?token=1234567890&redirectTo=/workspaces/sample-workspace
 ```
 
 Will redirect the user to the `/workspaces/sample-workspace` chat page after logging in. This can be useful if you want to redirect the user to a specific workspace they have access to after logging in.
@@ -137,22 +137,22 @@ SIMPLE_SSO_NO_LOGIN="enable"
 
 Fully remove or comment out the `SIMPLE_SSO_ENABLED` environment variable to return to the default behavior.
 
-## AnythingLLM Hub Agent Skills
+## RealTimeX Hub Agent Skills
 
 <Callout type="error" emoji="️🚨">
   **Important:** Agent skills can enable running untrusted code from untrusted
-  sources. By default, AnythingLLM will not allow downloading agent skills from
-  the AnythingLLM Hub.
+  sources. By default, RealTimeX will not allow downloading agent skills from
+  the RealTimeX Hub.
 </Callout>
 
-Modification of the `COMMUNITY_HUB_BUNDLE_DOWNLOADS_ENABLED` environment variable allows you to pull in agent skills from the AnythingLLM Hub.
+Modification of the `COMMUNITY_HUB_BUNDLE_DOWNLOADS_ENABLED` environment variable allows you to pull in agent skills from the RealTimeX Hub.
 
 **By default, this feature is disabled.** The reason for this is that running untrusted code from untrusted sources can be very risky and we want to err on the side of caution for self-hosted instances.
 
 There are two settings you can configure to control how this feature works:
 
-- `COMMUNITY_HUB_BUNDLE_DOWNLOADS_ENABLED=1`: This configures enables AnythingLLM to download agent skills from the AnythingLLM Hub but **only if the item is verified or a private item**.
-- `COMMUNITY_HUB_BUNDLE_DOWNLOADS_ENABLED=allow_all`: This configures enables AnythingLLM to download agent skills - including unverified public items - from the AnythingLLM Hub.
+- `COMMUNITY_HUB_BUNDLE_DOWNLOADS_ENABLED=1`: This configures enables RealTimeX to download agent skills from the RealTimeX Hub but **only if the item is verified or a private item**.
+- `COMMUNITY_HUB_BUNDLE_DOWNLOADS_ENABLED=allow_all`: This configures enables RealTimeX to download agent skills - including unverified public items - from the RealTimeX Hub.
 
 ### Enable
 
@@ -204,7 +204,7 @@ Fully remove or comment out the `COLLECTOR_ALLOW_ANY_IP` environment variable to
 
 Modification of the `GENERIC_OPENAI_STREAMING_DISABLED` environment variable allows you to disable streaming responses when using the Generic OpenAI provider. This is particularly useful when you're using a custom LLM that doesn't support streaming responses.
 
-By default, AnythingLLM attempts to use streaming for a better user experience. However, some custom LLM implementations may not support this feature, resulting in errors or unexpected behavior.
+By default, RealTimeX attempts to use streaming for a better user experience. However, some custom LLM implementations may not support this feature, resulting in errors or unexpected behavior.
 
 When this setting is enabled, all responses from your Generic OpenAI provider will be returned as complete responses rather than streamed chunks.
 

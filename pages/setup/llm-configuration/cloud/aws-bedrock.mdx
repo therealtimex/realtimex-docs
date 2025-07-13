@@ -7,7 +7,7 @@ import { Callout } from "nextra/components";
 import Image from "next/image";
 
 <Image
-  src="/images/anythingllm-setup/llm-configuration/cloud/aws-bedrock/header-image.png"
+  src="/images/RealTimeX-setup/llm-configuration/cloud/aws-bedrock/header-image.png"
   height={1080}
   width={1920}
   quality={100}
@@ -30,7 +30,7 @@ AWS Bedrock offers a very simple deployment service of full state of the art un-
 </Callout>
 <br/>
 <Image
-  src="/images/anythingllm-setup/llm-configuration/cloud/aws-bedrock/aws-bedrock-llm.png"
+  src="/images/RealTimeX-setup/llm-configuration/cloud/aws-bedrock/aws-bedrock-llm.png"
   height={1080}
   width={1920}
   quality={100}
@@ -42,7 +42,7 @@ AWS Bedrock offers a very simple deployment service of full state of the art un-
 <Callout type="info">
   **Heads up!** You can optionally use `session tokens` for your AWS account if
   you do not want to create a new IAM user. Both forms of authentication are
-  supported for AnythingLLM's AWS Bedrock integration. [Learn more about
+  supported for RealTimeX's AWS Bedrock integration. [Learn more about
   temporary session tokens on AWS
   &rarr;](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html#using-temp-creds-sdk-cli)
 </Callout>
@@ -52,7 +52,7 @@ _the following below is for using IAM user authentication. If you are using sess
 <Callout type="error">
   Do not use your root AWS access ID and Key for Bedrock. You should always use
   the least privileged policy possible when using AWS keys in any third-party
-  applications, not just AnythingLLM.
+  applications, not just RealTimeX.
 </Callout>
 
 Ideally, you should create a new user with at _least_ the following permission and policy below. The below policy
@@ -88,7 +88,7 @@ Once a user with the correct permissions is defined or found you will need their
 ### Copy the desired model you wish to use.
 
 <Callout type="info" emoji="️💡">
- Please only use a `chat` capable model for LLM selection. Incompatible model types will not produce chats in AnythingLLM.
+ Please only use a `chat` capable model for LLM selection. Incompatible model types will not produce chats in RealTimeX.
 
 </Callout>
 
@@ -96,10 +96,10 @@ All models on Bedrock require permission from the model owner for use on your AW
 You can request model permission from a link like this (replace `us-west-2` with you region)
 https://us-west-2.console.aws.amazon.com/bedrock/home?region=us-west-2#/modelaccess
 
-Below are where you can find `model ids` that you can use in AnythingLLM.
+Below are where you can find `model ids` that you can use in RealTimeX.
 
 <Image
-  src="/images/anythingllm-setup/llm-configuration/cloud/aws-bedrock/model-ids.png"
+  src="/images/RealTimeX-setup/llm-configuration/cloud/aws-bedrock/model-ids.png"
   height={1080}
   width={1920}
   quality={100}
@@ -107,7 +107,7 @@ Below are where you can find `model ids` that you can use in AnythingLLM.
   alt="AWS Bedrock Model ids"
 />
 
-Now that you have set up and have AWS Bedrock ready for LLM chatting, you can input the credentials to AnythingLLM.
+Now that you have set up and have AWS Bedrock ready for LLM chatting, you can input the credentials to RealTimeX.
 
 ### AWS Bedrock IAM Access ID
 

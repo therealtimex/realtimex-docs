@@ -49,7 +49,7 @@
     "title": "Desktop FAQ"
   },
   "update": {
-    "title": "Update AnythingLLM",
+    "title": "Update RealTimeX",
     "theme": {
       "breadcrumb": true,
       "footer": true,
@@ -85,7 +85,7 @@
     }
   },
   "uninstall": {
-    "title": "Uninstall AnythingLLM",
+    "title": "Uninstall RealTimeX",
     "theme": {
       "breadcrumb": true,
       "footer": true,

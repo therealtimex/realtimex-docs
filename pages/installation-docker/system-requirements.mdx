@@ -1,6 +1,6 @@
 ---
 title: "System Requirements"
-description: "System Requirements to run AnythingLLM"
+description: "System Requirements to run RealTimeX"
 ---
 
 import { Callout } from "nextra/components";
@@ -11,20 +11,20 @@ import Image from "next/image";
   height={1080}
   width={1920}
   quality={100}
-  alt="AnythingLLM System Requirements"
+  alt="RealTimeX System Requirements"
 />
 
 ## System Requirements
 
-AnythingLLM is fully customizable in every regard.
+RealTimeX is fully customizable in every regard.
 
-Given this customizable nature, your exact requirements to run AnythingLLM depend on many factors. You can use the tables below to get a rough idea of what it will take to run AnythingLLM.
+Given this customizable nature, your exact requirements to run RealTimeX depend on many factors. You can use the tables below to get a rough idea of what it will take to run RealTimeX.
 
-AnythingLLM can be a wrapper around many external services that all accomplish some task - making AnythingLLM so lightweight it can run on the smallest machines - even Raspberry Pis!
+RealTimeX can be a wrapper around many external services that all accomplish some task - making RealTimeX so lightweight it can run on the smallest machines - even Raspberry Pis!
 
-## Recommended configuration for AnythingLLM
+## Recommended configuration for RealTimeX
 
-This is the minimum value for running AnythingLLM. This will be enough for you to store some documents, send chats, and use AnythingLLM features.
+This is the minimum value for running RealTimeX. This will be enough for you to store some documents, send chats, and use RealTimeX features.
 
 | Property | Recommended Value |
 | -------- | ----------------- |
@@ -38,15 +38,15 @@ This is how you get chat responses. Popular hosted solutions like [OpenAI](https
 
 <Callout type="info" emoji="️💡">
   **Tip:** Host a local LLM on another machine that has a GPU if the device
-  running AnythingLLM does not have a GPU. AnythingLLM can connect to any LLM
+  running RealTimeX does not have a GPU. RealTimeX can connect to any LLM
   running anywhere via API.
 </Callout>
 
 ## Embedder selection impact
 
-This is the model which you use to "**embed**" or vectorize text. Likewise, external services connected to AnythingLLM have **zero overhead** impact.
+This is the model which you use to "**embed**" or vectorize text. Likewise, external services connected to RealTimeX have **zero overhead** impact.
 
-The default embedder runs on the same machine as AnythingLLM using **CPU-only** vectorization. If your documents are large or you need to vectorize a lot of data, you may want to use an external embedder provider and model.
+The default embedder runs on the same machine as RealTimeX using **CPU-only** vectorization. If your documents are large or you need to vectorize a lot of data, you may want to use an external embedder provider and model.
 
 ## Vector database selection impact
 
