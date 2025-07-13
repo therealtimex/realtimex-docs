@@ -3,8 +3,8 @@ title: "Large Language Models"
 description: "RealTimeX allows you to use a host of LLM providers for chatting and generative AI."
 ---
 
-import { Cards, Callout } from "nextra/components";
-import Image from "next/image";
+import { FeatureCard } from "../../components/FeatureCard";
+import { Callout } from "nextra/components";
 
 # Large Language Models
 
@@ -21,213 +21,92 @@ Depending on your selection additional configuration might be required.
 
 ### Local Language Model Providers
 
-<Cards>
-  <Card title="Built-in (default)" href="#"> 
-    <Image
-      src="/images/features/embedding-models/built-in.png" 
-      height={1080} 
-      width={1920} 
-      quality={100}
-      alt="RealTimeX Built-in (default)"
-    />
-  </Card>
-
-<Card title="Ollama" href="https://ollama.com/">
-  <Image
-    src="/images/features/language-models/ollama.png"
-    height={1080}
-    width={1920}
-    quality={100}
-    alt="Ollama"
-  />
-</Card>
-
-<Card title="LM Studio" href="https://lmstudio.ai/">
-  <Image
-    src="/images/features/language-models/lm-sudio.png"
-    height={1080}
-    width={1920}
-    quality={100}
-    alt="LM Studio"
-  />
-</Card>
-
-  <Card title="Local AI" href="https://localai.io/"> 
-    <Image
-      src="/images/features/language-models/local-ai.png" 
-      height={1080} 
-      width={1920} 
-      quality={100}
-      alt="Local AI"
-    />
-  </Card> 
-</Cards>
+<div style={{
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))",
+  gap: "1rem",
+  margin: "1.2rem 0"
+}}>
+  <FeatureCard title="Built-in (default)" href="#">
+    <img src="/images/ai-providers/openai.svg" alt="Built-in (default)" width="38" height="38" style={{marginBottom: 8}} />
+    <div>Default local model.</div>
+  </FeatureCard>
+  <FeatureCard title="Ollama" href="https://ollama.com/">
+    <img src="/images/ai-providers/ollama.svg" alt="Ollama" width="38" height="38" style={{marginBottom: 8}} />
+    <div>Modern local LLM runner.</div>
+  </FeatureCard>
+  <FeatureCard title="LM Studio" href="https://lmstudio.ai/">
+    <img src="/images/ai-providers/lmstudio.svg" alt="LM Studio" width="38" height="38" style={{marginBottom: 8}} />
+    <div>Easy-to-use desktop inference for LLMs.</div>
+  </FeatureCard>
+  <FeatureCard title="Local AI" href="https://localai.io/">
+    <img src="/images/ai-providers/local-ai.svg" alt="Local AI" width="38" height="38" style={{marginBottom: 8}} />
+    <div>Open source local inference backend.</div>
+  </FeatureCard>
+</div>
 
 ### Cloud Language Model Providers
 
-<Cards>
-  <Card title="OpenAI" href="https://platform.openai.com/"> 
-    <Image
-      src="/images/features/language-models/openai.png" 
-      height={1080} 
-      width={1920} 
-      quality={100}
-      alt="OpenAI"
-    />
-  </Card>
-
-<Card
-  title="Azure OpenAI"
-  href="https://azure.microsoft.com/en-us/products/ai-services/openai-service"
->
-  <Image
-    src="/images/features/language-models/azure-openai.png"
-    height={1080}
-    width={1920}
-    quality={100}
-    alt="Azure OpenAI"
-  />
-</Card>
-
-<Card title="AWS Bedrock" href="https://aws.amazon.com/bedrock">
-  <Image
-    src="/images/RealTimeX-setup/llm-configuration/cloud/aws-bedrock/header-image.png"
-    height={1080}
-    width={1920}
-    quality={100}
-    alt="AWS Bedrock"
-  />
-</Card>
-
-<Card title="Anthropic" href="https://anthropic.com/">
-  <Image
-    src="/images/features/language-models/anthropic.png"
-    height={1080}
-    width={1920}
-    quality={100}
-    alt="Anthropic"
-  />
-</Card>
-
-<Card title="Cohere" href="https://cohere.com/">
-  <Image
-    src="/images/features/language-models/cohere.png"
-    height={1080}
-    width={1920}
-    quality={100}
-    alt="Cohere"
-  />
-</Card>
-
-<Card title="Google Gemini Pro" href="https://ai.google.dev/">
-  <Image
-    src="/images/features/language-models/google-gemini.png"
-    height={1080}
-    width={1920}
-    quality={100}
-    alt="Google Gemini Pro"
-  />
-</Card>
-
-    <Card title="Hugging Face" href="https://huggingface.co/">
-    <Image
-      src="/images/features/language-models/hugging-face.png"
-      height={1080}
-      width={1920}
-      quality={100}
-      alt="Hugging Face"
-    />
-
-  </Card>
-
-<Card title="Together AI" href="https://www.together.ai/">
-  <Image
-    src="/images/features/language-models/together-ai.png"
-    height={1080}
-    width={1920}
-    quality={100}
-    alt="Together AI"
-  />
-</Card>
-
-<Card title="OpenRouter" href="https://openrouter.ai/">
-  <Image
-    src="/images/features/language-models/openrouter.png"
-    height={1080}
-    width={1920}
-    quality={100}
-    alt="OpenRouter"
-  />
-</Card>
-
-<Card title="Perplexity AI" href="https://www.perplexity.ai/">
-  <Image
-    src="/images/features/language-models/perplexity-ai.png"
-    height={1080}
-    width={1920}
-    quality={100}
-    alt="Perplexity AI"
-  />
-</Card>
-
-<Card title="Mistral API" href="https://mistral.ai/">
-  <Image
-    src="/images/features/language-models/mistral-ai.png"
-    height={1080}
-    width={1920}
-    quality={100}
-    alt="Mistral API"
-  />
-</Card>
-
-<Card title="Groq" href="https://groq.com/">
-  <Image
-    src="/images/features/language-models/groq.png"
-    height={1080}
-    width={1920}
-    quality={100}
-    alt="Groq"
-  />
-</Card>
-
-<Card title="KobaldCPP" href="https://github.com/LostRuins/koboldcpp">
-  <Image
-    src="/images/features/language-models/koboldcpp.png"
-    height={1080}
-    width={1920}
-    quality={100}
-    alt="KobaldCPP"
-  />
-</Card>
-
-  <Card title="OpenAI (generic)" href="/RealTimeX-setup/llm-configuration/cloud/openai-generic"> 
-    <Image
-      src="/images/features/language-models/openai.png" 
-      height={1080} 
-      width={1920} 
-      quality={100}
-      alt="OpenAI (generic)"
-    />
-  </Card>
-  
-</Cards>
-
-export const Card = Object.assign(
-  // Copy card component and add default props
-  Cards.Card.bind(),
-  {
-    displayName: "Card",
-    defaultProps: {
-      image: true,
-      arrow: true,
-      target: "_self",
-    },
-  }
-);
-
-<style global jsx>{`
-  img {
-    aspect-ratio: 16/9;
-    object-fit: cover;
-  }
-`}</style>
+<div style={{
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))",
+  gap: "1rem",
+  margin: "1.2rem 0"
+}}>
+  <FeatureCard title="OpenAI" href="https://platform.openai.com/">
+    <img src="/images/ai-providers/openai.svg" alt="OpenAI" width="38" height="38" style={{marginBottom: 8}} />
+    <div>GPT-4o, GPT-4, GPT-3.5, and more.</div>
+  </FeatureCard>
+  <FeatureCard title="Azure OpenAI" href="https://azure.microsoft.com/en-us/products/ai-services/openai-service">
+    <img src="/images/ai-providers/azure.svg" alt="Azure OpenAI" width="38" height="38" style={{marginBottom: 8}} />
+    <div>Microsoft’s enterprise OpenAI service.</div>
+  </FeatureCard>
+  <FeatureCard title="AWS Bedrock" href="https://aws.amazon.com/bedrock">
+    <img src="/images/ai-providers/bedrock.svg" alt="AWS Bedrock" width="38" height="38" style={{marginBottom: 8}} />
+    <div>Amazon’s generative AI platform.</div>
+  </FeatureCard>
+  <FeatureCard title="Anthropic" href="https://anthropic.com/">
+    <img src="/images/ai-providers/anthropic.svg" alt="Anthropic" width="38" height="38" style={{marginBottom: 8}} />
+    <div>Claude family models (Claude 3, Opus, etc).</div>
+  </FeatureCard>
+  <FeatureCard title="Cohere" href="https://cohere.com/">
+    <img src="/images/ai-providers/cohere.svg" alt="Cohere" width="38" height="38" style={{marginBottom: 8}} />
+    <div>Enterprise language and embedding models.</div>
+  </FeatureCard>
+  <FeatureCard title="Google Gemini Pro" href="https://ai.google.dev/">
+    <img src="/images/ai-providers/gemini.svg" alt="Gemini" width="38" height="38" style={{marginBottom: 8}} />
+    <div>Google’s latest multi-modal AI.</div>
+  </FeatureCard>
+  <FeatureCard title="Hugging Face" href="https://huggingface.co/">
+    <img src="/images/ai-providers/huggingface.svg" alt="Hugging Face" width="38" height="38" style={{marginBottom: 8}} />
+    <div>Run any model from the HF hub.</div>
+  </FeatureCard>
+  <FeatureCard title="Together AI" href="https://www.together.ai/">
+    <img src="/images/ai-providers/together.svg" alt="Together AI" width="38" height="38" style={{marginBottom: 8}} />
+    <div>Fast, multi-model provider with open APIs.</div>
+  </FeatureCard>
+  <FeatureCard title="OpenRouter" href="https://openrouter.ai/">
+    <img src="/images/ai-providers/openrouter.svg" alt="OpenRouter" width="38" height="38" style={{marginBottom: 8}} />
+    <div>Unified API for many top LLMs.</div>
+  </FeatureCard>
+  <FeatureCard title="Perplexity AI" href="https://www.perplexity.ai/">
+    <img src="/images/ai-providers/perplexity.svg" alt="Perplexity AI" width="38" height="38" style={{marginBottom: 8}} />
+    <div>Conversational search and answers.</div>
+  </FeatureCard>
+  <FeatureCard title="Mistral API" href="https://mistral.ai/">
+    <img src="/images/ai-providers/mistral.svg" alt="Mistral" width="38" height="38" style={{marginBottom: 8}} />
+    <div>Fast, powerful open models (Mistral, Mixtral, etc).</div>
+  </FeatureCard>
+  <FeatureCard title="Groq" href="https://groq.com/">
+    <img src="/images/ai-providers/groq.svg" alt="Groq" width="38" height="38" style={{marginBottom: 8}} />
+    <div>Ultra-fast inference for top LLMs.</div>
+  </FeatureCard>
+  <FeatureCard title="KoboldCPP" href="https://github.com/LostRuins/koboldcpp">
+    <img src="/images/ai-providers/koboldcpp.svg" alt="KoboldCPP" width="38" height="38" style={{marginBottom: 8}} />
+    <div>Run GGUF models on your own hardware.</div>
+  </FeatureCard>
+  <FeatureCard title="OpenAI (generic)" href="/RealTimeX-setup/llm-configuration/cloud/openai-generic">
+    <img src="/images/ai-providers/openai.svg" alt="OpenAI (generic)" width="38" height="38" style={{marginBottom: 8}} />
+    <div>Generic OpenAI-compatible API.</div>
+  </FeatureCard>
+</div>
