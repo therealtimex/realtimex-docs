@@ -5,6 +5,8 @@ description: "Use existing MCP Servers with RealTimeX Agents"
 
 import { Cards, Callout } from "nextra/components";
 import Image from "next/image";
+import { FeatureCard } from "../../components/FeatureCard";
+
 export const Card = Object.assign(
   // Copy card component and add default props
   Cards.Card.bind(),
@@ -44,27 +46,47 @@ There are [many tools](https://github.com/modelcontextprotocol/servers) that exi
 
 ## How to use MCP in RealTimeX
 
-<Cards style={{
-  display: "flex",
-  flexDirection: "row",
+<div style={{
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+  gap: "1.2rem",
+  margin: "2rem 0 2.2rem 0"
 }}>
-  <Card title="RealTimeX Docker" href="/mcp-compatibility/docker">
-    <Image
-      src="/images/mcp-compatibility/docker-header.png"
-      height={1080}
-      width={1920}
-      quality={100}
+  <FeatureCard title="RealTimeX Cloud" href="/mcp-compatibility/cloud" icon={
+    <img
+      src="/images/os/clouds.svg"
+      alt="Cloud"
+      width="52"
+      height="52"
+      style={{
+        display: "block",
+        background: "#fff",
+        borderRadius: "0.8em",
+        boxShadow: "0 0 0 1px #eee",
+        padding: "12px"
+      }}
     />
-  </Card>
-  <Card title="RealTimeX Desktop" href="/mcp-compatibility/desktop">
-    <Image
-      src="/images/mcp-compatibility/desktop-header.png"
-      height={1080}
-      width={1920}
-      quality={100}
-    />
-  </Card>
-</Cards>
+  }>
+    Use MCP Servers in your RealTimeX Cloud deployment.
+  </FeatureCard>
+  <FeatureCard title="RealTimeX Desktop" href="/mcp-compatibility/desktop" icon={
+    <div style={{
+      display: "flex",
+      gap: "10px",
+      alignItems: "center",
+      background: "#fff",
+      borderRadius: "0.8em",
+      boxShadow: "0 0 0 1px #eee",
+      padding: "8px 14px"
+    }}>
+      <img src="/images/os/apple.svg" alt="MacOs" width="28" height="28" style={{display: "block"}} />
+      <img src="/images/os/windows.svg" alt="Windows" width="28" height="28" style={{display: "block"}} />
+      <img src="/images/os/linux.svg" alt="Linux" width="28" height="28" style={{display: "block"}} />
+    </div>
+  }>
+    Add and manage MCP Servers right from RealTimeX Desktop.
+  </FeatureCard>
+</div>
 
 
 MCP Servers can be added to RealTimeX by editing the `RealTimeX_mcp_servers.json` configuration file in your RealTimeX storage `plugins` directory.

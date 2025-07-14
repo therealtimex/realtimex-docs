@@ -9,7 +9,7 @@
     }
   },
   "docker": {
-    "title": "MCP on Docker",
+    "title": "MCP on Cloud",
     "theme": {
       "breadcrumb": true,
       "footer": true,

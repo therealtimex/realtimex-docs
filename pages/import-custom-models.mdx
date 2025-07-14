@@ -3,77 +3,67 @@ title: "Import an LLM into RealTimeX"
 description: "How to import an LLM into RealTimeX"
 ---
 
-import { Cards, Callout } from "nextra/components";
-import Image from "next/image";
+import { Callout } from "nextra/components";
 
 # Importing custom LLMs into RealTimeX
 
-RealTimeX allows you to easily load into any valid `GGUF` file and select that as your LLM with zero-setup. Please only use text based LLMs
-for this process. Embedder models will not function in this capacity.
+RealTimeX allows you to easily load any valid `GGUF` file and select that as your LLM with zero-setup. Please use **text-based LLMs only** for this process. Embedder models will not function as chat models.
 
-## Import model into RealTimeX.
+## Import a model into RealTimeX
 
 <Callout type="warning" emoji="‼️">
-  **Desktop only!**
-
-This LLM provider is only available in the desktop version. If you are using the browser based version you will need to import the model into your local LLM provider. We recommend
-Ollama or LMStudio.
-
+  <b>Desktop only!</b>  
+  The following steps currently apply to RealTimeX Desktop.
 </Callout>
 
-Importing any `GGUF` file into RealTimeX for use as you LLM is quite simple. On the LLM selection screen you will see an `Import custom model` button.
+---
 
-Clicking this button will open a file picker. Simply select your GGUF file and wait 2-3 minutes while the model is imported. Now you can select and save this
-model as your LLM!
+## Option 1: Import a Local GGUF Model
 
-<br />
-<Image
-  src="/images/fine-tuning/local-llm.png"
-  height={1080}
-  width={1920}
-  quality={100}
-  style={{ borderRadius: "20px", marginBottom: 10 }}
-/>
+1. **Download a `GGUF` model file** (for example, from [Hugging Face](https://huggingface.co/models?library=gguf)).
+2. Open RealTimeX Desktop and go to the model management section.
+3. Click **"Import Model"** and select your `.gguf` file from your computer.
+4. The model will appear in your available LLMs list. Select it to start chatting.
 
-After import you should see your model displayed.
+> **Tip:**  
+> GGUF models are typically optimized for use with local inference backends such as llama.cpp.
 
-<br />
-<Image
-  src="/images/fine-tuning/local-llm-loaded.png"
-  height={1080}
-  width={1920}
-  quality={100}
-  style={{ borderRadius: "20px", marginBottom: 10 }}
-/>
+---
 
-## How to import into Ollama
+## Option 2: Use Ollama to Import and Run Models
 
-Importing to Ollama is also quite simple and we provide instructions in your download email on how to accomplish this. Please refer to this
-video segment.
+Ollama makes it extremely easy to run LLMs locally, and RealTimeX can connect to any Ollama-served model.
 
-<iframe
-  width="100%"
-  height="500"
-  src="https://www.youtube.com/embed/1B50IDUl5D4?si=2SdTcSFxMzbQiD8e&amp;start=710"
-  title="YouTube video player"
-  frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-  referrerpolicy="strict-origin-when-cross-origin"
-  allowfullscreen
-></iframe>
+**Step-by-step:**
 
-## How to import into LMStudio
+1. **Install Ollama**  
+   - Go to [ollama.com/download](https://ollama.com/download) and download/install for your OS.
+   - Launch Ollama (just run the app or the `ollama serve` command).
 
-Importing to LMStudio is even more simple to load. Simply drag the instructions + `GGUF` folder into the LMStudio model location. Please refer to this
-video segment.
+2. **Pull an LLM with Ollama**  
+   - Open your terminal and run:  
+     ```bash
+     ollama pull llama3
+     ```
+   - Or replace `llama3` with any supported model name (see [Ollama's model library](https://ollama.com/library)).
 
-<iframe
-  width="100%"
-  height="500"
-  src="https://www.youtube.com/embed/1B50IDUl5D4?si=lVYaAlLHxFuonepb&amp;start=1050"
-  title="YouTube video player"
-  frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-  referrerpolicy="strict-origin-when-cross-origin"
-  allowfullscreen
-></iframe>
+3. **Connect RealTimeX to Ollama**  
+   - In RealTimeX Desktop, go to the LLM setup or model selection screen.
+   - Choose **Ollama** as the model provider.
+   - RealTimeX will auto-detect running Ollama models. Select the one you want to use.
+
+4. **Start using the model!**  
+   - The model will now be available in RealTimeX just like any built-in option.
+
+<Callout type="info" emoji="💡">
+  You can run multiple models with Ollama. Just pull each one with `ollama pull modelname` and select the active model in RealTimeX.
+</Callout>
+
+---
+
+## Troubleshooting
+
+- If your GGUF file doesn't appear, double-check it’s a **text-generation** model (not embedder).
+- If RealTimeX doesn’t detect Ollama, make sure the Ollama server is running.
+- You can find more models for Ollama at [ollama.com/library](https://ollama.com/library).
+
