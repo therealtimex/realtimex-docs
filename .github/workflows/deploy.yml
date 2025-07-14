@@ -22,7 +22,7 @@ jobs:
     env:
       NEXT_PUBLIC_BASE_PATH: '/realtimex-docs'
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Setup Node.js
@@ -34,7 +34,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Build (static export via `output: 'export'`)
+      - name: Build and export
         run: yarn build
 
       - name: Setup Pages
