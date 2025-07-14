@@ -5,13 +5,53 @@ description: "Private Cloud Instance hosted by RealTimeX"
 
 import Image from "next/image";
 
-<Image
-  src="/images/cloud/header-image.png"
-  height={1080}
-  width={1920}
-  quality={100}
-  alt="RealTimeX Cloud"
-/>
+<div
+  style={{
+    width: "100%",
+    background: "#fff",
+    borderRadius: "1.5rem",
+    boxShadow: "0 2px 18px 0 #0b1c2c08",
+    display: "flex",
+    alignItems: "center",
+    gap: "2rem",
+    padding: "2rem 2.2rem",
+    minHeight: 120,
+    margin: "2rem 0 2.5rem 0",
+    boxSizing: "border-box",
+    // Remove maxWidth to go truly 100%. 
+    // Add overflowX for tiny screens if needed.
+    // maxWidth: 560,
+  }}
+>
+  <span
+    style={{
+      display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center",
+      background: "#f6f6f7",
+      borderRadius: "1rem",
+      padding: "14px",
+      boxShadow: "0 1px 6px 0 #0001",
+      minWidth: 78,
+      minHeight: 78,
+      marginRight: "1rem",
+    }}
+  >
+    <img
+      src="/images/os/clouds.svg"
+      alt="MacOS"
+      width="50"
+      height="50"
+      style={{ display: "block" }}
+    />
+  </span>
+  <div>
+    <div style={{ fontSize: "2rem", fontWeight: 700, letterSpacing: "-1px" }}>RealTimeX Cloud</div>
+    <div style={{ fontSize: "1.1rem", color: "#6c757d", marginTop: 2 }}>
+      Privately managed by RealTimeX.
+    </div>
+  </div>
+</div>
 
 # Private managed RealTimeX
 
@@ -19,14 +59,5 @@ RealTimeX cloud is the easiest way to trial and scale RealTimeX for your busines
 
 The RealTimeX, Inc team offers **isolated** and **private** instances of RealTimeX that you can use to try out or scale up RealTimeX for your business or personal use.
 
-Each instance is hosted on an isolated AWS instance that is automatically updated and managed by the RealTimeX, Inc core team. Your data and resources are not shared with any other customers who are using our managed service.
+Each instance is hosted on an isolated cloud instance that is automatically updated and managed by the RealTimeX, Inc core team. Your data and resources are not shared with any other customers who are using our managed service.
 
-### [You can get an instance of RealTimeX here for 30% off your first month!](https://realtimex.ai/pricing)
-
-<Image
-  src="/images/cloud/pricing.png"
-  height={1080}
-  width={1920}
-  quality={100}
-  alt="RealTimeX Cloud Pricing"
-/>

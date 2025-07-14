@@ -3,16 +3,9 @@ title: "Transcription Models"
 description: "RealTimeX supports custom audio transcription providers."
 ---
 
+import { FeatureCard } from "../../components/FeatureCard";
 import { Cards } from "nextra/components";
 import Image from "next/image";
-
-<Image
-  src="/images/features/transcription-models/header-image.png"
-  height={1080}
-  width={1920}
-  quality={100}
-  alt="RealTimeX Transcription Models"
-/>
 
 # Transcription Models
 
@@ -22,51 +15,28 @@ RealTimeX supports custom audio transcription providers.
 
 ### Local Transcription Model Providers
 
-<Cards>
-  <Card
-    title="Built-in (Xenova)"
-    href="https://huggingface.co/Xenova/whisper-small"
-  >
-    <Image
-      src="/images/features/transcription-models/xenova.png"
-      height={1080}
-      width={1920}
-      quality={100}
-      alt="RealTimeX Built-in (Xenova)"
-    />
-  </Card>
-</Cards>
+<div style={{
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))",
+  gap: "1rem",
+  margin: "1.2rem 0"
+}}>
+  <FeatureCard title="Built-in (default)" href="https://huggingface.co/Xenova/whisper-small">
+    <img src="/images/ai-providers/xenova.webp" alt="Built-in (default)" width="38" height="38" style={{marginBottom: 8}} />
+    <div>Xenova</div>
+  </FeatureCard>
+</div>
 
 ### Cloud Transcription Model Providers
 
-<Cards>
-  <Card title="OpenAI" href="https://platform.openai.com/">
-    <Image
-      src="/images/features/transcription-models/openai.png"
-      height={1080}
-      width={1920}
-      quality={100}
-      alt="OpenAI"
-    />
-  </Card>
-</Cards>
-
-export const Card = Object.assign(
-  // Copy card component and add default props
-  Cards.Card.bind(),
-  {
-    displayName: "Card",
-    defaultProps: {
-      image: true,
-      arrow: true,
-      target: "_self",
-    },
-  }
-);
-
-<style global jsx>{`
-  img {
-    aspect-ratio: 16/9;
-    object-fit: cover;
-  }
-`}</style>
+<div style={{
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))",
+  gap: "1rem",
+  margin: "1.2rem 0"
+}}>
+  <FeatureCard title="OpenAI" href="https://platform.openai.com/">
+    <img src="/images/ai-providers/openai.svg" alt="OpenAI" width="38" height="38" style={{marginBottom: 8}} />
+    <div>Whisper Large, and more.</div>
+  </FeatureCard>
+</div>

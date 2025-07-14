@@ -3,8 +3,7 @@ title: "Embedding Models"
 description: "RealTimeX supports many embedding model providers out of the box with very little, if any setup"
 ---
 
-import { Cards } from "nextra/components";
-import Image from "next/image";
+import { FeatureCard } from "../../components/FeatureCard";
 
 # Embedding Models
 
@@ -16,101 +15,85 @@ Embedding models are specific types of models that turn text into vectors, which
 
 ### Local Embedding Model Providers
 
-<Cards>
-  <Card title="Built-in (default)" href="https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2"> 
-    <Image
-      src="/images/features/embedding-models/built-in.png" 
-      height={1080} 
-      width={1920} 
-      quality={100}
-      alt="RealTimeX Built-in (default)"
-    />
-  </Card>
-
-<Card title="Ollama" href="https://ollama.com/">
-  <Image
-    src="/images/features/embedding-models/ollama.png"
-    height={1080}
-    width={1920}
-    quality={100}
-    alt="Ollama"
-  />
-</Card>
-
-<Card title="LM Studio" href="https://lmstudio.ai/">
-  <Image
-    src="/images/features/embedding-models/lm-sudio.png"
-    height={1080}
-    width={1920}
-    quality={100}
-    alt="LM Studio"
-  />
-</Card>
-
-  <Card title="Local AI" href="https://localai.io/"> 
-    <Image
-      src="/images/features/embedding-models/local-ai.png" 
-      height={1080} 
-      width={1920} 
-      quality={100}
-      alt="Local AI"
-    />
-  </Card> 
-</Cards>
+<div style={{
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))",
+  gap: "1rem",
+  margin: "1.2rem 0"
+}}>
+  <FeatureCard title="Built-in (default)" href="#">
+    <img src="/images/ai-providers/realtimex.png" alt="Built-in (default)" width="38" height="38" style={{marginBottom: 8}} />
+    <div>Default model.</div>
+  </FeatureCard>
+  <FeatureCard title="Ollama" href="https://ollama.com/">
+    <img src="/images/ai-providers/ollama.svg" alt="Ollama" width="38" height="38" style={{marginBottom: 8}} />
+    <div>Modern local LLM runner.</div>
+  </FeatureCard>
+  <FeatureCard title="LM Studio" href="https://lmstudio.ai/">
+    <img src="/images/ai-providers/lmstudio.svg" alt="LM Studio" width="38" height="38" style={{marginBottom: 8}} />
+    <div>Easy-to-use desktop inference for LLMs.</div>
+  </FeatureCard>
+  <FeatureCard title="Local AI" href="https://localai.io/">
+    <img src="/images/ai-providers/localai.png" alt="Local AI" width="38" height="38" style={{marginBottom: 8}} />
+    <div>Open source local inference backend.</div>
+  </FeatureCard>
+</div>
 
 ### Cloud Embedding Model Providers
 
-<Cards>
-  <Card title="OpenAI" href="https://platform.openai.com/"> 
-    <Image
-      src="/images/features/embedding-models/openai.png" 
-      height={1080} 
-      width={1920} 
-      quality={100}
-      alt="OpenAI"
-    />
-  </Card>
+<div style={{
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))",
+  gap: "1rem",
+  margin: "1.2rem 0"
+}}>
+  <FeatureCard title="OpenAI" href="https://platform.openai.com/">
+    <img src="/images/ai-providers/openai.svg" alt="OpenAI" width="38" height="38" style={{marginBottom: 8}} />
+    <div>GPT-4o, GPT-4, GPT-3.5, and more.</div>
+  </FeatureCard>
+  <FeatureCard title="Azure OpenAI" href="https://azure.microsoft.com/en-us/products/ai-services/openai-service">
+    <img src="/images/ai-providers/azure.svg" alt="Azure OpenAI" width="38" height="38" style={{marginBottom: 8}} />
+    <div>Microsoft’s enterprise OpenAI service.</div>
+  </FeatureCard>
+  <FeatureCard title="AWS Bedrock" href="https://aws.amazon.com/bedrock">
+    <img src="/images/ai-providers/bedrock-color.svg" alt="AWS Bedrock" width="38" height="38" style={{marginBottom: 8}} />
+    <div>Amazon’s generative AI platform.</div>
+  </FeatureCard>
+  <FeatureCard title="Anthropic" href="https://anthropic.com/">
+    <img src="/images/ai-providers/anthropic.svg" alt="Anthropic" width="38" height="38" style={{marginBottom: 8}} />
+    <div>Claude family models (Claude 3, Opus, etc).</div>
+  </FeatureCard>
+  <FeatureCard title="Cohere" href="https://cohere.com/">
+    <img src="/images/ai-providers/cohere-color.svg" alt="Cohere" width="38" height="38" style={{marginBottom: 8}} />
+    <div>Enterprise language and embedding models.</div>
+  </FeatureCard>
+  <FeatureCard title="Google Gemini Pro" href="https://ai.google.dev/">
+    <img src="/images/ai-providers/gemini-color.svg" alt="Gemini" width="38" height="38" style={{marginBottom: 8}} />
+    <div>Google’s latest multi-modal AI.</div>
+  </FeatureCard>
+  <FeatureCard title="Hugging Face" href="https://huggingface.co/">
+    <img src="/images/ai-providers/huggingface-color.svg" alt="Hugging Face" width="38" height="38" style={{marginBottom: 8}} />
+    <div>Run any model from the HF hub.</div>
+  </FeatureCard>
+  <FeatureCard title="Together AI" href="https://www.together.ai/">
+    <img src="/images/ai-providers/together-color.svg" alt="Together AI" width="38" height="38" style={{marginBottom: 8}} />
+    <div>Fast, multi-model provider with open APIs.</div>
+  </FeatureCard>
+  <FeatureCard title="OpenRouter" href="https://openrouter.ai/">
+    <img src="/images/ai-providers/openrouter.svg" alt="OpenRouter" width="38" height="38" style={{marginBottom: 8}} />
+    <div>Unified API for many top LLMs.</div>
+  </FeatureCard>
+  <FeatureCard title="Mistral API" href="https://mistral.ai/">
+    <img src="/images/ai-providers/mistral-color.svg" alt="Mistral" width="38" height="38" style={{marginBottom: 8}} />
+    <div>Fast, powerful open models (Mistral, Mixtral, etc).</div>
+  </FeatureCard>
+  <FeatureCard title="Groq" href="https://groq.com/">
+    <img src="/images/ai-providers/groq.svg" alt="Groq" width="38" height="38" style={{marginBottom: 8}} />
+    <div>Ultra-fast inference for top LLMs.</div>
+  </FeatureCard>
+  <FeatureCard title="OpenAI (generic)" href="/RealTimeX-setup/llm-configuration/cloud/openai-generic">
+    <img src="/images/ai-providers/openai.svg" alt="OpenAI (generic)" width="38" height="38" style={{marginBottom: 8}} />
+    <div>Generic OpenAI-compatible API.</div>
+  </FeatureCard>
+</div>
 
-<Card
-  title="Azure OpenAI"
-  href="https://azure.microsoft.com/en-us/products/ai-services/openai-service"
->
-  <Image
-    src="/images/features/embedding-models/azure-openai.png"
-    height={1080}
-    width={1920}
-    quality={100}
-    alt="Azure OpenAI"
-  />
-</Card>
-
-  <Card title="Cohere" href="https://cohere.com/"> 
-    <Image
-      src="/images/features/embedding-models/cohere.png" 
-      height={1080} 
-      width={1920} 
-      quality={100}
-      alt="Cohere"
-    />
-  </Card> 
-</Cards>
-
-export const Card = Object.assign(
-  // Copy card component and add default props
-  Cards.Card.bind(),
-  {
-    displayName: "Card",
-    defaultProps: {
-      image: true,
-      arrow: true,
-      target: "_self",
-    },
-  }
-);
-
-<style global jsx>{`
-  img {
-    aspect-ratio: 16/9;
-    object-fit: cover;
-  }
-`}</style>

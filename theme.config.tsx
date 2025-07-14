@@ -13,7 +13,7 @@ const newRelease = Object.keys(_meta)
 
 const config: DocsThemeConfig = {
   project: {
-    link: 'https://twitter.com/mintplexlabs', // Link for the Twitter icon on top nav bar
+    link: 'https://x.com/RealTimeXai', // Link for the Twitter icon on top nav bar
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -26,14 +26,14 @@ const config: DocsThemeConfig = {
     )
   },
   chat: {
-    link: 'https://discord.gg/Dh4zSZCdsC', // Link for discord icon on top nav bar
+    link: 'https://discord.gg/cVPdVGqy', // Link for discord icon on top nav bar
   },
-  docsRepositoryBase: 'https://github.com/Mintplex-Labs/RealTimeX-docs/tree/main', // Repo link for the 'Edit this page'
+  docsRepositoryBase: 'https://github.com/therealtimex/RealTimeX-docs/tree/main', // Repo link for the 'Edit this page'
   footer: {
     text: (
       <span>
         MIT {new Date().getFullYear()} ©{' '}
-        <a href="https://github.com/Mintplex-Labs" target="_blank">
+        <a href="https://github.com/therealtimex/RealTimeX" target="_blank">
           RealTimeX, Inc
         </a>
         .

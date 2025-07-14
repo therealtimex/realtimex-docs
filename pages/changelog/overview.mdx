@@ -1,63 +1,44 @@
 ---
 title: "Desktop Changelog Overview"
-description: "RealTimeX Deskop Changelog"
+description: "RealTimeX Desktop Changelog"
 ---
 
-import { Cards } from "nextra/components";
-import Image from "next/image";
+import { FeatureCard } from "../../components/FeatureCard";
+import { ListOrdered, Sparkle } from "lucide-react";
 import Link from "next/link";
 import META from "./_meta.json";
 
-<Image
-  src="/images/product/changelog/header-image.png"
-  height={1080}
-  width={1920}
-  quality={100}
-  alt="RealTimeX Changelog"
-/>
-
 # Desktop Changelogs
 
-We're using this log to jot down everything we've finished working on. It helps us see the progress we've made. This changelog is only tracking the changes in the <Link href='https://realtimex.ai/download'><u>RealTimeX Desktop App</u></Link>.
+We're using this log to jot down everything we've finished working on. It helps us see the progress we've made. This changelog only tracks changes in the <Link href='https://realtimex.ai/download'><u>RealTimeX Desktop App</u></Link>.
 
 You can read the recent changelogs by clicking the cards below:
 
-<Cards>
+<div style={{
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+  gap: "1rem",
+  margin: "2rem 0"
+}}>
+  <FeatureCard
+    title="Changelog v1.0.5"
+    href="v1.0.5"
+    icon={<Sparkle size={34} color="#efc04a" />}
+  >
+    <strong>Latest release!</strong>  
+    Check out what's new in version 1.0.5.
+  </FeatureCard>
+
   {Object.keys(META)
-    .filter(function (key) {
-      return key.startsWith("v");
-    })
-    .map(function (tag) {
-      return (
-        <Card title={`Changelog ${tag}`} href={tag}>
-          <Image
-            src="/images/product/changelog/header-image.png"
-            height={1080}
-            width={1920}
-            quality={100}
-            alt={`RealTimeX Desktop Changelog ${tag}`}
-          />
-        </Card>
-      );
-    })}
-</Cards>
-
-export const Card = Object.assign(
-  // Copy card component and add default props
-  Cards.Card.bind(),
-  {
-    displayName: "Card",
-    defaultProps: {
-      image: true,
-      arrow: true,
-      target: "_self",
-    },
-  }
-);
-
-<style global jsx>{`
-  img {
-    aspect-ratio: 16/9;
-    object-fit: cover;
-  }
-`}</style>
+    .filter((key) => key.startsWith("v") && key !== "v1.0.5")
+    .map((tag) => (
+      <FeatureCard
+        key={tag}
+        title={`Changelog ${tag}`}
+        href={tag}
+        icon={<ListOrdered size={34} color="#226cff" />}
+      >
+        View the updates for version {tag}.
+      </FeatureCard>
+    ))}
+</div>

@@ -7,20 +7,17 @@ import { Callout, Tabs } from "nextra/components";
 import Image from "next/image";
 
 Connecting to Ollama is a very simple process, but sometimes things can appear to not being working depending on if you are using the
-RealTimeX Desktop version or running RealTimeX via Docker.
+RealTimeX Desktop.
 
 In general, all RealTimeX instances just need a valid URL to connect to Ollama running anywhere, however there can be some nuances depending on how you are running RealTimeX or Ollama - in any case, all that is needed is a reachable URL to connect to Ollama.
 
-The most common issue people run into is trying to use `localhost` or `127.0.0.1` to connect to Ollama running on their local machine when running RealTimeX via Docker - see the [Troubleshooting (Docker)](#troubleshooting-docker) section for how to fix this.
+## General Troubleshooting
 
-## General Troubleshooting (Desktop & Docker)
-
-On both the Desktop and Docker versions of RealTimeX, the Ollama URL is automatically detected _if we can detect it_.
+On the RealTimeX Desktop version, the Ollama URL is automatically detected _if we can detect it_.
 If the Ollama URL is not detected, you will need to manually set the Ollama URL in the RealTimeX settings.
 
 The list of automatically detected URLs is as follows:
 - `http://127.0.0.1:11434`
-- `http://host.docker.internal:11434`
 - `http://172.17.0.1:11434`
 
 If your Ollama URL is not detected because it is not in the list above, you will need to manually set the Ollama URL in the RealTimeX settings - which will be shown in the UI for you to modify.
@@ -46,42 +43,6 @@ Most of the time, Ollama will automatically start the server when ollama is runn
 <Callout type="info" emoji="ℹ️">
   Running `ollama run model-name` will not start the server - this is only for running models in your command line and you will not be able to use the Ollama API with this command.
 </Callout>
-
-
-## Troubleshooting (Docker)
-
-If you are running RealTimeX via Docker and you are trying to connect to Ollama running locally on your machine.
-
-If you are seeing no models loaded in RealTimeX or getting error responses from Ollama - 100% of the time this is beacause you are using the wrong URL in the connection in RealTimeX.
-
-### `localhost` and `127.0.0.1` do not work on Docker.
-
-On Docker, `localhost` and `127.0.0.1` are **not valid URLs** for the Docker container Ollama connection in RealTimeX because both of these refer to the _container_ network and **not the host machine**.
-
-To fix this, you can use the `host.docker.internal` (Windows/MacOS) or `172.17.0.1` (Linux) URLs to connect to the host machine from the Docker container with the same port (default `11434`).
-
-Running Docker on Windows or MacOS ([available since Docker version 18.03](https://docs.docker.com/desktop/features/networking/#i-want-to-connect-from-a-container-to-a-service-on-the-host)):
-```
-http://localhost:11434 => http://host.docker.internal:11434
-http://127.0.0.1:11434 => http://host.docker.internal:11434
-```
-
-Running Docker on Linux:
-```
-http://localhost:11434 => http://172.17.0.1:11434
-http://127.0.0.1:11434 => http://172.17.0.1:11434
-```
-
-
-## Troubleshooting (Remote Ollama)
-
-If you are running RealTimeX via Docker and are trying to connect to Ollama running on another machine the underlying principle is the same where the Ollama URL is the IP address of the machine running Ollama.
-
-<Callout type="info" emoji="ℹ️">
-  In the case of a remote Ollama, the Ollama URL is the IP address of the machine running Ollama and it is **your responsibility** to ensure that the IP address is correct, your firewall rules are correct, and that the machine is running ollama.
-  There is no way for RealTimeX to automatically detect the IP address of the machine running Ollama.
-</Callout>
-
 
 ## RealTimeX Cloud + Local Ollama
 

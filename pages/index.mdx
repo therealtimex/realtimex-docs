@@ -3,93 +3,42 @@ title: "Home"
 description: "Learn about RealTimeX's features and how to use them"
 ---
 
-import { Cards } from "nextra/components";
-import Image from "next/image";
+import { FeatureCard } from "../components/FeatureCard";
+import {
+  BookOpen,
+  Download,
+  Sparkle,
+  Cloud,
+  Map,
+  ListOrdered
+} from "lucide-react";
 
 # RealTimeX Documentation
 
-Learn about RealTimeX's features and how to use them
+Learn about RealTimeX’s features and how to use them.
 
-<br />
-
-<Cards>
-  <Card title="Get Started" href="introduction"> 
-    <Image
-      src="/images/getting-started/header-image.png" 
-      height={1080} 
-      width={1920} 
-      quality={100}
-      alt="RealTimeX Get Started"
-    />
-  </Card>
-
-<Card title="Installation" href="installation-desktop/overview">
-  <Image
-    src="/images/getting-started/installation/header-image.png"
-    height={1080}
-    width={1920}
-    quality={100}
-    alt="RealTimeX Installation"
-  />
-</Card>
-
-<Card title="Features" href="features/all-features">
-  <Image
-    src="/images/features/header-image.png"
-    height={1080}
-    width={1920}
-    quality={100}
-    alt="RealTimeX Features"
-  />
-</Card>
-
-<Card title="RealTimeX Cloud" href="cloud/overview">
-  <Image
-    src="/images/cloud/header-image.png"
-    height={1080}
-    width={1920}
-    quality={100}
-    alt="RealTimeX Cloud"
-  />
-</Card>
-
-<Card title="Roadmap" href="roadmap">
-  <Image
-    src="/images/product/roadmap/header-image.png"
-    height={1080}
-    width={1920}
-    quality={100}
-    alt="RealTimeX Roadmap"
-  />
-</Card>
-
-  <Card title="Changelog" href="changelog/overview"> 
-    <Image
-      src="/images/product/changelog/header-image.png" 
-      height={1080} 
-      width={1920} 
-      quality={100}
-      alt="RealTimeX Changelog"
-    />
-  </Card>  
-</Cards>
-
-export const Card = Object.assign(
-  // Copy card component and add default props
-  Cards.Card.bind(),
-  {
-    displayName: "Card",
-    defaultProps: {
-      image: true,
-      arrow: true,
-      target: "_self",
-    },
-  }
-);
-
-<style global jsx>{`
-  img {
-    aspect-ratio: 16/9;
-    object-fit: cover;
-  }
-`}</style>
+<div style={{
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+  gap: "1.2rem",
+  margin: "2rem 0"
+}}>
+  <FeatureCard title="Get Started" href="introduction" icon={<BookOpen size={36} color="#226cff" />}>
+    Quick intro and basics.
+  </FeatureCard>
+  <FeatureCard title="Installation" href="installation-desktop/overview" icon={<Download size={36} color="#0da37f" />}>
+    Set up RealTimeX on your device.
+  </FeatureCard>
+  <FeatureCard title="Features" href="features/all-features" icon={<Sparkle size={36} color="#efc04a" />}>
+    Explore all the platform’s features.
+  </FeatureCard>
+  <FeatureCard title="RealTimeX Cloud" href="cloud/overview" icon={<Cloud size={36} color="#ad4ae6" />}>
+    Learn about RealTimeX Cloud.
+  </FeatureCard>
+  <FeatureCard title="Roadmap" href="roadmap" icon={<Map size={36} color="#31b5d6" />}>
+    See what’s coming next.
+  </FeatureCard>
+  <FeatureCard title="Changelog" href="changelog/overview" icon={<ListOrdered size={36} color="#e3694d" />}>
+    View recent updates and releases.
+  </FeatureCard>
+</div>
