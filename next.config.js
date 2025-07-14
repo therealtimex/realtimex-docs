@@ -4,7 +4,7 @@ const withNextra = require('nextra')({
   themeConfig: './theme.config.tsx',
 });
 
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''; // e.g. '/realtimex-docs' on GH Pages
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''; // '/realtimex-docs' on GH Pages
 
 module.exports = withNextra({
   output: 'export',
@@ -12,7 +12,8 @@ module.exports = withNextra({
   assetPrefix: basePath,
   trailingSlash: true,
   reactStrictMode: true,
-  swcMinify: true,
+  // swcMinify is now the default in Next.js 15+, so you can remove it
+  // swcMinify: true,
 
   images: {
     unoptimized: true,
@@ -26,6 +27,8 @@ module.exports = withNextra({
     return config;
   },
 
+  // Note: redirects won’t be applied by `output: 'export'`; 
+  // you’ll need a client-side solution or a _redirects file if you require them.
   async redirects() {
     return [
       {
