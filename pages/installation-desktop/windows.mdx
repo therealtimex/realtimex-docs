@@ -6,17 +6,57 @@ description: "Windows Installation guide for RealTimeX"
 import { Callout, Cards } from "nextra/components";
 import Image from "next/image";
 
-<Image
-  src="/images/getting-started/installation/windows/header-image.png"
-  height={1080}
-  width={1920}
-  quality={100}
-  alt="RealTimeX Windows Installation"
-/>
+
+<div
+  style={{
+    width: "100%",
+    background: "#fff",
+    borderRadius: "1.5rem",
+    boxShadow: "0 2px 18px 0 #0b1c2c08",
+    display: "flex",
+    alignItems: "center",
+    gap: "2rem",
+    padding: "2rem 2.2rem",
+    minHeight: 120,
+    margin: "2rem 0 2.5rem 0",
+    boxSizing: "border-box",
+    // Remove maxWidth to go truly 100%. 
+    // Add overflowX for tiny screens if needed.
+    // maxWidth: 560,
+  }}
+>
+  <span
+    style={{
+      display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center",
+      background: "#f6f6f7",
+      borderRadius: "1rem",
+      padding: "14px",
+      boxShadow: "0 1px 6px 0 #0001",
+      minWidth: 78,
+      minHeight: 78,
+      marginRight: "1rem",
+    }}
+  >
+    <img
+      src="/images/os/windows.svg"
+      alt="MacOS"
+      width="50"
+      height="50"
+      style={{ display: "block" }}
+    />
+  </span>
+  <div>
+    <div style={{ fontSize: "2rem", fontWeight: 700, letterSpacing: "-1px" }}>Windows Installation</div>
+    <div style={{ fontSize: "1.1rem", color: "#6c757d", marginTop: 2 }}>
+      Step-by-step guide for installing RealTimeX on Windows.
+    </div>
+  </div>
+</div>
+
 
 # Windows Installation
-
-**[1. Install using the Installation `.exe` file](#install-using-the-installation-file)**
 
 ## Install using the installation file
 
@@ -36,44 +76,11 @@ import Image from "next/image";
 
 </Callout>
 
-## Downloading the installation file
-
-Here is the download link for the latest version of Anything LLM Windows.
-
-<Card
-  title="Windows 10+ (Home, Professional - x86 64-bit)"
-  href="https://cdn.realtimex.ai/latest/RealTimeXDesktop.exe"
-></Card>
-
-<Card
-  title="Windows 10+ (Home, Professional - ARM 64-bit)"
-  href="https://cdn.realtimex.ai/latest/RealTimeXDesktop-Arm64.exe"
-></Card>
-
-export const Card = Object.assign(
-  // Copy card component and add default props
-  Cards.Card.bind(),
-  {
-    displayName: "Card",
-    defaultProps: {
-      image: false,
-      arrow: true,
-      target: "_blank",
-    },
-  }
-);
+### Downloading the installation file from https://realtimex.ai
 
 Your internet browser may need you to verify you want to download and run the RealTimeX Desktop app since it may be marked as "untrusted" depending on your browser security settings.
 
 Click "**Keep**" when downloading to allow the file to download.
-
-<Image
-  src="/images/getting-started/installation/windows/browser-warning.png"
-  height={1080}
-  width={1920}
-  quality={100}
-  alt="RealTimeX Windows Install Browser Warning"
-/>
 
 ## Installing the application
 

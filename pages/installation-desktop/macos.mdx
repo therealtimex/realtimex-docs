@@ -6,32 +6,67 @@ description: "MacOS Installation guide for RealTimeX"
 import { Callout, Cards } from "nextra/components";
 import Image from "next/image";
 
-<Image
-  src="/images/getting-started/installation/macos/header-image.png"
-  height={1080}
-  width={1920}
-  quality={100}
-  alt="RealTimeX Installation"
-/>
+<div
+  style={{
+    width: "100%",
+    background: "#fff",
+    borderRadius: "1.5rem",
+    boxShadow: "0 2px 18px 0 #0b1c2c08",
+    display: "flex",
+    alignItems: "center",
+    gap: "2rem",
+    padding: "2rem 2.2rem",
+    minHeight: 120,
+    margin: "2rem 0 2.5rem 0",
+    boxSizing: "border-box",
+    // Remove maxWidth to go truly 100%. 
+    // Add overflowX for tiny screens if needed.
+    // maxWidth: 560,
+  }}
+>
+  <span
+    style={{
+      display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center",
+      background: "#f6f6f7",
+      borderRadius: "1rem",
+      padding: "14px",
+      boxShadow: "0 1px 6px 0 #0001",
+      minWidth: 78,
+      minHeight: 78,
+      marginRight: "1rem",
+    }}
+  >
+    <img
+      src="/images/os/apple.svg"
+      alt="MacOS"
+      width="50"
+      height="50"
+      style={{ display: "block" }}
+    />
+  </span>
+  <div>
+    <div style={{ fontSize: "2rem", fontWeight: 700, letterSpacing: "-1px" }}>MacOS Installation</div>
+    <div style={{ fontSize: "1.1rem", color: "#6c757d", marginTop: 2 }}>
+      Step-by-step guide for installing RealTimeX on MacOS.
+    </div>
+  </div>
+</div>
+
 
 # MacOS Installation
-
-There are **two** ways to install RealTimeX on MacOS
-
-**[1. Install using the Installation `.dmg` file](#install-using-the-installation-file)**
-
-**[2. Install using Homebrew](#install-using-homebrew)**
 
 ## Install using the installation file
 
 <Callout type="warning" emoji="⚠️">
   **Install the right dmg!**
 
-➤ Make sure you downloaded the correct `dmg` for your device! We support both types of chips found in MacOS devices.
+Make sure you downloaded the correct `dmg` for your device! We support both types of chips found in MacOS devices.
 
-➤ Apple Silicon devices (M1/M2/M3) - `RealTimeXDesktop-AppleSilicon.dmg`
+➤ Apple Silicon devices (M1/M2/M3)
 
-➤ Apple (Intel) - `RealTimeXDesktop.dmg`
+➤ Apple (Intel)
 
 </Callout>
 
@@ -40,46 +75,11 @@ There are **two** ways to install RealTimeX on MacOS
   **considerably** faster than Intel-based Mac.
 </Callout>
 
-### Downloading the installation file
-
-Here is the download links for the latest version of Anything LLM MacOS.
-
-<Cards>
-  <Card 
-    title="MacOS (Intel-based CPU)" 
-    href="https://cdn.realtimex.ai/latest/RealTimeXDesktop.dmg"> 
-  </Card>
-
-  <Card 
-    title="MacOS (M-Series CPU)" 
-    href="https://cdn.realtimex.ai/latest/RealTimeXDesktop-Silicon.dmg"> 
-  </Card>
-</Cards>
-
-export const Card = Object.assign(
-  // Copy card component and add default props
-  Cards.Card.bind(),
-  {
-    displayName: "Card",
-    defaultProps: {
-      image: false,
-      arrow: true,
-      target: "_blank",
-    },
-  }
-);
+### Downloading the installation file from https://realtimex.ai
 
 Your internet browser may need you to verify you want to download and run the RealTimeX Desktop app since it may be marked as "untrusted" depending on your browser security settings.
 
 Click "**Keep**" when downloading to allow the file to download.
-
-<Image
-  src="/images/getting-started/installation/macos/browser-warning.png"
-  height={1080}
-  width={1920}
-  quality={100}
-  alt="RealTimeX Mac Install Browser Warning"
-/>
 
 ### Installing the application
 
@@ -97,16 +97,3 @@ Once the dmg opens, you can drag the RealTimeX logo into `Applications`
 
 Once installed, you will find RealTimeX in your Applications folder as well as you can use `cmd + spacebar` and type in RealTimeX to run.
 
----
-
-## Install using Homebrew
-
-Make sure you have installed [Homebrew](https://brew.sh/) on your machine, if you don't have Homebrew installed then you can install it by following this [guide](https://mac.install.guide/homebrew/3)
-
-Run the following command on your terminal
-
-```shell copy
- brew install --cask RealTimeX
-```
-
-Once installed, you will find RealTimeX in your Applications folder as well as you can use `cmd + spacebar` and type in RealTimeX to run.

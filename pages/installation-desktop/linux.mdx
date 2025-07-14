@@ -3,16 +3,55 @@ title: "Linux Installation"
 description: "Linux Installation guide for RealTimeX"
 ---
 
-import { Callout, Cards } from "nextra/components";
-import Image from "next/image";
+import { Callout } from "nextra/components";
 
-<Image
-  src="/images/getting-started/installation/linux/header-image.png"
-  height={1080}
-  width={1920}
-  quality={100}
-  alt="RealTimeX Installation"
-/>
+<div
+  style={{
+    width: "100%",
+    background: "#fff",
+    borderRadius: "1.5rem",
+    boxShadow: "0 2px 18px 0 #0b1c2c08",
+    display: "flex",
+    alignItems: "center",
+    gap: "2rem",
+    padding: "2rem 2.2rem",
+    minHeight: 120,
+    margin: "2rem 0 2.5rem 0",
+    boxSizing: "border-box",
+    // Remove maxWidth to go truly 100%. 
+    // Add overflowX for tiny screens if needed.
+    // maxWidth: 560,
+  }}
+>
+  <span
+    style={{
+      display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center",
+      background: "#f6f6f7",
+      borderRadius: "1rem",
+      padding: "14px",
+      boxShadow: "0 1px 6px 0 #0001",
+      minWidth: 78,
+      minHeight: 78,
+      marginRight: "1rem",
+    }}
+  >
+    <img
+      src="/images/os/linux.svg"
+      alt="Linux"
+      width="50"
+      height="50"
+      style={{ display: "block" }}
+    />
+  </span>
+  <div>
+    <div style={{ fontSize: "2rem", fontWeight: 700, letterSpacing: "-1px" }}>Linux Installation</div>
+    <div style={{ fontSize: "1.1rem", color: "#6c757d", marginTop: 2 }}>
+      Step-by-step guide for installing RealTimeX on Linux.
+    </div>
+  </div>
+</div>
 
 # Linux Installation
 
@@ -21,12 +60,9 @@ import Image from "next/image";
 ## Install using the installer script
 
 <Callout type="warning" emoji="⚠️">
-  **NOTICE**
-
-➤ RealTimeX packages as an AppImage but you **will not** be able to boot if you run just the AppImage. Please only use the script below.
-
-➤ Please open a [Github Issue](https://github.com/Mintplex-Labs/anything-llm/issues) if you have installation or bootup troubles.
-
+  <strong>NOTICE</strong><br /><br />
+  ➤ RealTimeX packages as an AppImage but you <strong>will not</strong> be able to boot if you run just the AppImage. Please only use the script below.<br /><br />
+  ➤ Please open a <a href="https://github.com/Mintplex-Labs/anything-llm/issues" target="_blank">Github Issue</a> if you have installation or bootup troubles.
 </Callout>
 
 First, open a terminal on your Linux machine and run this command.
@@ -38,6 +74,6 @@ curl -fsSL https://cdn.realtimex.ai/latest/installer.sh | sh
 You can view the raw script contents [here](https://github.com/Mintplex-Labs/anything-llm/blob/desktop/linux_installer.sh).
 
 This will download the latest version of RealTimeX's AppImage, unpack it, and then supply a symlink to seamlessly run RealTimeX.
-This script will unpack the app in `$HOME/RealTimeXDesktop`.
+This script will unpack the app in $HOME/RealTimeXDesktop.
 
-You can start the app at any time by running `./RealTimeXDesktop/start`. This will boot the app with full logging.
+You can start the app at any time by running ./RealTimeXDesktop/start. This will boot the app with full logging.

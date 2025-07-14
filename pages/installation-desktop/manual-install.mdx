@@ -1,56 +1,28 @@
 ---
-title: "Manual Dependency Install"
-description: "Learn how to manually install the dependencies for RealTimeX Desktop on Windows"
+title: "Install Ollama"
+description: "Learn how to install Ollama for running LLMs locally"
 ---
 
-import { Callout, Cards } from "nextra/components";
-import Image from "next/image";
 
-<Callout type="warning" emoji="️⚠️">
-  **Note:** This documentation is for Windows only and should only be used if
-  you are experiencing issues with the automatic dependency installation that
-  occurs during the installation process of the RealTimeX Desktop executable.
-</Callout>
+import { Callout } from "nextra/components";
 
-When installing RealTimeX Desktop on Windows you may have been notified that external dependencies were missing. This is because RealTimeX Desktop uses a local LLM powered by [Ollama](https://ollama.com/) which requires some additional dependencies to be installed on your system.
-Since we do not include these dependencies in the RealTimeX Desktop executable to keep the file size small, we download them from a hosted S3 bucket during the installation process.
+# Install Ollama for RealTimeX Desktop
 
-If you are in a geographic region that is restricted from accessing the S3 bucket automatically during the installation process (like VPN related), you can manually install the dependencies using the below instructions.
+To use local LLM capabilities in RealTimeX Desktop, you need to have [Ollama](https://ollama.com/) installed on your system. This guide will walk you through the straightforward process of installing Ollama directly.
 
-## Manual Dependency Installation
+## Step 1: Download Ollama
 
-### Download the Dependency Bundle
+- Visit the [Ollama download page](https://ollama.com/) and download the latest installer.
 
-_We are currently on Ollama 0.5.4_
+## Step 2: Install Ollama
 
-Download the [bundle](https://cdn.realtimex.ai/support/ollama/0.5.4/win32_lib.zip) from the RealTimeX S3 bucket.
+- Run the downloaded installer and follow the on-screen instructions to complete the installation.
 
-_direct link:_ https://cdn.realtimex.ai/support/ollama/0.5.4/win32_lib.zip
+## Step 3: Configure RealTimeX Desktop
 
-### Extract the Dependency Bundle
+- Open RealTimeX Desktop.
+- In the application settings, select Ollama as your LLM provider.
 
-Right-click > Extract files to a folder called `win32_lib` on your desktop. It should suggest this default folder name.
+## Troubleshooting
 
-<Image
-  src="/images/getting-started/installation/windows/extract.png"
-  height={1080}
-  width={1920}
-  quality={100}
-  alt="RealTimeX Windows Extract Bundle"
-/>
-
-### Copy the Dependency Bundle to the RealTimeX Desktop Application
-
-Open the `Program Files` for the installed RealTimeX Desktop application. This is typically located at `C:\Users\USERNAME\AppData\Local\Programs\RealTimeX`.
-
-Open the `resources/ollama` folder inside the RealTimeX Desktop application folder.
-
-Open the `win32_lib` folder created during the extraction of the zip file. Inside this folder you will see a folder called `lib`.
-
-Copy the `lib` folder and paste it into the `ollama` folder inside the RealTimeX Desktop application folder.
-
-You should now be able to run the RealTimeX Desktop internal LLM with full GPU,CPU,NPU support.
-
-## Alternative: Install Ollama Directly
-
-If you cannot unable to access the S3 bucket at all on your internet connection, you should just install [Ollama](https://ollama.com/) directly and select that LLM as your provider in RealTimeX.
+- If you encounter any issues during installation, refer to the [Ollama documentation](https://github.com/ollama/ollama/tree/main/docs) or reach out to RealTimeX support.
