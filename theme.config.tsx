@@ -11,7 +11,10 @@ const newRelease = Object.keys(_meta)
       : b
   );
 
+import CustomImage from './components/CustomImage';
+
 const config: DocsThemeConfig = {
+  components: { img: CustomImage, Image: CustomImage },
   project: {
     link: 'https://x.com/RealTimeXai', // Link for the Twitter icon on top nav bar
     icon: (
