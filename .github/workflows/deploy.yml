@@ -33,7 +33,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Build (static export happens automatically)
+      - name: Build (static export via `output: 'export'`)
         run: yarn build
 
       - name: Setup Pages
@@ -42,8 +42,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # since basePath is '/realtimex-docs', your built files live here:
-          path: ./out/realtimex-docs
+          path: ./out         # <— upload the whole out/ folder
 
   deploy:
     needs: build
