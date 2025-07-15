@@ -6,11 +6,10 @@ description: "RealTimeX Desktop Changelog"
 import { FeatureCard } from "../../components/FeatureCard";
 import { ListOrdered, Sparkle } from "lucide-react";
 import Link from "next/link";
-import META from "./_meta.json";
 
 # Desktop Changelogs
 
-We're using this log to jot down everything we've finished working on. It helps us see the progress we've made. This changelog only tracks changes in the <Link href='https://realtimex.ai/download'><u>RealTimeX Desktop App</u></Link>.
+We're using this log to jot down everything we've finished working on. It helps us see the progress we've made. This changelog only tracks changes in the <Link href='https://realtimex.ai/'><u>RealTimeX Desktop App</u></Link>.
 
 You can read the recent changelogs by clicking the cards below:
 
@@ -22,23 +21,18 @@ You can read the recent changelogs by clicking the cards below:
 }}>
   <FeatureCard
     title="Changelog v1.0.5"
-    href="v1.0.5"
+    href="./changelog/v1.0.5"
     icon={<Sparkle size={34} color="#efc04a" />}
   >
     <strong>Latest release!</strong>  
     Check out what's new in version 1.0.5.
   </FeatureCard>
 
-  {Object.keys(META)
-    .filter((key) => key.startsWith("v") && key !== "v1.0.5")
-    .map((tag) => (
-      <FeatureCard
-        key={tag}
-        title={`Changelog ${tag}`}
-        href={tag}
+    <FeatureCard
+      title="Changelog v1.0.4"
+        href="./changelog/v1.0.4"
         icon={<ListOrdered size={34} color="#226cff" />}
-      >
-        View the updates for version {tag}.
-      </FeatureCard>
-    ))}
+    >
+      View the updates for version 1.0.4.
+    </FeatureCard>
 </div>

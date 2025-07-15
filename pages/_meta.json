@@ -70,9 +70,8 @@
     "type": "separator",
     "title": "RealTimeX Marketplace"
   },
-  "marketplace/about": {
+  "marketplace-about": {
     "title": "What is the Marketplace?",
-    "href": "/marketplace/about",
     "theme": {
       "breadcrumb": true,
       "footer": true,
@@ -218,7 +217,7 @@
       "toc": true
     }
   },
-  "--- More": {
+  "-- More": {
     "type": "separator",
     "title": "More"
   },
@@ -276,9 +275,6 @@
   },
   "licences": {
     "display": "hidden"
-  },
-  "community-hub": {
-    "type": "hidden"
   },
   "support": {
     "title": "Support",

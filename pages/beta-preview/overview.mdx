@@ -3,61 +3,46 @@ title: "RealTimeX Beta Previews"
 description: "Access cutting-edge beta previews and features of RealTimeX"
 ---
 
-import { Callout, Cards } from "nextra/components";
-import Image from "next/image";
-export const Card = Object.assign(
-  // Copy card component and add default props
-  Cards.Card.bind(),
-  {
-    displayName: "Card",
-    defaultProps: {
-      image: true,
-      arrow: true,
-      target: "_self",
-    },
-  }
-);
+import { FeatureCard } from "../../components/FeatureCard";
+import { Beaker } from "lucide-react";
+import { Callout } from "nextra/components";
 
-<style global jsx>{`
-  img {
-    aspect-ratio: 16/9;
-    object-fit: cover;
-  }
-`}</style>
+# What are Beta Previews?
 
-<Image
-  src="/images/beta-preview/header-image.png"
-  height={1080}
-  width={1920}
-  quality={100}
-  alt="RealTimeX Beta Previews"
-/>
-
-# What are beta previews?
-
-Beta previews of RealTimeX are versions _or_ features of RealTimeX that are either:
+Beta previews of RealTimeX are versions or features that are:
 
 - In active development
 - Unstable or untested
-- Features that are not fully completed, but are looking for feedback from the community.
+- Not fully completed, but available for community feedback
 
-# Types of beta previews
+<Callout type="info" emoji="🧪">
+  Beta features let you try the newest RealTimeX ideas—sometimes before they’re even public! We appreciate your feedback.
+</Callout>
 
-There a few ways we may publish beta previews of RealTimeX:
+---
 
-- As a fully separated Docker image
-- A special publication of the [desktop application](/installation-desktop/macos)
-- A hidden feature already present in the RealTimeX Application
+# Types of Beta Previews
 
-# How can I access a beta preview or feature?
+Beta previews can be shared in several ways:
+- As a completely separate Docker image
+- As a special version of the [desktop application](/installation-desktop/macos)
+- As hidden features already present inside RealTimeX
 
-<Cards>
-  <Card title="Enable feature previews" href="/beta-preview/enable-feature">
-    <Image
-      src="/images/beta-preview/feature-preview.png"
-      height={1080}
-      width={1920}
-      quality={100}
-    />
-  </Card>
-</Cards>
+---
+
+# How can I access a Beta Preview or Feature?
+
+<div style={{
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+  gap: "1.2rem",
+  margin: "2rem 0"
+}}>
+  <FeatureCard
+    title="Enable Feature Previews"
+    href="./beta-preview/enable-feature"
+    icon={<Beaker size={36} color="#226cff" />}
+  >
+    Learn how to turn on beta features in your RealTimeX app.
+  </FeatureCard>
+</div>
