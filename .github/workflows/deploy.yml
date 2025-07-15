@@ -19,8 +19,6 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      NEXT_PUBLIC_BASE_PATH: '/realtimex-docs'
     steps:
       - name: Checkout code
         uses: actions/checkout@v4

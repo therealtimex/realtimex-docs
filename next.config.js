@@ -4,12 +4,7 @@ const withNextra = require('nextra')({
   themeConfig: './theme.config.tsx',
 });
 
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''; // '/realtimex-docs' on GH Pages
-
 module.exports = withNextra({
-  output: 'export',
-  basePath,
-  assetPrefix: basePath,
   trailingSlash: true,
   reactStrictMode: true,
   // swcMinify is now on by default in Next.js 15+

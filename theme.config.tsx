@@ -13,7 +13,7 @@ const newRelease = Object.keys(_meta)
 
 import CustomImage from './components/CustomImage';
 
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
 
 const config: DocsThemeConfig = {
   components: { img: CustomImage, Image: CustomImage },
@@ -77,7 +77,7 @@ const config: DocsThemeConfig = {
         <meta httpEquiv="Content-Language" content="en" />
         <meta name="description" content="All-in-one AI application that can do RAG, AI Agents, and much more with no code or infrastructure headaches." />
         <meta name="og:description" content="All-in-one AI application that can do RAG, AI Agents, and much more with no code or infrastructure headaches." />
-        <meta property="og:url" content="http://docs.realtimex.ai"></meta>
+        <meta property="og:url" content="https://docs.realtimex.ai"></meta>
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content={socialCard} />
         <meta name="twitter:site:domain" content="docs.realtimex.ai" />
@@ -87,14 +87,14 @@ const config: DocsThemeConfig = {
         <meta name="og:title" content={title ? title + ' – RealTimeX Docs' : 'RealTimeX Docs'} />
         <meta name="og:image" content={socialCard} />
         <meta name="apple-mobile-web-app-title" content="RealTimeX Docs" />
-        <link rel="icon" href={`${basePath}/favicon.png`} type="image/png" />
+        <link rel="icon" href={`/favicon.png`} type="image/png" />
       </>
     );
   },
   logo: (
     <>
       <img
-        src={`${basePath}/images/logo.png`}
+        src={`/images/logo.png`}
         alt="RealTimeX Docs Logo"
         style={{
         display: 'inline-block',
