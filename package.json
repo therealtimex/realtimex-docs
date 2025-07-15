@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev --port 3333",
     "img": "node scripts/compress-images.mjs",
-    "build": "next build && next export",
+    "build": "next build",
     "start": "next start",
     "lint": "yarn prettier --ignore-path .prettierignore --write ./pages"
   },

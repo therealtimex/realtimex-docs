@@ -5,6 +5,7 @@ const withNextra = require('nextra')({
 });
 
 module.exports = withNextra({
+  output: 'export',
   trailingSlash: true,
   reactStrictMode: true,
   // swcMinify is now on by default in Next.js 15+
