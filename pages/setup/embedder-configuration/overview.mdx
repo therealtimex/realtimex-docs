@@ -3,137 +3,158 @@ title: "Overview"
 description: "Embedding models are specific types of models that turn text into vectors, which can be stored and searched in a vector database - which is the foundation of RAG."
 ---
 
-import { Cards, Callout } from "nextra/components";
-import Image from "next/image";
-
-<Image
-  src="/images/realtimex-setup/embedder-configuration/header-image.png"
-  height={1080}
-  width={1920}
-  quality={100}
-  alt="Embedder Configuration"
-/>
+import { FeatureCard } from "@/components/FeatureCard";
+import { Callout } from "nextra/components";
 
 # Embedder Configuration
 
-Embedding models are specific types of models that turn text into vectors, which can be stored and searched in a vector database - which is the foundation of RAG.
+Embedding models are specific types of models that turn text into vectors, which can be stored and searched in a vector database—the foundation of Retrieval Augmented Generation (RAG).
 
-<Callout type="info" emoji="️💡">
-  **Tip:**
-
-    Embedding models are set system-wide and cannot be configured atomically per-workspace like LLMs can.
-
+<Callout type="info" emoji="💡">
+  **Tip:** Embedding models are set system-wide and cannot be configured per workspace like LLMs can.
 </Callout>
 
 ## Supported Embedding Model Providers
 
-<Callout type="warning" emoji="️⚠️">
+<Callout type="warning" emoji="⚠️">
   **HEADS UP!**
-
-    Once you select your embedding model provider and begin uploading and embedding documents it is best to not change it.
-
-    While you can change embedders, doing so will mean you will have to delete your uploaded documents and re-embed them so the new embedder can re-embed them.
-
+  <br/>
+  Once you select your embedding model provider and begin uploading and embedding documents it is best to not change it.
+  <br/><br/>
+  While you *can* change embedders, doing so means you must delete your uploaded documents and re-embed them with the new provider.
 </Callout>
 
-RealTimeX supports many embedding model providers out of the box with very little, if any setup.
-
-You can modify your embedding provider and model at any time in RealTimeX. However doing so can result in broken queries and needing to re-embed uploaded and stored documents.
+RealTimeX supports many embedding model providers out of the box, often with zero configuration.  
+You can change your embedding provider and model at any time—but doing so can result in broken queries and will require you to re-embed all uploaded/stored documents.
 
 ### Local Embedding Model Providers
 
-<Cards>
-  <Card title="Built-in (default)" href="local/built-in"> 
-    <Image
-      src="/images/realtimex-setup/embedder-configuration/local/built-in/header-image.png" 
-      height={1080} 
-      width={1920} 
-      quality={100}
+<div style={{
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))",
+  gap: "1rem",
+  margin: "1.2rem 0"
+}}>
+  <FeatureCard title="Built-in (default)" href="local/built-in">
+    <img
+      src="/images/ai-providers/realtimex.png"
       alt="RealTimeX Built-in (default)"
+      height={38}
+      style={{
+        display: "block",
+        marginBottom: 8,
+        maxHeight: 38,
+        width: "auto",
+        maxWidth: 80,
+        objectFit: "contain"
+      }}
     />
-  </Card>
-
-<Card title="Ollama" href="local/ollama">
-  <Image
-    src="/images/realtimex-setup/embedder-configuration/local/ollama/header-image.png"
-    height={1080}
-    width={1920}
-    quality={100}
-    alt="Ollama"
-  />
-</Card>
-
-<Card title="LM Studio" href="local/lmstudio">
-  <Image
-    src="/images/realtimex-setup/embedder-configuration/local/lmstudio/header-image.png"
-    height={1080}
-    width={1920}
-    quality={100}
-    alt="LM Studio"
-  />
-</Card>
-
-  <Card title="Local AI" href="local/localai"> 
-    <Image
-      src="/images/realtimex-setup/embedder-configuration/local/localai/header-image.png" 
-      height={1080} 
-      width={1920} 
-      quality={100}
+    <div>Private, high-performance embedding engine—no setup needed.</div>
+  </FeatureCard>
+  <FeatureCard title="Ollama" href="local/ollama">
+    <img
+      src="/images/ai-providers/ollama.svg"
+      alt="Ollama"
+      height={38}
+      style={{
+        display: "block",
+        marginBottom: 8,
+        maxHeight: 38,
+        width: "auto",
+        maxWidth: 80,
+        objectFit: "contain"
+      }}
+    />
+    <div>Run local, open-source embedding models.</div>
+  </FeatureCard>
+  <FeatureCard title="LM Studio" href="local/lmstudio">
+    <img
+      src="/images/ai-providers/lmstudio.svg"
+      alt="LM Studio"
+      height={38}
+      style={{
+        display: "block",
+        marginBottom: 8,
+        maxHeight: 38,
+        width: "auto",
+        maxWidth: 80,
+        objectFit: "contain"
+      }}
+    />
+    <div>Easy desktop app for running embedding models locally.</div>
+  </FeatureCard>
+  <FeatureCard title="Local AI" href="local/localai">
+    <img
+      src="/images/ai-providers/localai.png"
       alt="Local AI"
+      height={38}
+      style={{
+        display: "block",
+        marginBottom: 8,
+        maxHeight: 38,
+        width: "auto",
+        maxWidth: 80,
+        objectFit: "contain"
+      }}
     />
-  </Card> 
-</Cards>
+    <div>Flexible, open-source backend for local embedding inference.</div>
+  </FeatureCard>
+</div>
 
-### Cloud Model Providers
+### Cloud Embedding Model Providers
 
-<Cards>
-  <Card title="OpenAI" href="cloud/openai"> 
-    <Image
-      src="/images/realtimex-setup/embedder-configuration/cloud/openai/header-image.png" 
-      height={1080} 
-      width={1920} 
-      quality={100}
+<div style={{
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))",
+  gap: "1rem",
+  margin: "1.2rem 0"
+}}>
+  <FeatureCard title="OpenAI" href="cloud/openai">
+    <img
+      src="/images/ai-providers/openai.svg"
       alt="OpenAI"
+      height={38}
+      style={{
+        display: "block",
+        marginBottom: 8,
+        maxHeight: 38,
+        width: "auto",
+        maxWidth: 80,
+        objectFit: "contain"
+      }}
     />
-  </Card>
-
-<Card title="Azure OpenAI" href="cloud/azure-openai">
-  <Image
-    src="/images/realtimex-setup/embedder-configuration/cloud/azure-openai/header-image.png"
-    height={1080}
-    width={1920}
-    quality={100}
-    alt="Azure OpenAI"
-  />
-</Card>
-
-  <Card title="Cohere" href="cloud/cohere"> 
-    <Image
-      src="/images/realtimex-setup/embedder-configuration/cloud/cohere/header-image.png" 
-      height={1080} 
-      width={1920} 
-      quality={100}
+    <div>Industry-standard cloud embeddings (Ada, Babbage, etc).</div>
+  </FeatureCard>
+  <FeatureCard title="Azure OpenAI" href="cloud/azure-openai">
+    <img
+      src="/images/ai-providers/azure.svg"
+      alt="Azure OpenAI"
+      height={38}
+      style={{
+        display: "block",
+        marginBottom: 8,
+        maxHeight: 38,
+        width: "auto",
+        maxWidth: 80,
+        objectFit: "contain"
+      }}
+    />
+    <div>Enterprise-grade embedding via Azure’s managed OpenAI service.</div>
+  </FeatureCard>
+  <FeatureCard title="Cohere" href="cloud/cohere">
+    <img
+      src="/images/ai-providers/cohere-color.svg"
       alt="Cohere"
+      height={38}
+      style={{
+        display: "block",
+        marginBottom: 8,
+        maxHeight: 38,
+        width: "auto",
+        maxWidth: 80,
+        objectFit: "contain"
+      }}
     />
-  </Card>  
-</Cards>
-
-export const Card = Object.assign(
-  // Copy card component and add default props
-  Cards.Card.bind(),
-  {
-    displayName: "Card",
-    defaultProps: {
-      image: true,
-      arrow: true,
-      target: "_self",
-    },
-  }
-);
-
-<style global jsx>{`
-  img {
-    aspect-ratio: 16/9;
-    object-fit: cover;
-  }
-`}</style>
+    <div>Advanced multilingual and domain-specific embeddings.</div>
+  </FeatureCard>
+</div>
