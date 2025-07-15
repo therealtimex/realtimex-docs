@@ -4,89 +4,101 @@ description: "Support for RealTimeX"
 ---
 
 import { Callout, Cards } from "nextra/components";
-import Image from "next/image";
-
-<Image
-  src="/images/getting-started/support/header-image.png"
-  height={1080}
-  width={1920}
-  quality={100}
-  alt="RealTimeX Support"
-/>
+import { FeatureCard } from "../components/FeatureCard";
+import {
+  Github,
+  BookOpen,
+  MessageCircle,
+  Youtube,
+  Linkedin,
+  Facebook,
+  Twitter
+} from "lucide-react";
 
 ### Need a hand? No problem! You can get help in three different ways.
 
 #### 1. GitHub Issues:
 
-Feel free to open an issue on the RealTimeX [GitHub Repository](https://github.com/Mintplex-Labs/anything-llm/issues). Both the RealTimeX, Inc Team and the RealTimeX Community are there to offer support.
+Feel free to open an issue on the RealTimeX [GitHub Repository](https://github.com/therealtimex/realtimex/issues). Both the RealTimeX, Inc Team and the RealTimeX Community are there to offer support.
 
-#### 2. Email the RealTimeX, Inc Team:
+#### 2. Chat with the RealTimeX, Inc Team:
 
-Send an email outlining your issue to Team@MintplexLabs.com. Be sure to provide a clear description of the problem you're facing.
+Chat with us at https://realtimex.ai
 
 #### 3. Discord Community:
 
-Join RealTimeX, Inc Discord [Community Server](https://discord.gg/Dh4zSZCdsC) and post your support queries on the server to get help from the community.
+Join RealTimeX, Inc Discord [Community Server](https://discord.gg/cVPdVGqy) and post your support queries on the server to get help from the community.
 
 <Callout type="warning" emoji="⚠️">
   **NOTE**
 
     The RealTimeX, Inc Team is less active on Discord.
 
-    For direct assistance from the team, consider opening an issue on [github](https://github.com/Mintplex-Labs/anything-llm/issues) or sending an email to the provided address.
+    For direct assistance from the team, consider opening an issue on [github](https://github.com/therealtimex/realtimex/issues) or sending an email to the provided address.
 
 </Callout>
 
 ## Quick Links
 
-<Cards>
-  <Card title="Github Issues" href="https://github.com/Mintplex-Labs/anything-llm/issues"> 
-    <Image
-      src="/images/getting-started/support/github.png" 
-      height={1080} 
-      width={1920} 
-      quality={100}
-      alt="RealTimeX Github Issues"
-    />
-  </Card>
+<div style={{
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+  gap: "1.2rem",
+  margin: "2rem 0"
+}}>
+  <FeatureCard
+    title="RealTimeX Github"
+    href="https://github.com/therealtimex/realtimex/issues"
+    icon={<Github size={36} color="#226cff" />}
+  >
+    Report issues or contribute code for RealTimeX.
+  </FeatureCard>
 
-<Card title="Email" href="mailto:team@mintplexlabs.com">
-  <Image
-    src="/images/getting-started/support/email.png"
-    height={1080}
-    width={1920}
-    quality={100}
-    alt="RealTimeX Email"
-  />
-</Card>
+  <FeatureCard
+    title="Docs Github"
+    href="https://github.com/therealtimex/RealTimeX-docs/issues"
+    icon={<BookOpen size={36} color="#0da37f" />}
+  >
+    Help improve RealTimeX documentation.
+  </FeatureCard>
 
-  <Card title="Discord Community Invite" href="https://discord.gg/Dh4zSZCdsC"> 
-    <Image
-      src="/images/getting-started/support/discord.png" 
-      height={1080} 
-      width={1920}
-      quality={100} 
-      alt="RealTimeX Discord Community"
-    />
-  </Card>
-</Cards>
+  <FeatureCard
+    title="Discord Community"
+    href="https://discord.gg/cVPdVGqy"
+    icon={<MessageCircle size={36} color="#ad4ae6" />}
+  >
+    Join our Discord to chat, get support, and connect.
+  </FeatureCard>
 
-export const Card = Object.assign(
-  // Copy card component and add default props
-  Cards.Card.bind(),
-  {
-    displayName: "Card",
-    defaultProps: {
-      image: true,
-      arrow: true,
-      target: "_self",
-    },
-  }
-);
+  <FeatureCard
+    title="YouTube Channel"
+    href="https://www.youtube.com/@realtimexai"
+    icon={<Youtube size={36} color="#ef2e2e" />}
+  >
+    Subscribe for video tutorials and news.
+  </FeatureCard>
 
-<style global jsx>{`
-  img {
-    aspect-ratio: 16/9;
-    object-fit: cover;
-  }
-`}</style>
+  <FeatureCard
+    title="X (Twitter)"
+    href="https://x.com/RealTimeXai"
+    icon={<Twitter size={36} color="#222" />}
+  >
+    Follow us for the latest updates on X.
+  </FeatureCard>
+
+  <FeatureCard
+    title="LinkedIn"
+    href="https://www.linkedin.com/company/107824138/"
+    icon={<Linkedin size={36} color="#0a66c2" />}
+  >
+    Connect professionally on LinkedIn.
+  </FeatureCard>
+
+  <FeatureCard
+    title="Facebook"
+    href="https://www.facebook.com/realtimexai/"
+    icon={<Facebook size={36} color="#1877f3" />}
+  >
+    Like and follow us on Facebook.
+  </FeatureCard>
+</div>
