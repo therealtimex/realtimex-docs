@@ -3,245 +3,323 @@ title: "Overview"
 description: "Large language models are AI systems capable of understanding and generating human language by processing vast amounts of text data."
 ---
 
-import { Cards, Callout } from "nextra/components";
-
-<Image
-  src="/images/realtimex-setup/llm-configuration/header-image.png"
-  height={1080}
-  width={1920}
-  quality={100}
-  alt="LLM Configuration"
-/>
+import { FeatureCard } from "@/components/FeatureCard";
+import { Callout } from "nextra/components";
 
 # Large Language Models
 
-<Callout type="info" emoji="️💡">
-  **Tip:** Models that are multi-modal (text-to-text & image-to-text) are
-  supported for System & Workspace models.
+<Callout type="info" emoji="💡">
+  **Tip:** Multi-modal models (text-to-text & image-to-text) are supported for both System and Workspace LLMs.
 </Callout>
 
-Large language models are AI systems capable of understanding and generating human language by processing vast amounts of text data.
+Large language models (LLMs) are advanced AI systems that understand and generate human language by processing vast amounts of data.  
+RealTimeX gives you the flexibility to mix and match LLMs—local or cloud, general-purpose or specialized—to fit every workflow.
 
 ## Types of LLMs in RealTimeX
 
-RealTimeX allows you to get as specific or general as you want with your LLM selection. You can even have multiple LLMs configured at the same time all in the same application!
-
 ### System LLM
-
-This is the default LLM RealTimeX will interface with. This is the LLM configuration that will be used when a workspace or agent-specific agent LLM has not been defined.
+The default LLM RealTimeX will use for all workspaces and agents unless a more specific LLM is configured.
 
 ### Workspace LLM
-
-RealTimeX allows you to set workspace-specific LLMs, this will override the system LLM **but only when chatting with the specific workspace**. This allows you to have many workspaces that each have their own provider, model, or both!
+Assign workspace-specific LLMs to override the system LLM for individual teams or projects. This allows each workspace to use its own provider and model.
 
 ### Agent LLM
-
-RealTimeX supports AI-agents. When it comes to agents, not all LLMs were created equal. Some LLMs directly support tool calling for better ai-agent functionality. The model is the model that is explicitly used for use with agents.
+RealTimeX supports agent-specific LLMs. Some models are better for tool calling or agent orchestration.  
+Assign dedicated models for AI agents where advanced features or reliability is critical.
 
 ## Supported LLM Providers
 
-RealTimeX supports many LLMs out of the box with very little, if any setup.
-
-The LLM is the foundational integration that will determine how your workspace or agents respond to your questions and prompts.
-
-You can modify your LLM provider, model, or any other details at any time in RealTimeX with no worry.
-
-We allow you to connect to both local and cloud-based LLMs - even at the same time!
+You can switch your provider, model, or configuration at any time with no downtime.  
+Connect to both local and cloud LLMs simultaneously—even mix and match as you go!
 
 ### Local Language Model Providers
 
-<Cards>
-  <Card title="Built-in (default)" href="local/built-in"> 
-    <Image
-      src="/images/realtimex-setup/llm-configuration/local/built-in/header-image.png" 
-      height={1080} 
-      width={1920} 
-      quality={100}
-      alt="RealTimeX Built-in (default)"
+<div style={{
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))",
+  gap: "1rem",
+  margin: "1.2rem 0"
+}}>
+  <FeatureCard title="Built-in (default)" href="./setup/llm-configuration/local/built-in">
+    <img
+      src="/images/ai-providers/realtimex.png"
+      alt="RealTimeX Built-in"
+      height={38}
+      style={{
+        display: "block",
+        marginBottom: 8,
+        maxHeight: 38,
+        width: "auto",
+        maxWidth: 80,
+        objectFit: "contain"
+      }}
     />
-  </Card>
-
-<Card title="Ollama" href="local/ollama">
-  <Image
-    src="/images/realtimex-setup/llm-configuration/local/ollama/header-image.png"
-    height={1080}
-    width={1920}
-    quality={100}
-    alt="Ollama"
-  />
-</Card>
-
-<Card title="LM Studio" href="local/lmstudio">
-  <Image
-    src="/images/realtimex-setup/llm-configuration/local/lmstudio/header-image.png"
-    height={1080}
-    width={1920}
-    quality={100}
-    alt="LM Studio"
-  />
-</Card>
-
-<Card title="Local AI" href="local/localai">
-  <Image
-    src="/images/realtimex-setup/llm-configuration/local/localai/header-image.png"
-    height={1080}
-    width={1920}
-    quality={100}
-    alt="Local AI"
-  />
-</Card>
-
-  <Card title="KobaldCPP" href="local/kobaldcpp"> 
-    <Image
-      src="/images/realtimex-setup/llm-configuration/local/kobaldcpp/header-image.png" 
-      height={1080} 
-      width={1920} 
-      quality={100}
-      alt="KobaldCPP"
+    <div>Default, private, high-performance LLM engine—no setup needed.</div>
+  </FeatureCard>
+  <FeatureCard title="Ollama" href="./setup/llm-configuration/local/ollama">
+    <img
+      src="/images/ai-providers/ollama.svg"
+      alt="Ollama"
+      height={38}
+      style={{
+        display: "block",
+        marginBottom: 8,
+        maxHeight: 38,
+        width: "auto",
+        maxWidth: 80,
+        objectFit: "contain"
+      }}
     />
-  </Card> 
-</Cards>
+    <div>Modern local LLM runner, supporting a wide range of open models.</div>
+  </FeatureCard>
+  <FeatureCard title="LM Studio" href="./setup/llm-configuration/local/lmstudio">
+    <img
+      src="/images/ai-providers/lmstudio.svg"
+      alt="LM Studio"
+      height={38}
+      style={{
+        display: "block",
+        marginBottom: 8,
+        maxHeight: 38,
+        width: "auto",
+        maxWidth: 80,
+        objectFit: "contain"
+      }}
+    />
+    <div>Easy desktop app for local LLM inference and management.</div>
+  </FeatureCard>
+  <FeatureCard title="Local AI" href="./setup/llm-configuration/local/localai">
+    <img
+      src="/images/ai-providers/localai.png"
+      alt="Local AI"
+      height={38}
+      style={{
+        display: "block",
+        marginBottom: 8,
+        maxHeight: 38,
+        width: "auto",
+        maxWidth: 80,
+        objectFit: "contain"
+      }}
+    />
+    <div>Open source, extensible local inference backend for LLMs.</div>
+  </FeatureCard>
+  <FeatureCard title="KoboldCPP" href="./setup/llm-configuration/local/kobaldcpp">
+    <img
+      src="/images/ai-providers/koboldcpp.png"
+      alt="KoboldCPP"
+      height={38}
+      style={{
+        display: "block",
+        marginBottom: 8,
+        maxHeight: 38,
+        width: "auto",
+        maxWidth: 80,
+        objectFit: "contain"
+      }}
+    />
+    <div>Run GGUF models on your own hardware, locally.</div>
+  </FeatureCard>
+</div>
 
 ### Cloud Language Model Providers
 
-<Cards>
-  <Card title="OpenAI" href="cloud/openai"> 
-    <Image
-      src="/images/realtimex-setup/llm-configuration/cloud/openai/header-image.png" 
-      height={1080} 
-      width={1920} 
-      quality={100}
+<div style={{
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))",
+  gap: "1rem",
+  margin: "1.2rem 0"
+}}>
+  <FeatureCard title="OpenAI" href="./setup/llm-configuration/cloud/openai">
+    <img
+      src="/images/ai-providers/openai.svg"
       alt="OpenAI"
+      height={38}
+      style={{
+        display: "block",
+        marginBottom: 8,
+        maxHeight: 38,
+        width: "auto",
+        maxWidth: 80,
+        objectFit: "contain"
+      }}
     />
-  </Card>
-
-<Card title="Azure OpenAI" href="cloud/azure-openai">
-  <Image
-    src="/images/realtimex-setup/llm-configuration/cloud/azure-openai/header-image.png"
-    height={1080}
-    width={1920}
-    quality={100}
-    alt="Azure OpenAI"
-  />
-</Card>
-
-<Card title="Anthropic" href="cloud/anthropic">
-  <Image
-    src="/images/realtimex-setup/llm-configuration/cloud/anthropic/header-image.png"
-    height={1080}
-    width={1920}
-    quality={100}
-    alt="Anthropic"
-  />
-</Card>
-
-<Card title="Cohere" href="cloud/cohere">
-  <Image
-    src="/images/realtimex-setup/llm-configuration/cloud/cohere/header-image.png"
-    height={1080}
-    width={1920}
-    quality={100}
-    alt="Cohere"
-  />
-</Card>
-
-<Card title="Google Gemini Pro" href="cloud/google-gemini">
-  <Image
-    src="/images/realtimex-setup/llm-configuration/cloud/google-gemini/header-image.png"
-    height={1080}
-    width={1920}
-    quality={100}
-    alt="Google Gemini Pro"
-  />
-</Card>
-
-<Card title="Hugging Face" href="cloud/huggingface">
-  <Image
-    src="/images/realtimex-setup/llm-configuration/cloud/hugging-face/header-image.png"
-    height={1080}
-    width={1920}
-    quality={100}
-    alt="Hugging Face"
-  />
-</Card>
-
-<Card title="Together AI" href="cloud/together-ai">
-  <Image
-    src="/images/realtimex-setup/llm-configuration/cloud/together-ai/header-image.png"
-    height={1080}
-    width={1920}
-    quality={100}
-    alt="Together AI"
-  />
-</Card>
-
-<Card title="OpenRouter" href="cloud/openrouter">
-  <Image
-    src="/images/realtimex-setup/llm-configuration/cloud/openrouter/header-image.png"
-    height={1080}
-    width={1920}
-    quality={100}
-    alt="OpenRouter"
-  />
-</Card>
-
-<Card title="Perplexity AI" href="cloud/perplexity-ai">
-  <Image
-    src="/images/realtimex-setup/llm-configuration/cloud/perplexity-ai/header-image.png"
-    height={1080}
-    width={1920}
-    quality={100}
-    alt="Perplexity AI"
-  />
-</Card>
-
-<Card title="Mistral API" href="cloud/mistral-ai">
-  <Image
-    src="/images/realtimex-setup/llm-configuration/cloud/mistral-ai/header-image.png"
-    height={1080}
-    width={1920}
-    quality={100}
-    alt="Mistral API"
-  />
-</Card>
-
-<Card title="Groq" href="cloud.groq">
-  <Image
-    src="/images/realtimex-setup/llm-configuration/cloud/groq/header-image.png"
-    height={1080}
-    width={1920}
-    quality={100}
-    alt="Groq"
-  />
-</Card>
-
-  <Card title="OpenAI (generic)" href="cloud/openai-generic"> 
-    <Image
-      src="/images/realtimex-setup/llm-configuration/cloud/openai-generic/header-image.png" 
-      height={1080} 
-      width={1920} 
-      quality={100}
+    <div>GPT-4o, GPT-4, GPT-3.5, and more—state-of-the-art performance.</div>
+  </FeatureCard>
+  <FeatureCard title="Azure OpenAI" href="./setup/llm-configuration/cloud/azure-openai">
+    <img
+      src="/images/ai-providers/azure.svg"
+      alt="Azure OpenAI"
+      height={38}
+      style={{
+        display: "block",
+        marginBottom: 8,
+        maxHeight: 38,
+        width: "auto",
+        maxWidth: 80,
+        objectFit: "contain"
+      }}
+    />
+    <div>Enterprise-grade LLMs managed by Microsoft Azure.</div>
+  </FeatureCard>
+  <FeatureCard title="Anthropic" href="./setup/llm-configuration/cloud/anthropic">
+    <img
+      src="/images/ai-providers/anthropic.svg"
+      alt="Anthropic"
+      height={38}
+      style={{
+        display: "block",
+        marginBottom: 8,
+        maxHeight: 38,
+        width: "auto",
+        maxWidth: 80,
+        objectFit: "contain"
+      }}
+    />
+    <div>Claude 3, Opus, and the full Anthropic model family.</div>
+  </FeatureCard>
+  <FeatureCard title="Cohere" href="./setup/llm-configuration/cloud/cohere">
+    <img
+      src="/images/ai-providers/cohere-color.svg"
+      alt="Cohere"
+      height={38}
+      style={{
+        display: "block",
+        marginBottom: 8,
+        maxHeight: 38,
+        width: "auto",
+        maxWidth: 80,
+        objectFit: "contain"
+      }}
+    />
+    <div>Enterprise language and embedding models.</div>
+  </FeatureCard>
+  <FeatureCard title="Google Gemini Pro" href="./setup/llm-configuration/cloud/google-gemini">
+    <img
+      src="/images/ai-providers/gemini-color.svg"
+      alt="Gemini"
+      height={38}
+      style={{
+        display: "block",
+        marginBottom: 8,
+        maxHeight: 38,
+        width: "auto",
+        maxWidth: 80,
+        objectFit: "contain"
+      }}
+    />
+    <div>Google’s latest multi-modal LLM (Gemini series).</div>
+  </FeatureCard>
+  <FeatureCard title="Hugging Face" href="./setup/llm-configuration/cloud/huggingface">
+    <img
+      src="/images/ai-providers/huggingface-color.svg"
+      alt="Hugging Face"
+      height={38}
+      style={{
+        display: "block",
+        marginBottom: 8,
+        maxHeight: 38,
+        width: "auto",
+        maxWidth: 80,
+        objectFit: "contain"
+      }}
+    />
+    <div>Access any model from the Hugging Face Hub.</div>
+  </FeatureCard>
+  <FeatureCard title="Together AI" href="./setup/llm-configuration/cloud/together-ai">
+    <img
+      src="/images/ai-providers/together-color.svg"
+      alt="Together AI"
+      height={38}
+      style={{
+        display: "block",
+        marginBottom: 8,
+        maxHeight: 38,
+        width: "auto",
+        maxWidth: 80,
+        objectFit: "contain"
+      }}
+    />
+    <div>Fast, multi-model LLM provider with open APIs.</div>
+  </FeatureCard>
+  <FeatureCard title="OpenRouter" href="/setup/llm-configuration/cloud/openrouter">
+    <img
+      src="/images/ai-providers/openrouter.svg"
+      alt="OpenRouter"
+      height={38}
+      style={{
+        display: "block",
+        marginBottom: 8,
+        maxHeight: 38,
+        width: "auto",
+        maxWidth: 80,
+        objectFit: "contain"
+      }}
+    />
+    <div>Unified API for many top LLMs.</div>
+  </FeatureCard>
+  <FeatureCard title="Perplexity AI" href="./setup/llm-configuration/cloud/perplexity-ai">
+    <img
+      src="/images/ai-providers/perplexity.svg"
+      alt="Perplexity AI"
+      height={38}
+      style={{
+        display: "block",
+        marginBottom: 8,
+        maxHeight: 38,
+        width: "auto",
+        maxWidth: 80,
+        objectFit: "contain"
+      }}
+    />
+    <div>Conversational search and generative AI.</div>
+  </FeatureCard>
+  <FeatureCard title="Mistral API" href="./setup/llm-configuration/cloud/mistral-ai">
+    <img
+      src="/images/ai-providers/mistral-color.svg"
+      alt="Mistral API"
+      height={38}
+      style={{
+        display: "block",
+        marginBottom: 8,
+        maxHeight: 38,
+        width: "auto",
+        maxWidth: 80,
+        objectFit: "contain"
+      }}
+    />
+    <div>Fast, powerful open models (Mistral, Mixtral, etc).</div>
+  </FeatureCard>
+  <FeatureCard title="Groq" href="./setup/llm-configuration/cloud/groq">
+    <img
+      src="/images/ai-providers/groq.svg"
+      alt="Groq"
+      height={38}
+      style={{
+        display: "block",
+        marginBottom: 8,
+        maxHeight: 38,
+        width: "auto",
+        maxWidth: 80,
+        objectFit: "contain"
+      }}
+    />
+    <div>Ultra-fast inference for popular LLMs.</div>
+  </FeatureCard>
+  <FeatureCard title="OpenAI (generic)" href="./setup/llm-configuration/cloud/openai-generic">
+    <img
+      src="/images/ai-providers/openai.svg"
       alt="OpenAI (generic)"
+      height={38}
+      style={{
+        display: "block",
+        marginBottom: 8,
+        maxHeight: 38,
+        width: "auto",
+        maxWidth: 80,
+        objectFit: "contain"
+      }}
     />
-  </Card>
-</Cards>
-
-export const Card = Object.assign(
-  // Copy card component and add default props
-  Cards.Card.bind(),
-  {
-    displayName: "Card",
-    defaultProps: {
-      image: true,
-      arrow: true,
-      target: "_self",
-    },
-  }
-);
-
-<style global jsx>{`
-  img {
-    aspect-ratio: 16/9;
-    object-fit: cover;
-  }
-`}</style>
+    <div>Generic OpenAI-compatible API for custom setups.</div>
+  </FeatureCard>
+</div>
