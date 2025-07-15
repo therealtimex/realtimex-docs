@@ -89,25 +89,28 @@ const config: DocsThemeConfig = {
       </>
     )
   },
-  logo: (
-    <>
-      <img
-        src="/images/logo.png"
-        alt="RealTimeX Docs Logo"
-        style={{
-        display: 'inline-block',
-        height: '100%',
-        maxHeight: '32px',
-        width: 'auto',
-        objectFit: 'contain',
-        verticalAlign: 'middle'
-      }}
-      />
-      <span style={{ marginLeft: '.7em', fontWeight: 700 }}>
-        RealTimeX Docs
-      </span>
-    </>
-  ),
+  logo: function useLogo() {
+    const { basePath } = useRouter();
+    return (
+      <>
+        <img
+          src={`${basePath}/images/logo.png`}
+          alt="RealTimeX Docs Logo"
+          style={{
+            display: 'inline-block',
+            height: '100%',
+            maxHeight: '32px',
+            width: 'auto',
+            objectFit: 'contain',
+            verticalAlign: 'middle',
+          }}
+        />
+        <span style={{ marginLeft: '.7em', fontWeight: 700 }}>
+          RealTimeX Docs
+        </span>
+      </>
+    );
+  },
   banner: {
     dismissible: true,
     key: `${newRelease}-release`, // Storage key to keep the banner state (dismissed or not). If you have updated your banner text, you should change the key to make sure the banner is shown again.

@@ -28,7 +28,7 @@ export function FeatureCard({
 
   return (
     <a
-      href={href.startsWith('http') ? href : `${basePath}${href}`}
+      href={href.startsWith('http') ? href : `${basePath}/${href}`}
       style={{
         display: 'block',
         padding: '1.5rem',
