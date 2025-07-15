@@ -1,8 +1,8 @@
-import React from 'react'
-import { DocsThemeConfig, useConfig } from 'nextra-theme-docs'
-import { useRouter } from 'next/router'
-import _meta from './pages/changelog/_meta.json'
-// Get the latest release version from the changelog meta file
+import React from 'react';
+import { DocsThemeConfig, useConfig } from 'nextra-theme-docs';
+import { useRouter } from 'next/router';
+import _meta from './pages/changelog/_meta.json';
+
 const newRelease = Object.keys(_meta)
   .filter((version) => !version.endsWith('.pre') && !version.includes('rc'))
   .reduce((a, b) =>
@@ -13,10 +13,12 @@ const newRelease = Object.keys(_meta)
 
 import CustomImage from './components/CustomImage';
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
 const config: DocsThemeConfig = {
   components: { img: CustomImage, Image: CustomImage },
   project: {
-    link: 'https://x.com/RealTimeXai', // Link for the Twitter icon on top nav bar
+    link: 'https://x.com/RealTimeXai',
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -29,9 +31,9 @@ const config: DocsThemeConfig = {
     )
   },
   chat: {
-    link: 'https://discord.gg/cVPdVGqy', // Link for discord icon on top nav bar
+    link: 'https://discord.gg/cVPdVGqy',
   },
-  docsRepositoryBase: 'https://github.com/therealtimex/RealTimeX-docs/tree/main', // Repo link for the 'Edit this page'
+  docsRepositoryBase: 'https://github.com/therealtimex/RealTimeX-docs/tree/main',
   footer: {
     text: (
       <span>
@@ -45,13 +47,13 @@ const config: DocsThemeConfig = {
   },
   useNextSeoProps() {
     return {
-      titleTemplate: '%s ~ RealTimeX' // This is the text shown on the tab name, %s will show the title of current page
+      titleTemplate: '%s ~ RealTimeX'
     }
   },
   sidebar: {
-    defaultMenuCollapseLevel: 1, // Change this number to control the default collapse level
-    autoCollapse: true, // If true, automatically collapse inactive folders above defaultMenuCollapseLevel.
-    toggleButton: true, // Hide/show sidebar toggle button. Defaults to `false`.
+    defaultMenuCollapseLevel: 1,
+    autoCollapse: true,
+    toggleButton: true,
   },
   toc: {
     backToTop: true,
@@ -60,12 +62,12 @@ const config: DocsThemeConfig = {
     content: null,
   },
   head: function useHead() {
-    const { title } = useConfig()
-    const { route } = useRouter()
+    const { title } = useConfig();
+    const { route } = useRouter();
     const socialCard =
       route === '/' || !title
         ? 'https://docs.realtimex.ai/images/og.png'
-        : `https://docs.realtimex.ai/api/og?title=${title}`
+        : `https://docs.realtimex.ai/api/og?title=${title}`;
 
     return (
       <>
@@ -85,35 +87,32 @@ const config: DocsThemeConfig = {
         <meta name="og:title" content={title ? title + ' – RealTimeX Docs' : 'RealTimeX Docs'} />
         <meta name="og:image" content={socialCard} />
         <meta name="apple-mobile-web-app-title" content="RealTimeX Docs" />
-        <link rel="icon" href="/favicon.png" type="image/png" />
-      </>
-    )
-  },
-  logo: function useLogo() {
-    const { basePath } = useRouter();
-    return (
-      <>
-        <img
-          src={`${basePath}/images/logo.png`}
-          alt="RealTimeX Docs Logo"
-          style={{
-            display: 'inline-block',
-            height: '100%',
-            maxHeight: '32px',
-            width: 'auto',
-            objectFit: 'contain',
-            verticalAlign: 'middle',
-          }}
-        />
-        <span style={{ marginLeft: '.7em', fontWeight: 700 }}>
-          RealTimeX Docs
-        </span>
+        <link rel="icon" href={`${basePath}/favicon.png`} type="image/png" />
       </>
     );
   },
+  logo: (
+    <>
+      <img
+        src={`${basePath}/images/logo.png`}
+        alt="RealTimeX Docs Logo"
+        style={{
+        display: 'inline-block',
+        height: '100%',
+        maxHeight: '32px',
+        width: 'auto',
+        objectFit: 'contain',
+        verticalAlign: 'middle'
+      }}
+      />
+      <span style={{ marginLeft: '.7em', fontWeight: 700 }}>
+        RealTimeX Docs
+      </span>
+    </>
+  ),
   banner: {
     dismissible: true,
-    key: `${newRelease}-release`, // Storage key to keep the banner state (dismissed or not). If you have updated your banner text, you should change the key to make sure the banner is shown again.
+    key: `${newRelease}-release`,
     text: (
       <a href="https://realtimex.ai/" target="_blank">
         🚀 RealTimeX {newRelease} is live! Update now →
@@ -122,4 +121,4 @@ const config: DocsThemeConfig = {
   }
 }
 
-export default config
+export default config;
