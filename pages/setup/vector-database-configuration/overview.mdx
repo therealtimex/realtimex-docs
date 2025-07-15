@@ -1,140 +1,186 @@
 ---
 title: "Vector Databases"
-description: "Your vector database is set system-wide and cannot be configured atomically per-workspace like LLMs can.."
+description: "Your vector database is set system-wide and cannot be configured atomically per-workspace like LLMs can."
 ---
 
-import { Cards, Callout } from "nextra/components";
-import Image from "next/image";
-
-<Image
-  src="/images/realtimex-setup/vector-database-configuration/header-image.png"
-  height={1080}
-  width={1920}
-  quality={100}
-  alt="RealTimeX Vector Databases"
-/>
+import { FeatureCard } from "@/components/FeatureCard";
+import { Callout } from "nextra/components";
 
 # Vector Databases
 
-Your vector database is set system-wide and cannot be configured atomically per-workspace like LLMs can.
+Your vector database is set system-wide and cannot be configured per workspace like LLMs can.
 
-<Callout type="error" emoji="️‼️">
-  **Caution!**
-
-    You should prevent "hopping" between vector databases. RealTimeX will not automatically port over your already embedded information.
-
-    You would need to delete and re-embed each document in every workspace to migrate to another vector database.
-
+<Callout type="error" emoji="‼️">
+  **Caution!**  
+  Avoid switching (“hopping”) between vector databases. RealTimeX does not automatically port your already embedded data.  
+  <br/><br/>
+  To migrate, you must delete and re-embed every document in all workspaces for the new vector database.
 </Callout>
 
-RealTimeX supports many vector databases providers out of the box.
+RealTimeX supports multiple vector database providers out of the box.
 
 ## Supported Vector Databases
 
-### Local Vector Databases Providers
+### Local Vector Database Providers
 
-<Cards>
-  <Card title="LanceDB (Built-in)" href="local/lancedb"> 
-    <Image
-      src="/images/features/vector-databases/lancedb.png" 
-      height={1080} 
-      width={1920} 
-      quality={100}
+<div style={{
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))",
+  gap: "1rem",
+  margin: "1.2rem 0"
+}}>
+  <FeatureCard title="LanceDB (Built-in)" href="./setup/vector-database-configuration/local/lancedb">
+    <img
+      src="/images/ai-providers/lancedb.png"
       alt="LanceDB"
+      height={38}
+      style={{
+        display: "block",
+        marginBottom: 8,
+        maxHeight: 38,
+        width: "auto",
+        maxWidth: 80,
+        objectFit: "contain"
+      }}
     />
-  </Card>
-
-<Card title="Chroma" href="local/chroma">
-  <Image
-    src="/images/features/vector-databases/chroma.png"
-    height={1080}
-    width={1920}
-    quality={100}
-    alt="Chroma"
-  />
-</Card>
-
-  <Card title="Milvus" href="local/milvus"> 
-    <Image
-      src="/images/features/vector-databases/milvus.png" 
-      height={1080} 
-      width={1920}
-      quality={100} 
+    <div>Fast, private, and built-in. No setup required for most users.</div>
+  </FeatureCard>
+  <FeatureCard title="Chroma" href="./setup/vector-database-configuration/local/chroma">
+    <img
+      src="/images/ai-providers/chroma.webp"
+      alt="Chroma"
+      height={38}
+      style={{
+        display: "block",
+        marginBottom: 8,
+        maxHeight: 38,
+        width: "auto",
+        maxWidth: 80,
+        objectFit: "contain"
+      }}
+    />
+    <div>Popular open-source vector DB for local use.</div>
+  </FeatureCard>
+  <FeatureCard title="Milvus" href="./setup/vector-database-configuration/local/milvus">
+    <img
+      src="/images/ai-providers/milvus.svg"
       alt="Milvus"
+      height={38}
+      style={{
+        display: "block",
+        marginBottom: 8,
+        maxHeight: 38,
+        width: "auto",
+        maxWidth: 80,
+        objectFit: "contain"
+      }}
     />
-  </Card>
-</Cards>
+    <div>Enterprise-grade vector database for scale and performance.</div>
+  </FeatureCard>
+  <FeatureCard title="PGVector" href="./setup/vector-database-configuration/local/pgvector">
+    <img
+      src="/images/ai-providers/pgvector.svg"
+      alt="PGVector"
+      height={38}
+      style={{
+        display: "block",
+        marginBottom: 8,
+        maxHeight: 38,
+        width: "auto",
+        maxWidth: 80,
+        objectFit: "contain"
+      }}
+    />
+    <div>PostgreSQL extension for vector search, works with your own Postgres database.</div>
+  </FeatureCard>
+</div>
 
-### Cloud Vector Databases Providers
+### Cloud Vector Database Providers
 
-<Cards>
-  <Card title="Pinecone" href="cloud/pinecone"> 
-    <Image
-      src="/images/features/vector-databases/pinecone.png" 
-      height={1080} 
-      width={1920} 
-      quality={100}
+<div style={{
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))",
+  gap: "1rem",
+  margin: "1.2rem 0"
+}}>
+  <FeatureCard title="Pinecone" href="./setup/vector-database-configuration/cloud/pinecone">
+    <img
+      src="/images/ai-providers/pinecone.svg"
       alt="Pinecone"
+      height={38}
+      style={{
+        display: "block",
+        marginBottom: 8,
+        maxHeight: 38,
+        width: "auto",
+        maxWidth: 280,
+        objectFit: "contain"
+      }}
     />
-  </Card>
-
-<Card title="Zilliz" href="cloud/zilliz">
-  <Image
-    src="/images/features/vector-databases/zilliz.png"
-    height={1080}
-    width={1920}
-    quality={100}
-    alt="Zilliz"
-  />
-</Card>
-
-<Card title="AstraDB" href="cloud/astradb">
-  <Image
-    src="/images/features/vector-databases/astra-db.png"
-    height={1080}
-    width={1920}
-    quality={100}
-    alt="AstraDB"
-  />
-</Card>
-
-<Card title="QDrant" href="cloud/qdrant">
-  <Image
-    src="/images/features/vector-databases/qdrant.png"
-    height={1080}
-    width={1920}
-    quality={100}
-    alt="QDrant"
-  />
-</Card>
-
-  <Card title="Weaviate" href="cloud/weaviate"> 
-    <Image
-      src="/images/features/vector-databases/weaviate.png" 
-      height={1080} 
-      width={1920} 
-      quality={100}
+    <div>Fully managed vector database for scale and reliability.</div>
+  </FeatureCard>
+  <FeatureCard title="Zilliz" href="./setup/vector-database-configuration/cloud/zilliz">
+    <img
+      src="/images/ai-providers/zilliz.svg"
+      alt="Zilliz"
+      height={38}
+      style={{
+        display: "block",
+        marginBottom: 8,
+        maxHeight: 38,
+        width: "auto",
+        maxWidth: 280,
+        objectFit: "contain"
+      }}
+    />
+    <div>Cloud-native vector DB, creator of Milvus.</div>
+  </FeatureCard>
+  <FeatureCard title="AstraDB" href="./setup/vector-database-configuration/cloud/astradb">
+    <img
+      src="/images/ai-providers/astradb.svg"
+      alt="AstraDB"
+      height={38}
+      style={{
+        display: "block",
+        marginBottom: 8,
+        maxHeight: 38,
+        width: "auto",
+        maxWidth: 180,
+        objectFit: "contain"
+      }}
+    />
+    <div>Highly available cloud vector DB from DataStax.</div>
+  </FeatureCard>
+  <FeatureCard title="QDrant" href="./setup/vector-database-configuration/cloud/qdrant">
+    <img
+      src="/images/ai-providers/qdrant.svg"
+      alt="QDrant"
+      height={38}
+      style={{
+        display: "block",
+        marginBottom: 8,
+        maxHeight: 38,
+        width: "auto",
+        maxWidth: 280,
+        objectFit: "contain"
+      }}
+    />
+    <div>Open-source vector DB available as a managed cloud service.</div>
+  </FeatureCard>
+  <FeatureCard title="Weaviate" href="./setup/vector-database-configuration/cloud/weaviate">
+    <img
+      src="/images/ai-providers/weaviate.svg"
       alt="Weaviate"
+      height={38}
+      style={{
+        display: "block",
+        marginBottom: 8,
+        maxHeight: 38,
+        width: "auto",
+        maxWidth: 280,
+        objectFit: "contain"
+      }}
     />
-  </Card>
-</Cards>
-
-export const Card = Object.assign(
-  // Copy card component and add default props
-  Cards.Card.bind(),
-  {
-    displayName: "Card",
-    defaultProps: {
-      image: true,
-      arrow: true,
-      target: "_self",
-    },
-  }
-);
-
-<style global jsx>{`
-  img {
-    aspect-ratio: 16/9;
-    object-fit: cover;
-  }
-`}</style>
+    <div>Flexible vector search engine for cloud-native AI.</div>
+  </FeatureCard>
+</div>
