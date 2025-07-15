@@ -1,133 +1,179 @@
 ---
 title: "Vector Databases"
-description: "RealTimeX allows you to use a host of LLM providers for chatting and generative AI."
+description: "RealTimeX supports a wide range of local and cloud vector database providers for AI applications."
 ---
 
-import { Cards } from "nextra/components";
-import Image from "next/image";
+import { FeatureCard } from "../../components/FeatureCard";
 
 # Vector Databases
 
-RealTimeX comes with a private built-in vector database powered by [LanceDB](https://lancedb.com/). Your vectors never leave RealTimeX when using the default option.
+RealTimeX comes with a private built-in vector database powered by [LanceDB](https://lancedb.com/).  
+Your vectors never leave RealTimeX when using the default option.
 
-RealTimeX supports many vector databases providers out of the box.
+RealTimeX supports many vector database providers out of the box.
 
 ## Supported Vector Databases
 
-### Local Vector Databases Providers
+### Local Vector Database Providers
 
-<Cards>
-  <Card title="LanceDB (Built-in)" href="https://github.com/lancedb/lancedb"> 
-    <Image
-      src="/images/features/vector-databases/lancedb.png" 
-      height={1080} 
-      width={1920} 
-      quality={100}
+<div style={{
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))",
+  gap: "1rem",
+  margin: "1.2rem 0"
+}}>
+  <FeatureCard title="LanceDB (Built-in)" href="https://github.com/lancedb/lancedb">
+    <img
+      src="/images/ai-providers/lancedb.png"
       alt="LanceDB"
+      height={38}
+      style={{
+        display: "block",
+        marginBottom: 8,
+        maxHeight: 38,
+        width: "auto",
+        maxWidth: 80,
+        objectFit: "contain"
+      }}
     />
-  </Card>
-
-<Card title="PGVector" href="https://github.com/Mintplex-Labs/anything-llm/blob/master/server/utils/vectorDbProviders/pgvector/SETUP.md"> 
-  <Image
-    src="/images/features/vector-databases/pgvector.png" 
-    height={1080} 
-    width={1920} 
-    quality={100}
-    alt="PGVector"
-  />
-</Card>
-
-<Card title="Chroma" href="https://github.com/chroma-core/chroma">
-  <Image
-    src="/images/features/vector-databases/chroma.png"
-    height={1080}
-    width={1920}
-    quality={100}
-    alt="Chroma"
-  />
-</Card>
-
-  <Card title="Milvus" href="https://github.com/milvus-io/milvus"> 
-    <Image
-      src="/images/features/vector-databases/milvus.png" 
-      height={1080} 
-      width={1920}
-      quality={100} 
+    <div>Private, high-performance built-in vector database.</div>
+  </FeatureCard>
+  <FeatureCard title="PGVector" href="https://github.com/pgvector/pgvector">
+    <img
+      src="/images/ai-providers/pgvector.svg"
+      alt="PGVector"
+      height={38}
+      style={{
+        display: "block",
+        marginBottom: 8,
+        maxHeight: 38,
+        width: "auto",
+        maxWidth: 80,
+        objectFit: "contain"
+      }}
+    />
+    <div>PostgreSQL extension for vector search.</div>
+  </FeatureCard>
+  <FeatureCard title="Chroma" href="https://github.com/chroma-core/chroma">
+    <img
+      src="/images/ai-providers/chroma.webp"
+      alt="Chroma"
+      height={38}
+      style={{
+        display: "block",
+        marginBottom: 8,
+        maxHeight: 38,
+        width: "auto",
+        maxWidth: 80,
+        objectFit: "contain"
+      }}
+    />
+    <div>Open-source embedding database.</div>
+  </FeatureCard>
+  <FeatureCard title="Milvus" href="https://milvus.io/">
+    <img
+      src="/images/ai-providers/milvus.svg"
       alt="Milvus"
+      height={38}
+      style={{
+        display: "block",
+        marginBottom: 8,
+        maxHeight: 38,
+        width: "auto",
+        maxWidth: 80,
+        objectFit: "contain"
+      }}
     />
-  </Card>
-</Cards>
+    <div>Scalable vector database for AI applications.</div>
+  </FeatureCard>
+</div>
 
-### Cloud Vector Databases Providers
+### Cloud Vector Database Providers
 
-<Cards>
-  <Card title="Pinecone" href="https://www.pinecone.io/"> 
-    <Image
-      src="/images/features/vector-databases/pinecone.png" 
-      height={1080} 
-      width={1920} 
-      quality={100}
+<div style={{
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))",
+  gap: "1rem",
+  margin: "1.2rem 0"
+}}>
+  <FeatureCard title="Pinecone" href="https://www.pinecone.io/">
+    <img
+      src="/images/ai-providers/pinecone.svg"
       alt="Pinecone"
+      height={38}
+      style={{
+        display: "block",
+        marginBottom: 8,
+        maxHeight: 38,
+        width: "auto",
+        maxWidth: 380,
+        objectFit: "contain"
+      }}
     />
-  </Card>
-
-<Card title="Zilliz" href="https://zilliz.com/">
-  <Image
-    src="/images/features/vector-databases/zilliz.png"
-    height={1080}
-    width={1920}
-    quality={100}
-    alt="Zilliz"
-  />
-</Card>
-
-<Card title="AstraDB" href="https://www.datastax.com/">
-  <Image
-    src="/images/features/vector-databases/astra-db.png"
-    height={1080}
-    width={1920}
-    quality={100}
-    alt="AstraDB"
-  />
-</Card>
-
-<Card title="QDrant" href="https://qdrant.tech/">
-  <Image
-    src="/images/features/vector-databases/qdrant.png"
-    height={1080}
-    width={1920}
-    quality={100}
-    alt="QDrant"
-  />
-</Card>
-
-<Card title="Weaviate" href="https://weaviate.io/"> 
-  <Image
-    src="/images/features/vector-databases/weaviate.png" 
-    height={1080} 
-    width={1920} 
-    quality={100}
-    alt="Weaviate"
-  />
-</Card>
-</Cards>
-
-export const Card = Object.assign(
-  // Copy card component and add default props
-  Cards.Card.bind(),
-  {
-    displayName: "Card",
-    defaultProps: {
-      image: true,
-      arrow: true,
-      target: "_self",
-    },
-  }
-);
-
-<style global jsx>{`
-  img {
-    aspect-ratio: 16/9;
-    object-fit: cover;
-  }
-`}</style>
+    <div>Managed, production-ready vector database.</div>
+  </FeatureCard>
+  <FeatureCard title="Zilliz" href="https://zilliz.com/">
+    <img
+      src="/images/ai-providers/zilliz.svg"
+      alt="Zilliz"
+      height={38}
+      style={{
+        display: "block",
+        marginBottom: 8,
+        maxHeight: 38,
+        width: "auto",
+        maxWidth: 280,
+        objectFit: "contain"
+      }}
+    />
+    <div>Cloud-native vector database by Milvus creators.</div>
+  </FeatureCard>
+  <FeatureCard title="AstraDB" href="https://www.datastax.com/products/datastax-astra">
+    <img
+      src="/images/ai-providers/astradb.svg"
+      alt="AstraDB"
+      height={38}
+      style={{
+        display: "block",
+        marginBottom: 8,
+        maxHeight: 38,
+        width: "auto",
+        maxWidth: 280,
+        objectFit: "contain"
+      }}
+    />
+    <div>Serverless, multi-cloud vector storage.</div>
+  </FeatureCard>
+  <FeatureCard title="Qdrant" href="https://qdrant.tech/">
+    <img
+      src="/images/ai-providers/qdrant.svg"
+      alt="Qdrant"
+      height={38}
+      style={{
+        display: "block",
+        marginBottom: 8,
+        maxHeight: 38,
+        width: "auto",
+        maxWidth: 980,
+        objectFit: "contain"
+      }}
+    />
+    <div>Open-source vector similarity search in the cloud.</div>
+  </FeatureCard>
+  <FeatureCard title="Weaviate" href="https://weaviate.io/">
+    <img
+      src="/images/ai-providers/weaviate.svg"
+      alt="Weaviate"
+      height={38}
+      style={{
+        display: "block",
+        marginBottom: 8,
+        maxHeight: 38,
+        width: "auto",
+        maxWidth: 980,
+        objectFit: "contain"
+      }}
+    />
+    <div>Semantic vector database, easy cloud deployment.</div>
+  </FeatureCard>
+</div>
