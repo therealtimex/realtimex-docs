@@ -4,12 +4,10 @@ description: "RealTimeX supports custom audio transcription providers."
 ---
 
 import { FeatureCard } from "../../components/FeatureCard";
-import { Cards } from "nextra/components";
-import Image from "next/image";
 
 # Transcription Models
 
-RealTimeX supports custom audio transcription providers.
+RealTimeX supports both local and cloud-based audio transcription providers—enabling fast, accurate speech-to-text for any workflow.
 
 ## Supported Transcription Model Providers
 
@@ -22,8 +20,20 @@ RealTimeX supports custom audio transcription providers.
   margin: "1.2rem 0"
 }}>
   <FeatureCard title="Built-in (default)" href="https://huggingface.co/Xenova/whisper-small">
-    <img src="/images/ai-providers/xenova.webp" alt="Built-in (default)" height="38" style={{ marginBottom: 8, width: "auto", display: "block" }} />
-    <div>Xenova</div>
+    <img
+      src="/images/ai-providers/xenova.webp"
+      alt="Xenova Whisper"
+      height={38}
+      style={{
+        display: "block",
+        marginBottom: 8,
+        maxHeight: 38,
+        width: "auto",
+        maxWidth: 80,
+        objectFit: "contain"
+      }}
+    />
+    <div>Fast, private Whisper-based transcription via Xenova.</div>
   </FeatureCard>
 </div>
 
@@ -36,7 +46,19 @@ RealTimeX supports custom audio transcription providers.
   margin: "1.2rem 0"
 }}>
   <FeatureCard title="OpenAI" href="https://platform.openai.com/">
-    <img src="/images/ai-providers/openai.svg" alt="OpenAI" height="38" style={{ marginBottom: 8, width: "auto", display: "block" }} />
-    <div>Whisper Large, and more.</div>
+    <img
+      src="/images/ai-providers/openai.svg"
+      alt="OpenAI"
+      height={38}
+      style={{
+        display: "block",
+        marginBottom: 8,
+        maxHeight: 38,
+        width: "auto",
+        maxWidth: 80,
+        objectFit: "contain"
+      }}
+    />
+    <div>Industry-leading Whisper Large-V3 and more for cloud STT.</div>
   </FeatureCard>
 </div>
