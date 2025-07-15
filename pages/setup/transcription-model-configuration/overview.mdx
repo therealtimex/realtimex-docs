@@ -3,67 +3,62 @@ title: "Transcription Models"
 description: "RealTimeX supports custom audio transcription providers."
 ---
 
-import { Cards } from "nextra/components";
-import Image from "next/image";
-
-<Image
-  src="/images/realtimex-setup/transcription-model-configuration/header-image.png"
-  height={1080}
-  width={1920}
-  quality={100}
-  alt="RealTimeX Transcription Models"
-/>
+import { FeatureCard } from "@/components/FeatureCard";
 
 # Transcription Models
 
-RealTimeX supports custom audio transcription providers.
+RealTimeX supports a range of local and cloud-based audio transcription providers for fast, accurate speech-to-text.
 
 ## Supported Transcription Model Providers
 
 ### Local Transcription Model Providers
 
-<Cards>
-  <Card title="Built-in (Xenova)" href="local/built-in">
-    <Image
-      src="/images/realtimex-setup/transcription-model-configuration/local/built-in/header-image.png"
-      height={1080}
-      width={1920}
-      quality={100}
-      alt="RealTimeX Built-in (Xenova)"
+<div style={{
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))",
+  gap: "1rem",
+  margin: "1.2rem 0"
+}}>
+  <FeatureCard title="Built-in (Xenova)" href="./setup/transcription-model-configuration/local/built-in">
+    <img
+      src="/images/ai-providers/xenova.webp"
+      alt="Built-in (Xenova)"
+      height={38}
+      style={{
+        display: "block",
+        marginBottom: 8,
+        maxHeight: 38,
+        width: "auto",
+        maxWidth: 80,
+        objectFit: "contain"
+      }}
     />
-  </Card>
-</Cards>
+    <div>Fast, private Whisper-based transcription powered by Xenova.</div>
+  </FeatureCard>
+</div>
 
 ### Cloud Transcription Model Providers
 
-<Cards>
-  <Card title="OpenAI" href="cloud/openai">
-    <Image
-      src="/images/realtimex-setup/transcription-model-configuration/cloud/openai/header-image.png"
-      height={1080}
-      width={1920}
-      quality={100}
+<div style={{
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))",
+  gap: "1rem",
+  margin: "1.2rem 0"
+}}>
+  <FeatureCard title="OpenAI" href="./setup/transcription-model-configuration/cloud/openai">
+    <img
+      src="/images/ai-providers/openai.svg"
       alt="OpenAI"
+      height={38}
+      style={{
+        display: "block",
+        marginBottom: 8,
+        maxHeight: 38,
+        width: "auto",
+        maxWidth: 80,
+        objectFit: "contain"
+      }}
     />
-  </Card>
-</Cards>
-
-export const Card = Object.assign(
-  // Copy card component and add default props
-  Cards.Card.bind(),
-  {
-    displayName: "Card",
-    defaultProps: {
-      image: true,
-      arrow: true,
-      target: "_self",
-    },
-  }
-);
-
-<style global jsx>{`
-  img {
-    aspect-ratio: 16/9;
-    object-fit: cover;
-  }
-`}</style>
+    <div>Industry-leading Whisper Large-V3 and more, powered by OpenAI’s cloud.</div>
+  </FeatureCard>
+</div>
