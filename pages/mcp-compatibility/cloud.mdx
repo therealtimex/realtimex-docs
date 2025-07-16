@@ -1,15 +1,11 @@
 ---
 title: "MCP on RealTimeX Docker"
-description: "How to use and debug MCP tools on RealTimeX Docker"
+description: "How to use and debug MCP tools on RealTimeX Cloud"
 ---
 
 import { Callout } from "nextra/components";
 
-<Callout type="error" emoji="️‼️">
-  The use of MCP for RealTimeX Docker is **self-hosting only** and is not available in the RealTimeX Cloud service.
-</Callout>
-
-## Things to know about MCP on RealTimeX Docker
+## Things to know about MCP on RealTimeX Cloud
 
 <Callout type="error" emoji="🔒">
   As always, **never run MCPs you do not trust** - we **do not** endorse or guarantee the security of any MCPs you may find on the internet.
@@ -17,7 +13,7 @@ import { Callout } from "nextra/components";
 
 ### MCP Server support
 
-RealTimeX Docker supports `Tools` loading via MCP Servers. We **do not** support Resources, Prompts, or Sampling.
+RealTimeX Cloud supports `Tools` loading via MCP Servers. We **do not** support Resources, Prompts, or Sampling.
 
 ### Startup sequence
 
@@ -34,7 +30,7 @@ If you mark a tool as `RealTimeX.autoStart: false` in your configuration file, i
 
 ### Command availability
 
-The majority of commands that are required to run a MCP server are available in the RealTimeX Docker container already.
+The majority of commands that are required to run a MCP server are available in the RealTimeX Cloud container already.
 
 The base image of RealTimeX Docker is `ubuntu:jammy-20240627.1`, so generic Ubuntu commands will be available as the user running the services inside of the container.
 

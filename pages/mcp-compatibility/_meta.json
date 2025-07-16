@@ -8,8 +8,8 @@
       "toc": true
     }
   },
-  "docker": {
-    "title": "MCP on Cloud",
+  "desktop": {
+    "title": "MCP on Desktop",
     "theme": {
       "breadcrumb": true,
       "footer": true,
@@ -17,8 +17,8 @@
       "toc": true
     }
   },
-  "desktop": {
-    "title": "MCP on Desktop",
+  "cloud": {
+    "title": "MCP on Cloud",
     "theme": {
       "breadcrumb": true,
       "footer": true,

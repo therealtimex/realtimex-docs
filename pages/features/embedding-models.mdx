@@ -3,13 +3,13 @@ title: "Embedding Models"
 description: "RealTimeX supports many embedding model providers out of the box with very little, if any setup"
 ---
 
-import { FeatureCard } from "../../components/FeatureCard";
+import { FeatureCard } from "@/components/FeatureCard";
 
 # Embedding Models
 
-RealTimeX supports many embedding model providers out of the box with very little, if any setup.
+RealTimeX supports a variety of embedding model providers out of the box with minimal setup.
 
-Embedding models are specific types of models that turn text into vectors, which can be stored and searched in a vector database - which is the foundation of RAG.
+Embedding models transform text into numerical vectors for storage and fast similarity search in your vector database—this is the foundation of Retrieval Augmented Generation (RAG).
 
 ## Supported Embedding Model Providers
 
@@ -21,21 +21,21 @@ Embedding models are specific types of models that turn text into vectors, which
   gap: "1rem",
   margin: "1.2rem 0"
 }}>
-  <FeatureCard title="Built-in (default)" href="#">
-    <img src="/images/ai-providers/realtimex.png" alt="Built-in (default)" height="38" style={{ marginBottom: 8, width: "auto", display: "block" }} />
-    <div>Default model.</div>
+  <FeatureCard title="Built-in (default)" href="/setup/embedder-configuration/local/built-in">
+    <img src="/images/ai-providers/realtimex.png" alt="Built-in (default)" height={38} style={{marginBottom: 8, width: "auto", maxHeight: 38, display: "block", objectFit: "contain"}} />
+    <div>Default RealTimeX embedder, works instantly—no extra setup required.</div>
   </FeatureCard>
-  <FeatureCard title="Ollama" href="https://ollama.com/">
-    <img src="/images/ai-providers/ollama.svg" alt="Ollama" height="38" style={{ marginBottom: 8, width: "auto", display: "block" }} />
-    <div>Modern local LLM runner.</div>
+  <FeatureCard title="Ollama" href="/setup/embedder-configuration/local/ollama">
+    <img src="/images/ai-providers/ollama.svg" alt="Ollama" height={38} style={{marginBottom: 8, width: "auto", maxHeight: 38, display: "block", objectFit: "contain"}} />
+    <div>Modern local LLM runner supporting a range of embedding models.</div>
   </FeatureCard>
-  <FeatureCard title="LM Studio" href="https://lmstudio.ai/">
-    <img src="/images/ai-providers/lmstudio.svg" alt="LM Studio" height="38" style={{ marginBottom: 8, width: "auto", display: "block" }} />
-    <div>Easy-to-use desktop inference for LLMs.</div>
+  <FeatureCard title="LM Studio" href="/setup/embedder-configuration/local/lmstudio">
+    <img src="/images/ai-providers/lmstudio.svg" alt="LM Studio" height={38} style={{marginBottom: 8, width: "auto", maxHeight: 38, display: "block", objectFit: "contain"}} />
+    <div>Desktop app for local inference and embedding generation.</div>
   </FeatureCard>
-  <FeatureCard title="Local AI" href="https://localai.io/">
-    <img src="/images/ai-providers/localai.png" alt="Local AI" height="38" style={{ marginBottom: 8, width: "auto", display: "block" }} />
-    <div>Open source local inference backend.</div>
+  <FeatureCard title="Local AI" href="/setup/embedder-configuration/local/localai">
+    <img src="/images/ai-providers/localai.png" alt="Local AI" height={38} style={{marginBottom: 8, width: "auto", maxHeight: 38, display: "block", objectFit: "contain"}} />
+    <div>Open source local inference backend for flexible, private embedding.</div>
   </FeatureCard>
 </div>
 
@@ -47,53 +47,40 @@ Embedding models are specific types of models that turn text into vectors, which
   gap: "1rem",
   margin: "1.2rem 0"
 }}>
-  <FeatureCard title="OpenAI" href="https://platform.openai.com/">
-    <img src="/images/ai-providers/openai.svg" alt="OpenAI" height="38" style={{ marginBottom: 8, width: "auto", display: "block" }} />
-    <div>GPT-4o, GPT-4, GPT-3.5, and more.</div>
+  <FeatureCard title="OpenAI" href="/setup/embedder-configuration/cloud/openai">
+    <img src="/images/ai-providers/openai.svg" alt="OpenAI" height={38} style={{marginBottom: 8, width: "auto", maxHeight: 38, display: "block", objectFit: "contain"}} />
+    <div>State-of-the-art text embedding models (e.g. text-embedding-3).</div>
   </FeatureCard>
-  <FeatureCard title="Azure OpenAI" href="https://azure.microsoft.com/en-us/products/ai-services/openai-service">
-    <img src="/images/ai-providers/azure.svg" alt="Azure OpenAI" height="38" style={{ marginBottom: 8, width: "auto", display: "block" }} />
-    <div>Microsoft’s enterprise OpenAI service.</div>
+  <FeatureCard title="Azure OpenAI" href="/setup/embedder-configuration/cloud/azure-openai">
+    <img src="/images/ai-providers/azure.svg" alt="Azure OpenAI" height={38} style={{marginBottom: 8, width: "auto", maxHeight: 38, display: "block", objectFit: "contain"}} />
+    <div>Microsoft’s enterprise-grade OpenAI API for embedding and language.</div>
   </FeatureCard>
-  <FeatureCard title="AWS Bedrock" href="https://aws.amazon.com/bedrock">
-    <img src="/images/ai-providers/bedrock-color.svg" alt="AWS Bedrock" height="38" style={{ marginBottom: 8, width: "auto", display: "block" }} />
-    <div>Amazon’s generative AI platform.</div>
+  <FeatureCard title="Cohere" href="/setup/embedder-configuration/cloud/cohere">
+    <img src="/images/ai-providers/cohere-color.svg" alt="Cohere" height={38} style={{marginBottom: 8, width: "auto", maxHeight: 38, display: "block", objectFit: "contain"}} />
+    <div>Powerful multilingual and domain-specific embedding models.</div>
   </FeatureCard>
-  <FeatureCard title="Anthropic" href="https://anthropic.com/">
-    <img src="/images/ai-providers/anthropic.svg" alt="Anthropic" height="38" style={{ marginBottom: 8, width: "auto", display: "block" }} />
-    <div>Claude family models (Claude 3, Opus, etc).</div>
+  <FeatureCard title="Google Gemini Pro" href="/setup/embedder-configuration/cloud/google-gemini">
+    <img src="/images/ai-providers/gemini-color.svg" alt="Gemini" height={38} style={{marginBottom: 8, width: "auto", maxHeight: 38, display: "block", objectFit: "contain"}} />
+    <div>Google’s advanced multi-modal embedding models.</div>
   </FeatureCard>
-  <FeatureCard title="Cohere" href="https://cohere.com/">
-    <img src="/images/ai-providers/cohere-color.svg" alt="Cohere" height="38" style={{ marginBottom: 8, width: "auto", display: "block" }} />
-    <div>Enterprise language and embedding models.</div>
+  <FeatureCard title="Hugging Face" href="/setup/embedder-configuration/cloud/huggingface">
+    <img src="/images/ai-providers/huggingface-color.svg" alt="Hugging Face" height={38} style={{marginBottom: 8, width: "auto", maxHeight: 38, display: "block", objectFit: "contain"}} />
+    <div>Run any open embedding model from Hugging Face Hub.</div>
   </FeatureCard>
-  <FeatureCard title="Google Gemini Pro" href="https://ai.google.dev/">
-    <img src="/images/ai-providers/gemini-color.svg" alt="Gemini" height="38" style={{ marginBottom: 8, width: "auto", display: "block" }} />
-    <div>Google’s latest multi-modal AI.</div>
+  <FeatureCard title="Together AI" href="/setup/embedder-configuration/cloud/together-ai">
+    <img src="/images/ai-providers/together-color.svg" alt="Together AI" height={38} style={{marginBottom: 8, width: "auto", maxHeight: 38, display: "block", objectFit: "contain"}} />
+    <div>Multi-model cloud embedding with simple API.</div>
   </FeatureCard>
-  <FeatureCard title="Hugging Face" href="https://huggingface.co/">
-    <img src="/images/ai-providers/huggingface-color.svg" alt="Hugging Face" height="38" style={{ marginBottom: 8, width: "auto", display: "block" }} />
-    <div>Run any model from the HF hub.</div>
+  <FeatureCard title="OpenRouter" href="/setup/embedder-configuration/cloud/openrouter">
+    <img src="/images/ai-providers/openrouter.svg" alt="OpenRouter" height={38} style={{marginBottom: 8, width: "auto", maxHeight: 38, display: "block", objectFit: "contain"}} />
+    <div>Unified API for embedding models across providers.</div>
   </FeatureCard>
-  <FeatureCard title="Together AI" href="https://www.together.ai/">
-    <img src="/images/ai-providers/together-color.svg" alt="Together AI" height="38" style={{ marginBottom: 8, width: "auto", display: "block" }} />
-    <div>Fast, multi-model provider with open APIs.</div>
+  <FeatureCard title="Mistral API" href="/setup/embedder-configuration/cloud/mistral-ai">
+    <img src="/images/ai-providers/mistral-color.svg" alt="Mistral" height={38} style={{marginBottom: 8, width: "auto", maxHeight: 38, display: "block", objectFit: "contain"}} />
+    <div>Fast, powerful open models for language and embedding.</div>
   </FeatureCard>
-  <FeatureCard title="OpenRouter" href="https://openrouter.ai/">
-    <img src="/images/ai-providers/openrouter.svg" alt="OpenRouter" height="38" style={{ marginBottom: 8, width: "auto", display: "block" }} />
-    <div>Unified API for many top LLMs.</div>
-  </FeatureCard>
-  <FeatureCard title="Mistral API" href="https://mistral.ai/">
-    <img src="/images/ai-providers/mistral-color.svg" alt="Mistral" height="38" style={{ marginBottom: 8, width: "auto", display: "block" }} />
-    <div>Fast, powerful open models (Mistral, Mixtral, etc).</div>
-  </FeatureCard>
-  <FeatureCard title="Groq" href="https://groq.com/">
-    <img src="/images/ai-providers/groq.svg" alt="Groq" height="38" style={{ marginBottom: 8, width: "auto", display: "block" }} />
-    <div>Ultra-fast inference for top LLMs.</div>
-  </FeatureCard>
-  <FeatureCard title="OpenAI (generic)" href="/RealTimeX-setup/llm-configuration/cloud/openai-generic">
-    <img src="/images/ai-providers/openai.svg" alt="OpenAI (generic)" height="38" style={{ marginBottom: 8, width: "auto", display: "block" }} />
-    <div>Generic OpenAI-compatible API.</div>
+  <FeatureCard title="Groq" href="/setup/embedder-configuration/cloud/groq">
+    <img src="/images/ai-providers/groq.svg" alt="Groq" height={38} style={{marginBottom: 8, width: "auto", maxHeight: 38, display: "block", objectFit: "contain"}} />
+    <div>Ultra-fast inference for embedding and LLM models.</div>
   </FeatureCard>
 </div>
-

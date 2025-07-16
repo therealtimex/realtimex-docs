@@ -91,14 +91,6 @@ RAG search allows the agent to check what are the things the agent already know 
 
 You can use RAG search by asking the agent something like `@agent can you check what you already know about RealTimeX?`
 
-<Image
-  src="/images/guides/ai-agents/rag-search.png"
-  height={1080}
-  width={1920}
-  quality={100}
-  alt="RealTimeX AI Agents RAG Search"
-/>
-
 RAG search can update agent's own memory and that can be later used for recall in agent or regular chat. This embeds a virtual document you cannot manage.
 
 Example: `Ah, great point. Can you summarize and save that summary for later to your memory`
@@ -109,41 +101,17 @@ Web Browsing tool allows the agent to search on internet and give you answer for
 
 Example: `@agent can you do a web search for "What is the issue going on with MKBHD and Humane AI Pin?" and give me the key information that I need to know`
 
-<Image
-  src="/images/guides/ai-agents/browsing.png"
-  height={1080}
-  width={1920}
-  quality={100}
-  alt="RealTimeX AI Agents Web Browsing"
-/>
-
 ## What is Web Scraping and how to use it?
 
 Web Scraping tool allows the agent to scrape a website and give you answer for your questions. This embeds a website's content into the workspace and asking question to the LLM to respond based on the content on the embedded website, with agent you don't have to manually embed the website -- the agent will do it automatically for you.
 
 Example: `@agent can you scrape the website realtimex.ai and give me a summary of features RealTimeX have?`
 
-<Image
-  src="/images/guides/ai-agents/scrape.png"
-  height={1080}
-  width={1920}
-  quality={100}
-  alt="RealTimeX AI Agents Web Scraping"
-/>
-
 ## What is Save Files and how to use it?
 
 Save Files tool allows the agent to save any information into a file on your local machine.
 
 Example: `@agent can save this information as a PDF on my desktop folder?`
-
-<Image
-  src="/images/guides/ai-agents/saving.png"
-  height={1080}
-  width={1920}
-  quality={100}
-  alt="RealTimeX AI Agents Save Files"
-/>
 
 <Callout type="info" emoji="️💡">
   **Note**
@@ -158,27 +126,12 @@ List Documents tool allows the agent to see and tell you all the documents it ca
 
 Example: `@agent could you please tell me the list of files you can access now?`
 
-<Image
-  src="/images/guides/ai-agents/list-document.png"
-  height={1080}
-  width={1920}
-  quality={100}
-  alt="RealTimeX AI Agents List Documents"
-/>
 
 ## What is Summarize Documents and how to use it?
 
 Summarize Documents tool allows the agent to give you a summary of a document.
 
 Example: `@agent can you summarize the content on https://docs.realtimex.ai/features/chat-logs`
-
-<Image
-  src="/images/guides/ai-agents/summarize.png"
-  height={1080}
-  width={1920}
-  quality={100}
-  alt="RealTimeX AI Agents Summarize Documents"
-/>
 
 ## What is Chart Generation and how to use it?
 
@@ -188,13 +141,6 @@ Example 1: `@agent can you plot y=mx+b where m=10 and b=0?`
 
 Example 2: `@agent can you look at data.csv and plot that as a pie chat by age?` (_assuming data.csv is in the workspace_)
 
-<Image
-  src="/images/guides/ai-agents/graph.png"
-  height={1080}
-  width={1920}
-  quality={100}
-  alt="RealTimeX AI Agents Chart Generation"
-/>
 
 ## What is SQL Agent and how to use it?
 
@@ -218,13 +164,6 @@ _Example 1:_ <br/>
 _Example 2:_ (_assuming you have the `save-file` skill enabled_)<br/>
 `@agent can you grab the emails of the most recent 10 customers and save that to customer.csv?`
 
-<Image
-  src="/images/guides/ai-agents/sql-agent.png"
-  height={1080}
-  width={1920}
-  quality={100}
-  alt="RealTimeX AI Agents SQL Agent skill"
-/>
 
 ## Frequently Asked Questions
 
@@ -234,25 +173,11 @@ When a Agent session is started you will see the log `Agent @agent invoked` on y
 
 When a Agent session is ended you will see the log `Agent session completed` on your chat.
 
-<Image
-  src="/images/guides/ai-agents/start-end.png"
-  height={1080}
-  width={1920}
-  quality={100}
-  alt="RealTimeX AI Agents"
-/>
 
 ### 2) How can I end a Agent Session?
 
 Simply use the slash command `/exit` to end a agent session
 
-<Image
-  src="/images/guides/ai-agents/end-slash-command.png"
-  height={1080}
-  width={1920}
-  quality={100}
-  alt="RealTimeX AI Agents"
-/>
 
 ### 3) Do I have to always mention `@agent` to interact with the agent?
 

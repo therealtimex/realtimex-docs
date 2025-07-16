@@ -3,55 +3,52 @@ title: "AI Agents"
 description: "What are AI Agents in RealTimeX and how to use them?"
 ---
 
-import { Cards, Callout } from "nextra/components";
-import Image from "next/image";
+import { FeatureCard } from "@/components/FeatureCard";
+import { Callout } from "nextra/components";
 
 # AI Agents
 
-Agents are basically an LLM that has access to some simple tools. We will be adding much more customization in this area soon.
+AI Agents in RealTimeX are LLM-powered assistants with access to tools, automations, and integrations.  
+Agents operate within your workspace but can be invoked in any chat or workflow via `@agent`.
 
-All agents share the same tools across workspaces, but operate within the workspace they were invoked via `@agent`.
+<Callout type="info" emoji="🤖">
+  **Good to know:**  
+  All agents share the same toolset across workspaces, but can behave differently depending on their workspace context.  
+  More customization and advanced agent features are coming soon!
+</Callout>
 
-## Quick Links
+## Quick Start Guides
 
-<Cards>
-  <Card title="Agent Setup Guide" href="/agent/setup"> 
-    <Image
-      src="/images/guides/ai-agents/setup.png" 
-      height={1080} 
-      width={1920} 
-      quality={100}
-      alt="RealTimeX Github Issues"
-    />
-  </Card>
+import { Bot, BookOpenCheck } from "lucide-react";
 
-  <Card title="Agent Usage Guide" href="/agent/usage"> 
-    <Image
-      src="/images/guides/ai-agents/usage.png" 
-      height={1080} 
-      width={1920}
-      quality={100} 
-      alt="RealTimeX Discord Community"
-    />
-  </Card>
-</Cards>
-
-export const Card = Object.assign(
-  // Copy card component and add default props
-  Cards.Card.bind(),
-  {
-    displayName: "Card",
-    defaultProps: {
-      image: true,
-      arrow: true,
-      target: "_self",
-    },
-  }
-);
-
-<style global jsx>{`
-  img {
-    aspect-ratio: 16/9;
-    object-fit: cover;
-  }
-`}</style>
+<div style={{
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fit, minmax(270px, 1fr))",
+  gap: "1.2rem",
+  margin: "2rem 0"
+}}>
+  <FeatureCard title="Agent Setup Guide" href="./agent/setup">
+    <div style={{
+      marginBottom: 12,
+      display: "flex",
+      alignItems: "center",
+      height: 48
+    }}>
+      <Bot size={38} style={{marginRight: 12, color: "#226cff"}} />
+      <span style={{ fontWeight: 600, fontSize: "1.09em" }}>Agent Setup Guide</span>
+    </div>
+    <div>How to create, configure, and launch your first AI agent in RealTimeX.</div>
+  </FeatureCard>
+  <FeatureCard title="Agent Usage Guide" href="./agent/usage">
+    <div style={{
+      marginBottom: 12,
+      display: "flex",
+      alignItems: "center",
+      height: 48
+    }}>
+      <BookOpenCheck size={38} style={{marginRight: 12, color: "#0da37f"}} />
+      <span style={{ fontWeight: 600, fontSize: "1.09em" }}>Agent Usage Guide</span>
+    </div>
+    <div>Tips, commands, and workflows for getting the most out of your AI agents.</div>
+  </FeatureCard>
+</div>

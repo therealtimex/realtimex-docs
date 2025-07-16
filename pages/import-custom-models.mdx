@@ -18,19 +18,7 @@ RealTimeX allows you to easily load any valid `GGUF` file and select that as you
 
 ---
 
-## Option 1: Import a Local GGUF Model
-
-1. **Download a `GGUF` model file** (for example, from [Hugging Face](https://huggingface.co/models?library=gguf)).
-2. Open RealTimeX Desktop and go to the model management section.
-3. Click **"Import Model"** and select your `.gguf` file from your computer.
-4. The model will appear in your available LLMs list. Select it to start chatting.
-
-> **Tip:**  
-> GGUF models are typically optimized for use with local inference backends such as llama.cpp.
-
----
-
-## Option 2: Use Ollama to Import and Run Models
+## Use Ollama to Import and Run Models
 
 Ollama makes it extremely easy to run LLMs locally, and RealTimeX can connect to any Ollama-served model.
 
@@ -63,7 +51,6 @@ Ollama makes it extremely easy to run LLMs locally, and RealTimeX can connect to
 
 ## Troubleshooting
 
-- If your GGUF file doesn't appear, double-check it’s a **text-generation** model (not embedder).
 - If RealTimeX doesn’t detect Ollama, make sure the Ollama server is running.
 - You can find more models for Ollama at [ollama.com/library](https://ollama.com/library).
 
