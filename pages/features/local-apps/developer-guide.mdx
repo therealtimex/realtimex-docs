@@ -1,19 +1,28 @@
 ---
 title: "Developer Guide"
-description: "SDK Integration and Custom Mode for Local Apps"
+description: "SDK Integration for RealTimeX Local Apps"
 ---
 
 import { Callout, Tabs } from 'nextra/components'
 
 # Local Apps Developer Guide
 
-This guide covers advanced integration using the RealTimeX SDK and the Custom Mode.
+This guide covers how to integrate your applications with RealTimeX using the official SDKs.
 
-## Using the RealTimeX SDK
+## Prerequisites
 
-The official SDK allows you to easily integrate your Python or TypeScript apps with RealTimeX.
+Before using the SDK, ensure your Supabase database is set up via the Main App:
 
-### Installation
+1. Open **RealTimeX** → **Settings** → **Local Apps**
+2. Create or configure your Local App
+3. Enter Supabase **URL** and **Anon Key**
+4. Select **Compatible Mode** → **Login to Supabase** → **Auto-Setup Schema**
+
+<Callout type="info">
+Schema setup is handled entirely by the Main App. **No manual SQL required.**
+</Callout>
+
+## Installation
 
 <Tabs items={['TypeScript', 'Python']}>
   <Tabs.Tab>
@@ -28,100 +37,206 @@ The official SDK allows you to easily integrate your Python or TypeScript apps w
   </Tabs.Tab>
 </Tabs>
 
-### Initialization
+## Quick Start
 
-The SDK needs your Supabase credentials. By default, it connects to RealTimeX running at `http://localhost:3001`.
+When you start your Local App from the RealTimeX Main App, environment variables `RTX_APP_ID` and `RTX_APP_NAME` are automatically set. The SDK auto-detects these.
 
 <Tabs items={['TypeScript', 'Python']}>
   <Tabs.Tab>
     ```typescript
     import { RealtimeXSDK } from '@realtimex/local-app-sdk';
 
-    const sdk = new RealtimeXSDK({
-      supabase: {
-        url: 'https://your-project.supabase.co',
-        anonKey: 'your-anon-key',
-      }
+    // No config needed - auto-detects from environment
+    const sdk = new RealtimeXSDK();
+
+    // Insert activity
+    const activity = await sdk.activities.insert({
+      type: 'new_lead',
+      email: 'user@example.com',
+    });
+
+    // Trigger agent
+    await sdk.webhook.triggerAgent({
+      raw_data: activity,
+      auto_run: true,
+      agent_name: 'processor',
+      workspace_slug: 'sales',
+      thread_slug: 'general',
     });
     ```
   </Tabs.Tab>
   <Tabs.Tab>
     ```python
-    from realtimex_sdk import RealtimeXSDK, SupabaseConfig
+    from realtimex_sdk import RealtimeXSDK
 
-    sdk = RealtimeXSDK(
-        supabase=SupabaseConfig(
-            url="https://your-project.supabase.co",
-            anon_key="your-anon-key"
-        )
+    # No config needed - auto-detects from environment
+    sdk = RealtimeXSDK()
+
+    # Insert activity
+    activity = await sdk.activities.insert({
+        "type": "new_lead",
+        "email": "user@example.com"
+    })
+
+    # Trigger agent
+    await sdk.webhook.trigger_agent(
+        raw_data=activity,
+        auto_run=True,
+        agent_name="processor",
+        workspace_slug="sales",
+        thread_slug="general"
     )
     ```
   </Tabs.Tab>
 </Tabs>
 
-### CRUD Operations
+---
 
-Manage your `activities` table directly through the SDK:
+## SDK Features
 
-```typescript
-// Insert a new task
-const activity = await sdk.activities.insert({
-  type: 'process_pdf',
-  url: 'https://example.com/doc.pdf'
-});
+### Activities CRUD
 
-// Update status
-await sdk.activities.update(activity.id, { status: 'processing' });
-```
+Manage your `activities` table directly through the SDK without direct database access.
 
-### Triggering Agents (Webhooks)
+<Tabs items={['TypeScript', 'Python']}>
+  <Tabs.Tab>
+    ```typescript
+    // Insert new activity
+    const activity = await sdk.activities.insert({
+      type: 'order',
+      amount: 100
+    });
 
-You can trigger an agent to process data.
+    // List activities with filters
+    const pending = await sdk.activities.list({
+      status: 'pending',
+      limit: 10
+    });
 
-**Manual Mode (Default)**: Creates a calendar event for the user to review.
-```typescript
-await sdk.webhook.triggerAgent({
-  raw_data: { data: 'my secret' },
-  auto_run: false
-});
-```
+    // Get single activity
+    const item = await sdk.activities.get('activity-uuid');
 
-**Auto-run Mode**: Triggers the agent immediately in a specific workspace.
-```typescript
-await sdk.webhook.triggerAgent({
-  raw_data: activity,
-  auto_run: true,
-  agent_name: 'pdf-processor',
-  workspace_slug: 'operations'
-});
-```
+    // Update activity
+    await sdk.activities.update('activity-uuid', {
+      status: 'processed'
+    });
+
+    // Delete activity
+    await sdk.activities.delete('activity-uuid');
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```python
+    # Insert new activity
+    activity = await sdk.activities.insert({
+        "type": "order",
+        "amount": 100
+    })
+
+    # List activities with filters
+    pending = await sdk.activities.list(
+        status="pending",
+        limit=10
+    )
+
+    # Get single activity
+    item = await sdk.activities.get("activity-uuid")
+
+    # Update activity
+    await sdk.activities.update("activity-uuid", {
+        "status": "processed"
+    })
+
+    # Delete activity
+    await sdk.activities.delete("activity-uuid")
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Webhook & Agent Triggering
+
+Trigger AI Agents to process data either manually or automatically.
+
+<Tabs items={['TypeScript', 'Python']}>
+  <Tabs.Tab>
+    ```typescript
+    // Manual Mode (Default) - Creates calendar event for review
+    await sdk.webhook.triggerAgent({
+      raw_data: { email: 'user@example.com' },
+    });
+
+    // Auto-run Mode - Triggers agent immediately
+    await sdk.webhook.triggerAgent({
+      raw_data: activity,
+      auto_run: true,
+      agent_name: 'pdf-processor',
+      workspace_slug: 'operations',
+      thread_slug: 'general',
+      prompt: 'Summarize this file' // Optional
+    });
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```python
+    # Manual Mode (Default)
+    await sdk.webhook.trigger_agent(
+        raw_data={"email": "user@example.com"}
+    )
+
+    # Auto-run Mode
+    await sdk.webhook.trigger_agent(
+        raw_data=activity,
+        auto_run=True,
+        agent_name="pdf-processor",
+        workspace_slug="operations",
+        thread_slug="general",
+        prompt="Summarize this file"
+    )
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Public Metadata API
+
+Access RealTimeX system metadata like available agents and workspaces.
+
+<Tabs items={['TypeScript', 'Python']}>
+  <Tabs.Tab>
+    ```typescript
+    const agents = await sdk.api.getAgents();
+    const workspaces = await sdk.api.getWorkspaces();
+    const threads = await sdk.api.getThreads('workspace-slug');
+    const taskStatus = await sdk.api.getTask('task-uuid');
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```python
+    agents = await sdk.api.get_agents()
+    workspaces = await sdk.api.get_workspaces()
+    threads = await sdk.api.get_threads("workspace-slug")
+    task_status = await sdk.api.get_task("task-uuid")
+    ```
+  </Tabs.Tab>
+</Tabs>
 
 ---
 
 ## Custom Mode Implementation
 
-If you want to use your own database schema and lock logic, use **Custom Mode**.
+If you use your own database schema and lock logic, your Local App must implement specific endpoints.
 
-### 1. External Webhook
+<Callout type="info">
+For details on the REST payloads required for Custom Mode, see the [API Reference](./api-reference).
+</Callout>
 
-Agents report results to your app via this endpoint.
-- **Path**: `POST /api/task-webhook`
-- **Payload**: Includes `task_id`, `action` (complete/fail), and `data`.
-
-### 2. Lock API
-
-RealTimeX calls this to ensure only one machine processes a task.
-- **Path**: `POST /api/task-lock`
-- **Payload**: `task_id`, `machine_id`.
-- **Response**: `{ "success": true }` to allow processing.
+### Required Endpoint Specs
+1. **Lock API**: `POST /api/task-lock` - Coordinates task distribution.
+2. **Webhook API**: `POST /api/task-webhook` - Receives completion/failure reports from agents.
 
 ---
 
-## Public APIs
+## REST API Access
 
-The SDK also provides access to RealTimeX metadata:
+If you are not using one of our official SDKs, you can communicate with RealTimeX directly via our REST API.
 
-- `sdk.api.getAgents()`: List available AI agents.
-- `sdk.api.getWorkspaces()`: List available workspaces.
-- `sdk.api.getThreads(workspaceSlug)`: List threads in a workspace.
-- `sdk.api.getTask(uuid)`: Check status of an external task.
+👉 [View REST API Reference](./api-reference)

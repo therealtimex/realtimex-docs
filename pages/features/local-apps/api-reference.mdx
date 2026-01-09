@@ -1,0 +1,232 @@
+---
+title: "REST API Reference"
+description: "Public REST API documentation for RealTimeX Local Apps"
+---
+
+import { Callout } from 'nextra/components'
+
+# REST API Reference
+
+RealTimeX provides a set of public REST API endpoints for building custom integrations when an official SDK is not available or not suitable for your environment.
+
+Base URL: `http://localhost:3001/api`
+
+## SDK Endpoints
+
+These endpoints are used by the official SDKs to coordinate with the RealTimeX Main App.
+
+### POST `/webhooks/realtimex`
+
+Webhook receiver for SDK - creates a calendar event and optionally triggers an agent.
+
+**Request:**
+```json
+{
+  "app_id": "uuid",
+  "app_name": "My App",
+  "event": "trigger-agent",
+  "payload": {
+    "raw_data": { "type": "order", "amount": 100 },
+    "auto_run": true,
+    "agent_name": "order-processor",
+    "workspace_slug": "operations",
+    "thread_slug": "general",
+    "prompt": "Process this order"
+  }
+}
+```
+
+**Response (200):**
+```json
+{
+  "success": true,
+  "task_uuid": "abc-123",
+  "calendar_event_uuid": "def-456",
+  "auto_run": true,
+  "message": "Agent triggered"
+}
+```
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `app_id` | string | No | Local App UUID (from Main App) |
+| `app_name` | string | No | Display name for calendar events |
+| `event` | string | Yes | Event type: `trigger-agent`, `ping` |
+| `payload.raw_data` | object | Yes | Data to process |
+| `payload.auto_run` | boolean | No | If true, trigger agent immediately |
+| `payload.agent_name` | string | Conditional | Required if `auto_run` is true |
+| `payload.workspace_slug` | string | Conditional | Required if `auto_run` is true |
+| `payload.thread_slug` | string | Conditional | Required if `auto_run` is true |
+| `payload.prompt` | string | No | Custom prompt for agent |
+
+---
+
+### GET `/task/:uuid`
+
+Get task status and run history.
+
+**Response (200):**
+```json
+{
+  "success": true,
+  "task": {
+    "uuid": "abc-123",
+    "title": "[My App] New Activity",
+    "status": "completed",
+    "action_type": "SDK_TRIGGER",
+    "source_app": "uuid",
+    "error": null,
+    "created_at": "2024-01-15T10:00:00Z",
+    "updated_at": "2024-01-15T10:05:00Z"
+  },
+  "runs": [
+    {
+      "id": 1,
+      "agent_name": "processor",
+      "workspace_slug": "operations",
+      "thread_slug": "general",
+      "status": "completed",
+      "started_at": "2024-01-15T10:01:00Z",
+      "completed_at": "2024-01-15T10:05:00Z",
+      "error": null
+    }
+  ]
+}
+```
+
+---
+
+### GET `/agents`
+
+List available AI agents.
+
+**Response (200):**
+```json
+{
+  "success": true,
+  "agents": [
+    {
+      "name": "order-processor",
+      "display_name": "Order Processor",
+      "description": "Processes incoming orders",
+      "hub_id": null
+    }
+  ]
+}
+```
+
+---
+
+### GET `/workspaces`
+
+List all workspaces.
+
+**Response (200):**
+```json
+{
+  "success": true,
+  "workspaces": [
+    {
+      "id": 1,
+      "slug": "operations",
+      "name": "Operations",
+      "type": "workspace",
+      "created_at": "2024-01-01T00:00:00Z"
+    }
+  ]
+}
+```
+
+---
+
+### GET `/workspaces/:slug/threads`
+
+List threads in a workspace.
+
+**Response (200):**
+```json
+{
+  "success": true,
+  "workspace": {
+    "id": 1,
+    "slug": "operations",
+    "name": "Operations"
+  },
+  "threads": [
+    {
+      "id": 1,
+      "slug": "general",
+      "name": "General",
+      "created_at": "2024-01-01T00:00:00Z"
+    }
+  ]
+}
+```
+
+---
+
+## Activities Endpoints (via Proxy)
+
+These endpoints proxy to the Main App which handles Supabase operations. No direct database access is needed.
+
+### POST `/activities`
+
+Create a new activity.
+
+**Request Headers:**
+- `X-App-Id`: Your Local App UUID (required)
+
+**Request Body:**
+```json
+{
+  "raw_data": { "type": "order", "amount": 100 }
+}
+```
+
+**Response (201):**
+```json
+{
+  "data": {
+    "id": "activity-uuid",
+    "raw_data": { "type": "order", "amount": 100 },
+    "status": "pending",
+    "created_at": "2024-01-15T10:00:00Z"
+  }
+}
+```
+
+---
+
+### GET `/activities`
+
+List activities with filters.
+
+**Request Headers:**
+- `X-App-Id`: Your Local App UUID (required)
+
+**Query Parameters:**
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `status` | string | Filter by status (pending, claimed, completed, failed) |
+| `limit` | number | Max results (default: 50) |
+| `offset` | number | Pagination offset |
+
+---
+
+### PATCH `/activities/:id`
+
+Update an activity status or result.
+
+**Request Body:**
+```json
+{
+  "status": "processed",
+  "result": { "summary": "Order processed" }
+}
+```
+
+---
+
+### DELETE `/activities/:id`
+
+Delete an activity.
