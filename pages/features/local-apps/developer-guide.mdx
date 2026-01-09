@@ -61,7 +61,8 @@ When you start your Local App from the RealTimeX Main App, environment variables
       auto_run: true,
       agent_name: 'processor',
       workspace_slug: 'sales',
-      thread_slug: 'general',
+      thread_slug: 'general', // or "create_
+      prompt: 'Please look into this activity.' // Optional
     });
     ```
   </Tabs.Tab>
@@ -84,7 +85,8 @@ When you start your Local App from the RealTimeX Main App, environment variables
         auto_run=True,
         agent_name="processor",
         workspace_slug="sales",
-        thread_slug="general"
+        thread_slug="general" # or "create_new" to create new thread
+        prompt="Please look into this activity." # Optional
     )
     ```
   </Tabs.Tab>
@@ -171,7 +173,7 @@ Trigger AI Agents to process data either manually or automatically.
       auto_run: true,
       agent_name: 'pdf-processor',
       workspace_slug: 'operations',
-      thread_slug: 'general',
+      thread_slug: 'general', // or "create_new" to create new thread
       prompt: 'Summarize this file' // Optional
     });
     ```
@@ -189,7 +191,7 @@ Trigger AI Agents to process data either manually or automatically.
         auto_run=True,
         agent_name="pdf-processor",
         workspace_slug="operations",
-        thread_slug="general",
+        thread_slug="general", // or "create_new" to create new thread
         prompt="Summarize this file"
     )
     ```
