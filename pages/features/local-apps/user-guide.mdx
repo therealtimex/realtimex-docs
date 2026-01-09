@@ -1,0 +1,211 @@
+---
+title: "User Guide"
+description: "Step-by-step guide to setting up and using Local Apps in RealTimeX"
+---
+
+import { Callout, Steps } from 'nextra/components'
+import Image from 'next/image'
+
+# Local Apps User Guide
+
+This guide will help you set up and configure Local Apps using the **Compatible Mode** with automatic schema setup.
+
+## Prerequisites
+
+- **RealTimeX Desktop** v1.0.53 or higher
+- **Supabase Account** with an active project
+- **Supabase Credentials**:
+  - Project URL (e.g., `https://xxxxx.supabase.co`)
+  - Anon Key (starts with `eyJ...` or `sb_publishable...`)
+
+## Adding a New Local App
+
+<Steps>
+
+### Step 1: Access Settings
+
+1. Click on your **user profile** at the bottom-left of the screen
+2. Select **Settings** from the menu
+
+<Image
+  src="/images/features/local-apps/settings-page.png"
+  height={1080}
+  width={1920}
+  quality={100}
+  alt="Settings page with Local Apps menu"
+/>
+
+### Step 2: Navigate to Local Apps
+
+In the Settings sidebar, click on **Local Apps** under the Agents section.
+
+### Step 3: Add New App
+
+Click the **Add new app** button in the top-right corner to open the configuration wizard.
+
+### Step 4: Configure App Details
+
+1. Enter a **Display Name** for your app (e.g., "Example App")
+2. Optionally add a description
+3. Click **Next** to proceed to database configuration
+
+### Step 5: Enable Database Subscription
+
+1. Toggle **Enable Database Subscription** to ON
+2. Enter your **Supabase URL** 
+3. Enter your **Supabase Anon Key**
+
+<Image
+  src="/images/features/local-apps/database-config.png"
+  height={1080}
+  width={1920}
+  quality={100}
+  alt="Database configuration with Supabase credentials"
+/>
+
+### Step 6: Select Operating Mode
+
+Choose **Compatible** mode (recommended for most users):
+
+| Mode | Description |
+|------|-------------|
+| **Compatible** | Uses standard `activities` table. Automatic setup available. |
+| **Custom** | For advanced users with existing database schemas. |
+
+### Step 7: Schema Check
+
+After entering credentials, the system automatically checks your database schema:
+
+- ✅ **Schema Ready**: All required tables and functions exist
+- ⚠️ **Missing Items**: Some components need to be created
+
+<Image
+  src="/images/features/local-apps/schema-login.png"
+  height={1080}
+  width={1920}
+  quality={100}
+  alt="Schema status showing missing items with Login button"
+/>
+
+### Step 8: Login to Supabase
+
+If schema is missing, click **Login to Supabase**:
+
+1. A browser window will open for Supabase authentication
+2. Login with your Supabase account
+3. You'll see a page with an **8-character verification code**
+
+<Image
+  src="/images/features/local-apps/browser-verification-code.png"
+  height={1080}
+  width={1920}
+  quality={100}
+  alt="Browser showing 8-character verification code"
+/>
+
+4. Copy the verification code (e.g., `dd9ecbdd`)
+5. Go back to RealTimeX and paste the code into the input boxes
+6. Click **Verify** to complete authentication
+
+<Image
+  src="/images/features/local-apps/enter-verification-code.png"
+  height={1080}
+  width={1920}
+  quality={100}
+  alt="Enter verification code in RealTimeX"
+/>
+
+<Callout type="success">
+**Multi-Account Support**: If you need to use a different Supabase account, click **Switch Account** to logout and login with another account.
+</Callout>
+
+### Step 9: Auto-Setup Schema
+
+After successful authentication, you'll see **"Authenticated via CLI"** and the **Auto-Setup Schema** button:
+
+<Image
+  src="/images/features/local-apps/auto-setup-ready.png"
+  height={1080}
+  width={1920}
+  quality={100}
+  alt="Authenticated and ready for Auto-Setup Schema"
+/>
+
+Click **Auto-Setup Schema** to automatically create:
+
+- `activities` table with all required columns
+- RPC functions for task management
+- Indexes for optimal performance  
+- Realtime publication for event streaming
+
+<Callout type="info">
+The schema setup typically takes 5-10 seconds. You'll see a success message when complete.
+</Callout>
+
+
+### Step 10: Configure Automation (Agent Handlers)
+
+After schema is ready, click **Next** to proceed to the **Automation** step. This is where you configure which AI agents will automatically process events from your database.
+
+<Image
+  src="/images/features/local-apps/automation-step.png"
+  height={1080}
+  width={1920}
+  quality={100}
+  alt="Automation step - Configure Agent Handlers"
+/>
+
+**Agent Handlers Configuration:**
+
+| Field | Description |
+|-------|-------------|
+| **Agent** | Choose an AI agent to handle events from this table |
+| **Workspace** | Select which workspace to handle events |
+| **Thread** | Select which thread to agent run or create new |
+
+<Callout type="tip">
+You can add multiple handlers to handle multipe task.
+</Callout>
+
+### Step 11: Complete Setup
+
+After configuring automation:
+
+1. Review your **Agent Handlers** configuration
+2. Set **Max Concurrent Tasks** for parallel processing (default: 1)
+3. Click **Add Local App** to complete the setup
+
+</Steps>
+
+## Verifying Your Setup
+
+After saving, your Local App will appear in the dashboard. Check these indicators:
+
+| Indicator | Meaning |
+|-----------|---------|
+| 🟢 **Running** | App is active and listening for events |
+| 🟡 **Stopped** | App is configured but not running |
+| 🔴 **Error** | Configuration issue - check credentials |
+
+## Common Issues
+
+### "Schema check failed"
+
+- Verify your Supabase URL format: `https://xxxxx.supabase.co`
+- Check that your Anon Key is correct (not the Service Role key)
+- Ensure your Supabase project is active (not paused)
+
+### "Access Denied" during login
+
+- Make sure you're logging in with an account that has **write access** to the project
+- Try clicking **Switch Account** to use the correct account
+
+### "Login timeout"
+
+- The Supabase CLI requires browser access - ensure popups are not blocked
+- Try again and complete the browser authentication within 5 minutes
+
+## What's Next?
+
+- [Developer Guide](/features/local-apps/developer-guide) - Build your own Local App
+- [Agent Developer](/features/local-apps/agent-developer) - Create AI agents for task processing

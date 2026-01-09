@@ -2,7 +2,9 @@ import React from 'react';
 import { DocsThemeConfig, useConfig } from 'nextra-theme-docs';
 import { useRouter } from 'next/router';
 import _meta from './pages/changelog/_meta.json';
+import BannerContent from './components/BannerContent';
 
+// Fallback version from changelog (used for banner key)
 const newRelease = Object.keys(_meta)
   .filter((version) => !version.endsWith('.pre') && !version.includes('rc'))
   .reduce((a, b) =>
@@ -113,11 +115,7 @@ const config: DocsThemeConfig = {
   banner: {
     dismissible: true,
     key: `${newRelease}-release`,
-    text: (
-      <a href="https://realtimex.ai/" target="_blank">
-        🚀 RealTimeX {newRelease} is live! Update now →
-      </a>
-    )
+    text: <BannerContent />
   }
 }
 

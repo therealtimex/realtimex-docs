@@ -1,0 +1,127 @@
+---
+title: "Developer Guide"
+description: "SDK Integration and Custom Mode for Local Apps"
+---
+
+import { Callout, Tabs } from 'nextra/components'
+
+# Local Apps Developer Guide
+
+This guide covers advanced integration using the RealTimeX SDK and the Custom Mode.
+
+## Using the RealTimeX SDK
+
+The official SDK allows you to easily integrate your Python or TypeScript apps with RealTimeX.
+
+### Installation
+
+<Tabs items={['TypeScript', 'Python']}>
+  <Tabs.Tab>
+    ```bash
+    npm install @realtimex/local-app-sdk
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```bash
+    pip install realtimex-sdk
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Initialization
+
+The SDK needs your Supabase credentials. By default, it connects to RealTimeX running at `http://localhost:3001`.
+
+<Tabs items={['TypeScript', 'Python']}>
+  <Tabs.Tab>
+    ```typescript
+    import { RealtimeXSDK } from '@realtimex/local-app-sdk';
+
+    const sdk = new RealtimeXSDK({
+      supabase: {
+        url: 'https://your-project.supabase.co',
+        anonKey: 'your-anon-key',
+      }
+    });
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```python
+    from realtimex_sdk import RealtimeXSDK, SupabaseConfig
+
+    sdk = RealtimeXSDK(
+        supabase=SupabaseConfig(
+            url="https://your-project.supabase.co",
+            anon_key="your-anon-key"
+        )
+    )
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### CRUD Operations
+
+Manage your `activities` table directly through the SDK:
+
+```typescript
+// Insert a new task
+const activity = await sdk.activities.insert({
+  type: 'process_pdf',
+  url: 'https://example.com/doc.pdf'
+});
+
+// Update status
+await sdk.activities.update(activity.id, { status: 'processing' });
+```
+
+### Triggering Agents (Webhooks)
+
+You can trigger an agent to process data.
+
+**Manual Mode (Default)**: Creates a calendar event for the user to review.
+```typescript
+await sdk.webhook.triggerAgent({
+  raw_data: { data: 'my secret' },
+  auto_run: false
+});
+```
+
+**Auto-run Mode**: Triggers the agent immediately in a specific workspace.
+```typescript
+await sdk.webhook.triggerAgent({
+  raw_data: activity,
+  auto_run: true,
+  agent_name: 'pdf-processor',
+  workspace_slug: 'operations'
+});
+```
+
+---
+
+## Custom Mode Implementation
+
+If you want to use your own database schema and lock logic, use **Custom Mode**.
+
+### 1. External Webhook
+
+Agents report results to your app via this endpoint.
+- **Path**: `POST /api/task-webhook`
+- **Payload**: Includes `task_id`, `action` (complete/fail), and `data`.
+
+### 2. Lock API
+
+RealTimeX calls this to ensure only one machine processes a task.
+- **Path**: `POST /api/task-lock`
+- **Payload**: `task_id`, `machine_id`.
+- **Response**: `{ "success": true }` to allow processing.
+
+---
+
+## Public APIs
+
+The SDK also provides access to RealTimeX metadata:
+
+- `sdk.api.getAgents()`: List available AI agents.
+- `sdk.api.getWorkspaces()`: List available workspaces.
+- `sdk.api.getThreads(workspaceSlug)`: List threads in a workspace.
+- `sdk.api.getTask(uuid)`: Check status of an external task.

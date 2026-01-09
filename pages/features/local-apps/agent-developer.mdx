@@ -1,0 +1,58 @@
+---
+title: "Agent Developer Guide"
+description: "How to build AI Agents for Local Apps"
+---
+
+import { Callout } from 'nextra/components'
+
+# Agent Developer Guide
+
+This guide is for developers building AI Agents that process data from Local Apps.
+
+## How Agents Receive Tasks
+
+When a Local App triggers an agent (via SDK or Supabase event), RealTimeX creates an **External Task**.
+
+1. **Agent triggered**: The agent receives the `raw_data` from the event.
+2. **Processing**: The agent runs its logic (e.g., summarizing text, analyzing data).
+3. **Reporting**: The agent must report the result back to RealTimeX.
+
+## Responding to Tasks
+
+Agents should use the **Report Result** tool (if using the RealTimeX Agent framework) or call the webhook directly.
+
+### Webhook URL
+
+The agent receives a `webhook_url` in its context (or can construct it from the task UUID).
+`POST /external-tasks/:uuid/webhook`
+
+### Payload Format
+
+```json
+{
+  "status": "completed", // or "failed"
+  "output": "The analysis is complete...",
+  "data": {
+    "key_results": [...]
+  }
+}
+```
+
+## Best Practices
+
+### 1. Handle Large Payloads
+If `raw_data` is very large, consider storing it in Supabase Storage and passing the URL instead of the full content.
+
+### 2. Error Handling
+Always return a meaningful error message in the `output` field if the processing fails. This will be visible in the Local App logs and the main App calendar.
+
+### 3. State Management
+AI Agents are stateless. Any state between steps should be maintained in your database (Supabase) and updated using the SDK.
+
+## Local Testing
+
+To test your agent locally before deploying:
+1. Use the **SDK** to trigger a "Manual" event.
+2. Verify the task appears in the **Calendar**.
+3. Use the **"Trigger Agent"** button in the Calendar to run your agent manually.
+4. Check the **Execution Logs** for results.
