@@ -17,7 +17,11 @@ These endpoints are used by the official SDKs to coordinate with the RealTimeX M
 
 ### POST `/webhooks/realtimex`
 
-Webhook receiver for SDK - creates a calendar event and optionally triggers an agent.
+Unified webhook receiver for SDK. Supports multiple event types.
+
+#### Event: `trigger-agent`
+
+Create a calendar event and optionally trigger an agent.
 
 **Request:**
 ```json
@@ -47,17 +51,74 @@ Webhook receiver for SDK - creates a calendar event and optionally triggers an a
 }
 ```
 
+---
+
+#### Event: `task-start`
+
+Mark a task as processing. Used by agents before starting work.
+
+**Request:**
+```json
+{
+  "event": "task-start",
+  "payload": {
+    "task_uuid": "abc-123",
+    "machine_id": "agent-001"
+  }
+}
+```
+
+**Response:** `{ "success": true, "status": "processing" }`
+
+---
+
+#### Event: `task-complete`
+
+Mark a task as completed with result data.
+
+**Request:**
+```json
+{
+  "event": "task-complete",
+  "payload": {
+    "task_uuid": "abc-123",
+    "machine_id": "agent-001",
+    "result": { "summary": "Order processed", "data": {...} }
+  }
+}
+```
+
+**Response:** `{ "success": true, "status": "completed" }`
+
+---
+
+#### Event: `task-fail`
+
+Mark a task as failed with error message.
+
+**Request:**
+```json
+{
+  "event": "task-fail",
+  "payload": {
+    "task_uuid": "abc-123",
+    "machine_id": "agent-001",
+    "error": "Connection timeout to external API"
+  }
+}
+```
+
+**Response:** `{ "success": true, "status": "failed" }`
+
+---
+
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
 | `app_id` | string | No | Local App UUID (from Main App) |
 | `app_name` | string | No | Display name for calendar events |
-| `event` | string | Yes | Event type: `trigger-agent`, `ping` |
-| `payload.raw_data` | object | Yes | Data to process |
-| `payload.auto_run` | boolean | No | If true, trigger agent immediately |
-| `payload.agent_name` | string | Conditional | Required if `auto_run` is true |
-| `payload.workspace_slug` | string | Conditional | Required if `auto_run` is true |
-| `payload.thread_slug` | string | Conditional | Required if `auto_run` is true |
-| `payload.prompt` | string | No | Custom prompt for agent |
+| `event` | string | Yes | Event type (see above) |
+| `payload` | object | Yes | Event-specific payload |
+
 
 ---
 

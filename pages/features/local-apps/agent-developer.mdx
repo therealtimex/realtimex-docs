@@ -3,7 +3,7 @@ title: "Agent Developer Guide"
 description: "How to build AI Agents for Local Apps"
 ---
 
-import { Callout } from 'nextra/components'
+import { Callout, Tabs, Tab } from 'nextra/components'
 
 # Agent Developer Guide
 
@@ -13,112 +13,113 @@ This guide is for developers building AI Agents that process data from Local App
 
 When a Local App triggers an agent (via SDK or Supabase event), RealTimeX creates an **External Task**.
 
-1. **Agent triggered**: The agent receives the `raw_data` from the event.
-2. **Locking (Important)**: In a distributed system, the agent should first **claim** the task to prevent multiple agents from processing the same data.
-3. **Processing**: The agent runs its logic (e.g., summarizing text, analyzing data).
-4. **Reporting**: The agent reports the final status (completed/failed) back to RealTimeX.
+1. **Task Created**: RealTimeX receives data from the Local App
+2. **Claim (Automatic)**: RealTimeX automatically claims the task before triggering the agent
+3. **Agent Triggered**: The agent receives the `raw_data` and `task_uuid`
+4. **Processing**: The agent runs its logic
+5. **Reporting**: The agent reports the final status (completed/failed) back to RealTimeX
 
-## Responding to Tasks
+<Callout type="info">
+**Important**: Task claiming is handled automatically by RealTimeX before your agent is triggered. You do NOT need to claim tasks yourself.
+</Callout>
 
-Agents should interact with the RealTimeX **Proxy Webhook**. This webhook automatically handles status updates in the Main App and syncs changes back to the Local App/Supabase.
+## Reporting Task Status
 
-### Webhook API Reference
+Agents can report status using either the **SDK** or the **Webhook API**.
 
-**Endpoint**: `POST /api/external-tasks/:uuid/webhook`
+### Option 1: Using the SDK (Recommended)
 
-#### 1. Claim Task
-Before starting work, call the claim action. This will attempt to acquire a lock (via Supabase RPC or Local App API).
+The SDK provides a simple interface for external agents (Python/Node.js scripts).
 
-**Request:**
-```json
-{
-  "action": "claim",
-  "machine_id": "agent-unique-id",
-  "user_email": "user@example.com"
-}
+<Tabs items={['TypeScript', 'Python']}>
+  <Tab>
+```typescript
+import { RealtimeXSDK } from '@realtimex/sdk';
+
+const sdk = new RealtimeXSDK();
+
+// Mark task as processing (optional)
+await sdk.task.start(taskUuid);
+
+// Report success
+await sdk.task.complete(taskUuid, { summary: "Done", data: {...} });
+
+// Or report failure
+await sdk.task.fail(taskUuid, "Error message");
 ```
+  </Tab>
+  <Tab>
+```python
+from realtimex_sdk import RealtimeXSDK
 
-**Response (Success):**
-```json
-{
-  "success": true,
-  "status": "claimed",
-  "locked_by": "agent-unique-id"
-}
+sdk = RealtimeXSDK()
+
+# Mark task as processing (optional)
+await sdk.task.start(task_uuid)
+
+# Report success
+await sdk.task.complete(task_uuid, {"summary": "Done", "data": {...}})
+
+# Or report failure
+await sdk.task.fail(task_uuid, "Error message")
 ```
+  </Tab>
+</Tabs>
 
 ---
 
-#### 2. Start Processing
-Optional: Mark the task as `processing`.
+### Option 2: Using the Webhook API
 
-**Request:**
+For environments without SDK support, use the webhook directly.
+
+**Endpoint**: `POST /webhooks/realtimex`
+
+#### Start Processing (Optional)
 ```json
-{
-  "action": "start",
-  "machine_id": "agent-unique-id"
+{ "event": "task-start", "payload": { "task_uuid": "abc-123" } }
+```
+
+#### Complete Task
+```json
+{ 
+  "event": "task-complete", 
+  "payload": { 
+    "task_uuid": "abc-123", 
+    "result": { "summary": "Done" } 
+  } 
 }
 ```
 
----
-
-#### 3. Complete Task
-Report the final result.
-
-**Request:**
+#### Fail Task
 ```json
-{
-  "action": "complete",
-  "machine_id": "agent-unique-id",
-  "data": {
-    "summary": "The analysis is complete...",
-    "result": { "key": "value" }
-  }
-}
-```
-
----
-
-#### 4. Fail Task
-Report an error if processing fails.
-
-**Request:**
-```json
-{
-  "action": "fail",
-  "machine_id": "agent-unique-id",
-  "data": {
-    "error": "Failed to connect to external service"
-  }
+{ 
+  "event": "task-fail", 
+  "payload": { 
+    "task_uuid": "abc-123", 
+    "error": "Connection timeout" 
+  } 
 }
 ```
 
 ## Context Variables
 
-When an agent is triggered by an External Task, it receives several context variables:
+When an agent is triggered, it receives:
 
 | Variable | Description |
 |----------|-------------|
 | `task_uuid` | Unique identifier for the task |
-| `webhook_url` | Full URL to the proxy webhook |
-| `raw_data` | The original event data from the database |
-| `table_name` | The name of the source table |
+| `raw_data` | The original event data |
+| `table_name` | Source table name |
 
 ## Best Practices
 
-### 1. Atomic Locking
-Always use the `claim` action before processing. The RealTimeX proxy handles the low-level locking logic for you, whether you're in **Compatible** or **Custom** mode.
-
-### 2. Meaningful Status
-If an agent fails, return a clear error message in the `data.error` field. This helps users debug issues directly from the **Local App Execution Logs**.
-
-### 3. Handle Large Data
-Avoid passing massive blobs in `raw_data`. If you're processing files, pass a Supabase Storage URL or a signed URL instead.
+1. **Report Status Promptly** - Call `complete` or `fail` as soon as your agent finishes
+2. **Meaningful Errors** - Return clear error messages for debugging
+3. **Handle Large Data** - Pass URLs instead of massive blobs
 
 ## Local Testing
 
-To test your agent locally:
-1. Use the **SDK** to trigger a "Manual" event.
-2. Verify the task appears in the **Calendar**.
-3. Use the **"Trigger Agent"** button in the Calendar to run your agent manually.
-4. Monitor the **Execution Logs** to verify the webhook calls and status updates.
+1. Use the **SDK** to trigger a "Manual" event
+2. Verify the task appears in the **Calendar**
+3. Click **"Run Agent"** to run manually
+4. Monitor **Execution Logs** for status updates
