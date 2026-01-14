@@ -10,28 +10,66 @@ import {
   Sparkle,
   Cloud,
   Map,
-  ListOrdered
+  ListOrdered,
+  Zap,
+  Laptop,
+  Mic,
+  Calendar
 } from "lucide-react";
 
 # RealTimeX Documentation
 
 Learn about RealTimeX’s features and how to use them.
 
+## Core Capabilities
+
 <div style={{
   display: "grid",
   gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
   gap: "1.2rem",
-  margin: "2rem 0"
+  margin: "1rem 0"
 }}>
-  <FeatureCard title="Get Started" href="introduction" icon={<BookOpen size={36} color="#226cff" />}>
+  <FeatureCard title="Agent Builder" href="agent-builder" icon={<Zap size={36} color="#e3694d" />}>
+    Build visual agents and workflows with AI assistance.
+  </FeatureCard>
+  <FeatureCard title="Local Apps" href="local-apps" icon={<Laptop size={36} color="#226cff" />}>
+    Connect and automate local apps on your machine.
+  </FeatureCard>
+  <FeatureCard title="Meeting Minutes" href="meeting-minutes" icon={<Mic size={36} color="#ad4ae6" />}>
+    Record, transcribe, and analyze meetings with AI.
+  </FeatureCard>
+   <FeatureCard title="Calendar" href="calendar" icon={<Calendar size={36} color="#31b5d6" />}>
+    Unified planning for tasks and agent schedules.
+  </FeatureCard>
+</div>
+
+## Getting Started
+
+<div style={{
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+  gap: "1.2rem",
+  margin: "1rem 0"
+}}>
+  <FeatureCard title="Intro" href="introduction" icon={<BookOpen size={36} color="#226cff" />}>
     Quick intro and basics.
   </FeatureCard>
   <FeatureCard title="Installation" href="installation-desktop/overview" icon={<Download size={36} color="#0da37f" />}>
     Set up RealTimeX on your device.
   </FeatureCard>
-  <FeatureCard title="Features" href="features/all-features" icon={<Sparkle size={36} color="#efc04a" />}>
+  <FeatureCard title="All Features" href="features/all-features" icon={<Sparkle size={36} color="#efc04a" />}>
     Explore all the platform’s features.
   </FeatureCard>
+</div>
+
+## Resources
+
+<div style={{
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+  gap: "1.2rem",
+  margin: "1rem 0"
+}}>
   <FeatureCard title="RealTimeX Cloud" href="cloud/overview" icon={<Cloud size={36} color="#ad4ae6" />}>
     Learn about RealTimeX Cloud.
   </FeatureCard>

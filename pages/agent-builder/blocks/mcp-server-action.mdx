@@ -1,0 +1,46 @@
+---
+title: "MCP Server Action"
+description: "Learn how to use Model Context Protocol (MCP) tools within your Agent Flows"
+---
+
+import { Callout } from 'nextra/components'
+
+# MCP Server Action Block
+
+The **MCP Server Action** block allows you to call tools from any connected [Model Context Protocol (MCP)](../mcp-compatibility.mdx) server directly from your flow. This opens up your flows to a vast ecosystem of external integrations, from GitHub and Slack to local databases and custom scripts.
+
+## How it Works
+
+When you add an MCP Server Action block, it connects to your RealTimeX MCP runtime to fetch available tools.
+
+### Configuration
+
+1. **Select MCP Server**: Choose from your currently connected MCP servers.
+2. **Select Tool**: Choose a specific tool provided by that server (e.g., `github_create_issue`, `slack_send_message`).
+3. **Arguments**: The block will automatically generate input fields based on the tool's expected parameters. You can:
+   - Enter static values.
+   - Use flow variables with the `{{ $variable_key }}` syntax.
+
+## Integration Example: GitHub Issue Creator
+
+If you want your flow to automatically create a GitHub issue when a certain condition is met:
+
+1. **Server**: `github`
+2. **Tool**: `create_issue`
+3. **Arguments**:
+   - **Repository**: `therealtimex/RealTimeX`
+   - **Title**: `[Flow Alert] {{ $alert_title }}`
+   - **Body**: `Reported by agent flow. Data: {{ $api_response }}`
+
+## Handling Results
+
+The result of the MCP tool call is returned as a JSON object and stored in the block's **Result Variable**. You can then use this data in subsequent blocks.
+
+<Callout type="info">
+**Tool Availability**: Ensure the MCP server is enabled and running in your RealTimeX settings before running the flow. If a server is disconnected, the block will fail during execution.
+</Callout>
+
+## Benefits of MCP in Flows
+- **Extensibility**: No need to wait for RealTimeX to add a specific integration; if an MCP server exists for it, you can use it.
+- **Consistency**: Use the same tools in your flows that your AI agents use in chat.
+- **Power**: Combine the logic of Agent Flows with the specialized capabilities of MCP tools to build complex, automated workflows.

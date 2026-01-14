@@ -1,0 +1,46 @@
+---
+title: Calendar
+description: Manage your tasks, reminders, and events with the integrated RealTimeX Calendar.
+---
+
+import { Callout } from "nextra/components";
+import Image from "next/image";
+
+# RealTimeX Calendar
+
+The **RealTimeX Calendar** is a unified planning tool built directly into the application. It helps you keep track of automated tasks, agent schedules, and manual events in one place.
+
+## Key Features
+
+- **Unified View**: See all your tasks and events in a standard daily, weekly, or monthly calendar view.
+- **Automated Scheduling**: AI Agents and Agent Flows can automatically create calendar events for tasks that need manual review or have specific deadlines.
+- **Reminders**: Configure custom reminders for your events to stay on top of your schedule.
+- **Repeating Events**: Set up recurring tasks for routine maintenance or regular reporting.
+- **Task Integration**: Click on many calendar events to jump directly to the associated agent task or workspace record.
+
+## Managing Events
+
+### Creating Events Manually
+1.  Navigate to the **Calendar** tab in the main sidebar.
+2.  Click on any time slot or the **Add Event** button.
+3.  Provide a title, description, and time.
+4.  Configure optional repeat patterns or reminders.
+
+### Automatic Event Creation
+RealTimeX often creates calendar events automatically when:
+- An **Agent Flow** reaches a "Schedule" or "Human Review" block.
+- A **Local App** receives a task that requires manual intervention.
+- An **AI Agent** is instructed to "Set a reminder" or "Schedule a meeting" (using the Calendar tool).
+
+## Configuration
+
+### Event Colors
+You can customize the color of your events to categorize them visually (e.g., green for completed, red for urgent, blue for personal).
+
+### Reminders
+RealTimeX supports desktop notifications for calendar reminders. Ensure you have enabled notifications in your operating system settings for the RealTimeX Desktop app.
+
+<Callout type="info">
+**Privacy Note**
+Like all data in RealTimeX, your calendar events are stored locally on your machine. They are never synced to a cloud provider unless you explicitly configure an external integration.
+</Callout>

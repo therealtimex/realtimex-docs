@@ -1,0 +1,47 @@
+---
+title: Meeting Minutes
+description: Record, transcribe, and analyze your meetings with AI-powered Meeting Minutes workspaces.
+---
+
+import { Callout } from "nextra/components";
+import Image from "next/image";
+
+# Meeting Minutes
+
+The **Meeting Minutes** feature transforms RealTimeX into a powerful AI assistant for your meetings. It captures audio, provides real-time transcription, and automatically prepares the content for AI analysis.
+
+## How it Works
+
+Meeting Minutes operates within a specialized **Workspace Type**. When you create a Meeting Minutes workspace, the interface is optimized for recording and reviewing transcripts.
+
+### 1. Recording & Transcription
+- **Real-time Streaming**: As you speak, RealTimeX uses your selected **Transcription Model** to provide a live preview of the text.
+- **High Accuracy**: Use local models like Whisper or cloud-based providers for high-speed, high-accuracy transcripts.
+- **Timestamps**: Every chunk of text is automatically timestamped for easy reference.
+
+### 2. Post-Meeting Processing
+Once you stop the recording, RealTimeX performs several automated actions:
+- **Audio Storage**: Saves a high-quality audio recording (`.wav`) of the session.
+- **Markdown Export**: Generates a clean, timestamped transcript in Markdown format.
+- **Automated Renaming**: An AI Agent analyzes the transcript to give the meeting a descriptive title (e.g., "GTM Strategy Sync" instead of "New Meeting").
+
+### 3. AI Analysis (RAG Integration)
+This is where the magic happens. The transcript is immediately ingested back into the workspace's chat context. You can immediately ask your AI Agent:
+- *"Summarize the key decisions from this meeting."*
+- *"What were the action items for John?"*
+- *"Did we discuss the budget for Q3?"*
+
+## Setting Up Meeting Minutes
+
+1.  **Create Workspace**: Click the **+** button next to Workspaces and select **Meeting Minutes** as the workspace type.
+2.  **Select Tools**: Ensure you have an active **Transcription Model** configured in **Settings** → **Transcription**.
+3.  **Start Recording**: Click the **Record** button to begin the session.
+4.  **Stop & Save**: Click **Stop** when the meeting ends. The transcript and audio will appear in your chat history instantly.
+
+<Callout type="tip">
+**Multi-User Meetings**
+For best results in multi-user environments, ensure your microphone is positioned centrally or use a dedicated meeting room speakerphone. RealTimeX will attempt to differentiate speakers based on context, but clear audio is key.
+</Callout>
+
+## Viewing Past Meetings
+All your meetings are saved as threads within your Meeting Minutes workspace. You can switch between threads to view the audio, transcript, and previous AI chats for any past session.

@@ -1,0 +1,49 @@
+---
+title: Sharing & Publishing
+description: Learn how to share your own agents, skills, and flows to the RealTimeX Marketplace.
+---
+
+import { Callout } from "nextra/components";
+import Image from "next/image";
+
+# Sharing to the Marketplace
+
+RealTimeX makes it easy to share your own creations with the community or your organization. Most major entities in RealTimeX—including Agent Flows, Local Apps, and System Prompts—can be published directly from the application.
+
+## Prerequisites
+
+- An account on [marketplace.realtimex.ai](https://marketplace.realtimex.ai).
+- RealTimeX v1.6.5 or higher.
+- A valid **Marketplace API Key** (found in your Marketplace profile settings).
+
+## How to Publish
+
+Most entities follow a similar publishing flow:
+
+1.  **Configure your item**: Ensure your Agent, Flow, or Local App is working as expected locally.
+2.  **Open the Publish Modal**: Look for the **Publish** or **Share** button (usually represented by a marketplace/store icon) on the entity's management page.
+3.  **Prepare Metadata**:
+    - **Name & Description**: Clearly explain what your item does.
+    - **Tags**: Add relevant categories (e.g., "Automation", "CRM", "Sales").
+    - **Cover Image**: Upload a high-quality thumbnail (aspect ratio 16:9 recommended).
+    - **Visibility**: Choose between **Public** (for everyone) or **Private** (for your eyes/organization only).
+4.  **Publish**: Click the **Publish to Marketplace** button. RealTimeX will securely bundle your configuration and send it to the hub.
+
+<Callout type="info">
+**What gets shared?**
+When you publish an item, RealTimeX only shares the *configuration* and *logic*. It **never** includes your personal API keys, database credentials, or private documents. These must be re-added by the recipient during their own setup.
+</Callout>
+
+## Entity-Specific Publishing
+
+### Local Apps & MCP Servers
+When sharing Local Apps or MCP Servers, you are sharing the **template configuration**. The recipient will be prompted to provide their own local environment variables (like API keys or paths) upon syncing.
+
+### Agent Flows
+Flows are exported with their visual structure and block configurations. Note that some blocks may require specialized skills or local apps to be installed separately by the user.
+
+### System Prompts & Slash Commands
+These are shared as text-based presets. They are often bundled into specialized agents for a better user experience.
+
+## Managing your items
+You can manage your published items, update their descriptions, or remove them at any time by visiting your **My Items** page on [marketplace.realtimex.ai](https://marketplace.realtimex.ai).

@@ -1,0 +1,52 @@
+---
+title: Syncing Marketplace Items
+description: Learn how to find and sync items from the RealTimeX Marketplace to your instance.
+---
+
+import { Callout } from "nextra/components";
+import Image from "next/image";
+
+# Syncing from the Marketplace
+
+The RealTimeX Marketplace is seamlessly integrated with your desktop and cloud instances. Syncing allows you to instantly import complex configurations without manual setup.
+
+## Finding Items
+
+Browse the [RealTimeX Marketplace](https://marketplace.realtimex.ai) to find items that suit your needs. You can filter by category, search by name, or browse featured items from the community.
+
+1.  Find an item you like.
+2.  Click **Get** or **Add to Instance**. 
+3.  This will link the item to your marketplace account.
+
+## Syncing to your Instance
+
+Once an item is added to your account, you need to sync it to your local RealTimeX application:
+
+1.  Open **RealTimeX Desktop** or your cloud instance.
+2.  Navigate to the relevant settings page (e.g., **Settings** → **Agent Flows** or **Settings** → **Local Apps**).
+3.  Click the **Sync from Marketplace** button (or look for the marketplace icon in the header).
+4.  RealTimeX will authenticate with the hub and list your available "purchased" items.
+5.  Click **Install** or **Sync** next to the item.
+
+## Resolving and Configuring Items
+
+Some items require additional setup after syncing to work in your specific environment:
+
+### Local Apps (Compatible Mode)
+When syncing a Local App, you may be prompted to:
+- Run the **Auto-Setup Schema** for Supabase.
+- Provide local environment variables.
+- Select the workspace where the app should be active.
+
+### Agent Flows
+Newly synced flows appear in your **Agent Flows** list. You may need to:
+- Verify that all required **Agent Skills** are installed.
+- Configure flow-specific variables (found in the Flow Variables block).
+
+### MCP Servers
+Syncing an MCP server will add its configuration to your **MCP Management** page. If the server requires authentication (like an API key), you will see a **Setup Required** status until you provide the necessary credentials.
+
+<Callout type="success">
+**Automatic Updates**
+When a developer updates an item you've synced, you'll see an "Update Available" badge in your instance. Simply click sync again to pull the latest version safely without losing your local credentials.
+</Callout>

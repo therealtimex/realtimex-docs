@@ -1,0 +1,23 @@
+{
+  "index": {
+    "title": "Agent Builder Overview"
+  },
+  "getting-started": {
+    "title": "Getting Started"
+  },
+  "ai-assistant": {
+    "title": "AI Builder Assistant"
+  },
+  "scheduling": {
+    "title": "Flow Scheduling"
+  },
+  "blocks": {
+    "title": "Building Blocks"
+  },
+  "tutorial-hackernews": {
+    "title": "HackerNews Tutorial"
+  },
+  "debugging-flows": {
+    "title": "Debugging & Testing"
+  }
+}

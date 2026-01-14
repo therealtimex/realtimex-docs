@@ -1,0 +1,59 @@
+---
+title: "Loop Block"
+description: "Learn how to use the Loop block to iterate over data and repeat actions in your Agent Flows"
+---
+
+import { Callout, Tabs } from 'nextra/components'
+
+# Loop Block
+
+The **Loop** block allows you to repeat a sequence of actions multiple times. This is essential for processing lists of data, retrying operations, or performing batch tasks.
+
+## Loop Types
+
+The Loop block supports three main iteration modes:
+
+### 1. Array Loop (For Each)
+Iterates over every item in an array (e.g., a list of emails, files, or API results).
+
+- **Array Variable**: The variable containing the list (e.g., `{{ $scraper.results }}`).
+- **Item Variable**: The name to assign to the current item in each iteration (e.g., `item`). You can then access it as `{{ $item }}` inside the loop.
+- **Index Variable**: (Optional) The name for the current index (e.g., `i`). Access as `{{ $i }}`.
+
+### 2. While Loop
+Repeats as long as a specified condition remains `true`.
+
+- **Condition**: Uses the same operators as the [Conditional Block](./conditional).
+- **Maximum Iterations**: A safety limit to prevent infinite loops (default: 1000).
+
+### 3. For Loop (Counter)
+Repeats based on a numeric counter.
+
+- **Start Value**: Where the counter begins (e.g., `1`).
+- **End Value**: Where the counter ends (e.g., `10`).
+- **Step Value**: How much the counter increases/decreases each time (e.g., `1`).
+- **Counter Variable**: The name for the current counter value (e.g., `count`). Access as `{{ $count }}`.
+
+## Working with Variables
+
+Inside a loop, you have access to a local scope:
+
+- **Inherited Variables**: You can still access all variables from the main flow.
+- **Iterative Variables**: Variables like `{{ $item }}` or `{{ $index }}` are unique to each iteration.
+- **Result Accumulation**: You can store data in arrays or objects using subsequent blocks to gather results from each iteration.
+
+<Callout type="warning">
+**Safety First**: Always check your `Max Iterations` limit. For complex API calls or web scraping, starting with a small number is recommended to avoid resource exhaustion.
+</Callout>
+
+## Example: Summarizing Articles
+1. **Web Scraper**: Returns an array of article links.
+2. **Loop (Array Type)**:
+   - **Array**: `{{ $scraper.links }}`
+   - **Item**: `link`
+3. **Inside Loop**:
+   - **LLM Instruction**: "Summarize the content at {{ $link }}"
+   - **Write File**: Save summary to a local folder.
+
+## Result Handling
+The Loop block returns an **Array of Results** containing the output of every iteration. You can reference this using the Loop's `Result Variable` (e.g., `{{ $my_loop_results }}`) in later blocks.

@@ -1,0 +1,52 @@
+---
+title: "Switch Block"
+description: "Learn how to use the Switch block for multi-way branching in your Agent Flows"
+---
+
+import { Callout } from 'nextra/components'
+
+# Switch Block
+
+The **Switch** block provides an efficient way to handle multiple specific cases for a single variable. It is a cleaner alternative to nesting multiple [Conditional Blocks](./conditional) when you have many known possible values.
+
+## How it Works
+
+The Switch block takes an input variable and compares its value against a set of predefined **Cases**.
+
+### Configuration
+
+1. **Select Variable**: The variable you want to evaluate (e.g., `{{ $user_input.intent }}`).
+2. **Add Cases**: For each case, define:
+   - **Value**: The exact value to match (e.g., "help", "status", "cancel").
+   - **Blocks**: The sequence of blocks to execute if this case matches.
+3. **Default Case**: (Optional) A catch-all branch that executes if none of the defined cases match.
+
+## Multi-Case Branching
+
+Unlike the Conditional block's True/False paths, the Switch block allows for any number of branches:
+
+- **Case 'A'**: Executed if `variable == 'A'`.
+- **Case 'B'**: Executed if `variable == 'B'`.
+- **Default**: Executed if no other matches are found.
+
+<Callout type="info">
+The Switch block uses **Strict Equality**. This means "1" (string) will not match 1 (number). Ensure your variable types match your case definitions.
+</Callout>
+
+## Example: Command Handler
+If you are building a bot that responds to specific commands:
+
+- **Variable**: `{{ $command }}`
+- **Case "start"**: Send welcome message and show menu.
+- **Case "settings"**: Open user settings flow.
+- **Case "help"**: Provide documentation links.
+- **Default**: "I'm sorry, I don't recognize that command."
+
+## When to use Switch vs Conditional
+
+| Feature | Switch | Conditional |
+| :--- | :--- | :--- |
+| **Logic Type** | Exact matching | Complex expressions (>, <, contains) |
+| **Branches** | Unlimited cases | True/False only |
+| **Complexity** | Simple values | Multi-variable conditions |
+| **Readability** | High for 3+ values | High for binary logic |

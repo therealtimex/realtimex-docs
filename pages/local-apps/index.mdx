@@ -214,7 +214,7 @@ The Auto-Setup creates the following database objects:
 
 **RPC Functions:**
 
-- `claim_task_compatible()` - Atomically claim a task with lock
+- `claim_task_compatible()` - Securely claim a task with lock
 - `complete_task_compatible()` - Mark task as completed with result
 - `fail_task_compatible()` - Mark task as failed, release lock
 - `get_publications_full()` - Query realtime publications
@@ -255,7 +255,7 @@ SELECT cron.schedule(
 
 ### Manual Setup (Alternative)
 
-If you prefer to run SQL manually or the Auto-Setup fails, you can view the complete SQL scripts by clicking **View Setup** in the Compatible Mode configuration panel.
+If you prefer to run SQL manually or the Auto-Setup fails, you can view the raw script contents [here](https://github.com/therealtimex/RealTimeX/blob/desktop/linux_installer.sh).
 
 ### Custom Mode Setup
 
@@ -268,7 +268,7 @@ Custom Mode requires implementing API endpoints in your Local App. This is for a
 Your custom table must include:
 
 | Column | Type | Description |
-|--------|------|-------------|
+|---|---|---|
 | `status` | TEXT | pending, claimed, processing, completed, failed |
 | `locked_by` | TEXT | Machine ID holding the task |
 | `locked_at` | TIMESTAMP | When lock was acquired |
@@ -325,7 +325,7 @@ Your Local App must implement two endpoints:
 
 ### Configure in RealTimeX Desktop
 
-1. Open **Settings** → **Local Apps**
+1.  Open **Settings** → **Local Apps**
 
 {/*
 Uncomment khi đã có screenshot Settings page:
@@ -338,7 +338,7 @@ Uncomment khi đã có screenshot Settings page:
 />
 */}
 
-2. Click **Create New Local App**
+2.  Click **Create New Local App**
 
 {/*
 Uncomment khi đã có screenshot Create form:
@@ -350,16 +350,16 @@ Uncomment khi đã có screenshot Create form:
   alt="Create New Local App Form"
 />
 */}
-3. Fill in the details:
-   - **Display Name**: Give your app a name
-   - **Description**: Optional description
-   - **App Type**: Select app type (if applicable)
-   - **Icon**: Upload an optional icon
-4. Enable **Enable Subscription**
-5. Enter your **Supabase URL** and **Anon Key**
-6. Select **Mode**: Compatible or Custom
-7. Select **Tables** to monitor
-8. Click **Save**
+3.  Fill in the details:
+    - **Display Name**: Give your app a name
+    - **Description**: Optional description
+    - **App Type**: Select app type (if applicable)
+    - **Icon**: Upload an optional icon
+4.  Enable **Enable Subscription**
+5.  Enter your **Supabase URL** and **Anon Key**
+6.  Select **Mode**: Compatible or Custom
+7.  Select **Tables** to monitor
+8.  Click **Save**
 
 ## Advanced Configuration
 
@@ -368,7 +368,7 @@ Uncomment khi đã có screenshot Create form:
 RealTimeX supports multiple app types for different runtime environments:
 
 | Type | Description | Example Use Case | Command Example |
-|------|-------------|------------------|-----------------|
+|---|---|---|---|
 | **python** | Python scripts/servers | Data processing, ML models | `python app.py` |
 | **node** | Node.js applications | Web servers, APIs | `node server.js` |
 | **npx** | NPX packages (Node) | Quick prototyping, tools | `npx create-agent` |
@@ -500,15 +500,15 @@ Control how many tasks a Local App can process simultaneously to optimize resour
 
 **How it Works:**
 
-1. **Default**: `max_concurrent_tasks = 1` (sequential processing)
-2. **Concurrent**: Set higher values for parallel processing
-3. **Task Queue**: When limit is reached, new tasks wait in the calendar
-4. **Resource Control**: Prevents overwhelming your system with too many simultaneous tasks
+1.  **Default**: `max_concurrent_tasks = 1` (sequential processing)
+2.  **Concurrent**: Set higher values for parallel processing
+3.  **Task Queue**: When limit is reached, new tasks wait in the calendar
+4.  **Resource Control**: Prevents overwhelming your system with too many simultaneous tasks
 
 **Example Scenarios:**
 
 | Use Case | Recommended Setting | Reason |
-|----------|-------------------|---------|
+|---|---|---|
 | CPU-intensive tasks | 1-2 | Avoid CPU overload |
 | I/O-bound tasks (API calls) | 3-5 | Maximize throughput |
 | Database queries | 2-3 | Balance DB connections |
@@ -566,10 +566,10 @@ When RealTimeX Desktop starts, it automatically scans for tasks that occurred wh
 
 **How It Works:**
 
-1. **On Startup**: RealTimeX queries Supabase for pending/failed tasks
-2. **Deduplication**: Checks if task already exists locally to avoid duplicates
-3. **Processing**: Creates calendar events or triggers agents for missed tasks
-4. **Limit**: Processes up to 50 most recent tasks per table
+1.  **On Startup**: RealTimeX queries Supabase for pending/failed tasks
+2.  **Deduplication**: Checks if task already exists locally to avoid duplicates
+3.  **Processing**: Creates calendar events or triggers agents for missed tasks
+4.  **Limit**: Processes up to 50 most recent tasks per table
 
 **What Gets Recovered:**
 
@@ -595,10 +595,10 @@ For long-running tasks, RealTimeX sends periodic heartbeat updates to prevent lo
 
 **How It Works:**
 
-1. **Task Claimed**: Lock acquired with `locked_at` timestamp
-2. **Heartbeat**: Every 2 minutes, `locked_at` is refreshed
-3. **Timeout Protection**: Prevents stale lock cleanup while task is actively processing
-4. **Auto-Stop**: Heartbeat stops when task completes or fails
+1.  **Task Claimed**: Lock acquired with `locked_at` timestamp
+2.  **Heartbeat**: Every 2 minutes, `locked_at` is refreshed
+3.  **Timeout Protection**: Prevents stale lock cleanup while task is actively processing
+4.  **Auto-Stop**: Heartbeat stops when task completes or fails
 
 **Configuration:**
 
@@ -636,10 +636,10 @@ Open **Settings** → **Local Apps** → **Subscription Monitor** to see all con
 
 **Use Cases:**
 
-1. **Distributed Teams**: See which team member's machine is processing tasks
-2. **Load Balancing**: Identify if one machine is overloaded
-3. **Debugging**: Check if a specific machine is online and listening
-4. **Auditing**: Track who processed which tasks
+1.  **Distributed Teams**: See which team member's machine is processing tasks
+2.  **Load Balancing**: Identify if one machine is overloaded
+3.  **Debugging**: Check if a specific machine is online and listening
+4.  **Auditing**: Track who processed which tasks
 
 **Example Presence Data:**
 
@@ -659,11 +659,11 @@ When a task fails, RealTimeX implements an intelligent retry system with machine
 
 **How It Works:**
 
-1. **Task Fails**: Agent reports error via webhook
-2. **Machine Tracking**: Failed machine ID added to `attempted_by` array
-3. **Lock Release**: Task status set to `failed`, lock released
-4. **Retry Prevention**: Failed machine won't retry immediately (prevents infinite loops)
-5. **Other Machines**: Other machines can claim and retry the task
+1.  **Task Fails**: Agent reports error via webhook
+2.  **Machine Tracking**: Failed machine ID added to `attempted_by` array
+3.  **Lock Release**: Task status set to `failed`, lock released
+4.  **Retry Prevention**: Failed machine won't retry immediately (prevents infinite loops)
+5.  **Other Machines**: Other machines can claim and retry the task
 
 **Database Fields:**
 
@@ -696,7 +696,7 @@ WHERE id = target_task_id
 ```
 
 <Callout type="warning">
-**Retry Limit**: After 3 failed attempts from different machines, consider investigating the root cause. The task may have data issues.
+**Retry Limit**: After 3 failed attempts from different machines, consider investigating the root cause. The task may have data issues. ➤ Please open a <a href="https://github.com/therealtimex/RealTimeX/issues" target="_blank">Github Issue</a> if you have installation or bootup troubles.
 </Callout>
 
 ## End-to-End Example
@@ -1056,7 +1056,7 @@ Uncomment khi đã có screenshot Calendar:
 **Problem**: Two machines process the same task
 
 **Solution**:
-- Ensure your lock logic uses atomic operations
+- Ensure your lock logic uses safe, concurrent operations
 - Verify `claim_task_compatible` function is correctly implemented
 - Check that `machine_id` is unique per machine
 
@@ -1112,8 +1112,10 @@ Not directly. Local Apps currently requires Supabase for:
 ## Additional Resources
 
 - [Using AI Agents](/agent/overview) - Learn how to create and configure AI Agents
-- [Agent Flows](/agent-flows/overview) - Build complex workflows with Agent Flows
+- [Agent Builder](/agent-builder) - Build complex workflows with Agent Builder
 - [API Access](/features/api) - Integrate RealTimeX with external services
+- [Developer Guide](/local-apps/developer-guide) - Build your own Local App
+- [Agent Developer](/local-apps/agent-developer) - Create AI agents for task processing
 - [Supabase Documentation](https://supabase.com/docs) - Official Supabase guides
 
 ---

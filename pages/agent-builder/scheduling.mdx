@@ -1,0 +1,50 @@
+---
+title: "Flow Scheduling"
+description: "Learn how to automate your Agent Flows using schedules, intervals, and cron expressions"
+---
+
+import { Callout, Steps } from 'nextra/components'
+
+# Flow Scheduling
+
+While many Agent Flows are triggered manually during a chat session, RealTimeX also supports powerful **Background Scheduling**. This allows you to run flows automatically on a recurring basis without any manual intervention.
+
+## Scheduling Modes
+
+You can configure the schedule for a flow in the **Start Block** settings.
+
+### 1. Manual (Default)
+The flow only runs when explicitly called by an agent or a user in chat.
+
+### 2. Interval
+Runs the flow repeatedly after a set amount of time.
+- **Options**: Seconds, Minutes, Hours, Days, Weeks, Months.
+- **Example**: "Run every 30 minutes" or "Run every 2 days at 9:00 AM".
+
+### 3. Schedule (One-time)
+Sets a flow to run at a specific date and time in the future.
+- **Example**: "Run on 2026-12-25 at 00:00".
+
+### 4. Custom Cron
+For advanced users, you can use standard Cron expressions to define complex recurring schedules.
+- **Example**: `0 0 * * 1-5` (Run at midnight every weekday).
+
+## Timezone Handling
+RealTimeX uses **UTC** as the default timezone for scheduling. However, you can specify a custom timezone in the Start block configuration to ensure the flow runs at the correct local time for your region.
+
+## Execution History & Monitoring
+
+Scheduled flows run in the background. You can monitor their performance and results through:
+
+- **Flow Logs**: Check the "Logs" tab in the flow builder to see a history of every run, including successful completions and any errors.
+- **Calendar Integration**: If your flow creates calendar events, you can see these in the RealTimeX workspace calendar.
+- **Notifications**: You can build flows that send an email or Slack message (via MCP) upon completion or failure.
+
+<Callout type="info">
+**System Availability**: For scheduled flows to run, your RealTimeX instance (Docker or Desktop) must be active and running on your machine.
+</Callout>
+
+## Best Practices
+- **Rate Limiting**: When using short intervals (e.g., every 60 seconds), ensure your LLM and API providers can handle the frequency.
+- **Error Handling**: Build your flows robustly. Use [Conditional Blocks](./blocks/conditional) to check if an API call failed and stop the flow or send an alert.
+- **Overlap Protection**: By default, RealTimeX prevents a new instance of a scheduled flow from starting if the previous one is still running.

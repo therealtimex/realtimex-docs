@@ -1,0 +1,58 @@
+---
+title: "Conditional Block"
+description: "Learn how to use the Conditional block to create branching logic in your Agent Flows"
+---
+
+import { Callout } from 'nextra/components'
+import Image from 'next/image'
+
+# Conditional Block
+
+The **Conditional** block allows you to add branching logic to your flows. It evaluates a condition and executes a specific set of blocks based on whether the result is `true` or `false`.
+
+## Configuration
+
+To configure a Conditional block, you need to define a **Variable**, an **Operator**, and a **Value**.
+
+### 1. Select Variable
+Choose a variable from your flow context (e.g., `$api_response.status` or `$user_input`). You can use the `{{ $variable_name }}` syntax to reference variables.
+
+### 2. Choose Operator
+The block supports various operators for comparison:
+
+| Operator | Description |
+| :--- | :--- |
+| **equals (==)** | Checks if the variable exactly matches the value. |
+| **not_equals (!=)** | Checks if the variable does not match the value. |
+| **greater_than (>)** | Numeric comparison: variable is greater than value. |
+| **less_than (<)** | Numeric comparison: variable is less than value. |
+| **contains** | Checks if a string or array contains the specified value (case-insensitive). |
+| **starts_with** | Checks if a string starts with the specified value. |
+| **is_empty** | Checks if the variable is null, undefined, or an empty string. |
+
+### 3. Define Value
+The value to compare against. This can be a static string, a number, or another variable reference using `{{ $other_var }}`.
+
+## Branching
+The Conditional block has two output paths:
+
+- **True Path**: Blocks connected here will execute if the condition is met.
+- **False Path**: Blocks connected here will execute if the condition is NOT met.
+
+<Callout type="info">
+If no blocks are connected to a path, the flow will simply skip that branch and proceed to the next block after the Conditional block (if any).
+</Callout>
+
+## Example: Response Check
+Imagine you are making an API call and want to check if it was successful:
+
+1. **Variable**: `{{ $api_call.status }}`
+2. **Operator**: `==`
+3. **Value**: `200`
+
+- **True Path**: Send a success notification.
+- **False Path**: Log an error and stop the flow.
+
+## Tips
+- **Type Conversion**: RealTimeX automatically tries to parse values as numbers or booleans if they look like them. For example, "true" will be treated as a boolean `true`.
+- **Nested Logic**: You can place Conditional blocks inside other Conditional blocks or Loops for complex decision-making.
