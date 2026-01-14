@@ -52,7 +52,7 @@ Inside a loop, you have access to a local scope:
    - **Array**: `{{ $scraper.links }}`
    - **Item**: `link`
 3. **Inside Loop**:
-   - **LLM Instruction**: "Summarize the content at {{ $link }}"
+   - **LLM Instruction**: "Summarize the content at `{{ $link }}`"
    - **Write File**: Save summary to a local folder.
 
 ## Result Handling
