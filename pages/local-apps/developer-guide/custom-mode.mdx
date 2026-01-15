@@ -46,8 +46,6 @@ ALTER TABLE public.your_table_name
 ADD COLUMN IF NOT EXISTS status TEXT DEFAULT 'pending',          -- pending, claimed, processing, completed, failed
 ADD COLUMN IF NOT EXISTS locked_by TEXT,                          -- Machine ID holding the lock
 ADD COLUMN IF NOT EXISTS locked_at TIMESTAMP WITH TIME ZONE;      -- When the lock was acquired
-
--- Recommended columns for robust execution
 ALTER TABLE public.your_table_name
 ADD COLUMN IF NOT EXISTS attempted_by TEXT[] DEFAULT '{}',        -- Prevent retry loops
 ADD COLUMN IF NOT EXISTS retry_count INTEGER DEFAULT 0,           -- Track attempts
