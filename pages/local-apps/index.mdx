@@ -42,7 +42,7 @@ Uncomment khi đã có screenshot:
 #### Compatible Mode (Recommended)
 - **One-click setup** - Login to Supabase CLI + Auto-Setup Schema
 - **No manual SQL** - RealTimeX creates tables and functions automatically
-- **Standard table structure** - Uses the predefined `activities` table
+- **Standard table structure** - Uses the predefined `rtx_activities` table
 - **Built-in lock logic** - RealTimeX manages everything via RPC functions
 - **Best for** - New projects, prototypes, proof of concepts
 
@@ -182,7 +182,7 @@ Uncomment khi đã có screenshot:
 
 Once authenticated, click **Auto-Setup Schema** to automatically create:
 
-- **`activities` table** with all required columns
+- **`rtx_activities` table** with all required columns
 - **RPC functions** for task claiming, completion, and failure handling
 - **Indexes** for optimal performance
 - **Realtime publication** for your tables
@@ -195,7 +195,7 @@ Once authenticated, click **Auto-Setup Schema** to automatically create:
 
 The Auto-Setup creates the following database objects:
 
-**`activities` Table:**
+**`rtx_activities` Table:**
 
 | Column | Type | Description |
 |--------|------|-------------|
@@ -214,9 +214,9 @@ The Auto-Setup creates the following database objects:
 
 **RPC Functions:**
 
-- `claim_task_compatible()` - Securely claim a task with lock
-- `complete_task_compatible()` - Mark task as completed with result
-- `fail_task_compatible()` - Mark task as failed, release lock
+- `rtx_fn_claim_task()` - Securely claim a task with lock
+- `rtx_fn_complete_task()` - Mark task as completed with result
+- `rtx_fn_fail_task()` - Mark task as failed, release lock
 - `get_publications_full()` - Query realtime publications
 
 #### (Optional) Stale Lock Recovery
@@ -235,7 +235,7 @@ CREATE EXTENSION IF NOT EXISTS pg_cron;
 CREATE OR REPLACE FUNCTION public.unlock_stale_locks()
 RETURNS void AS $$
 BEGIN
-  UPDATE public.activities
+  UPDATE public.rtx_activities
   SET
     status = 'pending',
     locked_by = NULL,
@@ -323,6 +323,244 @@ Your Local App must implement two endpoints:
 }
 ```
 
+#### Custom Mode Data Flow
+
+```mermaid
+sequenceDiagram
+    participant SB as Supabase
+    participant Main as RealTimeX Desktop
+    participant LA as Your Local App
+    participant AG as AI Agent
+
+    SB-->>Main: Realtime Event
+    Main->>LA: POST /api/task-lock
+    LA-->>Main: Lock Response
+    alt Lock Acquired
+        Main->>AG: Trigger Agent
+        AG->>AG: Process Task
+        AG->>Main: Report Result
+        Main->>LA: POST /api/task-webhook
+    else Lock Failed
+        Main->>Main: Skip (another machine processing)
+    end
+```
+
+#### Retry Broadcast Implementation
+
+When a task fails and you want other machines to retry, broadcast via Supabase Realtime:
+
+```javascript
+const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+
+// Broadcast retry signal
+await supabase.channel('task-retry-YOUR_APP_NAME')
+  .send({
+    type: 'broadcast',
+    event: 'task-available',
+    payload: {
+      task_id: 'uuid',
+      table_name: 'rtx_activities',
+      failed_by: 'machine_id_that_failed',
+      retry_count: 1
+    }
+  });
+
+// Other Electron clients listening to this channel will
+// attempt to claim the task via their configured lock_url
+```
+
+#### Stale Lock Recovery (Critical)
+
+<Callout type="warning">
+**This is CRITICAL for Custom Mode!** When RealTimeX crashes, tasks remain locked indefinitely. You MUST implement stale lock recovery.
+</Callout>
+
+**Option 1: Supabase pg_cron (Recommended)**
+
+```sql
+-- Step 1: Enable pg_cron extension
+-- Go to Supabase Dashboard > Database > Extensions > Search "pg_cron" > Enable
+CREATE EXTENSION IF NOT EXISTS pg_cron;
+
+-- Step 2: Grant permissions
+GRANT USAGE ON SCHEMA cron TO postgres;
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA cron TO postgres;
+
+-- Step 3: Create the stale lock recovery function
+CREATE OR REPLACE FUNCTION public.recover_stale_locks_custom(
+  table_name TEXT DEFAULT 'rtx_activities',
+  timeout_minutes INT DEFAULT 5
+)
+RETURNS TABLE(recovered_count INT, recovered_ids UUID[]) AS $$
+DECLARE
+  affected_ids UUID[];
+  affected_count INT;
+BEGIN
+  EXECUTE format('
+    UPDATE %I 
+    SET 
+      status = ''pending'', 
+      locked_by = NULL, 
+      locked_at = NULL
+    WHERE status IN (''claimed'', ''processing'')
+      AND locked_at < now() - interval ''%s minutes''
+    RETURNING id
+  ', table_name, timeout_minutes)
+  INTO affected_ids;
+  
+  GET DIAGNOSTICS affected_count = ROW_COUNT;
+  
+  RETURN QUERY SELECT affected_count, affected_ids;
+END;
+$$ LANGUAGE plpgsql;
+
+-- Step 4: Schedule automatic recovery every minute
+SELECT cron.schedule(
+  'recover-stale-locks-custom',
+  '* * * * *',
+  $$SELECT public.recover_stale_locks_custom('your_table_name', 5);$$
+);
+
+-- Verify the job is scheduled
+SELECT * FROM cron.job;
+```
+
+**Option 2: Local App Implementation**
+
+If you cannot use pg_cron, implement recovery in your Local App server:
+
+```javascript
+import { createClient } from '@supabase/supabase-js';
+
+const supabase = createClient(
+  process.env.SUPABASE_URL,
+  process.env.SUPABASE_SERVICE_ROLE_KEY // Use service role for admin access
+);
+
+const APP_NAME = 'your-app-name';
+const TABLE_NAME = 'your_table_name';
+const STALE_THRESHOLD_MINUTES = 5;
+const CHECK_INTERVAL_MS = 60 * 1000; // 1 minute
+
+async function recoverStaleLocks() {
+  try {
+    const cutoffTime = new Date(
+      Date.now() - STALE_THRESHOLD_MINUTES * 60 * 1000
+    ).toISOString();
+
+    // Find stale tasks
+    const { data: staleTasks, error: findError } = await supabase
+      .from(TABLE_NAME)
+      .select('id, locked_by, locked_at')
+      .in('status', ['claimed', 'processing'])
+      .lt('locked_at', cutoffTime);
+
+    if (findError || !staleTasks?.length) return;
+
+    console.log(`[StaleLockRecovery] Found ${staleTasks.length} stale tasks`);
+
+    for (const task of staleTasks) {
+      // Reset task to pending
+      await supabase
+        .from(TABLE_NAME)
+        .update({
+          status: 'pending',
+          locked_by: null,
+          locked_at: null,
+        })
+        .eq('id', task.id);
+
+      // Broadcast to retry channel
+      const channel = supabase.channel(`task-retry-${APP_NAME}`);
+      await channel.send({
+        type: 'broadcast',
+        event: 'task-available',
+        payload: {
+          task_id: task.id,
+          table_name: TABLE_NAME,
+          failed_by: task.locked_by,
+          recovery_reason: 'stale_lock',
+        },
+      });
+    }
+  } catch (error) {
+    console.error('[StaleLockRecovery] Error:', error);
+  }
+}
+
+// Start the recovery loop
+function startStaleLockRecovery() {
+  recoverStaleLocks();
+  setInterval(recoverStaleLocks, CHECK_INTERVAL_MS);
+}
+
+// Call this when your Local App server starts
+startStaleLockRecovery();
+```
+
+#### Get Publications RPC (Required)
+
+This function is required for RealTimeX to discover which tables are enabled for Realtime:
+
+```sql
+CREATE OR REPLACE FUNCTION public.get_publications_full()
+RETURNS json
+LANGUAGE sql
+STABLE
+AS $$
+WITH publication_tables AS (
+  SELECT
+    p.pubname,
+    p.oid AS system_id,
+    p.pubinsert,
+    p.pubupdate,
+    p.pubdelete,
+    p.pubtruncate,
+    n.nspname AS child_schema,
+    c.relname AS child_table,
+    pn.nspname AS parent_schema,
+    pc.relname AS parent_table
+  FROM pg_publication p
+  LEFT JOIN pg_publication_tables pt 
+    ON pt.pubname = p.pubname
+  LEFT JOIN pg_class c 
+    ON c.relname = pt.tablename
+  LEFT JOIN pg_namespace n 
+    ON n.oid = c.relnamespace
+  LEFT JOIN pg_inherits i 
+    ON i.inhrelid = c.oid
+  LEFT JOIN pg_class pc 
+    ON pc.oid = i.inhparent
+  LEFT JOIN pg_namespace pn 
+    ON pn.oid = pc.relnamespace
+)
+SELECT json_agg(pub_row ORDER BY pubname)
+FROM (
+  SELECT
+    pubname,
+    system_id,
+    pubinsert,
+    pubupdate,
+    pubdelete,
+    pubtruncate,
+    json_agg(
+      DISTINCT jsonb_build_object(
+        'schema', COALESCE(parent_schema, child_schema),
+        'table', COALESCE(parent_table, child_table)
+      )
+    ) FILTER (WHERE child_table IS NOT NULL) AS tables
+  FROM publication_tables
+  GROUP BY
+    pubname,
+    system_id,
+    pubinsert,
+    pubupdate,
+    pubdelete,
+    pubtruncate
+) pub_row;
+$$;
+```
+
 ### Configure in RealTimeX Desktop
 
 1.  Open **Settings** → **Local Apps**
@@ -405,7 +643,7 @@ Agent Handlers define which AI agents process events from specific tables. This 
   "config": {
     "agentHandlers": [
       {
-        "tableName": "activities",
+        "tableName": "rtx_activities",
         "agentId": "customer-support-agent",
         "eventTypes": ["INSERT", "UPDATE"]
       },
@@ -463,9 +701,9 @@ Without filtering, all event types (INSERT, UPDATE, DELETE) will trigger process
 {
   "config": {
     "supabase": {
-      "tables": ["public.activities", "public.orders"],
+      "tables": ["public.rtx_activities", "public.orders"],
       "tableActions": {
-        "public.activities": ["INSERT", "UPDATE"],
+        "public.rtx_activities": ["INSERT", "UPDATE"],
         "public.orders": ["INSERT"],
         "public.contacts": ["INSERT"]
       }
@@ -528,7 +766,7 @@ Apply filters to only process specific rows from your tables.
 {
   "config": {
     "supabase": {
-      "tables": ["public.activities"],
+      "tables": ["public.rtx_activities"],
       "filter": "status=eq.pending"
     }
   }
