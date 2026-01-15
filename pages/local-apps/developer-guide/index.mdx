@@ -1,0 +1,255 @@
+---
+title: "Developer Guide"
+description: "SDK Integration for RealTimeX Local Apps"
+---
+
+import { Callout, Tabs } from 'nextra/components'
+
+# Local Apps Developer Guide
+
+This guide covers how to integrate your applications with RealTimeX. Depending on your project requirements, you can choose between two operating modes.
+
+## Choose Your Path
+
+### 1. Compatible Mode (Recommended)
+Best for new projects or when you want RealTimeX to manage the database schema for you. It uses the standard `rtx_activities` table and built-in RPC functions.
+
+👉 **[View Compatible Mode Setup Guide](./compatible-mode)**
+
+### 2. Custom Mode
+Best for existing systems where you need to use your own tables and custom distribution logic. It requires implementing API endpoints in your application.
+
+👉 **[View Custom Mode Integration Guide](./custom-mode)**
+
+---
+
+## Prerequisites
+
+Regardless of the mode you choose, you must first configure your Local App in the RealTimeX Main App:
+
+1. Open **RealTimeX** → **Settings** → **Local Apps**
+2. Create or configure your Local App
+3. Enter Supabase **URL** and **Anon Key**
+4. For **Compatible Mode**, click **Login to Supabase** → **Auto-Setup Schema**.
+
+<Callout type="info">
+If using Compatible Mode, schema setup is handled entirely by the Main App. **No manual SQL required.**
+</Callout>
+
+## Installation
+
+<Tabs items={['TypeScript', 'Python']}>
+  <Tabs.Tab>
+    ```bash
+    npm install @realtimex/sdk
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```bash
+    pip install realtimex-sdk
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Demo Examples
+
+Check out our complete demo applications showcasing all SDK features:
+
+👉 **[GitHub: local-app-examples](https://github.com/therealtimex/local-app-examples)**
+
+| Example | Language | Description |
+|---------|----------|-------------|
+| `nodejs-app` | TypeScript + Express | Full-featured demo with TailwindCSS UI |
+| `python-app` | Python + NiceGUI | Interactive demo with real-time UI |
+
+## Quick Start
+
+When you start your Local App from the RealTimeX Main App, environment variables `RTX_APP_ID` and `RTX_APP_NAME` are automatically set. The SDK auto-detects these.
+
+<Tabs items={['TypeScript', 'Python']}>
+  <Tabs.Tab>
+    ```typescript
+    import { RealtimeXSDK } from '@realtimex/local-app-sdk';
+
+    // No config needed - auto-detects from environment
+    const sdk = new RealtimeXSDK();
+
+    // Insert activity
+    const activity = await sdk.activities.insert({
+      type: 'new_lead',
+      email: 'user@example.com',
+    });
+
+    // Trigger agent
+    await sdk.webhook.triggerAgent({
+      raw_data: activity,
+      auto_run: true,
+      agent_name: 'processor',
+      workspace_slug: 'sales',
+      thread_slug: 'general', // or "create_new" to create new thread
+      prompt: 'Please look into this activity.' // Optional
+    });
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```python
+    from realtimex_sdk import RealtimeXSDK
+
+    # No config needed - auto-detects from environment
+    sdk = RealtimeXSDK()
+
+    # Insert activity
+    activity = await sdk.activities.insert({
+        "type": "new_lead",
+        "email": "user@example.com"
+    })
+
+    # Trigger agent
+    await sdk.webhook.trigger_agent(
+        raw_data=activity,
+        auto_run=True,
+        agent_name="processor",
+        workspace_slug="sales",
+        thread_slug="general" # or "create_new" to create new thread
+        prompt="Please look into this activity." # Optional
+    )
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+---
+
+## SDK Features
+
+### Activities CRUD
+
+Manage your `activities` table directly through the SDK without needing direct database access. Any data changes (INSERT, UPDATE, or DELETE) will automatically create a new calendar event. If Automation Agent Handlers are configured, they will also trigger an automated agent task.
+
+<Tabs items={['TypeScript', 'Python']}>
+  <Tabs.Tab>
+    ```typescript
+    // Insert new activity
+    const activity = await sdk.activities.insert({
+      type: 'order',
+      amount: 100
+    });
+
+    // List activities with filters
+    const pending = await sdk.activities.list({
+      status: 'pending',
+      limit: 10
+    });
+
+    // Get single activity
+    const item = await sdk.activities.get('activity-uuid');
+
+    // Update activity
+    await sdk.activities.update('activity-uuid', {
+      status: 'processed'
+    });
+
+    // Delete activity
+    await sdk.activities.delete('activity-uuid');
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```python
+    # Insert new activity
+    activity = await sdk.activities.insert({
+        "type": "order",
+        "amount": 100
+    })
+
+    # List activities with filters
+    pending = await sdk.activities.list(
+        status="pending",
+        limit=10
+    )
+
+    # Get single activity
+    item = await sdk.activities.get("activity-uuid")
+
+    # Update activity
+    await sdk.activities.update("activity-uuid", {
+        "status": "processed"
+    })
+
+    # Delete activity
+    await sdk.activities.delete("activity-uuid")
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Webhook & Agent Triggering
+
+Trigger AI Agents to process data either manually or automatically.
+
+<Tabs items={['TypeScript', 'Python']}>
+  <Tabs.Tab>
+    ```typescript
+    // Manual Mode (Default) - Creates calendar event for review
+    await sdk.webhook.triggerAgent({
+      raw_data: { email: 'user@example.com' },
+    });
+
+    // Auto-run Mode - Triggers agent immediately
+    await sdk.webhook.triggerAgent({
+      raw_data: activity,
+      auto_run: true,
+      agent_name: 'pdf-processor',
+      workspace_slug: 'operations',
+      thread_slug: 'general', // or "create_new" to create new thread
+      prompt: 'Summarize this file' // Optional
+    });
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```python
+    # Manual Mode (Default)
+    await sdk.webhook.trigger_agent(
+        raw_data={"email": "user@example.com"}
+    )
+
+    # Auto-run Mode
+    await sdk.webhook.trigger_agent(
+        raw_data=activity,
+        auto_run=True,
+        agent_name="pdf-processor",
+        workspace_slug="operations",
+        thread_slug="general", # or "create_new" to create new thread
+        prompt="Summarize this file"
+    )
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Public Metadata API
+
+Access RealTimeX system metadata like available agents and workspaces.
+
+<Tabs items={['TypeScript', 'Python']}>
+  <Tabs.Tab>
+    ```typescript
+    const agents = await sdk.api.getAgents();
+    const workspaces = await sdk.api.getWorkspaces();
+    const threads = await sdk.api.getThreads('workspace-slug');
+    const taskStatus = await sdk.api.getTask('task-uuid');
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```python
+    agents = await sdk.api.get_agents()
+    workspaces = await sdk.api.get_workspaces()
+    threads = await sdk.api.get_threads("workspace-slug")
+    task_status = await sdk.api.get_task("task-uuid")
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+---
+
+## REST API Access
+
+If you are not using one of our official SDKs, you can communicate with RealTimeX directly via our REST API.
+
+👉 [View REST API Reference](/local-apps/api-reference)

@@ -222,7 +222,7 @@ The Auto-Setup creates the following database objects:
 #### (Optional) Stale Lock Recovery
 
 <Callout type="warning">
-When RealTimeX crashes or is force-quit, tasks may remain stuck in `claimed` status. Enable automatic stale lock recovery using `pg_cron`.
+When RealTimeX is force-quit, tasks may remain stuck in `claimed` status. Enable automatic stale lock recovery using `pg_cron`.
 </Callout>
 
 Run this SQL in your **Supabase SQL Editor** to enable automatic cleanup:

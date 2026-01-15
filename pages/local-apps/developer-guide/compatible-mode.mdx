@@ -1,0 +1,170 @@
+---
+title: "Compatible Mode Setup"
+description: "SQL and Schema Setup for RealTimeX Compatible Mode"
+---
+
+import { Callout, Steps } from 'nextra/components'
+
+# Compatible Mode Setup Guide
+
+**Compatible Mode** is the easiest way to integrate with RealTimeX. It uses a standard `rtx_activities` table and built-in database functions to manage task locking and execution.
+
+## Automatic Setup (Recommended)
+
+The fastest way to set up Compatible Mode is using the **Auto-Setup** feature directly within the RealTimeX Desktop app.
+
+<Steps>
+### 1. Configure Credentials
+Enter your Supabase **URL** and **Anon Key** in the Local App settings.
+
+### 2. Login via CLI
+Click the **Login to Supabase** button and follow the OAuth flow to grant RealTimeX access to manage your schema.
+
+### 3. Run Auto-Setup
+Click **Auto-Setup Schema**. RealTimeX will automatically create the table, functions, and indexes described below.
+</Steps>
+
+---
+
+## Manual SQL Setup
+
+If you prefer to set up your database manually or don't want to use the CLI login, run the following SQL scripts in your **Supabase SQL Editor**.
+
+### 1. Create Activities Table
+
+This table stores your tasks and tracks their execution status.
+
+```sql
+-- Create rtx_activities table
+CREATE TABLE public.rtx_activities (
+  id uuid NOT NULL DEFAULT gen_random_uuid (),
+  raw_data jsonb NULL,            -- Your input data
+  old_data jsonb NULL,            -- Previous data (for updates)
+  locked_by text NULL,            -- Machine ID holding the lock
+  locked_at timestamp with time zone NULL,
+  status text NULL DEFAULT 'pending'::text,
+  completed_at timestamp with time zone NULL,
+  error_message text NULL,
+  attempted_by text[] NULL DEFAULT '{}'::text[],
+  retry_count integer NULL DEFAULT 0,
+  result jsonb NULL,
+  created_at timestamp with time zone NULL DEFAULT now(),
+  CONSTRAINT rtx_activities_pkey PRIMARY KEY (id)
+);
+
+-- Index for status queries
+CREATE INDEX idx_rtx_activities_status ON public.rtx_activities (status);
+
+-- Ensure all columns are included in Realtime events
+ALTER TABLE public.rtx_activities REPLICA IDENTITY FULL;
+```
+
+### 2. Database Functions (RPC)
+
+RealTimeX uses these functions to coordinate work across multiple machines safely.
+
+#### Claim Task
+Handles atomic locking to ensure only one machine processes a task.
+
+```sql
+CREATE OR REPLACE FUNCTION rtx_fn_claim_task(target_task_id UUID, machine_id TEXT)
+RETURNS BOOLEAN AS $$
+DECLARE
+  updated_rows INT;
+BEGIN
+  UPDATE public.rtx_activities
+  SET status = 'claimed', locked_by = machine_id, locked_at = now()
+  WHERE id = target_task_id 
+    AND (status = 'pending' OR status = 'failed' 
+         OR ((status = 'claimed' OR status = 'processing') 
+             AND locked_at < now() - INTERVAL '5 minutes'))
+    AND NOT (machine_id = ANY(attempted_by));
+
+  GET DIAGNOSTICS updated_rows = ROW_COUNT;
+  RETURN updated_rows > 0;
+END;
+$$ LANGUAGE plpgsql;
+```
+
+#### Complete Task
+Marks a task as finished and stores the result.
+
+```sql
+CREATE OR REPLACE FUNCTION rtx_fn_complete_task(target_task_id UUID, result_data JSONB)
+RETURNS BOOLEAN AS $$
+DECLARE
+  updated_rows INT;
+BEGIN
+  UPDATE public.rtx_activities
+  SET status = 'completed', result = result_data, completed_at = now()
+  WHERE id = target_task_id AND (status = 'claimed' OR status = 'processing');
+
+  GET DIAGNOSTICS updated_rows = ROW_COUNT;
+  RETURN updated_rows > 0;
+END;
+$$ LANGUAGE plpgsql;
+```
+
+#### Fail Task
+Reports an error and releases the lock for potential retry.
+
+```sql
+CREATE OR REPLACE FUNCTION rtx_fn_fail_task(target_task_id UUID, machine_id TEXT, error_msg TEXT)
+RETURNS BOOLEAN AS $$
+DECLARE
+  updated_rows INT;
+BEGIN
+  UPDATE public.rtx_activities
+  SET 
+    status = 'failed', 
+    error_message = error_msg,
+    attempted_by = array_append(attempted_by, machine_id),
+    retry_count = retry_count + 1,
+    locked_by = NULL,
+    locked_at = NULL
+  WHERE id = target_task_id;
+
+  GET DIAGNOSTICS updated_rows = ROW_COUNT;
+  RETURN updated_rows > 0;
+END;
+$$ LANGUAGE plpgsql;
+```
+
+### 3. Enable Realtime
+
+Add the table to the Supabase Realtime publication.
+
+```sql
+ALTER PUBLICATION supabase_realtime ADD TABLE public.rtx_activities;
+```
+
+---
+
+## Stale Lock Recovery
+
+<Callout type="warning">
+When RealTimeX is force-quit, tasks may remain stuck in `claimed` status. Enable automatic stale lock recovery using `pg_cron`.
+</Callout>
+
+```sql
+-- Enable pg_cron extension
+CREATE EXTENSION IF NOT EXISTS pg_cron;
+
+-- Create cleanup function
+CREATE OR REPLACE FUNCTION public.rtx_fn_unlock_stale_locks()
+RETURNS void AS $$
+BEGIN
+  UPDATE public.rtx_activities 
+  SET status = 'pending', locked_by = NULL, locked_at = NULL
+  WHERE (status = 'claimed' OR status = 'processing')
+    AND locked_at < now() - INTERVAL '5 minutes';
+END;
+$$ LANGUAGE plpgsql;
+
+-- Schedule to run every minute
+SELECT cron.schedule('scavenge-stale-locks', '* * * * *', 'SELECT public.rtx_fn_unlock_stale_locks();');
+```
+
+## Next Steps
+
+Once your database is set up, you can start building your application using the [Developer Guide](./).
