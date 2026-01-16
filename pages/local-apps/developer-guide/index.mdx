@@ -56,10 +56,14 @@ When you start your Local App from the RealTimeX Main App, environment variables
 <Tabs items={['TypeScript', 'Python']}>
   <Tabs.Tab>
     ```typescript
-    import { RealtimeXSDK } from '@realtimex/local-app-sdk';
+    import express from 'express';
+    import { RealtimeXSDK } from '@realtimex/sdk';
 
-    // No config needed - auto-detects from environment
+    const app = express();
     const sdk = new RealtimeXSDK();
+
+    // Get available port (auto-detects or finds free port if conflict)
+    const port = await sdk.port.getPort();
 
     // Insert activity
     const activity = await sdk.activities.insert({
@@ -73,17 +77,21 @@ When you start your Local App from the RealTimeX Main App, environment variables
       auto_run: true,
       agent_name: 'processor',
       workspace_slug: 'sales',
-      thread_slug: 'general', // or "create_new" to create new thread
-      prompt: 'Please look into this activity.' // Optional
+      thread_slug: 'general',
     });
+
+    app.listen(port, () => console.log(`Running on port ${port}`));
     ```
   </Tabs.Tab>
   <Tabs.Tab>
     ```python
+    from nicegui import ui
     from realtimex_sdk import RealtimeXSDK
 
-    # No config needed - auto-detects from environment
     sdk = RealtimeXSDK()
+
+    # Get available port (auto-detects or finds free port if conflict)
+    port = sdk.port.get_port()
 
     # Insert activity
     activity = await sdk.activities.insert({
@@ -97,9 +105,10 @@ When you start your Local App from the RealTimeX Main App, environment variables
         auto_run=True,
         agent_name="processor",
         workspace_slug="sales",
-        thread_slug="general" # or "create_new" to create new thread
-        prompt="Please look into this activity." # Optional
+        thread_slug="general",
     )
+
+    ui.run(port=port)
     ```
   </Tabs.Tab>
 </Tabs>
@@ -232,6 +241,43 @@ Access RealTimeX system metadata like available agents and workspaces.
     ```
   </Tabs.Tab>
 </Tabs>
+
+---
+
+### Port Management
+
+The SDK includes automatic port management to prevent conflicts when running multiple Local Apps simultaneously.
+
+<Tabs items={['TypeScript', 'Python']}>
+  <Tabs.Tab>
+    ```typescript
+    // Get an available port (auto-detects from RTX_PORT or finds free port)
+    const port = await sdk.port.getPort();
+    app.listen(port);
+    
+    // Or use individual methods
+    const suggested = sdk.port.getSuggestedPort(); // RTX_PORT env or 8080
+    const available = await sdk.port.isPortAvailable(3000);
+    const freePort = await sdk.port.findAvailablePort(8080);
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```python
+    # Get an available port (auto-detects from RTX_PORT or finds free port)
+    port = sdk.port.get_port()
+    ui.run(port=port)  # NiceGUI
+    
+    # Or use individual methods
+    suggested = sdk.port.get_suggested_port()  # RTX_PORT env or 8080
+    available = sdk.port.is_port_available(3000)
+    free_port = sdk.port.find_available_port(8080)
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+<Callout type="info">
+**How it works**: When launched from RealTimeX, your app receives an `RTX_PORT` environment variable with the configured port. The SDK uses this as the starting point and automatically finds the next available port if it's occupied.
+</Callout>
 
 ---
 

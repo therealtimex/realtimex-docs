@@ -111,6 +111,14 @@ When an agent is triggered, it receives:
 | `raw_data` | The original event data |
 | `table_name` | Source table name |
 
+## Accessing Local App Info
+
+When your agent needs to interact with the Local App that triggered it (e.g., calling its API), RealTimeX provides connection information.
+
+<Callout type="warning">
+**Coming Soon**: Agents will receive a markdown file with Local App connection details including the running port. This enables agents to make API calls back to the triggering app.
+</Callout>
+
 ## Best Practices
 
 1. **Report Status Promptly** - Call `complete` or `fail` as soon as your agent finishes
