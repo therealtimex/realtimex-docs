@@ -52,7 +52,34 @@ Uncomment khi đã có screenshot:
 - **Custom lock logic** - Your Local App controls the locking mechanism
 - **Best for** - Existing systems, CRM, ERP integrations
 
+### 🔐 Permission System (v1.0.8+)
+
+When a Local App starts for the first time, users are prompted to grant permissions. This provides granular control over what your app can access.
+
+#### Available Permissions
+
+| Permission | Description |
+|------------|-------------|
+| `api.agents` | List available AI agents |
+| `api.workspaces` | List workspaces |
+| `api.threads` | List threads in workspaces |
+| `api.task` | Get task execution status |
+| `webhook.trigger` | Trigger AI agents via webhook |
+| `activities.read` | Read activities data |
+| `activities.write` | Create, update, delete activities |
+
+#### Managing Permissions
+
+- **Grant**: Permissions modal appears on first app launch
+- **Reset**: Click app menu (⋮) → **Reset Permissions** to revoke all permissions
+- **Re-grant**: Next app start will prompt for permissions again
+
+<Callout type="info">
+Permissions are stored locally per-app and are **not** included when publishing apps to the marketplace.
+</Callout>
+
 ### 🔒 Distributed Lock Mechanism
+
 
 The lock mechanism ensures that when multiple machines are listening:
 - Only **one machine processes each task**
