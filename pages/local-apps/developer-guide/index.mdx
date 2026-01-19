@@ -60,7 +60,17 @@ When you start your Local App from the RealTimeX Main App, environment variables
     import { RealtimeXSDK } from '@realtimex/sdk';
 
     const app = express();
-    const sdk = new RealtimeXSDK();
+    const sdk = new RealtimeXSDK({
+        permissions: [
+            'api.agents',      // Required to list agents
+            'api.workspaces',  // Required to list workspaces
+            'api.threads',     // Required to list threads
+            'webhook.trigger', // Required to trigger agents
+            'activities.read', // Required to read activities
+            'activities.write', // Required to write activities
+        ],
+    });
+    
 
     // Get available port (auto-detects or finds free port if conflict)
     const port = await sdk.port.getPort();
@@ -88,7 +98,16 @@ When you start your Local App from the RealTimeX Main App, environment variables
     from nicegui import ui
     from realtimex_sdk import RealtimeXSDK
 
-    sdk = RealtimeXSDK()
+    sdk = RealtimeXSDK(config=SDKConfig(
+        permissions=[
+            'api.agents',      # Required to list agents
+            'api.workspaces',  # Required to list workspaces
+            'api.threads',     # Required to list threads
+            'webhook.trigger', # Required to trigger agents
+            'activities.read', # Required to read activities
+            'activities.write', # Required to write activities
+        ]
+    ))
 
     # Get available port (auto-detects or finds free port if conflict)
     port = sdk.port.get_port()
