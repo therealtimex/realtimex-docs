@@ -49,7 +49,11 @@ When using the official SDK, this header is set automatically from the `RTX_APP_
 
 ## Permissions
 
-Each API endpoint requires specific permissions to be granted by the user. Permissions are requested on first app launch.
+Each API endpoint requires specific permissions. Permissions are declared in the SDK manifest and requested from the user.
+
+### Permission States
+1.  **Upfront Prompt**: The SDK declares needed permissions in the constructor. RealTimeX prompts for all missing permissions on app launch.
+2.  **Runtime Prompt**: If an API is called without a pre-granted permission, the SDK triggers a native dialog and retries the call automatically.
 
 | Permission | Required For |
 |------------|-------------|
@@ -60,20 +64,6 @@ Each API endpoint requires specific permissions to be granted by the user. Permi
 | `webhook.trigger` | `POST /webhooks/realtimex` |
 | `activities.read` | `GET /activities` |
 | `activities.write` | `POST /activities`, `PATCH /activities/:id`, `DELETE /activities/:id` |
-
-### Permission Error (403)
-
-```json
-{
-  "success": false,
-  "error": "Permission denied: api.agents. Grant this permission in app settings.",
-  "permission_required": "api.agents"
-}
-```
-
-<Callout type="warning">
-Users can revoke and re-grant permissions at any time via the Local Apps settings menu.
-</Callout>
 
 ---
 

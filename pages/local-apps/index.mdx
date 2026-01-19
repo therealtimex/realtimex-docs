@@ -54,7 +54,13 @@ Uncomment khi đã có screenshot:
 
 ### 🔐 Permission System (v1.0.8+)
 
-When a Local App starts for the first time, users are prompted to grant permissions. This provides granular control over what your app can access.
+RealTimeX uses a **manifest-based permission system** to ensure security and transparency. Your Local App declares the permissions it needs in the SDK constructor, and RealTimeX handles the rest.
+
+#### How It Works
+
+1.  **Declaration**: You define required permissions (e.g., `['api.agents', 'webhook.trigger']`) when initializing the `RealtimeXSDK`.
+2.  **Upfront Prompt**: When the app starts, RealTimeX checks if these permissions are granted. If any are missing, a **Bulk Permission Modal** appears, allowing the user to grant them all at once.
+3.  **Runtime Prompt**: If your app calls an API for a permission not declared upfront (or if the user skipped the upfront prompt), the SDK will automatically trigger a **Native Permission Dialog** and re-attempt the API call once granted.
 
 #### Available Permissions
 
@@ -70,13 +76,9 @@ When a Local App starts for the first time, users are prompted to grant permissi
 
 #### Managing Permissions
 
-- **Grant**: Permissions modal appears on first app launch
-- **Reset**: Click app menu (⋮) → **Reset Permissions** to revoke all permissions
-- **Re-grant**: Next app start will prompt for permissions again
-
-<Callout type="info">
-Permissions are stored locally per-app and are **not** included when publishing apps to the marketplace.
-</Callout>
+- **Grant**: Upfront modal or native runtime dialogs.
+- **Reset**: Click app menu (⋮) → **Reset Permissions** to revoke all permissions.
+- **Individual Control**: Manage specific permissions in the **Permissions** tab of the Local App detail page.
 
 ### 🔒 Distributed Lock Mechanism
 
