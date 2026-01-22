@@ -416,6 +416,10 @@ Store and search vectors for building knowledge bases:
       workspaceId: 'knowledge-base'
     });
 
+    // List all workspaces for this app
+    const { workspaces } = await sdk.llm.vectors.listWorkspaces();
+    console.log('Workspaces:', workspaces); // ['knowledge-base', 'default', ...]
+
     // Delete all vectors in workspace
     await sdk.llm.vectors.delete({ deleteAll: true, workspaceId: 'knowledge-base' });
     ```
@@ -442,6 +446,10 @@ Store and search vectors for building knowledge bases:
         top_k=5,
         workspace_id="knowledge-base"
     )
+
+    # List all workspaces for this app
+    res = await sdk.llm.vectors.list_workspaces()
+    print(f"Workspaces: {res.workspaces}") # ['knowledge-base', 'default', ...]
 
     # Delete all vectors in workspace
     await sdk.llm.vectors.delete(delete_all=True, workspace_id="knowledge-base")
