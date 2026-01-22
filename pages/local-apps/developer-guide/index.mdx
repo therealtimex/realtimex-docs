@@ -343,35 +343,46 @@ const sdk = new RealtimeXSDK({
 <Tabs items={['TypeScript', 'Python']}>
   <Tabs.Tab>
     ```typescript
-    // Sync chat
-    const response = await sdk.llm.chat([
-      { role: 'system', content: 'You are a helpful assistant.' },
-      { role: 'user', content: 'What is RealtimeX?' }
-    ], { model: 'gpt-4o', temperature: 0.7 });
+    // Sync Chat
+    const response = await sdk.llm.chat(
+      [
+        { role: 'system', content: 'You are a helpful assistant.' },
+        { role: 'user', content: 'What is RealtimeX?' }
+      ],
+      { 
+        model: 'gpt-4o',           // Optional: specific model
+        provider: 'openai',        // Optional: specific provider
+        temperature: 0.7,          // Optional: 0.0-2.0
+        max_tokens: 1000           // Optional: max response tokens
+      }
+    );
     console.log(response.response?.content);
 
-    // Streaming chat
-    for await (const chunk of sdk.llm.chatStream(messages)) {
+    // Streaming Chat
+    for await (const chunk of sdk.llm.chatStream(messages, options)) {
       process.stdout.write(chunk.textResponse || '');
     }
     ```
   </Tabs.Tab>
   <Tabs.Tab>
     ```python
-    from realtimex_sdk import ChatMessage, ChatOptions
-
-    # Sync chat
+    # Sync Chat
     response = await sdk.llm.chat(
         messages=[
             ChatMessage(role="system", content="You are a helpful assistant."),
             ChatMessage(role="user", content="What is RealtimeX?")
         ],
-        options=ChatOptions(model="gpt-4o", temperature=0.7)
+        options=ChatOptions(
+            model="gpt-4o",           # Optional: specific model
+            provider="openai",        # Optional: specific provider
+            temperature=0.7,          # Optional: 0.0-2.0
+            max_tokens=1000           # Optional: max response tokens
+        )
     )
     print(response.content)
 
-    # Streaming chat
-    async for chunk in sdk.llm.chat_stream(messages):
+    # Streaming Chat
+    async for chunk in sdk.llm.chat_stream(messages, options=options):
         print(chunk.text, end="", flush=True)
     ```
   </Tabs.Tab>
@@ -382,14 +393,23 @@ const sdk = new RealtimeXSDK({
 <Tabs items={['TypeScript', 'Python']}>
   <Tabs.Tab>
     ```typescript
-    const { embeddings, dimensions } = await sdk.llm.embed(['Hello world', 'Goodbye']);
-    console.log(`Generated ${embeddings.length} vectors of ${dimensions} dimensions`);
+    const { embeddings, dimensions, provider, model } = await sdk.llm.embed(
+      ['Hello world', 'Goodbye'],
+      { provider: 'openai', model: 'text-embedding-3-small' } // Optional
+    );
+    // embeddings: number[][] - vector arrays
+    // dimensions: number - vector dimension (e.g., 1536)
     ```
   </Tabs.Tab>
   <Tabs.Tab>
     ```python
-    result = await sdk.llm.embed(["Hello world", "Goodbye"])
-    print(f"Generated {len(result.embeddings)} vectors of {result.dimensions} dimensions")
+    embed_result = await sdk.llm.embed(
+        input=["Hello world", "Goodbye"],
+        provider="openai",                    # Optional
+        model="text-embedding-3-small"        # Optional
+    )
+    embeddings = embed_result.embeddings      # List[List[float]]
+    dimensions = embed_result.dimensions      # int (e.g., 1536)
     ```
   </Tabs.Tab>
 </Tabs>
@@ -401,58 +421,76 @@ Store and search vectors for building knowledge bases:
 <Tabs items={['TypeScript', 'Python']}>
   <Tabs.Tab>
     ```typescript
-    // Store vectors with metadata
+    // Upsert vectors with metadata
     await sdk.llm.vectors.upsert([
       { 
         id: 'chunk-1', 
         vector: embeddings[0], 
-        metadata: { text: 'Original text...', documentId: 'doc-1' } 
+        metadata: { 
+          text: 'Hello world',      // Original text (for retrieval)
+          documentId: 'doc-1',       // Logical grouping
+          customField: 'any value'   // Any custom metadata
+        } 
       }
-    ], { workspaceId: 'knowledge-base' });
-
-    // Search similar vectors
-    const results = await sdk.llm.vectors.query(queryVector, {
-      topK: 5,
-      workspaceId: 'knowledge-base'
+    ], { 
+      workspaceId: 'ws-123'          // Optional: physical namespace isolation
     });
+
+    // Query similar vectors
+    const results = await sdk.llm.vectors.query(queryVector, {
+      topK: 5,                       // Number of results
+      workspaceId: 'ws-123',         // Optional: search in specific workspace
+      filter: { documentId: 'doc-1' } // Optional: filter by document
+    });
+    // returns: { success, results: [{ id, score, metadata }] }
 
     // List all workspaces for this app
     const { workspaces } = await sdk.llm.vectors.listWorkspaces();
-    console.log('Workspaces:', workspaces); // ['knowledge-base', 'default', ...]
+    // returns: { success, workspaces: ['ws-123', 'default', ...] }
 
-    // Delete all vectors in workspace
-    await sdk.llm.vectors.delete({ deleteAll: true, workspaceId: 'knowledge-base' });
+    // Delete all vectors in a workspace
+    await sdk.llm.vectors.delete({ 
+      deleteAll: true, 
+      workspaceId: 'ws-123' 
+    });
     ```
   </Tabs.Tab>
   <Tabs.Tab>
     ```python
-    from realtimex_sdk import VectorRecord
-
-    # Store vectors with metadata
+    # Upsert vectors with metadata
     await sdk.llm.vectors.upsert(
         vectors=[
             VectorRecord(
                 id="chunk-1",
                 vector=embeddings[0],
-                metadata={"text": "Original text...", "documentId": "doc-1"}
+                metadata={
+                    "text": "Hello world",      # Original text (for retrieval)
+                    "documentId": "doc-1",       # Logical grouping
+                    "customField": "any value"   # Any custom metadata
+                }
             )
         ],
-        workspace_id="knowledge-base"
+        workspace_id="ws-123"                   # Optional: physical namespace isolation
     )
 
-    # Search similar vectors
-    results = await sdk.llm.vectors.query(
-        vector=query_vector,
-        top_k=5,
-        workspace_id="knowledge-base"
+    # Query similar vectors
+    query_result = await sdk.llm.vectors.query(
+        vector=embeddings[0],
+        top_k=5,                                # Number of results
+        workspace_id="ws-123",                  # Optional: search in specific workspace
+        document_id="doc-1"                     # Optional: filter by document
     )
+    # returns: VectorQueryResponse with results[]
 
     # List all workspaces for this app
     res = await sdk.llm.vectors.list_workspaces()
-    print(f"Workspaces: {res.workspaces}") # ['knowledge-base', 'default', ...]
+    # returns: VectorListWorkspacesResponse with workspaces=['ws-123', 'default', ...]
 
-    # Delete all vectors in workspace
-    await sdk.llm.vectors.delete(delete_all=True, workspace_id="knowledge-base")
+    # Delete all vectors in a workspace
+    await sdk.llm.vectors.delete(
+        delete_all=True,
+        workspace_id="ws-123"
+    )
     ```
   </Tabs.Tab>
 </Tabs>
@@ -464,18 +502,29 @@ For common RAG patterns, use these helpers that combine embedding + storage/sear
 <Tabs items={['TypeScript', 'Python']}>
   <Tabs.Tab>
     ```typescript
-    // Embed and store in one call (text → vectors → storage)
+    // embedAndStore: Text → Embed → Store (one call)
     await sdk.llm.embedAndStore(
-      ['Document chunk 1', 'Document chunk 2'],
-      { documentId: 'doc-123', workspaceId: 'knowledge-base' }
+      ['Document text 1', 'Document text 2'],  // texts to embed
+      {
+        documentId: 'doc-123',                  // Optional: logical grouping
+        workspaceId: 'ws-456',                  // Optional: physical isolation
+        provider: 'openai',                     // Optional: embedding provider
+        model: 'text-embedding-3-small'         // Optional: embedding model
+      }
     );
 
-    // Semantic search (query → embed → search)
-    const results = await sdk.llm.search('What is RealtimeX?', {
-      topK: 5,
-      workspaceId: 'knowledge-base',
-      documentId: 'doc-123' // Optional: filter by document
-    });
+    // search: Query → Embed → Search (one call)
+    const searchResults = await sdk.llm.search(
+      'What is RealtimeX?',                     // search query (text, not vector)
+      {
+        topK: 5,                                // Number of results
+        workspaceId: 'ws-123',                  // Optional: search in workspace
+        documentId: 'doc-1',                    // Optional: filter by document
+        provider: 'openai',                     // Optional: embedding provider
+        model: 'text-embedding-3-small'         // Optional: embedding model
+      }
+    );
+    // returns: [{ id, score, metadata: { text, documentId, ... } }]
     
     // Use results for RAG
     const context = results.map(r => r.metadata.text).join('\n');
@@ -487,20 +536,25 @@ For common RAG patterns, use these helpers that combine embedding + storage/sear
   </Tabs.Tab>
   <Tabs.Tab>
     ```python
-    # Embed and store in one call (text → vectors → storage)
+    # embed_and_store: Text → Embed → Store (one call)
     await sdk.llm.embed_and_store(
-        texts=["Document chunk 1", "Document chunk 2"],
-        document_id="doc-123",
-        workspace_id="knowledge-base"
+        texts=["Document text 1", "Document text 2"],  # texts to embed
+        document_id="doc-123",                          # Optional: logical grouping
+        workspace_id="ws-456",                          # Optional: physical isolation
+        provider="openai",                              # Optional: embedding provider
+        model="text-embedding-3-small"                  # Optional: embedding model
     )
 
-    # Semantic search (query → embed → search)
+    # search: Query → Embed → Search (one call)
     results = await sdk.llm.search(
-        query="What is RealtimeX?",
-        top_k=5,
-        workspace_id="knowledge-base",
-        document_id="doc-123"  # Optional: filter by document
+        query="What is RealtimeX?",                     # search query (text, not vector)
+        top_k=5,                                        # Number of results
+        workspace_id="ws-123",                          # Optional: search in workspace
+        document_id="doc-1",                            # Optional: filter by document
+        provider="openai",                              # Optional: embedding provider
+        model="text-embedding-3-small"                  # Optional: embedding model
     )
+    # returns: List[dict] with id, score, metadata
     
     # Use results for RAG
     context = "\n".join([r["metadata"]["text"] for r in results])

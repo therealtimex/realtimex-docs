@@ -498,3 +498,15 @@ Delete vectors from storage. Currently supports `deleteAll: true`.
   "workspaceId": "knowledge-base"
 }
 ```
+
+### GET `/sdk/llm/vectors/workspaces`
+
+ List all namespaces/workspaces storage for this app
+
+**Response**
+```json
+{
+  "success":true,
+  "workspaces":["default","testws","ws1"]
+}
+```
