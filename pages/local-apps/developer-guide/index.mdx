@@ -444,7 +444,7 @@ Store and search vectors for building knowledge bases:
     });
     // returns: { success, results: [{ id, score, metadata }] }
 
-    // List all workspaces for this app
+    // List all namespaces/workspaces storage for this app
     const { workspaces } = await sdk.llm.vectors.listWorkspaces();
     // returns: { success, workspaces: ['ws-123', 'default', ...] }
 
@@ -482,7 +482,7 @@ Store and search vectors for building knowledge bases:
     )
     # returns: VectorQueryResponse with results[]
 
-    # List all workspaces for this app
+    # List all namespaces/workspaces storage for this app
     res = await sdk.llm.vectors.list_workspaces()
     # returns: VectorListWorkspacesResponse with workspaces=['ws-123', 'default', ...]
 
