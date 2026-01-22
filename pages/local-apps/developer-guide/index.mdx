@@ -62,12 +62,16 @@ When you start your Local App from the RealTimeX Main App, environment variables
     const app = express();
     const sdk = new RealtimeXSDK({
         permissions: [
-            'api.agents',      // Required to list agents
-            'api.workspaces',  // Required to list workspaces
-            'api.threads',     // Required to list threads
-            'webhook.trigger', // Required to trigger agents
-            'activities.read', // Required to read activities
-            'activities.write', // Required to write activities
+            'api.agents',       // List agents
+            'api.workspaces',   // List workspaces
+            'api.threads',      // List threads
+            'webhook.trigger',  // Trigger agents
+            'activities.read',  // Read activities
+            'activities.write', // Write activities
+            'llm.chat',         // Chat completion
+            'llm.embed',        // Generate embeddings
+            'vectors.read',     // Query vectors
+            'vectors.write',    // Store vectors
         ],
     });
     
@@ -100,12 +104,16 @@ When you start your Local App from the RealTimeX Main App, environment variables
 
     sdk = RealtimeXSDK(config=SDKConfig(
         permissions=[
-            'api.agents',      # Required to list agents
-            'api.workspaces',  # Required to list workspaces
-            'api.threads',     # Required to list threads
-            'webhook.trigger', # Required to trigger agents
-            'activities.read', # Required to read activities
-            'activities.write', # Required to write activities
+            'api.agents',       # List agents
+            'api.workspaces',   # List workspaces
+            'api.threads',      # List threads
+            'webhook.trigger',  # Trigger agents
+            'activities.read',  # Read activities
+            'activities.write', # Write activities
+            'llm.chat',         # Chat completion
+            'llm.embed',        # Generate embeddings
+            'vectors.read',     # Query vectors
+            'vectors.write',    # Store vectors
         ]
     ))
 
@@ -296,6 +304,212 @@ The SDK includes automatic port management to prevent conflicts when running mul
 
 <Callout type="info">
 **How it works**: When launched from RealTimeX, your app receives an `RTX_PORT` environment variable with the configured port. The SDK uses this as the starting point and automatically finds the next available port if it's occupied.
+</Callout>
+
+---
+
+### LLM Proxy & Vector Store
+
+The SDK provides access to RealtimeX's LLM capabilities without needing to manage API keys directly. Perfect for building RAG (Retrieval-Augmented Generation) applications.
+
+**Required Permissions:**
+```typescript
+const sdk = new RealtimeXSDK({
+  permissions: ['llm.chat', 'llm.embed', 'llm.providers', 'vectors.read', 'vectors.write']
+});
+```
+
+#### List Available Models
+
+<Tabs items={['TypeScript', 'Python']}>
+  <Tabs.Tab>
+    ```typescript
+    const { llm, embedding } = await sdk.llm.getProviders();
+    console.log('Chat models:', llm[0].models);
+    console.log('Embedding models:', embedding[0].models);
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```python
+    providers = await sdk.llm.get_providers()
+    print(f"Chat models: {providers.llm[0].models}")
+    print(f"Embedding models: {providers.embedding[0].models}")
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+#### Chat Completion
+
+<Tabs items={['TypeScript', 'Python']}>
+  <Tabs.Tab>
+    ```typescript
+    // Sync chat
+    const response = await sdk.llm.chat([
+      { role: 'system', content: 'You are a helpful assistant.' },
+      { role: 'user', content: 'What is RealtimeX?' }
+    ], { model: 'gpt-4o', temperature: 0.7 });
+    console.log(response.response?.content);
+
+    // Streaming chat
+    for await (const chunk of sdk.llm.chatStream(messages)) {
+      process.stdout.write(chunk.textResponse || '');
+    }
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```python
+    from realtimex_sdk import ChatMessage, ChatOptions
+
+    # Sync chat
+    response = await sdk.llm.chat(
+        messages=[
+            ChatMessage(role="system", content="You are a helpful assistant."),
+            ChatMessage(role="user", content="What is RealtimeX?")
+        ],
+        options=ChatOptions(model="gpt-4o", temperature=0.7)
+    )
+    print(response.content)
+
+    # Streaming chat
+    async for chunk in sdk.llm.chat_stream(messages):
+        print(chunk.text, end="", flush=True)
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+#### Generate Embeddings
+
+<Tabs items={['TypeScript', 'Python']}>
+  <Tabs.Tab>
+    ```typescript
+    const { embeddings, dimensions } = await sdk.llm.embed(['Hello world', 'Goodbye']);
+    console.log(`Generated ${embeddings.length} vectors of ${dimensions} dimensions`);
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```python
+    result = await sdk.llm.embed(["Hello world", "Goodbye"])
+    print(f"Generated {len(result.embeddings)} vectors of {result.dimensions} dimensions")
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+#### Vector Store (RAG)
+
+Store and search vectors for building knowledge bases:
+
+<Tabs items={['TypeScript', 'Python']}>
+  <Tabs.Tab>
+    ```typescript
+    // Store vectors with metadata
+    await sdk.llm.vectors.upsert([
+      { 
+        id: 'chunk-1', 
+        vector: embeddings[0], 
+        metadata: { text: 'Original text...', documentId: 'doc-1' } 
+      }
+    ], { workspaceId: 'knowledge-base' });
+
+    // Search similar vectors
+    const results = await sdk.llm.vectors.query(queryVector, {
+      topK: 5,
+      workspaceId: 'knowledge-base'
+    });
+
+    // Delete all vectors in workspace
+    await sdk.llm.vectors.delete({ deleteAll: true, workspaceId: 'knowledge-base' });
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```python
+    from realtimex_sdk import VectorRecord
+
+    # Store vectors with metadata
+    await sdk.llm.vectors.upsert(
+        vectors=[
+            VectorRecord(
+                id="chunk-1",
+                vector=embeddings[0],
+                metadata={"text": "Original text...", "documentId": "doc-1"}
+            )
+        ],
+        workspace_id="knowledge-base"
+    )
+
+    # Search similar vectors
+    results = await sdk.llm.vectors.query(
+        vector=query_vector,
+        top_k=5,
+        workspace_id="knowledge-base"
+    )
+
+    # Delete all vectors in workspace
+    await sdk.llm.vectors.delete(delete_all=True, workspace_id="knowledge-base")
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+#### High-Level Helpers (Recommended)
+
+For common RAG patterns, use these helpers that combine embedding + storage/search:
+
+<Tabs items={['TypeScript', 'Python']}>
+  <Tabs.Tab>
+    ```typescript
+    // Embed and store in one call (text → vectors → storage)
+    await sdk.llm.embedAndStore(
+      ['Document chunk 1', 'Document chunk 2'],
+      { documentId: 'doc-123', workspaceId: 'knowledge-base' }
+    );
+
+    // Semantic search (query → embed → search)
+    const results = await sdk.llm.search('What is RealtimeX?', {
+      topK: 5,
+      workspaceId: 'knowledge-base',
+      documentId: 'doc-123' // Optional: filter by document
+    });
+    
+    // Use results for RAG
+    const context = results.map(r => r.metadata.text).join('\n');
+    const response = await sdk.llm.chat([
+      { role: 'system', content: `Context:\n${context}` },
+      { role: 'user', content: 'What is RealtimeX?' }
+    ]);
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```python
+    # Embed and store in one call (text → vectors → storage)
+    await sdk.llm.embed_and_store(
+        texts=["Document chunk 1", "Document chunk 2"],
+        document_id="doc-123",
+        workspace_id="knowledge-base"
+    )
+
+    # Semantic search (query → embed → search)
+    results = await sdk.llm.search(
+        query="What is RealtimeX?",
+        top_k=5,
+        workspace_id="knowledge-base",
+        document_id="doc-123"  # Optional: filter by document
+    )
+    
+    # Use results for RAG
+    context = "\n".join([r["metadata"]["text"] for r in results])
+    response = await sdk.llm.chat(
+        messages=[
+            ChatMessage(role="system", content=f"Context:\n{context}"),
+            ChatMessage(role="user", content="What is RealtimeX?")
+        ]
+    )
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+<Callout type="tip">
+**Isolation vs Filtering:**
+- **`workspaceId`**: Creates physical namespace (`sdk_{appId}_{wsId}`) - data completely isolated
+- **`documentId`**: Metadata tag, filtered after search - logical grouping within workspace
 </Callout>
 
 ---

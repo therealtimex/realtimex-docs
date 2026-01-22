@@ -64,6 +64,11 @@ Each API endpoint requires specific permissions. Permissions are declared in the
 | `webhook.trigger` | `POST /webhooks/realtimex` |
 | `activities.read` | `GET /activities` |
 | `activities.write` | `POST /activities`, `PATCH /activities/:id`, `DELETE /activities/:id` |
+| `llm.chat` | `POST /sdk/llm/chat`, `POST /sdk/llm/chat/stream` |
+| `llm.embed` | `POST /sdk/llm/embed` |
+| `llm.providers` | `GET /sdk/llm/providers` |
+| `vectors.read` | `POST /sdk/llm/vectors/query` |
+| `vectors.write` | `POST /sdk/llm/vectors/upsert`, `POST /sdk/llm/vectors/delete` |
 
 ---
 
@@ -348,3 +353,148 @@ Update an activity status or result.
 ### DELETE `/activities/:id`
 
 Delete an activity.
+
+---
+
+## LLM Endpoints
+
+Powerful AI capabilities including chat completion, streaming, and embeddings.
+
+### POST `/sdk/llm/chat`
+
+Synchronous chat completion from configured LLM providers.
+
+**Request:**
+```json
+{
+  "messages": [
+    { "role": "system", "content": "You are a helpful assistant." },
+    { "role": "user", "content": "Hello!" }
+  ],
+  "provider": "openai",
+  "model": "gpt-4o",
+  "temperature": 0.7
+}
+```
+
+**Response (200):**
+```json
+{
+  "success": true,
+  "response": {
+    "content": "Hello! How can I help you today?",
+    "provider": "openai",
+    "model": "gpt-4o",
+    "metrics": {
+      "prompt_tokens": 10,
+      "completion_tokens": 8,
+      "total_tokens": 18
+    }
+  }
+}
+```
+
+---
+
+### POST `/sdk/llm/chat/stream`
+
+Streaming chat completion using Server-Sent Events (SSE).
+
+**Request Headers:**
+- `Accept: text/event-stream`
+
+**Events:**
+- `data`: JSON chunk containing `{ "textResponse": "...", "uuid": "..." }`
+- `event: error`: Occurs if there's a runtime LLM error.
+- `data: [DONE]`: End of stream.
+
+---
+
+### POST `/sdk/llm/embed`
+
+Generate high-dimensional vectors for text inputs.
+
+**Request:**
+```json
+{
+  "input": ["Hello world", "Artificial Intelligence"],
+  "provider": "realtimexai",
+  "model": "text-embedding-ada-002"
+}
+```
+
+**Response (200):**
+```json
+{
+  "success": true,
+  "embeddings": [[0.1, 0.2, ...], [0.3, 0.4, ...]],
+  "dimensions": 1536,
+  "provider": "realtimexai",
+  "model": "text-embedding-ada-002"
+}
+```
+
+---
+
+### GET `/sdk/llm/providers`
+
+List available LLM and Embedding providers/models configured in RealTimeX.
+
+---
+
+## Vector Store Endpoints
+
+Store and query vectors for Retrieval-Augmented Generation (RAG).
+
+### POST `/sdk/llm/vectors/upsert`
+
+Store vectors with metadata into the managed LanceDB/Vector storage.
+
+**Request:**
+```json
+{
+  "vectors": [
+    {
+      "id": "doc-1-chunk-1",
+      "vector": [0.1, 0.2, ...],
+      "metadata": { "text": "...", "documentId": "doc-1" }
+    }
+  ],
+  "workspaceId": "knowledge-base"
+}
+```
+
+---
+
+### POST `/sdk/llm/vectors/query`
+
+Perform semantic similarity search.
+
+**Request:**
+```json
+{
+  "vector": [0.1, 0.2, ...],
+  "topK": 5,
+  "workspaceId": "knowledge-base",
+  "filter": { "documentId": "doc-1" }
+}
+```
+
+> [!TIP]
+> **Isolation & Filtering:**
+> - **`workspaceId`**: Use this for top-level data isolation. It creates separate namespaces in the vector database (physical isolation).
+> - **`documentId`**: Use this as a metadata tag for filtering results *within* a workspace. Filtering is applied after similarity search (post-filter).
+
+---
+
+### POST `/sdk/llm/vectors/delete`
+
+Delete vectors from storage. Currently supports `deleteAll: true`.
+
+**Request:**
+```json
+{
+  "deleteAll": true,
+  "workspaceId": "knowledge-base"
+}
+```

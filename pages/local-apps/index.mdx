@@ -21,6 +21,7 @@ A Local App is an application running on your local machine that integrates with
 - **Listen to database events** - Monitor changes in your Supabase database in real-time
 - **Trigger AI Agents automatically** - Process tasks immediately when new events occur
 - **Create calendar events** - Allow you to review and manually trigger agents when needed
+- **LLM Proxy & RAG** - Access configured LLM providers and managed Vector Storage
 - **Run distributed** - Multiple machines can listen and process tasks simultaneously
 - **Ensure reliability** - Lock mechanism prevents duplicate processing
 
@@ -73,6 +74,11 @@ RealTimeX uses a **manifest-based permission system** to ensure security and tra
 | `webhook.trigger` | Trigger AI agents via webhook |
 | `activities.read` | Read activities data |
 | `activities.write` | Create, update, delete activities |
+| `llm.chat` | Access LLM chat completion (Sync/Stream) |
+| `llm.embed` | Generate text embeddings |
+| `llm.providers` | List available LLM models and providers |
+| `vectors.read` | Query managed vector storage |
+| `vectors.write` | Upsert or delete vectors in storage |
 
 #### Managing Permissions
 
