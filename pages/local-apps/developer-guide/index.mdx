@@ -19,9 +19,27 @@ Regardless of the mode you choose, you must first configure your Local App in th
 3. Enter Supabase **URL** and **Anon Key**
 4. For **Compatible Mode**, click **Login to Supabase** → **Auto-Setup Schema**.
 
-<Callout type="info">
-If using Compatible Mode, schema setup is handled entirely by the Main App. **No manual SQL required.**
 </Callout>
+
+## Operating Modes
+
+RealTimeX SDK supports two modes based on your stage of development.
+
+### 1. Developer Mode (API Key)
+Recommended for local development. Use an API key to gain full access to all features without manifest configuration.
+
+**How to get an API key:**
+1. Open **RealTimeX Desktop**
+2. Go to **Settings** → **Tool** → **Developer API**
+3. Click **Generate New API Key**
+
+<Callout type="tip">
+In Developer Mode, you don't need to specify `permissions` in the SDK constructor. All permissions are granted automatically.
+</Callout>
+
+### 2. Production Mode (App ID)
+Default mode when your app is launched by RealTimeX. It uses manifest-based permissions and the `RTX_APP_ID` environment variable.
+
 
 ## Installation
 
@@ -75,6 +93,27 @@ When you start your Local App from the RealTimeX Main App, environment variables
         ],
     });
     
+    // OR Developer Mode (API Key)
+    const sdkDev = new RealtimeXSDK({
+        realtimex: {
+            apiKey: 'sk-your-api-key'
+        },
+        permissions: [
+            'api.agents',       // List agents
+            'api.workspaces',   // List workspaces
+            'api.threads',      // List threads
+            'webhook.trigger',  // Trigger agents
+            'activities.read',  // Read activities
+            'activities.write', // Write activities
+            'llm.chat',         // Chat completion
+            'llm.embed',        // Generate embeddings
+            'llm.providers',    // List LLM providers (chat, embed)
+            'vectors.read',     // Query vectors
+            'vectors.write',    // Store vectors
+        ]
+    });
+
+    
 
     // Get available port (auto-detects or finds free port if conflict)
     const port = await sdk.port.getPort();
@@ -116,6 +155,25 @@ When you start your Local App from the RealTimeX Main App, environment variables
             'vectors.write',    # Store vectors
         ]
     ))
+
+    # OR Developer Mode (API Key)
+    sdk_dev = RealtimeXSDK(config=SDKConfig(
+        api_key="sk-your-api-key",
+        permissions=[
+            'api.agents',       # List agents
+            'api.workspaces',   # List workspaces
+            'api.threads',      # List threads
+            'webhook.trigger',  # Trigger agents
+            'activities.read',  # Read activities
+            'activities.write', # Write activities
+            'llm.chat',         # Chat completion
+            'llm.embed',        # Generate embeddings
+            'llm.providers',    # List LLM providers (chat, embed)
+            'vectors.read',     # Query vectors
+            'vectors.write',    # Store vectors
+        ]
+    ))
+
 
     # Get available port (auto-detects or finds free port if conflict)
     port = sdk.port.get_port()
