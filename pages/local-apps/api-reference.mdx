@@ -13,16 +13,33 @@ Base URL: `http://localhost:3001/`
 
 ## Authentication (v1.0.8+)
 
-All SDK API endpoints require the `x-app-id` header for authentication. This header identifies your Local App and is used to verify permissions.
+RealTimeX SDK supports two modes of authentication: **Production Mode** (App ID) and **Developer Mode** (API Key).
 
-### Required Header
+### 1. Production Mode (App ID)
+Default mode used when your application is running within the RealTimeX ecosystem. It uses the `x-app-id` header to identify your app and verify specific manifest-based permissions.
 
+**Required Header:**
 ```http
 X-App-Id: your-local-app-uuid
 ```
 
 <Callout type="info">
-When using the official SDK, this header is set automatically from the `RTX_APP_ID` environment variable injected by RealTimeX when starting your app.
+The `x-app-id` is automatically injected via the `RTX_APP_ID` environment variable when RealTimeX starts your application.
+</Callout>
+
+### 2. Developer Mode (API Key)
+Recommended for local development and testing. It uses a standard Bearer token to grant full access to all SDK features without requiring upfront app registration or manifest configuration.
+
+**Required Header:**
+```http
+Authorization: Bearer your-api-key
+```
+
+<Callout type="tip">
+**How to generate an API Key:**
+1. Open RealTimeX Desktop
+2. Go to **Settings** → **Tool** → **Developer API**
+3. Click **Generate New API Key**
 </Callout>
 
 ### Error Responses
@@ -66,8 +83,9 @@ Each API endpoint requires specific permissions. Permissions are declared in the
 | `activities.write` | `POST /activities`, `PATCH /activities/:id`, `DELETE /activities/:id` |
 | `llm.chat` | `POST /sdk/llm/chat`, `POST /sdk/llm/chat/stream` |
 | `llm.embed` | `POST /sdk/llm/embed` |
-| `llm.providers` | `GET /sdk/llm/providers` |
+| `llm.providers` | `GET /sdk/llm/providers`, `GET /sdk/llm/providers/chat`, `GET /sdk/llm/providers/embed` |
 | `vectors.read` | `POST /sdk/llm/vectors/query` |
+
 | `vectors.write` | `POST /sdk/llm/vectors/upsert`, `POST /sdk/llm/vectors/delete` |
 
 ---
@@ -76,6 +94,26 @@ Each API endpoint requires specific permissions. Permissions are declared in the
 
 
 These endpoints are used by the official SDKs to coordinate with the RealTimeX Main App.
+
+### GET `/sdk/ping`
+
+Connectivity and authentication check. Returns current mode and app context.
+
+**Request Headers:**
+- `x-app-id` OR `Authorization: Bearer <key>`
+
+**Response (200):**
+```json
+{
+  "success": true,
+  "message": "pong",
+  "mode": "development",
+  "appId": "your-app-id-if-provided",
+  "timestamp": "2024-01-15T10:00:00Z"
+}
+```
+
+---
 
 ### POST `/webhooks/realtimex`
 
@@ -438,9 +476,58 @@ Generate high-dimensional vectors for text inputs.
 
 ### GET `/sdk/llm/providers`
 
-List available LLM and Embedding providers/models configured in RealTimeX.
+List all available LLM and Embedding providers/models configured in RealTimeX.
+
+### GET `/sdk/llm/providers/chat`
+
+List only configured **Chat (LLM)** providers and their models.
+
+**Response (200):**
+```json
+{
+  "success": true,
+  "providers": [
+    {
+      "provider": "openai",
+      "models": [ { "id": "gpt-4o", "name": "gpt-4o" }, ... ],
+      "active": true
+    },
+    {
+      "provider": "anthropic",
+      "models": [ { "id": "claude-3-5-sonnet", "name": "Claude 3.5 Sonnet" }, ... ],
+      "active": false
+    }
+  ]
+}
+```
 
 ---
+
+### GET `/sdk/llm/providers/embed`
+
+List only configured **Embedding** providers and their models.
+
+**Response (200):**
+```json
+{
+  "success": true,
+  "providers": [
+    {
+      "provider": "openai",
+      "models": [ { "id": "text-embedding-3-small", "name": "text-embedding-3-small" } ],
+      "active": false
+    },
+    {
+      "provider": "native",
+      "models": [ { "id": "all-MiniLM-L6-v2", "name": "all-MiniLM-L6-v2" } ],
+      "active": true
+    }
+  ]
+}
+```
+
+---
+
 
 ## Vector Store Endpoints
 

@@ -53,9 +53,10 @@ Uncomment khi đã có screenshot:
 - **Custom lock logic** - Your Local App controls the locking mechanism
 - **Best for** - Existing systems, CRM, ERP integrations
 
-### 🔐 Permission System (v1.0.8+)
+RealTimeX uses a **manifest-based permission system** to ensure security. 
 
-RealTimeX uses a **manifest-based permission system** to ensure security and transparency. Your Local App declares the permissions it needs in the SDK constructor, and RealTimeX handles the rest.
+- **Production Mode**: Uses `x-app-id` with manifest-declared permissions.
+- **Developer Mode**: Uses **API Keys** for full access during local development (no manifest required).
 
 #### How It Works
 
