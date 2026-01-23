@@ -324,17 +324,27 @@ const sdk = new RealtimeXSDK({
 <Tabs items={['TypeScript', 'Python']}>
   <Tabs.Tab>
     ```typescript
-    const { llm, embedding } = await sdk.llm.getProviders();
-    console.log('Chat models:', llm[0].models);
-    console.log('Embedding models:', embedding[0].models);
+    // Get chat (LLM) providers
+    const { providers: chatProviders } = await sdk.llm.chatProviders();
+    console.log('Chat models:', chatProviders[0].models);
+
+    // Get embedding providers
+    const { providers: embedProviders } = await sdk.llm.embedProviders();
+    console.log('Embedding models:', embedProviders[0].models);
     ```
+
   </Tabs.Tab>
   <Tabs.Tab>
     ```python
-    providers = await sdk.llm.get_providers()
-    print(f"Chat models: {providers.llm[0].models}")
-    print(f"Embedding models: {providers.embedding[0].models}")
+    # Get chat (LLM) providers
+    chatRes = await sdk.llm.chat_providers()
+    print(f"Chat models: {chatRes.providers[0].models}")
+
+    # Get embedding providers
+    embedRes = await sdk.llm.embed_providers()
+    print(f"Embedding models: {embedRes.providers[0].models}")
     ```
+
   </Tabs.Tab>
 </Tabs>
 
