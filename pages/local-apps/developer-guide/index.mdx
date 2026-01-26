@@ -33,8 +33,10 @@ Recommended for local development. Use an API key to gain full access to all fea
 2. Go to **Settings** → **Tool** → **Developer API**
 3. Click **Generate New API Key**
 
-<Callout type="tip">
-In Developer Mode, you don't need to specify `permissions` in the SDK constructor. All permissions are granted automatically.
+</Callout>
+
+<Callout type="warning">
+**Identity & Data Isolation:** In Development Mode, RealtimeX identifies your application based on the **API Key**. If multiple local apps use the same API Key, they will share the same identity. This means registering a custom vector database in one app will overwrite the configuration for all other apps using that same key.
 </Callout>
 
 ### 2. Production Mode (App ID)
@@ -366,6 +368,35 @@ The SDK includes automatic port management to prevent conflicts when running mul
 
 ---
 
+### App Data Directory
+
+Every Local App has a dedicated persistent storage directory on the user's machine. You can use this to store local databases, logs, or large assets that shouldn't be in the source code.
+
+**Path Format:** `~/.realtimex.ai/Resources/local-apps/{appId}`
+
+<Tabs items={['TypeScript', 'Python']}>
+  <Tabs.Tab>
+    ```typescript
+    const dataDir = await sdk.getAppDataDir();
+    console.log('My persistent storage is at:', dataDir);
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```python
+    data_dir = await sdk.get_app_data_dir()
+    print(f"My persistent storage is at: {data_dir}")
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+<Callout type="info">
+**Development Mode:** In development mode using an API Key, the directory is derived from the masked API key to prevent data collision between different development environments.
+</Callout>
+
+---
+
+---
+
 ### LLM Proxy & Vector Store
 
 The SDK provides access to RealtimeX's LLM capabilities without needing to manage API keys directly. Perfect for building RAG (Retrieval-Augmented Generation) applications.
@@ -640,6 +671,77 @@ For common RAG patterns, use these helpers that combine embedding + storage/sear
 **Isolation vs Filtering:**
 - **`workspaceId`**: Creates physical namespace (`sdk_{appId}_{wsId}`) - data completely isolated
 - **`documentId`**: Metadata tag, filtered after search - logical grouping within workspace
+</Callout>
+
+---
+
+### Custom Vector Storage
+
+By default, every Local App is assigned an isolated **LanceDB** instance. However, you can discover other supported providers and register your own production-grade vector database (like PGVector, Chroma, or AstraDB).
+
+#### 1. Discover Supported Providers
+
+Query available vector database engines and their required configuration fields.
+
+<Tabs items={['TypeScript', 'Python']}>
+  <Tabs.Tab>
+    ```typescript
+    const { providers } = await sdk.llm.vectors.listProviders();
+    // providers: [{ name, label, description, fields: [...] }]
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```python
+    res = await sdk.llm.vectors.list_providers()
+    # res.providers: List[VectorProviderMetadata]
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+#### 2. Register Custom Configuration
+
+Once you have the configuration for your provider, register it. The SDK will automatically test the connection before saving.
+
+<Tabs items={['TypeScript', 'Python']}>
+  <Tabs.Tab>
+    ```typescript
+    await sdk.llm.vectors.registerConfig('pgvector', {
+      databaseUrl: 'postgresql://user:pass@host:5432/db',
+      tableName: 'my_app_vectors'
+    });
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```python
+    await sdk.llm.vectors.register_config('pgvector', {
+        "databaseUrl": "postgresql://user:pass@host:5432/db",
+        "tableName": "my_app_vectors"
+    })
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+#### 3. Retrieve Current Configuration
+
+You can programmatically check which storage backend your app is currently using.
+
+<Tabs items={['TypeScript', 'Python']}>
+  <Tabs.Tab>
+    ```typescript
+    const { provider, config } = await sdk.llm.vectors.getConfig();
+    console.log(`Using ${provider} at ${config.uri || config.databaseUrl}`);
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```python
+    res = await sdk.llm.vectors.get_config()
+    print(f"Using {res.provider}")
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+<Callout type="info">
+**Persistence:** Once a custom configuration is successfully registered, RealtimeX persists it for your App ID. All subsequent `upsert`, `query`, and `search` calls will automatically use this backend.
 </Callout>
 
 ---

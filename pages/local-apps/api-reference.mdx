@@ -35,11 +35,10 @@ Recommended for local development and testing. It uses a standard Bearer token t
 Authorization: Bearer your-api-key
 ```
 
-<Callout type="tip">
-**How to generate an API Key:**
-1. Open RealTimeX Desktop
-2. Go to **Settings** → **Tool** → **Developer API**
-3. Click **Generate New API Key**
+</Callout>
+
+<Callout type="warning">
+**Identity Warning:** In Development Mode, the system maps your identity directly to the **API Key**. If you share a single API Key across multiple different local apps, they will share the same configuration state. For example, updating vector database settings in App A will affect App B if they use the same key.
 </Callout>
 
 ### Error Responses
@@ -84,9 +83,10 @@ Each API endpoint requires specific permissions. Permissions are declared in the
 | `llm.chat` | `POST /sdk/llm/chat`, `POST /sdk/llm/chat/stream` |
 | `llm.embed` | `POST /sdk/llm/embed` |
 | `llm.providers` | `GET /sdk/llm/providers`, `GET /sdk/llm/providers/chat`, `GET /sdk/llm/providers/embed` |
-| `vectors.read` | `POST /sdk/llm/vectors/query` |
+| `vectors.read` | `POST /sdk/llm/vectors/query`, `GET /sdk/llm/vectors/workspaces`, `GET /sdk/llm/vectors/config` |
 
-| `vectors.write` | `POST /sdk/llm/vectors/upsert`, `POST /sdk/llm/vectors/delete` |
+| `vectors.write` | `POST /sdk/llm/vectors/upsert`, `POST /sdk/llm/vectors/delete`, `POST /sdk/llm/vectors/register` |
+| (None) | `GET /sdk/llm/vectors/providers` |
 
 ---
 
@@ -110,6 +110,20 @@ Connectivity and authentication check. Returns current mode and app context.
   "mode": "development",
   "appId": "your-app-id-if-provided",
   "timestamp": "2024-01-15T10:00:00Z"
+}
+```
+
+---
+
+### GET `/sdk/local-apps/data-dir`
+
+Get the absolute path to the app-specific persistent storage directory.
+
+**Response (200):**
+```json
+{
+  "success": true,
+  "dataDir": "/Users/user/.realtimex.ai/Resources/local-apps/your-app-id"
 }
 ```
 
@@ -583,14 +597,97 @@ Delete vectors from storage. Currently supports `deleteAll: true`.
 }
 ```
 
-### GET `/sdk/llm/vectors/workspaces`
-
-List all namespaces/workspaces storage for this app
-
-**Response**
-```json
 {
   "success":true,
   "workspaces":["default","testws","ws1"]
 }
 ```
+
+---
+
+### GET `/sdk/llm/vectors/providers`
+
+List all supported vector database providers and their metadata.
+
+**Response (200):**
+```json
+{
+  "success": true,
+  "providers": [
+    {
+      "name": "pgvector",
+      "label": "PGVector",
+      "description": "PostgreSQL with pgvector extension",
+      "fields": [
+        {
+          "name": "databaseUrl",
+          "label": "Database URL",
+          "type": "string",
+          "placeholder": "postgresql://user:pass@host:5432/dbname"
+        },
+        {
+          "name": "tableName",
+          "label": "Table Name",
+          "type": "string",
+          "placeholder": "vectors"
+        }
+      ]
+    }
+  ]
+}
+```
+
+---
+
+### POST `/sdk/llm/vectors/register`
+
+Register a custom vector database configuration for the authenticated app. The system will attempt to connect to the database before saving.
+
+**Request Body:**
+```json
+{
+  "provider": "pgvector",
+  "config": {
+    "databaseUrl": "postgresql://user:pass@host:5432/db",
+    "tableName": "app_vectors"
+  }
+}
+```
+
+**Response (200):**
+```json
+{
+  "success": true,
+  "message": "Vector configuration registered successfully."
+}
+```
+
+**Response (400):**
+```json
+{
+  "success": false,
+  "error": "Failed to connect to PGVector: connection refused"
+}
+```
+
+---
+
+### GET `/sdk/llm/vectors/config`
+
+Retrieve the current active vector database configuration for this app.
+
+**Response (200):**
+```json
+{
+  "success": true,
+  "provider": "pgvector",
+  "config": {
+    "databaseUrl": "postgresql://user:****@host:5432/db",
+    "tableName": "app_vectors"
+  }
+}
+```
+
+<Callout type="warning">
+Secrets like passwords in `databaseUrl` are automatically masked in the response for security.
+</Callout>
