@@ -33,7 +33,10 @@ Recommended for local development. Use an API key to gain full access to all fea
 2. Go to **Settings** → **Tool** → **Developer API**
 3. Click **Generate New API Key**
 
+<Callout type="tip">
+In Developer Mode, you don't need to specify `permissions` in the SDK constructor. All permissions are granted automatically.
 </Callout>
+
 
 <Callout type="warning">
 **Identity & Data Isolation:** In Development Mode, RealtimeX identifies your application based on the **API Key**. If multiple local apps use the same API Key, they will share the same identity. This means registering a custom vector database in one app will overwrite the configuration for all other apps using that same key.

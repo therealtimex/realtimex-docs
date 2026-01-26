@@ -35,6 +35,11 @@ Recommended for local development and testing. It uses a standard Bearer token t
 Authorization: Bearer your-api-key
 ```
 
+<Callout type="tip">
+**How to generate an API Key:**
+1. Open RealTimeX Desktop
+2. Go to **Settings** → **Tool** → **Developer API**
+3. Click **Generate New API Key**
 </Callout>
 
 <Callout type="warning">
@@ -596,10 +601,17 @@ Delete vectors from storage. Currently supports `deleteAll: true`.
   "workspaceId": "knowledge-base"
 }
 ```
+---
 
+### GET `/sdk/llm/vectors/workspaces`
+
+List all namespaces/workspaces storage for this app.
+
+**Response (200):**
+```json
 {
-  "success":true,
-  "workspaces":["default","testws","ws1"]
+  "success": true,
+  "workspaces": ["default", "testws", "ws1"]
 }
 ```
 
