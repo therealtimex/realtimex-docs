@@ -749,8 +749,123 @@ You can programmatically check which storage backend your app is currently using
 
 ---
 
+### Text-to-Speech (TTS)
+
+Generate speech from text using local (Supertonic, Piper) or cloud (OpenAI, ElevenLabs) providers.
+
+**Required Permissions:**
+```typescript
+const sdk = new RealtimeXSDK({
+  permissions: ['tts.generate', 'tts.providers']
+});
+```
+
+#### List Available Providers
+
+<Tabs items={['TypeScript', 'Python']}>
+  <Tabs.Tab>
+    ```typescript
+    const providers = await sdk.tts.listProviders();
+    // providers: [{ id, name, type, configured, config: { voices, languages, speed } }]
+    
+    // Filter to configured providers only
+    const available = providers.filter(p => p.configured);
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```python
+    providers = await sdk.tts.list_providers()
+    # List[dict] with id, name, type, configured, config
+    
+    # Filter to configured providers only
+    available = [p for p in providers if p.get('configured')]
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+#### Generate Speech (Buffer)
+
+Get complete audio as a buffer - best for short text:
+
+<Tabs items={['TypeScript', 'Python']}>
+  <Tabs.Tab>
+    ```typescript
+    const audioBuffer = await sdk.tts.speak("Hello world!", {
+      provider: 'supertonic_local',  // Optional: defaults to system default
+      voice: 'default',              // Optional: voice/speaker ID
+      speed: 1.0,                    // Optional: 0.5-2.0
+      language: 'en',                // Optional: for multilingual providers
+      num_inference_steps: 10        // Optional: Supertonic quality (1-20)
+    });
+    
+    // audioBuffer is ArrayBuffer, save or play it
+    const blob = new Blob([audioBuffer], { type: 'audio/wav' });
+    const audio = new Audio(URL.createObjectURL(blob));
+    audio.play();
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```python
+    audio_bytes = await sdk.tts.speak(
+        "Hello world!",
+        provider="supertonic_local",  # Optional: defaults to system default
+        voice="default",              # Optional: voice/speaker ID
+        speed=1.0,                    # Optional: 0.5-2.0
+        language="en",                # Optional: for multilingual providers
+        num_inference_steps=10        # Optional: Supertonic quality (1-20)
+    )
+    
+    # audio_bytes is bytes, save to file
+    with open("output.wav", "wb") as f:
+        f.write(audio_bytes)
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+#### Streaming Speech (Chunked)
+
+For long text, use streaming to get progressive audio chunks:
+
+<Tabs items={['TypeScript', 'Python']}>
+  <Tabs.Tab>
+    ```typescript
+    for await (const chunk of sdk.tts.speakStream("Long text content...")) {
+      console.log(`Chunk ${chunk.index + 1}/${chunk.total}`);
+      
+      // chunk.audio is ArrayBuffer (already decoded!)
+      const blob = new Blob([chunk.audio], { type: chunk.mimeType });
+      const audio = new Audio(URL.createObjectURL(blob));
+      await audio.play();  // Play each chunk as it arrives
+    }
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```python
+    async for chunk in sdk.tts.speak_stream("Long text content..."):
+        print(f"Chunk {chunk['index'] + 1}/{chunk['total']}")
+        
+        # chunk['audio'] is bytes (already decoded!)
+        audio_bytes = chunk['audio']
+        mime_type = chunk['mimeType']
+        
+        # Save or play each chunk
+        with open(f"chunk_{chunk['index']}.wav", "wb") as f:
+            f.write(audio_bytes)
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+<Callout type="tip">
+**Provider Types:**
+- **Local (client)**: Supertonic, Piper - runs offline, no API costs
+- **Cloud (server)**: OpenAI, ElevenLabs, Groq - requires API keys
+</Callout>
+
+---
+
 ## REST API Access
 
 If you are not using one of our official SDKs, you can communicate with RealTimeX directly via our REST API.
 
 👉 [View REST API Reference](/local-apps/api-reference)
+

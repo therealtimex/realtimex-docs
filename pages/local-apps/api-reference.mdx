@@ -89,6 +89,8 @@ Each API endpoint requires specific permissions. Permissions are declared in the
 | `llm.embed` | `POST /sdk/llm/embed` |
 | `llm.providers` | `GET /sdk/llm/providers`, `GET /sdk/llm/providers/chat`, `GET /sdk/llm/providers/embed` |
 | `vectors.read` | `POST /sdk/llm/vectors/query`, `GET /sdk/llm/vectors/workspaces`, `GET /sdk/llm/vectors/config` |
+| `tts.generate` | `POST /sdk/tts`, `POST /sdk/tts/stream` |
+| `tts.providers` | `GET /sdk/tts/providers` |
 
 | `vectors.write` | `POST /sdk/llm/vectors/upsert`, `POST /sdk/llm/vectors/delete`, `POST /sdk/llm/vectors/register` |
 | (None) | `GET /sdk/llm/vectors/providers` |
@@ -703,3 +705,77 @@ Retrieve the current active vector database configuration for this app.
 <Callout type="warning">
 Secrets like passwords in `databaseUrl` are automatically masked in the response for security.
 </Callout>
+
+---
+
+## Text-to-Speech (TTS) Endpoints
+
+Generate speech from text using local or cloud providers.
+
+### GET `/sdk/tts/providers`
+
+List available TTS providers and their configuration.
+
+**Response (200):**
+```json
+{
+  "success": true,
+  "providers": [
+    {
+      "id": "supertonic_local",
+      "name": "Supertonic (Local)",
+      "type": "client",
+      "configured": true,
+      "supportsStreaming": true,
+      "config": {
+        "voices": ["default"],
+        "languages": ["en", "vi", "fr", "..."],
+        "speed": { "min": 0.5, "max": 2.0, "default": 1.0 }
+      }
+    }
+  ],
+  "default": "supertonic_local"
+}
+```
+
+---
+
+### POST `/sdk/tts`
+
+Generate speech from text (returns audio buffer).
+
+**Request Body:**
+```json
+{
+  "text": "Hello world!",
+  "provider": "supertonic_local",
+  "voice": "default",
+  "speed": 1.0,
+  "language": "en"
+}
+```
+
+**Response:** Binary audio data with `Content-Type: audio/wav` or `audio/mpeg`.
+
+---
+
+### POST `/sdk/tts/stream`
+
+Generate speech with SSE streaming for progressive playback.
+
+**Request Body:** Same as `/sdk/tts`
+
+**Response (SSE):**
+- `event: info`: Initial info with chunk count.
+- `event: chunk`: Audio chunk in base64.
+- `event: done`: Stream completion.
+
+**Chunk Data Format:**
+```json
+{
+  "index": 0,
+  "total": 3,
+  "audio": "base64-string...",
+  "mimeType": "audio/wav"
+}
+```
