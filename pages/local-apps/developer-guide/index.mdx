@@ -95,6 +95,7 @@ When you start your Local App from the RealTimeX Main App, environment variables
             'llm.embed',        // Generate embeddings
             'vectors.read',     // Query vectors
             'vectors.write',    // Store vectors
+            'stt.listen',       // Transcribe audio
         ],
     });
     
@@ -158,6 +159,7 @@ When you start your Local App from the RealTimeX Main App, environment variables
             'llm.embed',        # Generate embeddings
             'vectors.read',     # Query vectors
             'vectors.write',    # Store vectors
+            'stt.listen',       # Transcribe audio
         ]
     ))
 
@@ -859,6 +861,87 @@ For long text, use streaming to get progressive audio chunks:
 **Provider Types:**
 - **Local (client)**: Supertonic, Piper - runs offline, no API costs
 - **Cloud (server)**: OpenAI, ElevenLabs, Groq - requires API keys
+</Callout>
+
+---
+
+### Speech-to-Text (STT)
+
+Convert spoken audio into text using local (Whisper, Native) or cloud (Groq) providers.
+
+**Required Permissions:**
+```typescript
+const sdk = new RealtimeXSDK({
+  permissions: ['stt.listen']
+});
+```
+
+#### List Downloaded Models
+
+Retrieve a list of models that are currently downloaded and ready for use. This helps precise model selection for the `native` or `whisper` provider.
+
+<Tabs items={['TypeScript', 'Python']}>
+  <Tabs.Tab>
+    ```typescript
+    const models = await sdk.stt.models();
+    // models: [{ id: 'ggml-base.en', name: 'Whisper Base (English)', provider: 'native', ... }]
+    
+    console.log(`Available models: ${models.map(m => m.id).join(', ')}`);
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```python
+    models = await sdk.stt.models()
+    # models: List[dict] with id, name, provider
+    
+    print(f"Available models: {[m['id'] for m in models]}")
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+#### Transcribe Audio
+
+Listen to the microphone and transcribe speech to text.
+
+<Tabs items={['TypeScript', 'Python']}>
+  <Tabs.Tab>
+    ```typescript
+    const { text, error } = await sdk.stt.listen({
+      language: 'en-US',           // Optional: 'en-US', 'vi-VN', etc.
+      timeout: 10000,              // Optional: Max duration in ms (default 60s)
+      provider: 'native',          // Optional: 'native', 'whisper', 'groq'
+      model: 'ggml-base.en'        // Optional: specific model ID (must be downloaded)
+    });
+    
+    if (error) {
+      console.error('STT failed:', error);
+    } else {
+      console.log('Transcript:', text);
+    }
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```python
+    response = await sdk.stt.listen(
+        language="en-US",          # Optional
+        timeout=10000,             # Optional: ms
+        provider="native",         # Optional
+        model="ggml-base.en"       # Optional
+    )
+    
+    if response.error:
+        print(f"STT failed: {response.error}")
+    else:
+        print(f"Transcript: {response.text}")
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+<Callout type="tip">
+**Providers:**
+- **native**: Uses local Whisper.cpp (fastest, supports GGML models).
+- **whisper**: Uses in-browser Transformers.js (supports ONNX models).
+- **groq**: Uses Groq Cloud API (fastest cloud, requires API key).
 </Callout>
 
 ---
