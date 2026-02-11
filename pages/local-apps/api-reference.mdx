@@ -778,3 +778,60 @@ Generate speech with SSE streaming for progressive playback.
   "mimeType": "audio/wav"
 }
 ```
+
+---
+
+## Speech-to-Text (STT) Endpoints
+
+Convert spoken audio into text using local or cloud providers.
+
+### GET `/sdk/stt/providers`
+
+List available STT providers and their supported models.
+
+**Response (200):**
+```json
+{
+  "success": true,
+  "providers": [
+    {
+      "id": "native",
+      "name": "Native (System)",
+      "description": "Uses system Web Speech API",
+      "models": []
+    },
+    {
+      "id": "whisper",
+      "name": "Whisper (Local)",
+      "description": "Runs locally using Transformers.js",
+      "models": [
+        { "id": "onnx-community/whisper-base", "name": "Whisper Base" }
+      ]
+    }
+  ]
+}
+```
+
+---
+
+### POST `/sdk/stt/listen`
+
+Listen to the microphone and transcribe speech to text.
+
+**Request Body:**
+```json
+{
+  "provider": "whisper",
+  "model": "onnx-community/whisper-base",
+  "timeout": 10000,
+  "language": "en"
+}
+```
+
+**Response (200):**
+```json
+{
+  "success": true,
+  "text": "Hello world, this is a test."
+}
+```

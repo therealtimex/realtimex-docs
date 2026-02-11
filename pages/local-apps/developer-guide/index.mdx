@@ -867,7 +867,7 @@ For long text, use streaming to get progressive audio chunks:
 
 ### Speech-to-Text (STT)
 
-Convert spoken audio into text using local (Whisper, Native) or cloud (Groq) providers.
+Convert spoken audio into text using local or cloud providers.
 
 **Required Permissions:**
 ```typescript
@@ -876,25 +876,29 @@ const sdk = new RealtimeXSDK({
 });
 ```
 
-#### List Downloaded Models
+#### List Available Providers & Models
 
-Retrieve a list of models that are currently downloaded and ready for use. This helps precise model selection for the `native` or `whisper` provider.
+Retrieve a list of available STT providers and their supported models.
 
 <Tabs items={['TypeScript', 'Python']}>
   <Tabs.Tab>
     ```typescript
-    const models = await sdk.stt.models();
-    // models: [{ id: 'ggml-base.en', name: 'Whisper Base (English)', provider: 'native', ... }]
+    const providers = await sdk.stt.listProviders();
+    // providers: [
+    //   { id: 'native', name: 'Native (System)', models: [] },
+    //   { id: 'whisper', name: 'Whisper (Local)', models: [{ id: 'onnx-base', ... }] },
+    //   { id: 'groq', name: 'Groq Cloud', models: [...] }
+    // ]
     
-    console.log(`Available models: ${models.map(m => m.id).join(', ')}`);
+    console.log(`Available providers: ${providers.map(p => p.name).join(', ')}`);
     ```
   </Tabs.Tab>
   <Tabs.Tab>
     ```python
-    models = await sdk.stt.models()
-    # models: List[dict] with id, name, provider
+    providers = await sdk.stt.list_providers()
+    # providers: List[dict] with id, name, models
     
-    print(f"Available models: {[m['id'] for m in models]}")
+    print(f"Available providers: {[p['name'] for p in providers]}")
     ```
   </Tabs.Tab>
 </Tabs>
@@ -909,8 +913,8 @@ Listen to the microphone and transcribe speech to text.
     const { text, error } = await sdk.stt.listen({
       language: 'en-US',           // Optional: 'en-US', 'vi-VN', etc.
       timeout: 10000,              // Optional: Max duration in ms (default 60s)
-      provider: 'native',          // Optional: 'native', 'whisper', 'groq'
-      model: 'ggml-base.en'        // Optional: specific model ID (must be downloaded)
+      provider: 'whisper',         // Optional: 'native', 'whisper', 'groq'
+      model: 'onnx-community/whisper-base' // Optional: specific model ID (if supported)
     });
     
     if (error) {
@@ -925,8 +929,8 @@ Listen to the microphone and transcribe speech to text.
     response = await sdk.stt.listen(
         language="en-US",          # Optional
         timeout=10000,             # Optional: ms
-        provider="native",         # Optional
-        model="ggml-base.en"       # Optional
+        provider="whisper",        # Optional
+        model="onnx-community/whisper-base" # Optional
     )
     
     if response.error:
@@ -939,9 +943,9 @@ Listen to the microphone and transcribe speech to text.
 
 <Callout type="tip">
 **Providers:**
-- **native**: Uses local Whisper.cpp (fastest, supports GGML models).
-- **whisper**: Uses in-browser Transformers.js (supports ONNX models).
-- **groq**: Uses Groq Cloud API (fastest cloud, requires API key).
+- **native**: Uses the system's Web Speech API (Fast, no download required, limited language support).
+- **whisper**: Uses local Transformers.js via ONNX (High accuracy, privacy-focused, requires model download).
+- **groq**: Uses Groq Cloud API (Fastest cloud inference, requires API key).
 </Callout>
 
 ---
