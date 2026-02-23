@@ -311,6 +311,132 @@ Trigger AI Agents to process data either manually or automatically.
   </Tabs.Tab>
 </Tabs>
 
+### Agent Chat & Sessions
+
+Interact with AI Agents using stateful sessions, supporting multi-turn conversations and streaming responses.
+
+**Required Permissions:**
+```typescript
+const sdk = new RealtimeXSDK({
+  permissions: ['agent.chat']
+});
+```
+
+#### 1. Session Management
+
+Create a session to maintain conversation history.
+
+<Tabs items={['TypeScript', 'Python']}>
+  <Tabs.Tab>
+    ```typescript
+    // Create a new session
+    const session = await sdk.agent.createSession({
+      agent_name: '@agent',        // Optional: specific agent
+      workspace_slug: 'operations' // Optional
+    });
+    console.log('Session ID:', session.session_id);
+
+    // Get session info
+    const info = await sdk.agent.getSession(session.session_id);
+
+    // Close session
+    await sdk.agent.closeSession(session.session_id);
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```python
+    # Create a new session
+    session = await sdk.agent.create_session(
+        agent_name="@agent",
+        workspace_slug="operations"
+    )
+    print(f"Session ID: {session.session_id}")
+
+    # Get session info
+    info = await sdk.agent.get_session(session.session_id)
+
+    # Close session
+    await sdk.agent.close_session(session.session_id)
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+#### 2. Chat (Synchronous)
+
+Send a message and wait for the full response.
+
+<Tabs items={['TypeScript', 'Python']}>
+  <Tabs.Tab>
+    ```typescript
+    const response = await sdk.agent.chat(session.session_id, "Analyze this dataset");
+    console.log(response.text);
+    console.log('Thoughts:', response.thoughts);
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```python
+    response = await sdk.agent.chat(session.session_id, "Analyze this dataset")
+    print(response.text)
+    print(f"Thoughts: {response.thoughts}")
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+#### 3. Chat (Streaming)
+
+Stream the response token-by-token, including thoughts and rich content blocks.
+
+<Tabs items={['TypeScript', 'Python']}>
+  <Tabs.Tab>
+    ```typescript
+    for await (const event of sdk.agent.streamChat(session.session_id, "Analyze this dataset")) {
+      if (event.type === 'agentThought') {
+        console.log('Thinking:', event.thought);
+      } else if (event.type === 'textResponse') {
+        process.stdout.write(event.textResponse);
+      } else if (event.type === 'responseData') {
+        // Handle rich blocks (tool use, files, etc.)
+        const block = JSON.parse(event.textResponse);
+        console.log('Rich Block:', block.dataType);
+      }
+    }
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```python
+    async for event in sdk.agent.stream_chat(session.session_id, "Analyze this dataset"):
+        if event.type == 'agentThought':
+            print(f"Thinking: {event.thought}")
+        elif event.type == 'textResponse':
+            print(event.textResponse, end="", flush=True)
+        elif event.type == 'responseData':
+            # Handle rich blocks
+            import json
+            block = json.loads(event.textResponse)
+            print(f"Rich Block: {block['dataType']}")
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+#### 4. Stateless Chat (One-off)
+
+If you don't need a session, you can send a one-off message.
+
+<Tabs items={['TypeScript', 'Python']}>
+  <Tabs.Tab>
+    ```typescript
+    const { response } = await sdk.agent.startChat("Quick question", {
+      agent_name: '@agent'
+    });
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```python
+    response = await sdk.agent.start_chat("Quick question", agent_name="@agent")
+    ```
+  </Tabs.Tab>
+</Tabs>
+
 ### Public Metadata API
 
 Access RealTimeX system metadata like available agents and workspaces.

@@ -546,6 +546,89 @@ List only configured **Embedding** providers and their models.
 ---
 
 
+## Agent Endpoints
+
+Interact with AI agents for complex tasks, tool usage, and persistent conversations.
+
+### POST `/sdk/agent/session`
+
+Create a new stateful agent session. This allows for multi-turn conversations with context memory.
+
+**Request:**
+```json
+{
+  "workspace_slug": "optional-workspace-slug",
+  "thread_slug": "optional-existing-thread",
+  "agent_name": "@agent"
+}
+```
+
+**Response (200):**
+```json
+{
+  "success": true,
+  "session": {
+    "session_id": "uuid-...",
+    "agent": {
+      "name": "@agent",
+      "provider": "openai",
+      "model": "gpt-4o"
+    }
+  }
+}
+```
+
+---
+
+### POST `/sdk/agent/session/:id/chat`
+
+Send a message to an active session (Synchronous).
+
+**Request:**
+```json
+{
+  "message": "Analyze the sales data"
+}
+```
+
+**Response (200):**
+```json
+{
+  "success": true,
+  "response": {
+    "id": "msg-uuid",
+    "text": "Based on the sales data...",
+    "thoughts": ["Reading file...", "Calculating metrics..."]
+  }
+}
+```
+
+---
+
+### POST `/sdk/agent/session/:id/chat/stream`
+
+Stream a message response from an active session (SSE).
+
+**Response (SSE Events):**
+- `data`: JSON object with `type` field.
+  - `type: "agentThought"`: Internal reasoning or tool execution status. Content in `thought` field.
+  - `type: "textResponse"`: The final response content. Content in `textResponse` field.
+
+**Handling Complex Responses:**
+If the `textResponse` field contains a JSON string, it may represent a rich content block (e.g., tool usage, files). Clients should allow parsing this string to display rich UI blocks.
+
+**Block Structure (if parsed from `textResponse`):**
+```json
+{
+  "dataType": "toolUse" | "files" | "image" | "json" | "text",
+  "data": { ... }
+}
+```
+
+---
+
+---
+
 ## Vector Store Endpoints
 
 Store and query vectors for Retrieval-Augmented Generation (RAG).
