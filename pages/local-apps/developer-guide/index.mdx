@@ -96,6 +96,8 @@ When you start your Local App from the RealTimeX Main App, environment variables
             'vectors.read',     // Query vectors
             'vectors.write',    // Store vectors
             'stt.listen',       // Transcribe audio
+            'mcp.servers',      // List MCP servers
+            'mcp.tools',        // Use MCP tools
         ],
     });
     
@@ -160,6 +162,8 @@ When you start your Local App from the RealTimeX Main App, environment variables
             'vectors.read',     # Query vectors
             'vectors.write',    # Store vectors
             'stt.listen',       # Transcribe audio
+            'mcp.servers',      # List MCP servers
+            'mcp.tools',        # Use MCP tools
         ]
     ))
 
@@ -1072,6 +1076,124 @@ Listen to the microphone and transcribe speech to text.
 - **native**: Uses the system's Web Speech API (Fast, no download required, limited language support).
 - **whisper**: Uses local Transformers.js via ONNX (High accuracy, privacy-focused, requires model download).
 - **groq**: Uses Groq Cloud API (Fastest cloud inference, requires API key).
+</Callout>
+
+---
+
+### MCP Server Tools
+
+Interact with MCP (Model Context Protocol) servers configured in RealTimeX. List available servers, discover their tools, and execute them programmatically.
+
+**Required Permissions:**
+```typescript
+const sdk = new RealtimeXSDK({
+  permissions: ['mcp.servers', 'mcp.tools']
+});
+```
+
+#### List MCP Servers
+
+<Tabs items={['TypeScript', 'Python']}>
+  <Tabs.Tab>
+    ```typescript
+    // List all servers (local + remote)
+    const servers = await sdk.mcp.getServers();
+
+    // Filter by provider
+    const localOnly = await sdk.mcp.getServers('local');
+    const remoteOnly = await sdk.mcp.getServers('remote');
+
+    for (const server of servers) {
+      console.log(`${server.name} (${server.provider}) - ${server.display_name}`);
+    }
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```python
+    # List all servers (local + remote)
+    servers = await sdk.mcp.get_servers()
+
+    # Filter by provider
+    local_only = await sdk.mcp.get_servers("local")
+    remote_only = await sdk.mcp.get_servers("remote")
+
+    for server in servers:
+        print(f"{server['name']} ({server['provider']}) - {server['display_name']}")
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+#### List Server Tools
+
+<Tabs items={['TypeScript', 'Python']}>
+  <Tabs.Tab>
+    ```typescript
+    const tools = await sdk.mcp.getTools('fetch');
+
+    for (const tool of tools) {
+      console.log(`Tool: ${tool.name}`);
+      console.log(`  Description: ${tool.description}`);
+      console.log(`  Parameters: ${JSON.stringify(tool.input_schema)}`);
+    }
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```python
+    tools = await sdk.mcp.get_tools("fetch")
+
+    for tool in tools:
+        print(f"Tool: {tool['name']}")
+        print(f"  Description: {tool['description']}")
+        print(f"  Parameters: {tool['input_schema']}")
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+#### Execute a Tool
+
+<Tabs items={['TypeScript', 'Python']}>
+  <Tabs.Tab>
+    ```typescript
+    // Execute the 'fetch' tool on the local 'fetch' MCP server
+    const result = await sdk.mcp.executeTool('fetch', 'fetch', {
+      url: 'https://httpbin.org/get',
+      max_length: 500
+    });
+
+    console.log(result);
+    // { content: [{ type: 'text', text: '...' }], isError: false }
+
+    // Execute on a remote server
+    const remoteResult = await sdk.mcp.executeTool(
+      'github', 'list-repos', { user: 'octocat' }, 'remote'
+    );
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```python
+    # Execute the 'fetch' tool on the local 'fetch' MCP server
+    result = await sdk.mcp.execute_tool("fetch", "fetch", {
+        "url": "https://httpbin.org/get",
+        "max_length": 500
+    })
+
+    print(result)
+    # {"content": [{"type": "text", "text": "..."}], "isError": False}
+
+    # Execute on a remote server
+    remote_result = await sdk.mcp.execute_tool(
+        "github", "list-repos", {"user": "octocat"}, provider="remote"
+    )
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+<Callout type="warning">
+**Security:** MCP tool execution is essentially arbitrary code execution. Only grant `mcp.tools` permission to applications you trust.
+</Callout>
+
+<Callout type="info">
+**Auto-boot:** Local MCP servers are automatically started when you call `getTools()` or `executeTool()` if they are not already running.
 </Callout>
 
 ---

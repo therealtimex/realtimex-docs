@@ -92,6 +92,8 @@ Each API endpoint requires specific permissions. Permissions are declared in the
 | `tts.generate` | `POST /sdk/tts`, `POST /sdk/tts/stream` |
 
 | `vectors.write` | `POST /sdk/llm/vectors/upsert`, `POST /sdk/llm/vectors/delete`, `POST /sdk/llm/vectors/register` |
+| `mcp.servers` | `GET /sdk/mcp/servers` |
+| `mcp.tools` | `GET /sdk/mcp/servers/:name/tools`, `POST /sdk/mcp/servers/:name/tools/:tool/execute` |
 | (None) | `GET /sdk/llm/vectors/providers` |
 
 ---
@@ -918,3 +920,123 @@ Listen to the microphone and transcribe speech to text.
   "text": "Hello world, this is a test."
 }
 ```
+
+---
+
+## MCP Server Endpoints
+
+Interact with MCP (Model Context Protocol) servers configured in RealTimeX. Supports both **local** servers (managed by the Hypervisor) and **remote** servers (connected via MCP Proxy).
+
+### GET `/sdk/mcp/servers`
+
+List all configured MCP servers.
+
+**Query Parameters:**
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `provider` | string | `all` | Filter: `local`, `remote`, or `all` |
+
+**Response (200):**
+```json
+{
+  "success": true,
+  "servers": [
+    {
+      "name": "fetch",
+      "display_name": "Web Fetch",
+      "description": "Make HTTP requests and fetch web content",
+      "server_type": "stdio",
+      "enabled": true,
+      "provider": "local",
+      "tags": ["web", "http", "api"]
+    },
+    {
+      "name": "github",
+      "display_name": "GitHub",
+      "description": "Interact with GitHub repositories",
+      "server_type": "remote",
+      "enabled": true,
+      "provider": "remote",
+      "tags": ["github", "git"]
+    }
+  ]
+}
+```
+
+---
+
+### GET `/sdk/mcp/servers/:serverName/tools`
+
+List available tools for a specific MCP server. The server will auto-boot if needed (local servers).
+
+**Query Parameters:**
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `provider` | string | `local` | Server provider: `local` or `remote` |
+
+**Response (200):**
+```json
+{
+  "success": true,
+  "server": "fetch",
+  "provider": "local",
+  "tools": [
+    {
+      "name": "fetch",
+      "description": "Fetches a URL from the internet and extracts its contents as markdown.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "url": { "type": "string", "format": "uri", "description": "URL to fetch" },
+          "max_length": { "type": "integer", "default": 5000 }
+        },
+        "required": ["url"]
+      }
+    }
+  ]
+}
+```
+
+---
+
+### POST `/sdk/mcp/servers/:serverName/tools/:toolName/execute`
+
+Execute a tool on an MCP server. Local servers are auto-booted if not running.
+
+**Query Parameters:**
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `provider` | string | `local` | Server provider: `local` or `remote` |
+
+**Request Body:**
+```json
+{
+  "arguments": {
+    "url": "https://httpbin.org/get",
+    "max_length": 500
+  }
+}
+```
+
+**Response (200):**
+```json
+{
+  "success": true,
+  "server": "fetch",
+  "tool": "fetch",
+  "provider": "local",
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Contents of https://httpbin.org/get:\n{\"args\": {}, ...}"
+      }
+    ],
+    "isError": false
+  }
+}
+```
+
+<Callout type="warning">
+**Security:** MCP tool execution is essentially arbitrary code execution. Only grant `mcp.tools` permission to trusted applications.
+</Callout>
