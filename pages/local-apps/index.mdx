@@ -73,6 +73,7 @@ RealTimeX uses a **manifest-based permission system** to ensure security.
 | `api.threads` | List threads in workspaces |
 | `api.task` | Get task execution status |
 | `webhook.trigger` | Trigger AI agents via webhook |
+| `database.config` | Read Supabase configuration |
 | `activities.read` | Read activities data |
 | `activities.write` | Create, update, delete activities |
 | `llm.chat` | Access LLM chat completion (Sync/Stream) |
@@ -236,6 +237,7 @@ The Auto-Setup creates the following database objects:
 | Column | Type | Description |
 |--------|------|-------------|
 | `id` | UUID | Primary key, auto-generated |
+| `user_id` | UUID | Maps to auth.users (RLS protected) |
 | `raw_data` | JSONB | Event data (new record) |
 | `old_data` | JSONB | Previous data (for updates) |
 | `status` | TEXT | pending, claimed, completed, failed |

@@ -38,6 +38,7 @@ This table stores your tasks and tracks their execution status.
 -- Create rtx_activities table
 CREATE TABLE public.rtx_activities (
   id uuid NOT NULL DEFAULT gen_random_uuid (),
+  user_id uuid NULL,              -- Maps to auth.users for RLS
   raw_data jsonb NULL,            -- Your input data
   old_data jsonb NULL,            -- Previous data (for updates)
   locked_by text NULL,            -- Machine ID holding the lock
@@ -57,6 +58,40 @@ CREATE INDEX idx_rtx_activities_status ON public.rtx_activities (status);
 
 -- Ensure all columns are included in Realtime events
 ALTER TABLE public.rtx_activities REPLICA IDENTITY FULL;
+
+-- Setup Row Level Security (RLS)
+ALTER TABLE public.rtx_activities ENABLE ROW LEVEL SECURITY;
+
+-- If auth.users exists, set up foreign key and default value
+DO $$
+BEGIN
+  IF EXISTS (SELECT 1 FROM information_schema.tables WHERE table_schema='auth' AND table_name='users') THEN
+    IF NOT EXISTS (
+        SELECT 1 FROM information_schema.table_constraints 
+        WHERE constraint_name='rtx_activities_user_id_fkey'
+    ) THEN
+        ALTER TABLE public.rtx_activities ADD CONSTRAINT rtx_activities_user_id_fkey FOREIGN KEY (user_id) REFERENCES auth.users(id);
+    END IF;
+    ALTER TABLE public.rtx_activities ALTER COLUMN user_id SET DEFAULT auth.uid();
+  END IF;
+END $$;
+
+-- Create secure policies
+CREATE POLICY "Users can insert own activities" 
+ON public.rtx_activities FOR INSERT 
+TO authenticated 
+WITH CHECK (auth.uid() = user_id);
+
+CREATE POLICY "Users can view own activities" 
+ON public.rtx_activities FOR SELECT 
+TO authenticated 
+USING (auth.uid() = user_id);
+
+CREATE POLICY "Users can update own activities" 
+ON public.rtx_activities FOR UPDATE 
+TO authenticated 
+USING (auth.uid() = user_id)
+WITH CHECK (auth.uid() = user_id);
 ```
 
 ### 2. Database Functions (RPC)

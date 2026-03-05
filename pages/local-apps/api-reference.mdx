@@ -352,6 +352,10 @@ List threads in a workspace.
 
 These endpoints proxy to the Main App which handles Supabase operations. No direct database access is needed.
 
+<Callout type="warning">
+**Important:** If your Local App is configured with **Require User Authentication** enabled, you **must** call `sdk.auth.syncSupabaseToken(token)` before making requests to the `activities` proxy endpoints. Without the synced token, your proxy requests will execute with the anonymous key and will be rejected by Supabase's Row Level Security (RLS) policies.
+</Callout>
+
 ### POST `/activities`
 
 Create a new activity.

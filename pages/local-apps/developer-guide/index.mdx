@@ -89,6 +89,7 @@ When you start your Local App from the RealTimeX Main App, environment variables
             'api.workspaces',   // List workspaces
             'api.threads',      // List threads
             'webhook.trigger',  // Trigger agents
+            'database.config',  // Read Database config
             'activities.read',  // Read activities
             'activities.write', // Write activities
             'llm.chat',         // Chat completion
@@ -111,6 +112,7 @@ When you start your Local App from the RealTimeX Main App, environment variables
             'api.workspaces',   // List workspaces
             'api.threads',      // List threads
             'webhook.trigger',  // Trigger agents
+            'database.config',  // Read Database config
             'activities.read',  // Read activities
             'activities.write', // Write activities
             'llm.chat',         // Chat completion
@@ -155,6 +157,7 @@ When you start your Local App from the RealTimeX Main App, environment variables
             'api.workspaces',   # List workspaces
             'api.threads',      # List threads
             'webhook.trigger',  # Trigger agents
+            'database.config',  # Read Database config
             'activities.read',  # Read activities
             'activities.write', # Write activities
             'llm.chat',         # Chat completion
@@ -175,6 +178,7 @@ When you start your Local App from the RealTimeX Main App, environment variables
             'api.workspaces',   # List workspaces
             'api.threads',      # List threads
             'webhook.trigger',  # Trigger agents
+            'database.config',  # Read Database config
             'activities.read',  # Read activities
             'activities.write', # Write activities
             'llm.chat',         # Chat completion
@@ -213,9 +217,77 @@ When you start your Local App from the RealTimeX Main App, environment variables
 
 ## SDK Features
 
+### Supabase Auth & Context
+
+If your RealTimeX Local App requires user authentication directly with Supabase (i.e. you have enabled the **Require User Authentication** toggle in your Local App configuration), you **must** dynamically load the workspace database credentials and sync the user's login session to the Main App. This enables seamless bypass of Row Level Security (RLS) for Realtime updates and Activities operations.
+
+<Callout type="warning">
+**Important:** If **Require User Authentication** is enabled on the app config, `sdk.activities.*` operations will **fail** (due to RLS policy) unless you call `sdk.auth.syncSupabaseToken()` after the user logs in. If it is disabled (Open Access mode), you do not need to sync any token.
+</Callout>
+
+<Callout type="info">
+**Required Permission:** You must include `'database.config'` in your SDK permissions to fetch the credentials.
+</Callout>
+
+<Tabs items={['TypeScript', 'Python']}>
+  <Tabs.Tab>
+    ```typescript
+    import { createClient } from '@supabase/supabase-js';
+
+    // 1. Fetch Supabase configuration from Main App
+    const config = await sdk.database.getConfig();
+    console.log('Using Supabase URL:', config.url);
+
+    // 2. Initialize your Supabase client
+    const supabase = createClient(config.url, config.anonKey, {
+      auth: { persistSession: true }
+    });
+
+    // 3. User logs in to your app
+    const { data, error } = await supabase.auth.signInWithPassword({
+       email: 'user@example.com',
+       password: 'password123'
+    });
+
+    // 4. Sync token to Main App for RLS operations
+    if (data.session?.access_token) {
+       const syncResult = await sdk.auth.syncSupabaseToken(data.session.access_token);
+       console.log('Token synced successfully:', syncResult.success);
+    }
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```python
+    from supabase import create_client, Client
+    
+    # 1. Fetch Supabase configuration from Main App
+    config = await sdk.database.get_config()
+    print(f"Using Supabase URL: {config.url}")
+
+    # 2. Initialize your Supabase client
+    supabase: Client = create_client(config.url, config.anon_key)
+
+    # 3. User logs in to your app
+    response = supabase.auth.sign_in_with_password({
+        "email": "user@example.com",
+        "password": "password123"
+    })
+
+    # 4. Sync token to Main App for RLS operations
+    if response.session and response.session.access_token:
+        sync_result = await sdk.auth.sync_supabase_token(response.session.access_token)
+        print(f"Token synced successfully: {sync_result.success}")
+    ```
+  </Tabs.Tab>
+</Tabs>
+
 ### Activities CRUD
 
 Manage your `activities` table directly through the SDK without needing direct database access. Any data changes (INSERT, UPDATE, or DELETE) will automatically create a new calendar event. If Automation Agent Handlers are configured, they will also trigger an automated agent task.
+
+<Callout type="warning">
+If you enabled **Require User Authentication** in your Local App settings, you **must** call `sdk.auth.syncSupabaseToken(token)` before using these methods, otherwise Supabase Row Level Security (RLS) will block the operations.
+</Callout>
 
 <Tabs items={['TypeScript', 'Python']}>
   <Tabs.Tab>
