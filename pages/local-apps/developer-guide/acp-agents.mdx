@@ -318,6 +318,81 @@ The model is injected as a CLI flag at agent launch time (e.g., `--model claude-
 
 ---
 
+## Provider Forwarding
+
+Some agents (like Qwen) support **provider forwarding** — using credentials from another AI provider instead of their native one. This lets you run models like `claude-sonnet-4-6` through the Qwen CLI agent by routing requests through RealTimeX AI's API.
+
+### Discover forwarding support
+
+<Tabs items={['TypeScript', 'Python']}>
+  <Tabs.Tab>
+    ```typescript
+    const agents = await sdk.acpAgent.listAgents();
+    const qwen = agents.find(a => a.id === 'qwen-cli');
+    console.log(qwen?.supportsProviderForwarding);  // true
+    console.log(qwen?.forwardableProviders);
+    // ["openai", "anthropic", "gemini", "realtimexai"]
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```python
+    agents = await sdk.acp_agent.list_agents()
+    qwen = next(a for a in agents if a.id == "qwen-cli")
+    print(qwen.supportsProviderForwarding)  # True
+    print(qwen.forwardableProviders)
+    # ["openai", "anthropic", "gemini", "realtimexai"]
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Run Claude Sonnet via Qwen CLI + RealTimeX AI
+
+Combine `forwardedProvider` with `model` to run any supported model through the forwarded provider's API:
+
+<Tabs items={['TypeScript', 'Python']}>
+  <Tabs.Tab>
+    ```typescript
+    const session = await sdk.acpAgent.createSession({
+        agent_id: 'qwen',
+        forwardedProvider: 'realtimexai',    // Route through RealTimeX AI
+        model: 'claude-sonnet-4-6',          // Use Claude Sonnet 4.6
+        cwd: '/path/to/project',
+        approvalPolicy: 'approve-all',
+    });
+
+    // Qwen CLI now uses Claude Sonnet 4.6 via RealTimeX AI's API
+    for await (const event of sdk.acpAgent.streamChat(session.session_key, 'Explain this codebase')) {
+        if (event.type === 'text_delta') process.stdout.write(event.data.text as string);
+    }
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```python
+    session = await sdk.acp_agent.create_session(
+        "qwen",
+        forwarded_provider="realtimexai",
+        model="claude-sonnet-4-6",
+        cwd="/path/to/project",
+        approval_policy="approve-all",
+    )
+
+    async for event in sdk.acp_agent.stream_chat(session.session_key, "Explain this codebase"):
+        if event.type == "text_delta":
+            print(event.data.get("text", ""), end="")
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+<Callout type="info">
+At spawn time, the server reads `REALTIMEX_AI_API_KEY` from its environment, maps it to the CLI agent's expected format, and injects `--auth-type openai` (RealTimeX AI uses the OpenAI-compatible protocol). The `model` flag tells the agent which model to request from the forwarded provider.
+</Callout>
+
+<Callout type="warning">
+Provider forwarding requires the target provider's API key to be configured on the RealTimeX server (e.g., `REALTIMEX_AI_API_KEY` for RealTimeX AI, `OPEN_AI_KEY` for OpenAI). If credentials are missing, session creation will fail.
+</Callout>
+
+---
+
 ## Attachments
 
 Send images to vision-capable agents alongside your message:
@@ -446,7 +521,7 @@ try {
 | Method | Description |
 |--------|-------------|
 | `listAgents({ includeModels? })` | List available CLI agents |
-| `createSession({ agent_id, cwd?, model?, label?, approvalPolicy? })` | Create and start a session |
+| `createSession({ agent_id, cwd?, model?, label?, approvalPolicy?, forwardedProvider? })` | Create and start a session |
 | `getSession(sessionKey)` | Get session status |
 | `listSessions()` | List active sessions owned by this app |
 | `patchSession(sessionKey, options)` | Update runtime options |
@@ -465,6 +540,7 @@ interface AcpSessionOptions {
     model?: string;
     label?: string;
     approvalPolicy?: 'approve-all' | 'approve-reads' | 'deny-all';
+    forwardedProvider?: string;
 }
 
 interface AcpSession {
