@@ -1,0 +1,26 @@
+---
+title: "Recommended Local Models"
+description: "Reference list for the RealTimeX Local provider recommendation feed consumed by the desktop and web app."
+---
+
+# Recommended Local Models
+
+RealTimeX Local recommendations are published as a static JSON artifact so the app can refresh curated model suggestions without waiting for a desktop release.
+
+## Machine-readable artifact
+
+- JSON source: `/data/recommended-local-models.v1.json`
+- Public URL: `https://docs.realtimex.ai/data/recommended-local-models.v1.json`
+
+## Purpose
+
+This file is intended to drive the in-app RealTimeX Local recommendation experience. Keep entries small, opinionated, and practical for end users:
+
+- include a recommended quant, not every possible quant
+- include enough metadata for the UI to explain why a model is a good fit
+- prefer stable, widely available GGUF repositories
+- update the artifact when the recommended default set changes
+
+## Current focus
+
+The first version covers the `nodellama` provider used by RealTimeX Local. Additional local providers can be added to the same artifact later using the same schema.

@@ -1,0 +1,142 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-04-03",
+  "providers": {
+    "nodellama": {
+      "models": [
+        {
+          "id": "liquid2-350m-q4km",
+          "label": "Liquid 350M",
+          "downloadUri": "hf:LiquidAI/LFM2-350M-GGUF/LFM2-350M-Q4_K_M-hip-optimized.gguf",
+          "family": "lfm2",
+          "quant": "Q4_K_M",
+          "sizeGb": 0.2,
+          "minRamGb": 2,
+          "recommendedFor": ["low-ram", "chat"],
+          "badges": ["lightweight"]
+        },
+        {
+          "id": "qwen35-08b-q4km",
+          "label": "Qwen 3.5 0.8B",
+          "downloadUri": "hf:unsloth/Qwen3.5-0.8B-GGUF:Q4_K_M",
+          "family": "qwen3.5",
+          "quant": "Q4_K_M",
+          "sizeGb": 0.5,
+          "minRamGb": 4,
+          "recommendedFor": ["low-ram", "chat"],
+          "badges": ["lightweight"]
+        },
+        {
+          "id": "liquid25-12b-instruct-q4km",
+          "label": "Liquid 2.5 1.2B Instruct",
+          "downloadUri": "hf:LiquidAI/LFM2.5-1.2B-Instruct-GGUF:Q4_K_M",
+          "family": "lfm2.5",
+          "quant": "Q4_K_M",
+          "sizeGb": 0.7,
+          "minRamGb": 4,
+          "recommendedFor": ["low-ram", "chat", "tools"],
+          "badges": ["lightweight", "fast"]
+        },
+        {
+          "id": "gemma3-1b-q4km",
+          "label": "Gemma 3 1B",
+          "downloadUri": "hf:unsloth/gemma-3-1b-it-GGUF:Q4_K_M",
+          "family": "gemma3",
+          "quant": "Q4_K_M",
+          "sizeGb": 0.8,
+          "minRamGb": 4,
+          "recommendedFor": ["low-ram", "chat"],
+          "badges": ["lightweight"]
+        },
+        {
+          "id": "qwen35-4b-q4km",
+          "label": "Qwen 3.5 4B",
+          "downloadUri": "hf:unsloth/Qwen3.5-4B-GGUF:Q4_K_M",
+          "family": "qwen3.5",
+          "quant": "Q4_K_M",
+          "sizeGb": 2.6,
+          "minRamGb": 8,
+          "recommendedFor": ["balanced", "chat", "coding", "tools"],
+          "badges": ["default", "fast"]
+        },
+        {
+          "id": "qwen35-9b-q4km",
+          "label": "Qwen 3.5 9B",
+          "downloadUri": "hf:unsloth/Qwen3.5-9B-GGUF:Q4_K_M",
+          "family": "qwen3.5",
+          "quant": "Q4_K_M",
+          "sizeGb": 5.3,
+          "minRamGb": 16,
+          "recommendedFor": ["quality", "chat", "reasoning", "tools"],
+          "badges": ["quality"]
+        },
+        {
+          "id": "gemma4-e2b-q4km",
+          "label": "Gemma 4 E2B",
+          "downloadUri": "hf:unsloth/gemma-4-E2B-it-GGUF:Q4_K_M",
+          "family": "gemma4",
+          "quant": "Q4_K_M",
+          "sizeGb": 3.1,
+          "minRamGb": 8,
+          "recommendedFor": ["balanced", "chat", "quality"],
+          "badges": ["general", "new"]
+        },
+        {
+          "id": "gemma3-4b-q4km",
+          "label": "Gemma 3 4B",
+          "downloadUri": "hf:unsloth/gemma-3-4b-it-GGUF:Q4_K_M",
+          "family": "gemma3",
+          "quant": "Q4_K_M",
+          "sizeGb": 2.5,
+          "minRamGb": 8,
+          "recommendedFor": ["balanced", "chat", "quality"],
+          "badges": ["general"]
+        },
+        {
+          "id": "gemma4-e4b-q4km",
+          "label": "Gemma 4 E4B",
+          "downloadUri": "hf:unsloth/gemma-4-E4B-it-GGUF:Q4_K_M",
+          "family": "gemma4",
+          "quant": "Q4_K_M",
+          "sizeGb": 5.0,
+          "minRamGb": 16,
+          "recommendedFor": ["quality", "chat"],
+          "badges": ["quality", "new"]
+        },
+        {
+          "id": "deepseek-r1-distill-qwen-7b-q4km",
+          "label": "DeepSeek R1 Distill Qwen 7B",
+          "downloadUri": "hf:bartowski/DeepSeek-R1-Distill-Qwen-7B-GGUF:Q4_K_M",
+          "family": "deepseek-r1-distill",
+          "quant": "Q4_K_M",
+          "sizeGb": 4.4,
+          "minRamGb": 16,
+          "recommendedFor": ["reasoning", "quality"],
+          "badges": ["reasoning"]
+        },
+        {
+          "id": "deepseek-r1-distill-qwen-14b-q4km",
+          "label": "DeepSeek R1 Distill Qwen 14B",
+          "downloadUri": "hf:unsloth/DeepSeek-R1-Distill-Qwen-14B-GGUF:Q4_K_M",
+          "family": "deepseek-r1-distill",
+          "quant": "Q4_K_M",
+          "sizeGb": 8.4,
+          "minRamGb": 24,
+          "recommendedFor": ["reasoning", "quality"],
+          "badges": ["reasoning", "quality"]
+        },
+        {
+          "id": "liquid25-12b-thinking-q4km",
+          "label": "Liquid 2.5 1.2B Thinking",
+          "downloadUri": "hf:LiquidAI/LFM2.5-1.2B-Thinking-GGUF:Q4_K_M",
+          "family": "lfm2.5",
+          "quant": "Q4_K_M",
+          "sizeGb": 0.7,
+          "minRamGb": 4,
+          "recommendedFor": ["low-ram", "reasoning"],
+          "badges": ["lightweight", "reasoning"]
+        }
+      ]
+    }
+  }
+}
