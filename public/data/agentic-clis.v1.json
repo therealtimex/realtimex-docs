@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-04-04",
+  "clis": [
+    {
+      "id": "github-cli",
+      "displayName": "GitHub CLI",
+      "binary": "gh",
+      "category": "collaboration",
+      "versionProbe": "gh --version",
+      "authProbe": "gh auth status",
+      "authCommand": "gh auth login",
+      "installDocsUrl": "https://cli.github.com/",
+      "description": "Use for GitHub issues, pull requests, repositories, and Actions workflows.",
+      "skillHint": "Use for GitHub issues, PRs, repositories, and Actions. Prefer gh over direct API calls for GitHub tasks."
+    },
+    {
+      "id": "gitlab-cli",
+      "displayName": "GitLab CLI",
+      "binary": "glab",
+      "category": "collaboration",
+      "versionProbe": "glab --version",
+      "authProbe": "glab auth status",
+      "authCommand": "glab auth login",
+      "installDocsUrl": "https://gitlab.com/gitlab-org/cli",
+      "description": "Use for GitLab issues, merge requests, pipelines, and repository operations.",
+      "skillHint": "Use for GitLab issues, merge requests, pipelines, and repo tasks. Prefer glab over manual API calls for GitLab work."
+    }
+  ]
+}

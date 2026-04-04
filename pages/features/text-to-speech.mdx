@@ -1,0 +1,44 @@
+---
+title: Text-to-Speech (Read Aloud)
+description: Read chat messages and Personal Notes aloud with your configured TTS provider.
+---
+
+# Text-to-Speech (Read Aloud)
+
+RealTimeX can read text aloud using your configured text-to-speech provider. Playback starts progressively for longer content, so you can begin listening without waiting for the full response or note to finish generating.
+
+## Where you can use it
+
+- Chat messages: Click the speaker button on a message to start playback.
+- Personal Notes: Open a Markdown note and click the speaker button in the editor toolbar to read the current note aloud.
+
+## How playback works
+
+- Long text is split into smaller chunks for smoother playback.
+- Audio begins as chunks become available instead of waiting for the full text.
+- Click the same control again to pause playback.
+- You can use the same speech experience across chat and non-chat surfaces such as Personal Notes.
+
+## Supported providers
+
+RealTimeX read-aloud works with configured local or cloud TTS providers, including:
+
+- Local providers such as Piper and Supertonic
+- Cloud providers such as OpenAI, Groq, ElevenLabs, and OpenAI-compatible services
+
+Note: The shared read-aloud controls are not shown when your TTS provider is set to the native system/browser option.
+
+## Tips
+
+- Use a headset or speakers with clear output if you are listening to long content.
+- In Personal Notes, the current note content is read aloud directly from the editor.
+- If a cloud provider is selected, confirm its API key and voice settings are configured in your environment.
+
+## Troubleshooting
+
+- No speaker button appears
+  - Check that a supported TTS provider is configured instead of the native system/browser provider.
+- Audio does not play
+  - Check your device volume, active output device, and whether the browser tab is muted.
+- Playback fails with a provider error
+  - Verify the selected provider is configured correctly and any required API credentials are available.
