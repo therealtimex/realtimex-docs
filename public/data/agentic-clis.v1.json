@@ -1,7 +1,19 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-04-04",
+  "updatedAt": "2026-04-05",
   "clis": [
+    {
+      "id": "google-workspace-cli",
+      "displayName": "Google Workspace CLI",
+      "binary": "gws",
+      "category": "productivity",
+      "versionProbe": "gws --version",
+      "authProbe": "gws auth export --unmasked >/dev/null",
+      "authCommand": "gws auth login",
+      "installDocsUrl": "https://github.com/googleworkspace/cli",
+      "description": "Use for Google Workspace APIs including Drive, Gmail, Calendar, Sheets, Docs, Chat, and Admin workflows.",
+      "skillHint": "Use for Google Workspace tasks across Drive, Gmail, Calendar, Sheets, Docs, Chat, and Admin. Prefer gws for structured Google Workspace API operations."
+    },
     {
       "id": "github-cli",
       "displayName": "GitHub CLI",
@@ -25,6 +37,126 @@
       "installDocsUrl": "https://gitlab.com/gitlab-org/cli",
       "description": "Use for GitLab issues, merge requests, pipelines, and repository operations.",
       "skillHint": "Use for GitLab issues, merge requests, pipelines, and repo tasks. Prefer glab over manual API calls for GitLab work."
+    },
+    {
+      "id": "supabase-cli",
+      "displayName": "Supabase CLI",
+      "binary": "supabase",
+      "category": "database",
+      "versionProbe": "supabase --version",
+      "authProbe": "supabase projects list",
+      "authCommand": "supabase login",
+      "installDocsUrl": "https://supabase.com/docs/reference/cli",
+      "description": "Use for Supabase projects, branches, database workflows, secrets, and Edge Functions.",
+      "skillHint": "Use for Supabase projects, branches, database migrations, secrets, and Edge Functions."
+    },
+    {
+      "id": "stripe-cli",
+      "displayName": "Stripe CLI",
+      "binary": "stripe",
+      "category": "payments",
+      "versionProbe": "stripe version",
+      "authProbe": "stripe whoami",
+      "authCommand": "stripe login",
+      "installDocsUrl": "https://docs.stripe.com/stripe-cli",
+      "description": "Use for Stripe API requests, webhook testing, products, prices, customers, and event workflows.",
+      "skillHint": "Use for Stripe products, prices, customers, webhooks, logs, and event testing."
+    },
+    {
+      "id": "vercel-cli",
+      "displayName": "Vercel CLI",
+      "binary": "vercel",
+      "category": "hosting",
+      "versionProbe": "vercel --version",
+      "authProbe": "vercel whoami",
+      "authCommand": "vercel login",
+      "installDocsUrl": "https://vercel.com/docs/cli",
+      "description": "Use for Vercel deployments, projects, domains, environment variables, and team resources.",
+      "skillHint": "Use for Vercel deployments, domains, environment variables, logs, and project configuration."
+    },
+    {
+      "id": "netlify-cli",
+      "displayName": "Netlify CLI",
+      "binary": "netlify",
+      "category": "hosting",
+      "versionProbe": "netlify --version",
+      "authProbe": "netlify status",
+      "authCommand": "netlify login",
+      "installDocsUrl": "https://docs.netlify.com/api-and-cli-guides/cli-guides/get-started-with-cli/",
+      "description": "Use for Netlify sites, deploys, functions, local development, and environment workflows.",
+      "skillHint": "Use for Netlify sites, deploys, functions, environment variables, and local development workflows."
+    },
+    {
+      "id": "cloudflare-wrangler",
+      "displayName": "Cloudflare Wrangler",
+      "binary": "wrangler",
+      "category": "platform",
+      "versionProbe": "wrangler --version",
+      "authProbe": "wrangler whoami",
+      "authCommand": "wrangler login",
+      "installDocsUrl": "https://developers.cloudflare.com/workers/wrangler/",
+      "description": "Use for Cloudflare Workers, Pages, KV, D1, R2, Queues, and deployment workflows.",
+      "skillHint": "Use for Cloudflare Workers, Pages, KV, D1, R2, Queues, and platform deployment tasks."
+    },
+    {
+      "id": "fly-io-cli",
+      "displayName": "Fly.io CLI",
+      "binary": "fly",
+      "category": "hosting",
+      "versionProbe": "fly version",
+      "authProbe": "fly auth whoami",
+      "authCommand": "fly auth login",
+      "installDocsUrl": "https://fly.io/docs/flyctl/",
+      "description": "Use for Fly.io apps, machines, secrets, logs, regions, and deployment workflows.",
+      "skillHint": "Use for Fly.io apps, machines, secrets, logs, regions, and deployment tasks."
+    },
+    {
+      "id": "heroku-cli",
+      "displayName": "Heroku CLI",
+      "binary": "heroku",
+      "category": "hosting",
+      "versionProbe": "heroku --version",
+      "authProbe": "heroku auth:whoami",
+      "authCommand": "heroku login",
+      "installDocsUrl": "https://devcenter.heroku.com/articles/heroku-cli",
+      "description": "Use for Heroku apps, releases, logs, config vars, add-ons, and dyno operations.",
+      "skillHint": "Use for Heroku apps, releases, logs, config vars, add-ons, and dyno management."
+    },
+    {
+      "id": "azure-cli",
+      "displayName": "Azure CLI",
+      "binary": "az",
+      "category": "cloud",
+      "versionProbe": "az version",
+      "authProbe": "az account show",
+      "authCommand": "az login",
+      "installDocsUrl": "https://learn.microsoft.com/en-us/cli/azure/",
+      "description": "Use for Azure subscriptions, resource groups, services, identities, and deployment workflows.",
+      "skillHint": "Use for Azure subscriptions, resource groups, networking, storage, compute, and deployment tasks."
+    },
+    {
+      "id": "npm-cli",
+      "displayName": "npm CLI",
+      "binary": "npm",
+      "category": "package",
+      "versionProbe": "npm --version",
+      "authProbe": "npm whoami",
+      "authCommand": "npm login",
+      "installDocsUrl": "https://docs.npmjs.com/cli/",
+      "description": "Use for npm packages, dist-tags, publishing, access control, and registry management.",
+      "skillHint": "Use for npm packages, dist-tags, publishing, access control, and registry workflows."
+    },
+    {
+      "id": "onepassword-cli",
+      "displayName": "1Password CLI",
+      "binary": "op",
+      "category": "security",
+      "versionProbe": "op --version",
+      "authProbe": "op whoami",
+      "authCommand": "op signin",
+      "installDocsUrl": "https://developer.1password.com/docs/cli",
+      "description": "Use for 1Password vaults, items, secrets, and secure environment workflows.",
+      "skillHint": "Use for 1Password vaults, items, secrets, and secure credential workflows."
     }
   ]
 }
