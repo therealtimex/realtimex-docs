@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-04-30",
+  "clis": [
+    {
+      "id": "github-cli",
+      "displayName": "GitHub CLI",
+      "binary": "gh",
+      "category": "collaboration",
+      "command": "gh",
+      "launchMode": "direct",
+      "priority": 100,
+      "contexts": [
+        "git",
+        "github"
+      ],
+      "versionProbe": "gh --version",
+      "authProbe": "gh auth status",
+      "authCommand": "gh auth login",
+      "installDocsUrl": "https://cli.github.com/",
+      "description": "Use for GitHub issues, pull requests, repositories, and Actions workflows.",
+      "skillHint": "Use for GitHub issues, PRs, repositories, and Actions. Prefer gh over direct API calls for GitHub tasks."
+    },
+    {
+      "id": "gitlab-cli",
+      "displayName": "GitLab CLI",
+      "binary": "glab",
+      "category": "collaboration",
+      "command": "glab",
+      "launchMode": "direct",
+      "priority": 95,
+      "contexts": [
+        "git",
+        "gitlab"
+      ],
+      "versionProbe": "glab --version",
+      "authProbe": "glab auth status",
+      "authCommand": "glab auth login",
+      "installDocsUrl": "https://gitlab.com/gitlab-org/cli",
+      "description": "Use for GitLab issues, merge requests, pipelines, and repository operations.",
+      "skillHint": "Use for GitLab issues, merge requests, pipelines, and repo tasks. Prefer glab over manual API calls for GitLab work."
+    },
+    {
+      "id": "git-cli",
+      "displayName": "Git CLI",
+      "binary": "git",
+      "category": "source-control",
+      "command": "git",
+      "launchMode": "direct",
+      "priority": 90,
+      "contexts": [
+        "git"
+      ],
+      "versionProbe": "git --version",
+      "installDocsUrl": "https://git-scm.com/downloads",
+      "description": "Use for repository status, branches, diffs, commits, remotes, and local source control workflows.",
+      "skillHint": "Use for local repository status, diffs, branches, commits, remotes, and source control workflows."
+    },
+    {
+      "id": "pnpm-cli",
+      "displayName": "pnpm CLI",
+      "binary": "pnpm",
+      "category": "package",
+      "command": "pnpm",
+      "launchMode": "direct",
+      "priority": 85,
+      "contexts": [
+        "javascript",
+        "typescript",
+        "package-manager"
+      ],
+      "versionProbe": "pnpm --version",
+      "installDocsUrl": "https://pnpm.io/installation",
+      "description": "Use for JavaScript package installation, scripts, workspaces, and lockfile-driven project workflows.",
+      "skillHint": "Use for JavaScript and TypeScript package management, workspaces, scripts, and lockfile-driven workflows."
+    },
+    {
+      "id": "node-cli",
+      "displayName": "Node.js CLI",
+      "binary": "node",
+      "category": "runtime",
+      "command": "node",
+      "launchMode": "direct",
+      "priority": 80,
+      "contexts": [
+        "javascript",
+        "typescript",
+        "runtime"
+      ],
+      "versionProbe": "node --version",
+      "installDocsUrl": "https://nodejs.org/en/download",
+      "description": "Use for Node.js scripts, REPL sessions, runtime checks, and JavaScript tooling workflows.",
+      "skillHint": "Use for Node.js scripts, REPL workflows, JavaScript runtime checks, and developer tooling."
+    }
+  ]
+}
