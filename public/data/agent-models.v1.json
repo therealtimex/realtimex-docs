@@ -1,0 +1,136 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-05-13",
+  "agents": {
+    "codex-cli": {
+      "models": [
+        {
+          "id": "gpt-5.5",
+          "label": "GPT-5.5",
+          "description": "OpenAI's newest frontier model. Best for complex coding, computer use, knowledge work, and multi-step agentic workflows. Delivers better results with fewer tokens than GPT-5.4.",
+          "badges": ["recommended"],
+          "default": true
+        },
+        {
+          "id": "gpt-5.4",
+          "label": "GPT-5.4",
+          "description": "Frontier model for professional work with state-of-the-art coding, computer use, and tool search. Incorporates GPT-5.3-Codex's industry-leading coding capabilities. 1M token context.",
+          "badges": ["1M context"],
+          "metadata": { "contextWindow": "1M" }
+        },
+        {
+          "id": "gpt-5.4-mini",
+          "label": "GPT-5.4 Mini",
+          "description": "Fast, cost-efficient model for lighter coding tasks and subagents. More than 2× faster than GPT-5.4 while improving on coding, reasoning, and image understanding.",
+          "badges": ["fast"]
+        },
+        {
+          "id": "gpt-5.3-codex",
+          "label": "GPT-5.3 Codex",
+          "description": "Most capable agentic coding model, combining Codex and GPT-5 training stacks. State-of-the-art on SWE-Bench Pro. Best-in-class code generation, reasoning, and general-purpose intelligence.",
+          "badges": ["coding"]
+        },
+        {
+          "id": "gpt-5.3-codex-spark",
+          "label": "GPT-5.3 Codex Spark",
+          "description": "Real-time coding model at 1000+ tokens/second. Highly capable small model optimized for near-instant response on ultra-low latency hardware. Text-only, 128k context. Research preview.",
+          "badges": ["preview", "fast"],
+          "metadata": { "contextWindow": "128k" }
+        },
+        {
+          "id": "gpt-5.2",
+          "label": "GPT-5.2",
+          "description": "Previous generation baseline. Solid general-purpose coding capabilities. Recommended for API-key workflows where newer models are unavailable.",
+          "badges": []
+        }
+      ]
+    },
+    "gemini-cli": {
+      "models": [
+        {
+          "id": "gemini-3-flash-preview",
+          "label": "Gemini 3 Flash (Preview)",
+          "description": "Gemini 3 Pro-level reasoning at Flash speed and cost. Configurable thinking levels (minimal, low, medium, high). Supports multimodal input with adjustable media resolution. 1M token context.",
+          "badges": ["preview", "1M context"],
+          "metadata": { "contextWindow": "1M" }
+        },
+        {
+          "id": "gemini-3.1-flash-lite-preview",
+          "label": "Gemini 3.1 Flash-Lite (Preview)",
+          "description": "Fastest and most cost-efficient Gemini 3 series model. 2.5× faster time-to-first-token and 45% higher output speed vs Gemini 2.5 Flash. Designed for ultra-low latency, high-volume tasks.",
+          "badges": ["preview", "fast"]
+        },
+        {
+          "id": "gemini-2.5-flash",
+          "label": "Gemini 2.5 Flash",
+          "description": "Google's first fully hybrid reasoning model. Toggle thinking on or off with a configurable thinking budget. Fast multimodal with text, image, video, and audio input. 1M token context. Generally available.",
+          "badges": ["recommended"],
+          "default": true,
+          "metadata": { "contextWindow": "1M" }
+        },
+        {
+          "id": "gemini-2.5-flash-lite",
+          "label": "Gemini 2.5 Flash-Lite",
+          "description": "Lightweight, high-throughput variant of Gemini 2.5 Flash optimized for cost-efficient, high-volume workloads with minimal latency.",
+          "badges": ["fast"]
+        }
+      ]
+    },
+    "claude-cli": {
+      "models": [
+        {
+          "id": "claude-opus-4-7",
+          "label": "Claude Opus 4.7",
+          "description": "Anthropic's most capable model. Best for advanced software engineering, complex reasoning, and demanding multi-step agentic tasks. 13% improvement on coding benchmarks over Opus 4.6. 1M token context.",
+          "badges": ["powerful"],
+          "metadata": { "contextWindow": "1M" }
+        },
+        {
+          "id": "claude-sonnet-4-6",
+          "label": "Claude Sonnet 4.6",
+          "description": "Balanced intelligence and speed. Supports extended thinking for deeper reasoning. 1M token context (beta). Recommended for most workflows.",
+          "badges": ["recommended"],
+          "default": true,
+          "metadata": { "contextWindow": "1M" }
+        },
+        {
+          "id": "claude-haiku-4-5",
+          "label": "Claude Haiku 4.5",
+          "description": "Fastest and most cost-efficient Claude model. Matches Sonnet 4 performance on coding, computer use, and agent tasks. 200k token context.",
+          "badges": ["fast"],
+          "metadata": { "contextWindow": "200k" }
+        }
+      ]
+    },
+    "qwen-cli": {
+      "models": [
+        {
+          "id": "qwen-max",
+          "label": "Qwen Max",
+          "description": "Qwen's most capable flagship model. Best for complex reasoning, professional tasks, and high-accuracy requirements.",
+          "badges": ["powerful"]
+        },
+        {
+          "id": "qwen-plus",
+          "label": "Qwen Plus",
+          "description": "Balanced inference quality, cost, and speed between Qwen Max and Qwen Flash. Supports thinking and non-thinking modes. Ideal for medium-complexity tasks.",
+          "badges": ["recommended"],
+          "default": true
+        },
+        {
+          "id": "qwen-turbo",
+          "label": "Qwen Turbo",
+          "description": "Legacy model, no longer updated by Alibaba. Consider upgrading to qwen-plus for better performance and continued support.",
+          "badges": ["legacy"]
+        },
+        {
+          "id": "qwen-long",
+          "label": "Qwen Long",
+          "description": "Specialized for ultra-long document processing with a 10M token context window. Ideal for large-scale document analysis, information extraction, summarization, and classification.",
+          "badges": ["10M context"],
+          "metadata": { "contextWindow": "10M" }
+        }
+      ]
+    }
+  }
+}
