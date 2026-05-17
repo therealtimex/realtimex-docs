@@ -62,6 +62,15 @@
       "toc": true
     }
   },
+  "chat-widgets": {
+    "title": "Chat Embed",
+    "theme": {
+      "breadcrumb": true,
+      "footer": true,
+      "pagination": true,
+      "toc": true
+    }
+  },
   "event-logs": {
     "title": "Event Logs",
     "theme": {

@@ -1,25 +1,51 @@
 ---
-title: "Workspace Chat Logs"
-description: "RealTimeX Workspace Chat Logs"
+title: "Chat Logs"
+description: "Review, export, and manage recorded workspace chats"
 ---
 
-import Image from "next/image";
+# Chat Logs
 
-# Workspace Chat Logs
+The Chat Logs page is the operational record of saved workspace conversations across your RealTimeX instance. It is mainly used by admins and managers who need to review usage, export datasets, or remove stored chat history.
 
-RealTimeX supports exporting chats as:
+Access depends on role permissions and whether chat history viewing is allowed in your deployment.
 
-- **CSV**
-- **JSON**
-- **JSON (Alpaca)**
-- **JSONL (OpenAI fine-tune)**
+## What the page shows
 
-Just click export at the top of the screen once at least 10 chat logs are available! Provided you have the correct account permissions, you can view the chat logs per workspace and per user of your RealTimeX instance.
+Each row includes:
 
-<Image
-  src="/images/features/chat-logs/workspace-chat.png"
-  height={1080}
-  width={1920}
-  quality={100}
-  alt="RealTimeX Workspace Chat Logs"
-/>
+- chat ID
+- user
+- workspace
+- prompt
+- response
+- timestamp
+
+The page is paginated and loads the newest records first. You can also delete individual rows or clear the recorded chat history entirely.
+
+## Export formats
+
+Use the `Export` menu to download recorded chats as:
+
+- `CSV`: useful for spreadsheet review and reporting.
+- `JSON`: useful for structured archival export.
+- `JSONL`: useful for scripting and data pipelines.
+- `JSON (Alpaca)`: useful when preparing instruction-style training data.
+
+These exports are generated from the recorded workspace chat store, not just from the thread you currently have open.
+
+## When to use Chat Logs
+
+Chat Logs are useful when you need the actual prompt and response content:
+
+- reviewing how users interact with workspaces
+- building or cleaning training datasets
+- auditing answers for quality or safety
+- exporting conversation history for downstream analysis
+
+## Clearing chat history
+
+`Clear Chats` permanently deletes the recorded chat log set. Use it carefully if your team relies on chat exports for audits, QA, analytics, or fine-tuning workflows.
+
+## Chat Logs vs Event Logs
+
+Use Chat Logs when you need conversation content. Use [Event Logs](/features/event-logs) when you need an audit-style record that an action happened, who triggered it, and any metadata attached to that action.

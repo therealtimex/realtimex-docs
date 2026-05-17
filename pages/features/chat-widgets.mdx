@@ -1,85 +1,94 @@
 ---
-title: "Embedded Chat Widgets"
-description: "RealTimeX allows you to create embedded chat widgets that can be easily integrated into any website"
+title: "Chat Embed"
+description: "Publish workspace-backed chat on websites and monitor embed activity"
 ---
 
-import { Callout } from "nextra/components";
-import Image from "next/image";
+# Chat Embed
 
-# Embedded Chat Widgets
+Chat Embed lets you turn a RealTimeX workspace into a website chat experience. In the product, this area has two views:
 
-<Callout type="info" emoji="️💡">
-  **DOCKER VERSION ONLY!**
+- `Configs`: create, edit, enable, disable, and publish embed configurations.
+- `Chats`: monitor widget usage, recent threads, and public hosting status.
 
-    These settings are only available in the Docker version of RealTimeX
+Each embed inherits the selected workspace's default model behavior, knowledge, instructions, and tools unless the embed configuration overrides part of that experience.
 
-</Callout>
+## Before you create an embed
 
-RealTimeX allows you to create embedded chat widgets that can be easily integrated into any website using a simple `<script>` tag. These embedded chat widgets provide a convenient way for users to interact with your chatbot directly from your website.
+Make sure the source workspace already behaves the way you want in normal chat. If the workspace has the wrong instructions, weak retrieval, or the wrong model behavior, the embed will inherit those problems.
 
-## Configuration Options
+Open **Settings > Chat Embed**, then select **Create embed**.
 
-When creating an embedded chat widget, you have several configuration options available to customize its behavior and appearance.
+## Configure the embed
 
-<Image
-  src="/images/features/chat-widgets/configuration-options.png"
-  height={1080}
-  width={1920}
-  quality={100}
-  alt="Embedded Chat Options 1"
-/>
+The creation flow is split into a few practical groups.
 
-### Workspace
+### Basics
 
-The workspace setting determines which workspace your chat window will be based on. All defaults will be inherited from the selected workspace unless overridden by the specific configuration options.
+- `Workspace`: choose the workspace that powers the widget.
+- `Response mode`: choose `Chat` for broader conversation or `Query` for document-grounded answers. See [Chat Modes](/features/chat-modes).
+- `Allowed domains`: optionally restrict which websites are allowed to load the widget.
 
-### Allowed Chat Method
+### Behavior guardrails
 
-You can set how your chatbot should operate using the allowed chat method. There are two options:
+- `Max chats per day`: total 24-hour usage cap for that embed.
+- `Max chats per session`: 24-hour limit for a single visitor session.
+- `Message history limit`: how many previous messages RealTimeX includes as chat context.
 
-- **Chat**: The chatbot will respond to all questions regardless of context.
-- **Query**: The chatbot will only respond to chats related to documents in the workspace.
+### Branding and layout
 
-### Restrict Requests from Domains
+- `Display mode`: `floating`, `fullscreen`, or `inline`.
+- `Trigger mode`: `launcher` or `manual`.
+- `Position`: launcher placement for floating layouts.
+- `Inline target and size`: where an inline embed mounts and how large it renders.
+- `Visual styling`: assistant name, greeting, brand image, assistant avatar, launcher icon, and chat bubble colors.
 
-This filter allows you to block any requests that come from domains other than the specified list. Leaving this field empty means anyone can use your embedded chat widget on any site.
+The right-side preview updates as you change these settings, which is the fastest way to validate the end-user experience before you publish it.
 
-<Image
-  src="/images/features/chat-widgets/domain-blacklist.png"
-  height={1080}
-  width={1920}
-  quality={100}
-  alt="Embedded Chat Options 2"
-/>
+## Publish the widget
 
-### Max Chats per Day
+Every embed row includes a `Code` action that opens the script snippet you place on your site. That snippet is the handoff between RealTimeX and your webpage.
 
-You can limit the number of chats this embedded chat widget can process in a 24-hour period. Setting this value to zero means unlimited chats per day.
+Depending on how RealTimeX is running, the publish flow can behave differently:
 
-### Max Chats per Session
+- `Public URL available`: use the generated snippet directly for internet-facing sites.
+- `Local-only or development mode`: the snippet may be suitable for local testing but not for a public site yet.
+- `Public URL required`: RealTimeX will ask you to provision or recover managed public hosting before you publish.
 
-You can limit the number of chats a session user can send with this embedded chat widget in a 24-hour period. Setting this value to zero means unlimited chats per session.
+## Manage existing embeds
 
-### Enable Dynamic Model Use
+The `Configs` table shows the workspace behind each widget, total chat volume, active domain restrictions, and when the embed was created.
 
-By enabling dynamic model use, you allow the setting of the preferred LLM model to override the workspace default.
+From the same table you can:
 
-### Enable Dynamic LLM Temperature
+- copy the current script snippet
+- enable or disable an embed without deleting it
+- open the edit flow to change workspace, guardrails, or branding
+- delete an embed configuration permanently
 
-Enabling dynamic LLM temperature allows the setting of the LLM temperature to override the workspace default.
+## Monitor embed activity
 
-### Enable Prompt Override
+The `Chats` view is a lightweight dashboard for embed traffic. It summarizes:
 
-By enabling prompt override, you allow the setting of the system prompt to override the workspace default.
+- total widgets
+- active widgets
+- workspaces using embeds
+- embed threads
+- embed messages
+- latest activity time
 
-## Embedding the Chat Widget
+It also lists recent embed threads so you can jump straight into the underlying workspace conversation when you need to review what a visitor asked.
 
-<Image
-  src="/images/features/chat-widgets/embed-code.png"
-  height={1080}
-  width={1920}
-  quality={100}
-  alt="Embedded Chat Code"
-/>
+## Public hosting and availability
 
-After creating an embedded chat widget, you will be provided with a link that you can publish on your website using a simple `<script>` tag. This allows you to easily integrate the chat widget into your website's HTML code.
+When the app surface supports it, RealTimeX also shows a public hosting snapshot with the current state, managed URL, connector state, and last successful heartbeat.
+
+If managed hosting is available, admins can provision, recover, pause, resume, or release that public URL from the same `Chat Embed` area. If it is not available, embed configs can still be created, but public deployment depends on your own network or hosting path.
+
+## Common checks
+
+If an embed is not behaving the way you expect:
+
+1. Confirm the selected workspace answers correctly in normal chat.
+2. Verify the domain allowlist includes the site where you are testing.
+3. Check that the embed is enabled.
+4. If the code dialog warns about local-only mode, provision or recover public hosting before publishing to a public website.

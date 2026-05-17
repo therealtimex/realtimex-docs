@@ -1,35 +1,44 @@
 ---
 title: "Event Logs"
-description: "All the features of RealTimeX"
+description: "Review audit-style application events and attached metadata"
 ---
-
-import Image from "next/image";
 
 # Event Logs
 
-The Event Logs page in RealTimeX allows users to view and monitor various events that occur within the application.
+Event Logs is the audit-style activity feed for your RealTimeX instance. It is intended for operational review rather than conversation analysis, and access is restricted to admins.
 
-<Image
-  src="/images/features/event-logs/event-logs.png"
-  height={1080}
-  width={1920}
-  quality={100}
-  alt="RealTimeX Event Logs"
-/>
+## What the page shows
 
-This feature provides insights into user activities and system-related events.
+Each entry includes:
 
-## Event Types
+- event name
+- user
+- occurred time
 
-The Event Logs page captures a variety of events, such as:
+The page is paginated and shows the newest entries first.
 
-- User login attempts (successful and failed)
-- Messages sent by users
-- Changes made to application settings
-- Document uploads
+## Expand metadata when available
 
-## Event Details
+Some events include structured metadata. When metadata is present, you can expand the row and inspect the payload directly in the UI.
 
-Each event in the Event Logs page includes relevant information, such as the event type, associated user (if applicable), timestamp, and any additional details specific to the event type.
+This is where most of the useful detail lives, especially for exports, updates, deletions, and integration-related actions.
 
-Useful for monitoring your RealTimeX instance.
+## What counts as an event
+
+RealTimeX records many kinds of operational activity across the app. The exact event names vary by feature, but common examples include:
+
+- authentication activity
+- exports
+- updates to settings or resources
+- deletions
+- workspace and integration actions
+
+Treat the event name as the high-level label and the metadata panel as the detailed context.
+
+## Clearing the log
+
+Admins can clear the event log from this page. That removes prior audit history and the system then records that the clear action happened, so the reset itself remains traceable.
+
+## Event Logs vs Chat Logs
+
+Use Event Logs when you need operator or audit visibility. Use [Chat Logs](/features/chat-logs) when you need the actual prompt and response content from recorded conversations.
