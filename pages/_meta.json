@@ -49,7 +49,7 @@
     }
   },
   "chat-ui": {
-    "title": "Chat Interface overview",
+    "title": "Chat Interface",
     "theme": {
       "breadcrumb": true,
       "footer": true,

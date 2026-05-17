@@ -1,51 +1,177 @@
 ---
-title: "ChatUI Walkthrough"
-description: "Learn how the basics of chatting in RealTimeX"
+title: "Chat Interface"
+description: "Understand the current RealTimeX chat surface, composer controls, agent sessions, and message actions"
 ---
 
-import { Cards } from "nextra/components";
-import Image from "next/image";
+# Chat Interface
 
-<Image
-  src="/images/guides/chat-ui.png"
-  height={1080}
-  width={1920}
-  quality={100}
-  alt="RealTimeX Chat UI"
-/>
+The chat interface is the main working surface in RealTimeX. It is where you ask questions, attach files, invoke agents, switch models, use voice controls, and review answers with citations or follow-up suggestions.
 
-# Overview of the chat interface
+Not every workspace shows the exact same controls at all times. The current chat surface changes based on:
 
-The chat interface of RealTimeX is where you will spend most of your time when using RealTimeX, as such you should familiarize yourself with the basics. This page could have some additional
-icons that are not in the above image, as we are always improving RealTimeX.
+- whether the thread is empty or already has history
+- whether an agent session is active
+- whether voice chat is open
+- whether the workspace uses a special flow such as meeting capture
+- whether some controls are collapsed into a compact `More options` menu
 
-The above image may seem like a lot, but you will soon find the interface intuitive and familiar with other interfaces you have used.
+## Main areas
 
-## User messages
+Most chat threads are organized around three areas:
 
-User messages are messages that you have sent. This is the text that is used to find similar documents as well as what is sent to the LLM.
+- the message history
+- the prompt composer at the bottom of the screen
+- context and action pickers that open above the composer when needed
 
-### Actions
+On a new or empty thread, RealTimeX can also show a landing state with quick links, a centered composer, and suggested agent shortcuts before the first message is sent.
 
-- Copy: Copy the content of this text box.
-- Edit: Editing a message allows you to amend and automatically resubmit the conversation from that point to the LLM. **Beware** that this will truncate all messages below the edited content.
-- Speak: Read a message aloud using your configured text-to-speech provider. See [Text-to-Speech (Read Aloud)](/features/text-to-speech).
+## Message history
 
-## LLM messages
+The message history is where RealTimeX renders user prompts, assistant replies, attachments, file previews, citations, and follow-up suggestions.
 
-LLM messages are responses from your LLM that are active in this chat session. This is the text that is used to find similar documents as well as what is sent in future conversations. History is automatically managed when the context window is exceeded.
+Depending on the content, the current interface can show:
 
-### Actions
+- regular text messages
+- attachments and inline file previews
+- image or audio blocks
+- assistant citations when a reply includes sources
+- suggested follow-up questions after the latest assistant answer
 
-- Copy: Copy the content of this text box.
-- Edit: Editing a message allows you to amend the _output_ of an LLM message for correctness. This does _not_ resubmit your prompt and simply will update the history.
-- Regenerate: Resend a prompt back to the LLM with the same prompt and history to get a new answer.
-- Feedback (Thumbs Up & Thumbs Down): Allow the user to leave qualitative feedback on an LLM response. Leaving feedback **has no impact on message history or future responses**. Feedback metrics are most useful for [exporting of chats](/features/chat-logs) to be able to sort through good responses for creating fine-tunes outside of RealTimeX.
+Some assistant messages also include extra context from the current workspace, retrieval pipeline, or active agent session.
 
-## Prompt Input Controls
+## Message actions
 
-- Slash Commands: `Slash Commands` are ways to inject some standard text into your prompt where that command is present. It is basically a short-key for text snippets. You can create and manager your slash commands here.
-  - Default Slash Commands: These are special commands built by the core-team that have special functions like `/reset`
-- `@agent` Invocation: View all available `@agents` and their available skill sets. Using `@agent` at the start of a prompt will start an agent session. [Learn more about agents here.](/agent/overview)
-- Font Size: Set the default font size for your profile of RealTimeX.
-- Microphone: Enable voice-to-text inputs for your LLM prompts.**This feature is not available on Desktop.**
+Actions vary by message type.
+
+All standard text messages support:
+
+- copy
+
+Assistant replies can additionally show:
+
+- speak message
+- regenerate the latest assistant reply
+- thumbs-up feedback
+- citations when sources are available
+- add to knowledge
+- a `More` menu for actions such as forking the thread or deleting the message
+
+These controls appear only when they make sense. For example, `Regenerate` is tied to the latest assistant response, and `Citations` appears only when RealTimeX has source data to show.
+
+## Prompt composer
+
+The prompt composer is the control bar at the bottom of the chat screen. This is where you prepare the next turn.
+
+The current composer can include:
+
+- `Attach file`
+- `Web Search`
+- `Agents`
+- `Terminal`
+- `Knowledges`
+- `Commands`
+- `LLM Selector`
+- `Speech-to-Text`
+- `Voice Chat`
+- `Send` or `Stop`
+
+Depending on screen size and layout, some of these controls may move into a compact `More options` menu instead of staying visible as dedicated buttons.
+
+## Files and context
+
+Use the paperclip button to add files to the current conversation.
+
+In the current product, files can be used in more than one way:
+
+- added as prompt context for the current chat only
+- uploaded and embedded into the workspace for later retrieval
+- attached as images or files directly to the current turn
+
+The attachment row above the composer shows each item's state, such as uploading, chat-only context, or embedded workspace content. You can also remove queued items before sending the message.
+
+## Commands and agents
+
+The chat interface supports both regular chat commands and agent-driven sessions.
+
+### Commands
+
+Use the `Commands` button or type `/` to open the slash-command surface.
+
+In normal chat, the current command surface can include:
+
+- built-in commands such as `/reset`
+- image-generation entry points such as `/image`
+- saved slash-command presets
+
+If an agent session is active, the command surface changes. The current UI can show:
+
+- `/exit` to end the session
+- extra commands advertised by the active agent
+
+### Agents
+
+Use the `Agents` button or type `@agent` in the prompt to work with agents.
+
+Some workspaces or threads can also preselect a default agent for you.
+
+When an agent session is active:
+
+- the prompt area can wait until the agent explicitly requests input
+- the available command set changes
+- terminal-linked or browser-linked workflows can surface extra controls
+
+For deeper agent behavior, see [Using AI Agents](/agent/overview) and [Agent Runtime](/agent-runtime).
+
+## Terminal-linked chat
+
+When a thread is linked to a terminal-backed agent session, the composer can show a terminal link badge above the editor.
+
+Use it when you need to:
+
+- see which terminal session the thread is currently linked to
+- relink the thread to a recent session
+- detach the chat from the current terminal session
+
+This matters most for CLI-backed agents and runtime workflows.
+
+## Speech and voice
+
+The current chat surface supports two different speech flows.
+
+### Speech-to-Text
+
+Use the microphone button to dictate a prompt.
+
+RealTimeX currently supports multiple speech-to-text backends, and the chat input can respect language preferences as well as microphone permissions on web or desktop.
+
+### Voice Chat
+
+When the prompt is empty, the send button area can switch to a `Voice Chat` launcher instead.
+
+Use this mode when you want a hands-free conversation flow instead of typing one message at a time.
+
+For output audio, the message-level `Speak` action uses your configured text-to-speech setup rather than the voice-chat session itself.
+
+See [Voice Chat](/features/voice-chat), [Text-to-Speech](/features/text-to-speech), and [Transcription Models](/features/transcription-models).
+
+## Chat preferences
+
+Open `Settings > Chat` for chat-wide behavior preferences.
+
+Some chat behavior is configurable in settings, including options such as:
+
+- auto-submit
+- auto-speak
+- spell check
+- scrollbar visibility
+- agent notification behavior
+
+These preferences affect how the chat surface behaves, not just how it looks. Workspace-specific chat rules such as model selection, prompts, and retrieval settings are configured separately inside each workspace.
+
+## Related guides
+
+- [Chat Modes](/features/chat-modes)
+- [Chat Logs](/features/chat-logs)
+- [Knowledge Manager](/knowledge-manager)
+- [Using AI Agents](/agent/overview)
+- [Voice Chat](/features/voice-chat)
