@@ -58,7 +58,7 @@
     }
   },
   "configuration": {
-    "title": "Other configurations",
+    "title": "Advanced Configuration",
     "theme": {
       "breadcrumb": true,
       "footer": true,
