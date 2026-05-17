@@ -97,6 +97,24 @@
       "toc": true
     }
   },
+  "realtimex-local": {
+    "title": "RealTimeX Local",
+    "theme": {
+      "breadcrumb": true,
+      "footer": true,
+      "pagination": true,
+      "toc": true
+    }
+  },
+  "local-models": {
+    "title": "Local Models",
+    "theme": {
+      "breadcrumb": true,
+      "footer": true,
+      "pagination": true,
+      "toc": true
+    }
+  },
   "personal-notes": {
     "title": "Personal Notes",
     "theme": {

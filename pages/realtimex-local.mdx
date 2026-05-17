@@ -1,0 +1,149 @@
+---
+title: "RealTimeX Local"
+description: "Run GGUF models on your own machine with the managed llama-server runtime"
+---
+
+# RealTimeX Local
+
+`RealTimeX Local` is the managed local-model workflow built into RealTimeX.
+
+It lets you run GGUF chat models on your own machine without setting up a separate inference server yourself.
+
+Open it from `Settings > AI Providers > RealTimeX Local`.
+
+## What this page is for
+
+Use this page when you want the simplest built-in local LLM flow:
+
+- install or update the managed `llama-server` runtime
+- choose the hardware backend RealTimeX should use
+- download recommended GGUF models
+- set a default local model
+- load or unload that model from memory
+
+If you want to manage multiple local providers like `Ollama`, `LM Studio`, or `llama.cpp` from one place, use [Local Models](/local-models) instead.
+
+## What RealTimeX manages for you
+
+The current product treats `RealTimeX Local` as a managed runtime, not just a model picker.
+
+That means the page can handle:
+
+- runtime download status
+- runtime update status
+- backend detection
+- local model storage
+- warmup and ready state
+- default model selection
+
+This is the main difference from connecting RealTimeX to an external local provider.
+
+## Runtime backends
+
+The managed runtime can use different hardware backends depending on your machine.
+
+The current UI exposes choices such as:
+
+- `Autodetect`
+- `Metal Apple`
+- `Cuda Nvidia`
+- `Vulkan`
+- `Cpu Only`
+
+For most users, `Autodetect` is the right default. Change it only when you have a clear reason to pin a specific backend.
+
+## Runtime status states
+
+The runtime panel can show states such as:
+
+- `Ready`
+- `Downloaded, restart`
+- `Runtime missing`
+- `Hardware unavailable`
+- `Checking`
+
+The important behavior is:
+
+- if the runtime is missing, download it first
+- if the runtime is downloaded but staged, restart the app to finish installation
+- if hardware is unavailable, choose a different backend or let `Autodetect` decide
+
+## Downloading a model
+
+The current `RealTimeX Local` flow supports three ways to add a model:
+
+- recommended models
+- Hugging Face search
+- manual repository or file entry
+
+### Recommended models
+
+The recommended tab is the easiest path for most users.
+
+It provides:
+
+- curated model suggestions
+- use-case filters
+- size and RAM hints
+- a default recommendation path for common devices
+
+### Hugging Face search
+
+Use search when you know the model family you want but do not want to type the full repository path manually.
+
+### Manual entry
+
+Use manual entry when you already know the exact Hugging Face repository or GGUF file path.
+
+## Choosing and loading a model
+
+After a model is downloaded, the page lets you:
+
+- set it as the default local model
+- load it into memory immediately
+- unload it later
+
+Loading can take time. A model may enter a warming state before it becomes ready.
+
+If another model is still warming up, RealTimeX can block a second load until the first startup finishes.
+
+## Context size
+
+The page also lets you set a local context size for the managed runtime.
+
+Use a larger context window when you need more prompt space, but remember that bigger settings usually cost more memory and can reduce performance on smaller machines.
+
+## Refreshing and repairing models
+
+The current model list supports operational tasks beyond simple download:
+
+- refresh model metadata
+- delete a model file
+- repair certain incomplete models
+
+Repair matters when model artifacts are incomplete, such as:
+
+- missing multimodal projector files
+- missing split GGUF parts
+
+If a model looks unhealthy, repair it or re-download it before relying on it.
+
+## Typical setup flow
+
+1. Open `Settings > AI Providers > RealTimeX Local`.
+2. Download the runtime if it is missing.
+3. Restart the app if the runtime is staged instead of fully installed.
+4. Keep `Autodetect` unless you need a specific backend.
+5. Download a recommended model.
+6. Set that model as the default.
+7. Load it and wait until the runtime reports readiness.
+8. In `Settings > AI Providers > LLM`, choose `RealTimeX Local` as your provider.
+
+## When to use RealTimeX Local
+
+- Use it when you want the easiest on-device GGUF workflow.
+- Use it when you do not want to run or maintain a separate local inference service.
+- Use it when privacy or offline-capable local chat matters more than cloud-only convenience.
+
+For cross-provider management, see [Local Models](/local-models). For the broader provider story, see [Large Language Models](/features/language-models).
+

@@ -1,0 +1,155 @@
+---
+title: "Local Models"
+description: "Manage models across Ollama, LM Studio, llama.cpp, LocalAI, and RealTimeX Local"
+---
+
+# Local Models
+
+`Local Models` is the cross-provider model management screen inside RealTimeX.
+
+Open it from `Settings > AI Providers > Local Model Management`.
+
+## What this page is for
+
+Use this page when you want one place to inspect and manage models across local backends.
+
+The current product supports:
+
+- `Ollama`
+- `LocalAI`
+- `LM Studio`
+- `llama.cpp`
+- `RealTimeX Local`
+
+This page is broader than [RealTimeX Local](/realtimex-local), which focuses only on the managed built-in GGUF runtime.
+
+## Provider status
+
+Each provider tab can appear as:
+
+- online
+- offline
+- unconfigured
+- loading
+
+If a provider is unconfigured, RealTimeX expects you to finish its base URL or provider setup first in `Settings > AI Providers > LLM`, then return here.
+
+## What changes by provider
+
+Not every provider supports the same actions.
+
+In the current product:
+
+- `Ollama` and `LocalAI` are pull-oriented model registries
+- `LM Studio` mainly reflects models you already loaded inside LM Studio
+- `llama.cpp` reflects the running server and local GGUF files
+- `RealTimeX Local` uses the managed local models directory and built-in runtime
+
+That means this page is best understood as one shell over several different local model ecosystems.
+
+## Common actions
+
+Depending on the provider, the current UI can let you:
+
+- add or pull a new model
+- review installed model counts
+- inspect size, modified time, digests, and IDs
+- copy model identifiers
+- load a model
+- open model details
+- edit per-model settings
+- refresh or update metadata
+- repair incomplete models
+- delete models from local storage
+
+Some actions are provider-specific, so a tab may expose fewer controls than another.
+
+## RealTimeX Local inside Local Models
+
+The `RealTimeX Local` tab is where you manage the built-in GGUF inventory across the managed local models directory.
+
+The current flow supports:
+
+- recommended model downloads
+- Hugging Face search
+- manual repository or file entry
+- default-model selection
+- load and warmup behavior
+- repair for incomplete artifacts
+
+Use this tab when you want deeper inventory management than the simpler [RealTimeX Local](/realtimex-local) settings page.
+
+## Ollama and LocalAI
+
+For `Ollama` and `LocalAI`, the current UI is oriented around pulling models by name or gallery ID.
+
+Use these tabs when:
+
+- you already run one of those providers
+- you want RealTimeX to attach to that local model inventory
+- you prefer provider-native model management instead of the managed built-in runtime
+
+## LM Studio
+
+`LM Studio` behaves differently from pull-based providers.
+
+In the current app, the usual expectation is:
+
+- load a model inside LM Studio first
+- then return to `Local Models` to inspect it from RealTimeX
+
+If the tab looks empty, it usually means LM Studio is not currently serving a loaded model to the instance.
+
+## llama.cpp
+
+The `llama.cpp` tab is tied to the running `llama.cpp` server and its model directory.
+
+The current UI can help you:
+
+- inspect the active model
+- review GGUF files on disk
+- download GGUF files from Hugging Face
+- understand when the model directory or server configuration is incomplete
+
+If the server connection fails or no model directory is available, fix the `llama.cpp` runtime setup first, then return to the tab.
+
+## Model settings
+
+Some providers expose a model settings modal with runtime tuning controls such as:
+
+- keep-alive time
+- temperature
+- context window size
+- max tokens
+- advanced sampling controls
+
+These settings are useful when you want a model to stay warm longer or behave differently without changing the whole provider configuration.
+
+## Incomplete and repairable models
+
+The current UI can flag unhealthy local models, including cases like:
+
+- missing multimodal projector files
+- missing split GGUF parts
+- partially downloaded artifacts
+
+When a model is marked incomplete, repair it or remove and re-download it before using it in production workflows.
+
+## Typical workflow
+
+1. Configure the provider in `Settings > AI Providers > LLM` if needed.
+2. Open `Settings > AI Providers > Local Model Management`.
+3. Choose the provider tab you want to work with.
+4. Pull or download a model if none exist yet.
+5. Inspect details or adjust per-model settings if needed.
+6. Load the model where that provider supports explicit loading.
+7. Set the related provider as your active LLM in `Settings > AI Providers > LLM`.
+
+## When to use Local Models
+
+- Use it when you manage more than one local provider.
+- Use it when you need visibility into model files, digests, health, and provider-specific operations.
+- Use it when you want to troubleshoot why a local provider looks empty, offline, or incomplete.
+
+For the managed built-in local path, see [RealTimeX Local](/realtimex-local). For provider selection at the instance level, see [Large Language Models](/features/language-models).
+
