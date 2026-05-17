@@ -1,0 +1,104 @@
+---
+title: "Text Splitting & Chunking"
+description: "Control how RealTimeX splits documents before embeddings are created"
+---
+
+# Text Splitting & Chunking
+
+`Text Splitting` controls how RealTimeX breaks extracted document text into chunks before those chunks are turned into embeddings.
+
+Open it from `Settings > AI Providers > Text Splitting`.
+
+## Why this setting matters
+
+RealTimeX does not embed a whole document as one large block.
+
+Instead, the current product:
+
+1. extracts text from the uploaded file
+2. splits that text into smaller chunks
+3. sends those chunks to the embedding model
+4. stores the resulting vectors in the configured vector database
+5. retrieves matching chunks later during chat and query
+
+This means your chunking strategy directly affects retrieval quality.
+
+- smaller chunks usually improve precision for narrow questions
+- larger chunks preserve more surrounding context
+- poor chunking can make answers feel fragmented or noisy even when the document is present
+
+## What you configure
+
+The current settings page exposes two controls.
+
+### Chunk Size
+
+`Chunk Size` is the maximum number of characters allowed in each chunk.
+
+Use a smaller value when:
+
+- you want tighter, more focused matches
+- your documents contain many short facts, definitions, or discrete records
+
+Use a larger value when:
+
+- answers depend on nearby paragraphs staying together
+- your documents are more narrative, procedural, or long-form
+
+If you have not changed the setting before, the current default is `1000`.
+
+### Chunk Overlap
+
+`Chunk Overlap` repeats a portion of text between neighboring chunks.
+
+This helps when the important sentence or idea sits near the boundary between two chunks.
+
+Use overlap when you want to preserve context across chunk boundaries without making every chunk much larger.
+
+- higher overlap keeps more context between chunks
+- higher overlap also creates more repeated text
+- overlap must always be smaller than chunk size
+
+If you have not changed the setting before, the current default is `20`.
+
+## Embedder limits still apply
+
+The text splitter is not fully independent from your embedding provider.
+
+In the current product, the `Chunk Size` field is capped by the active embedder's supported maximum chunk length. The page shows a recommended maximum so you can stay within the current embedder limit.
+
+If you change the embedding provider or model later, that recommended maximum can change too.
+
+For the embedder side of that workflow, see [Embedding Models](/features/embedding-models).
+
+## These settings are system-wide
+
+`Text Splitting` is an instance-level preference, not a per-workspace toggle.
+
+When you save new values, the current app warns that it will clear previously cached documents and apply the new chunking settings to documents when they are embedded into workspaces.
+
+Treat this as a retrieval pipeline change, not a cosmetic preference.
+
+## How to choose values
+
+- Start with the defaults unless retrieval is clearly missing context or returning overly broad snippets.
+- Increase `Chunk Size` when answers need more surrounding text to make sense.
+- Decrease `Chunk Size` when retrieval feels too fuzzy or pulls large irrelevant passages.
+- Increase `Chunk Overlap` when important content is being split across chunk boundaries.
+- Avoid setting overlap too high unless you have a clear reason, because repeated text increases storage and retrieval noise.
+
+## How this relates to other retrieval settings
+
+`Text Splitting` is only one part of the retrieval pipeline.
+
+- [Embedding Models](/features/embedding-models) control how each chunk is vectorized.
+- [Vector Databases](/features/vector-databases) control where those vectors are stored and searched.
+- Workspace vector settings control things like similarity thresholds, context snippet counts, and search mode.
+
+If users say the LLM is not using the right documents, chunking is one of the first system-wide settings worth reviewing alongside the embedder and workspace retrieval thresholds.
+
+## Related guides
+
+- [Embedding Models](/features/embedding-models)
+- [Vector Databases](/features/vector-databases)
+- [Why does the LLM not use my documents?](/llm-not-using-my-docs)

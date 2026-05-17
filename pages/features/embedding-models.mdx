@@ -71,6 +71,8 @@ Common examples include:
 
 RealTimeX saves the provider choice and the provider-specific fields together, so you can keep the embedding configuration fully separate from chat model settings.
 
+For the system-wide settings that decide how document text is segmented before vectorization, see [Text Splitting & Chunking](/text-splitting-chunking).
+
 ## Changing the embedding model is destructive
 
 If your instance already has embeddings or cached embedding data, changing the embedder is not a cosmetic change.
@@ -101,4 +103,4 @@ For storage choices, see [Vector Databases](/features/vector-databases).
 - Keep the same embedding model across workspaces when you want consistent retrieval behavior.
 - Re-embed important workspaces after switching providers or models.
 - Confirm local embedding endpoints are reachable before making them the system default.
-- Treat chunk-length changes carefully, because they can alter how documents are segmented before embedding.
+- Treat chunk-length changes carefully, because they can alter how documents are segmented before embedding. Review [Text Splitting & Chunking](/text-splitting-chunking) when you need to tune that behavior directly.
