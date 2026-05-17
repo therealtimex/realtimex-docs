@@ -1,204 +1,149 @@
 ---
-title: "MCP Compatibility in RealTimeX"
-description: "Use existing MCP Servers with RealTimeX Agents"
+title: "MCP Servers"
+description: "Connect local and remote Model Context Protocol servers in RealTimeX and assign them to agent workflows"
 ---
 
-import { Cards, Callout } from "nextra/components";
-import Image from "next/image";
-import { FeatureCard } from "../../components/FeatureCard";
+# MCP Servers
 
-export const Card = Object.assign(
-  // Copy card component and add default props
-  Cards.Card.bind(),
-  {
-    displayName: "Card",
-    defaultProps: {
-      image: true,
-      arrow: true,
-      target: "_self",
-    },
-  }
-);
+`MCP Servers` is the RealTimeX settings area for connecting external tool servers that follow the Model Context Protocol.
 
-<Image
-  src="/images/mcp-compatibility/mcp.png"
-  height={140}
-  width={846}
-  quality={100}
-  alt="Model Context Protocol"
-  style={{
-    borderRadius: "12px",
-    margin: "10px auto",
-  }}
-/>
+Open it from `Settings > Agents > MCP Servers`.
 
-# Model Context Protocol (MCP) in RealTimeX
+## What this page is for
 
-RealTimeX supports the all [Model Context Protocol (MCP) tools](https://github.com/modelcontextprotocol/modelcontextprotocol) for use with [AI Agents](/agent/overview).
+Use MCP when you want agents to call tools outside the core RealTimeX feature set.
 
-## What is MCP?
+Typical examples include:
 
-MCP is an open-source protocol developed by [Anthropic](https://www.anthropic.com/) to enable seamless integration between LLM applications and external data sources and tools.
+- external APIs and SaaS actions
+- developer tools and databases
+- filesystem or command wrappers
+- hosted MCP services that require account linking
+- local MCP processes that run on your own machine or deployment
 
-There are [many tools](https://github.com/modelcontextprotocol/servers) that exist already built with MCP in mind and RealTimeX can work with any of them.
+In the current product, the main user-facing value of MCP is tool access inside agent workflows and agent chat sessions.
 
-> The Model Context Protocol (MCP) is an open protocol that enables seamless integration between LLM applications and external data sources and tools. Whether you're building an AI-powered IDE, enhancing a chat interface, or creating custom AI workflows, MCP provides a standardized way to connect LLMs with the context they need.
+## Local vs remote
 
-## How to use MCP in RealTimeX
+The current MCP screen is split into two tabs.
 
-<div style={{
-  display: "grid",
-  gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-  gap: "1.2rem",
-  margin: "2rem 0 2.2rem 0"
-}}>
-  <FeatureCard title="RealTimeX Cloud" href="./mcp-compatibility/cloud" icon={
-    <img
-      src="/images/os/clouds.svg"
-      alt="Cloud"
-      width="52"
-      height="52"
-      style={{
-        display: "block",
-        background: "#fff",
-        borderRadius: "0.8em",
-        boxShadow: "0 0 0 1px #eee",
-        padding: "12px"
-      }}
-    />
-  }>
-    Use MCP Servers in your RealTimeX Cloud deployment.
-  </FeatureCard>
-  <FeatureCard title="RealTimeX Desktop" href="./mcp-compatibility/desktop" icon={
-    <div style={{
-      display: "flex",
-      gap: "10px",
-      alignItems: "center",
-      background: "#fff",
-      borderRadius: "0.8em",
-      boxShadow: "0 0 0 1px #eee",
-      padding: "8px 14px"
-    }}>
-      <img src="/images/os/apple.svg" alt="MacOs" width="28" height="28" style={{display: "block"}} />
-      <img src="/images/os/windows.svg" alt="Windows" width="28" height="28" style={{display: "block"}} />
-      <img src="/images/os/linux.svg" alt="Linux" width="28" height="28" style={{display: "block"}} />
-    </div>
-  }>
-    Add and manage MCP Servers right from RealTimeX Desktop.
-  </FeatureCard>
-</div>
+### Remote MCP
 
+`Remote MCP` is for hosted MCP servers that RealTimeX can discover and connect to over the network.
 
-MCP Servers can be added to RealTimeX by editing the `RealTimeX_mcp_servers.json` configuration file in your RealTimeX storage `plugins` directory.
+Use this tab when:
 
-The structure of the file is the same as the [MCP Server Specification](https://github.com/modelcontextprotocol/servers?tab=readme-ov-file#using-an-mcp-client).
+- the MCP provider is already hosted for you
+- the server needs account linking or API-key auth
+- you want to browse available hosted servers and connect them in-app
 
-RealTimeX will automatically detect the MCP Servers and attempt to boot them up as needed - you can also manage your servers directly in the RealTimeX UI.
+Remote servers are typically connected rather than authored. After you open a server, RealTimeX can prompt for:
 
-### RealTimeX MCP Configuration UI
+- no-auth connection
+- API key
+- OAuth 2 authorization
 
-<Image
-  src="/images/mcp-compatibility/user-interface.png"
-  height={140}
-  width={846}
-  quality={100}
-  alt="Model Context Protocol"
-  style={{
-    borderRadius: "12px",
-    margin: "10px auto",
-  }}
-/>
+After a remote server is linked, you can review its available tools and decide which functions to enable.
 
-The MCP Management UI will show you all the MCP Servers that are available to use in RealTimeX. You can also:
-- Reload/Restart all MCP Servers from the configuration file (if changes are made)
-- View the status of the MCP Servers found
-- View error logs from the MCP Servers
-- Stop or start the MCP Servers on the fly
-- View all available tools from the MCP Servers loaded successfully
-- Delete the MCP Servers (will remove the server from the configuration file)
+### Local MCP
 
-### Example configuration file
+`Local MCP` is for MCP servers that run in your own environment.
 
-_this file will be automatically generated in the proper directory if it doesn't exist before it is needed. It will be empty by default._
+Use this tab when:
 
-```json5
-// RealTimeX_mcp_servers.json
-{
-  "mcpServers": {
-    "face-generator": {
-      "command": "npx",
-      "args": [
-        "@dasheck0/face-generator"
-      ],
-      "env": { // optional, some MCP servers may require additional environment variables
-        "MY_ENV_VAR": "my-env-var-value"
-      }
-    },
-    "mcp-youtube": {
-      "command": "uvx",
-      "args": [
-        "mcp-youtube"
-      ],
-    },
-    "postgres-http": {
-      "type": "streamable", // or "sse"
-      "url": "http://localhost:3003",
-      "headers": {
-        "X-API-KEY": "api-key"
-      }
-    }
-  }
-}
-```
+- you want to run an MCP server on your own machine
+- you want to run an MCP server inside your self-hosted deployment
+- you need custom command, URL, or transport configuration
+- you want to manage a server template or imported config directly
 
-## Supported Transport Types
+In the current app, local servers are first-class records inside RealTimeX. You can add, configure, enable, disable, and delete them from the UI.
 
-#### StdIO
+## Typical workflow
 
-The `stdio` transport type is the default and simplest transport type. It is a simple text-based protocol that is easy to implement and use.
-All MCP servers that use the stdio transport type require the `command` field to be set.
+1. Open `Settings > Agents > MCP Servers`.
+2. Choose `Remote MCP` or `Local MCP`.
+3. Connect or configure the server.
+4. Review the discovered tool list.
+5. Enable only the tools you want exposed.
+6. Assign the server where your agents can use it.
 
-#### SSE & Streamable
+The last step matters. Connecting a server does not automatically make it active in every workspace or agent configuration.
 
-<Callout type="info">
-  The transport type is dependent on the MCP server implementation you are adding. So you should check the documentation for the MCP server you are adding to see what transport types is supported.
-  
-  Keep in mind, that both `sse` and `streamable` **require** the `url` field to be set. It will not work with the `command` field set.
-</Callout>
+## Tool access controls
 
-The `SSE` and `Streamable` transport types are alternative transport type that is supported by many MCP servers for streaming responses.
-In your configuration file, you can use the `type` field to specify the transport (`sse` or `streamable`). If not provided, `sse` is assumed.
+Both local and remote MCP flows expose per-tool visibility controls in the current UI.
 
-The optional headers field can be used to send custom HTTP headers with requests to the MCP server.
+Use them when:
 
-## Autostart prevention
+- a server exposes many tools but you only want a safe subset
+- you want to reduce agent confusion or accidental tool calls
+- you are testing one tool before exposing the rest
 
-_This property is **specific to RealTimeX only** and will have no effect on other tools._
+RealTimeX shows tool availability only after the server is in a usable state:
 
-Sometimes, you may want to optionally start an MCP server manually to prevent it from starting automatically and consuming resources.
+- local servers must be enabled and configured
+- remote servers must be connected and have a valid server configuration
 
-To do this, RealTimeX respects the `RealTimeX.autoStart` property in the MCP Server configuration file.
+## Where MCP servers are actually used
 
-For example, if you want to prevent the `face-generator` MCP Server from starting automatically, you can set the `autoStart` property to `false` in the configuration file.
+After a server is connected, you still need to expose it to the relevant agent context.
 
-Any tool that does not have `autoStart: false` explicitly set will be started automatically when the rest of the MCP servers are started. This is useful if you want to manually start an MCP server when you need it because of resource constraints.
+The main place to do that is the workspace agent configuration flow, where RealTimeX lets you choose which remote and local MCP servers are available to that workspace or agent setup.
 
-```json
-{
-  "mcpServers": {
-    "face-generator": {
-      "command": "npx",
-      "args": [
-        "@dasheck0/face-generator"
-      ],
-      "RealTimeX": {
-        "autoStart": false
-      }
-    },
-    "mcp-youtube": {
-      "command": "mcp-youtube",
-      "args": []
-    }
-  }
-}
-```
+For the agent side of that workflow, see [Using AI Agents](/agent/overview) and [Agent Setup](/agent/setup).
+
+## Local MCP setup in RealTimeX
+
+The current local-server flow is UI-first.
+
+RealTimeX can currently support:
+
+- built-in or suggested server templates
+- custom local server entries
+- configuration import or raw config editing
+- placeholder-driven setup fields
+- connection testing before saving
+- per-server enable or disable state
+- per-tool enable or disable state
+
+This is a much better fit for end users than manually editing JSON files unless you already know exactly what server definition you want to load.
+
+## Remote MCP setup in RealTimeX
+
+The current remote-server flow is connection-first.
+
+RealTimeX can currently support:
+
+- browsing available remote servers
+- connecting with the auth method required by the provider
+- updating linked access later
+- reviewing the available tool list
+- enabling only selected functions
+
+Some remote providers use OAuth and return you to the app after authorization. Others ask for an API key or require no auth at all.
+
+## Deployment notes
+
+The operational meaning of `local` depends on where RealTimeX is running.
+
+- On Desktop, a local MCP server runs on your device.
+- On self-hosted or containerized deployments, a local MCP server runs in that deployment environment.
+- Remote MCP is hosted elsewhere and connected over the network in either case.
+
+See the deployment-specific guides:
+
+- [MCP on Desktop](/mcp-compatibility/desktop)
+- [MCP on Cloud](/mcp-compatibility/cloud)
+
+## Safety notes
+
+- Only connect MCP servers you trust.
+- Prefer enabling only the tools you actually need.
+- Treat API keys and OAuth-connected servers as production integrations, not toy examples.
+- Review what a tool can read, write, or trigger before exposing it to an agent.
+
+## Related guides
+
+- [Using AI Agents](/agent/overview)
+- [Agent Setup](/agent/setup)
+- [Plugins](/plugins)

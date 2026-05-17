@@ -188,7 +188,7 @@
     }
   },
   "mcp-compatibility": {
-    "title": "MCP Compatibility",
+    "title": "MCP Servers",
     "theme": {
       "breadcrumb": true,
       "footer": true,

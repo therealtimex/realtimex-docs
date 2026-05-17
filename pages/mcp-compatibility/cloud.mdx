@@ -1,124 +1,80 @@
 ---
-title: "MCP on RealTimeX Docker"
-description: "How to use and debug MCP tools on RealTimeX Cloud"
+title: "MCP on Cloud"
+description: "Use MCP servers in hosted or self-managed RealTimeX deployments"
 ---
 
-import { Callout } from "nextra/components";
+# MCP on Cloud
 
-## Things to know about MCP on RealTimeX Cloud
+For hosted or self-managed deployments, MCP setup still lives in `Settings > Agents > MCP Servers`.
 
-<Callout type="error" emoji="🔒">
-  As always, **never run MCPs you do not trust** - we **do not** endorse or guarantee the security of any MCPs you may find on the internet.
-</Callout>
+The same two MCP modes exist:
 
-### MCP Server support
+- `Remote MCP` for hosted providers you connect to over the network
+- `Local MCP` for MCP servers that run inside or alongside your RealTimeX deployment environment
 
-RealTimeX Cloud supports `Tools` loading via MCP Servers. We **do not** support Resources, Prompts, or Sampling.
+## What “local” means in cloud or self-hosted deployments
 
-### Startup sequence
+In this context, `Local MCP` does not mean a personal laptop app extension.
 
-<Callout type="info" emoji="💡">
-  The more MCP servers you have defined, the longer it will take for them to start up. Your container should have enough resources to account for this.
-</Callout>
+It means the MCP server runs in the same environment category as your RealTimeX instance, such as:
 
-RealTimeX _does not_ automatically start MCP servers when the container starts to prevent any overloading of resources on boot.
+- the same host
+- the same containerized environment
+- a directly managed runtime you control as part of the deployment
 
-RealTimeX _will_ automatically start MCP servers when you open the "Agent Skills" page in the RealTimeX UI **or** invoke the `@agent` directive.
-All MCP servers will be started in the background - subsequent "boots" will then be much faster since the MCP servers will already be running.
+Use this path when the MCP server depends on commands, binaries, or network reachability inside that deployment environment.
 
-If you mark a tool as `RealTimeX.autoStart: false` in your configuration file, it will not be started automatically - you will need to start it manually from the UI.
+## Remote MCP for hosted integrations
 
-### Command availability
+Use `Remote MCP` when a provider exposes a hosted MCP service and RealTimeX only needs to connect to it.
 
-The majority of commands that are required to run a MCP server are available in the RealTimeX Cloud container already.
+The current remote flow can support:
 
-The base image of RealTimeX Docker is `ubuntu:jammy-20240627.1`, so generic Ubuntu commands will be available as the user running the services inside of the container.
+- browsing available hosted servers
+- linking with no auth, API key, or OAuth 2
+- updating secure access later
+- enabling only selected functions after connection
 
-Additionally - we have pre-installed the following commands:
-- `npx`
-- `uv` or `uvx`
-- `node`
-- `bash`
+This is usually the better fit for SaaS-style integrations where you do not want to run the MCP server yourself.
 
-### Where is the MCP Server configuration file?
+## Local MCP for self-managed runtimes
 
-The MCP Server configuration file is located in the `plugins/RealTimeX_mcp_servers.json` file in the RealTimeX storage directory.
+Use `Local MCP` when you are responsible for the server process and its dependencies.
 
-<Callout type="info" emoji="💡">
-  The configuration file is automatically created if you open the "Agent Skills" page in the RealTimeX UI.
-</Callout>
+The current flow supports:
 
-The storage directory is defined by the `STORAGE_LOCATION` environment variable when you start the RealTimeX Docker container - [see example](/installation-docker/local-docker)
+- adding a custom local server entry
+- using suggested templates when available
+- editing or importing config
+- placeholder-driven setup
+- connection testing
+- enable or disable controls
+- per-tool enablement
 
-### Reloading MCP Servers
+## Typical hosted-deployment workflow
 
-You can reload MCP Servers *on the fly* by clicking the "Refresh" button in the "Agent Skills" page. This will reload the MCP Servers from the configuration file and restart them. 
-This does not require you to restart the RealTimeX Docker container - the currently running MCPs will be killed and rebooted with whatever changes you made to the configuration file.
+1. Decide whether the MCP server should be remote or local.
+2. Open `Settings > Agents > MCP Servers`.
+3. Connect or configure the server in the correct tab.
+4. Confirm the available tool list appears.
+5. Restrict tool access to the subset you actually want.
+6. Assign the server in the target workspace or agent configuration.
 
-You can also click "Refresh" to reload the MCP Servers if you are debugging a specific MCP Server.
+## Operational considerations
 
-### Starting and stopping MCP Servers
+- Remote MCP depends on outbound network access and valid account linking.
+- Local MCP depends on the runtimes and commands available inside your deployment environment.
+- Tool availability is not enough by itself; the server still needs to be assigned where agents can use it.
 
-You can start and stop MCP Servers *on the fly* by clicking the "Start" or "Stop" action via the gear icon in the "Agent Skills" page while selecting the MCP Server you want to start or stop.
+If a local MCP server works on a laptop but not in a hosted deployment, the usual cause is environmental mismatch rather than the RealTimeX UI itself.
 
-This does not require you to restart the RealTimeX Docker container - the target MCP Server will be started or stopped immediately.
+## Troubleshooting
 
-If you wish to stop an MCP Server from automatically starting - see the [Autostart prevention](#autostart-prevention) section.
+- If remote auth succeeds but tools stay unavailable, reopen the server and verify the linked account and enabled functions.
+- If local tools never load, verify that the deployment environment can actually run the configured command or reach the configured URL.
+- If the server is connected but agents do not use it, confirm the workspace or agent configuration includes that MCP server.
 
-### How do I add/remove an MCP Server?
+## Related guides
 
-#### Adding an MCP Server
-Adding an MCP Server is as simple as adding a new tool to the `mcpServers` object in the `RealTimeX_mcp_servers.json` file in your RealTimeX storage directory.
-
-#### Removing an MCP Server
-
-You can remove an MCP Server by clicking on an MCP Server in the "Agent Skills" page, select the gear icon, and clicking "Delete".
-Deleting the MCP Server from the UI **will remove** the MCP Server from the file and kill the process running that MCP Server.
-
-You can also manually remove an MCP Server by removing the object from the `mcpServers` object in the `RealTimeX_mcp_servers.json` file and clicking "Refresh" in the "Agent Skills" page on the UI afterwards.
-
-### Viewing the status of an MCP Server
-
-On the "Agent Skills" page, you can view the status of an MCP Server by clicking on the MCP Server in the list - if there is an error, it will be displayed in the card.
-
-Additionally, you can quickly see the status of all MCP Servers by clicking the "Agent Skills" page and looking at the MCP Servers list.
-
-### Debugging MCP Servers
-
-If you are having issues with an MCP Server, you can best debug these by looking at the docker container logs.
-
-### Issues installing a tool
-
-<Callout type="info" emoji="💡">
-  **Please do not open issues about tool issues on GitHub - we are not the MCP authors or maintainers.** 
-  
-  If you are having issues, you should post on the [MCP Discussion board](https://github.com/orgs/modelcontextprotocol/discussions) - or ask in the RealTimeX Discord server.
-</Callout>
-
-Sometimes, an MCP Server will require a tool to be installed via `uv tool install xyz`.
-The easiest way to do this is to open a shell into the container and run the command manually. Then you can click "Refresh" in the "Agent Skills" and see if the tool now boots successfully.
-
-### Tool persistence
-
-If you stop or delete the RealTimeX Docker container the libraries cached for the MCP servers will be lost and need to be re-downloaded on first start. Typically, this takes much longer for MCP servers that have a large number of dependencies or build steps and can increase boot times when starting MCP servers.
-
-The also applies to any tools that you may have manually installed to get an MCP server to work - your changes are within the container and will be lost when the container is deleted.
-
-### Writing files to the host machine
-
-Often, you may want to write or even read files from the host machine - since the MCP Server runs within the context of the container - you **must** use this path:
-
-```
-/app/server/storage/...
-```
-
-This path will then be using the `STORAGE_LOCATION` directory that you defined when you [started the RealTimeX Docker container](/installation-docker/local-docker). From here you can then write and read files to the host machine.
-
-
-### My LLM is not calling my MCP Server!
-
-First, ensure that the MCP Server is running and that the tool is available in the "Agent Skills" page.
-
-Next, your issue is probably the model you are using - this is especially true if you are using a small local model with a limited context window.
-
-[Learn more about LLMs with Agent Skills &rarr;](/agent-not-using-tools)
+- [MCP Servers Overview](/mcp-compatibility/overview)
+- [Agent Setup](/agent/setup)
