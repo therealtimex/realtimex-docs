@@ -14,6 +14,9 @@
   "agent-browser": {
     "title": "Agent Browser"
   },
+  "realtimex-moderator": {
+    "title": "RealtimeX Moderator"
+  },
   "note-and-knowledge-plugins": {
     "title": "Notes, Wiki & Memory Plugins"
   },

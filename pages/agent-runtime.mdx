@@ -22,6 +22,7 @@ Agentic CLIs are external command-line tools your agents can rely on, such as `g
 - RealTimeX tracks whether each CLI is installed, authenticated, and ready.
 - Admins can add CLIs from the registry or register custom executables.
 - RealtimeX does not store those CLI credentials for you. You authenticate the CLI in your terminal, then RealTimeX probes readiness and exposes that status to agents.
+- This is separate from [Credentials](/credentials), which stores reusable secrets for agent workflows and integrations.
 - You can attach install docs, auth commands, probe commands, and a short prompt hint so the agent knows when the CLI should be used.
 
 Agentic CLIs are not the same thing as CLI agents. CLI agents are runtimes such as Codex or Claude Code. Agentic CLIs are the tools those runtimes use to do work.

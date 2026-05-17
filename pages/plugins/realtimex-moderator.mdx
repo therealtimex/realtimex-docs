@@ -1,0 +1,87 @@
+---
+title: RealtimeX Moderator
+description: Understand the built-in RealtimeX Moderator plugin that lets advanced agents work with RealTimeX workspaces, threads, sessions, credentials, and platform state.
+---
+
+# RealtimeX Moderator
+
+`RealtimeX Moderator` is a built-in plugin that gives advanced agents controlled access to RealTimeX platform features. It is enabled by default.
+
+Unlike image or policy plugins, this plugin usually does not need configuration. Its main job is to let agents understand and act on RealTimeX's own objects instead of only working with files or the open chat window.
+
+## What it adds
+
+This plugin is the bridge that lets an agent work with platform-level concepts such as:
+
+- workspaces
+- threads
+- activities
+- agent sessions
+- browser sessions coordinated through RealTimeX Browser
+- stored credentials
+- MCP servers and related tool state
+
+## Where it matters
+
+You usually do not open a dedicated `RealtimeX Moderator` screen. Instead, this plugin supports advanced agent workflows elsewhere in the product.
+
+Common examples:
+
+- an agent works across a specific workspace and thread instead of acting only on the current prompt
+- a browser task needs a RealTimeX Browser session to be created, reopened, or reused safely
+- an ACP agent session needs to persist across turns instead of starting fresh each time
+- an agent needs to use a credential you stored in [Credentials](/credentials)
+
+## How it relates to other built-ins
+
+### With Agent Browser
+
+`Agent Browser` handles browser automation itself. `RealtimeX Moderator` helps advanced agent workflows coordinate RealTimeX Browser sessions, including session lookup, reuse, and debug-port resolution.
+
+See [Agent Browser](/plugins/agent-browser) and [Browser Tool](/features/browser-tool).
+
+### With Runtime features
+
+This plugin is also part of the deeper runtime layer behind ACP-style agent sessions, platform-aware automation, and long-running agent work.
+
+See [Agent Runtime](/agent-runtime).
+
+### With stored credentials
+
+When advanced agents need external authentication, this plugin can work with credentials stored in [Credentials](/credentials) without exposing the secret values directly in chat output.
+
+## What most users should do
+
+- leave this plugin enabled
+- reload it only if a plugin card or advanced agent flow indicates a runtime issue
+- avoid disabling it unless you are intentionally reducing what agents are allowed to do
+
+## What can break if you disable it
+
+Disabling `RealtimeX Moderator` can reduce or break advanced behavior such as:
+
+- platform-aware workspace or thread access
+- ACP session reuse across turns
+- browser-session coordination for agent browsing flows
+- access to stored RealTimeX credentials from advanced agent workflows
+
+Simple chat and unrelated plugins may still work, but platform-level agent tasks become much more limited.
+
+## Troubleshooting
+
+If a workflow that depends on internal RealTimeX state suddenly stops working:
+
+1. Check `Settings > Plugins` and confirm `RealtimeX Moderator` is enabled.
+2. Reload the plugin.
+3. Re-test the user-facing workflow that failed.
+4. If browser-backed automation is involved, also review [Browser Tool](/features/browser-tool) and [Agent Browser](/plugins/agent-browser).
+5. If external authentication is involved, re-check the credential entry in [Credentials](/credentials).
+
+## Related guides
+
+- [Built-In Plugins](/plugins/built-in-plugins)
+- [Agent Browser](/plugins/agent-browser)
+- [Browser Tool](/features/browser-tool)
+- [Credentials](/credentials)
+- [Agent Runtime](/agent-runtime)
+- [Troubleshooting Plugins](/plugins/troubleshooting)
