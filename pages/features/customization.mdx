@@ -1,34 +1,89 @@
 ---
 title: "Appearance Customization"
-description: "RealTimeX allows you to customize the look and feel of your instance to match your brand and identity."
+description: "Change interface preferences and manage built-in or custom themes"
 ---
-
-import { Callout } from "nextra/components";
-import Image from "next/image";
 
 # Appearance Customization
 
-RealTimeX allows you to customize the look and feel of your instance to match your brand and identity.
+RealTimeX now exposes appearance customization through two main settings areas:
 
-<Image
-  src="/images/features/customization/appearance-settings-page.png"
-  height={1080}
-  width={1920}
-  quality={100}
-  alt="Appearance Settings Page"
-/>
+- `Settings > Customization > Interface` for quick day-to-day preferences
+- `Settings > Customization > Themes` for built-in themes, custom themes, and theme editing
 
-Overview of all the appearance settings available in RealTimeX.
+Depending on your role and deployment, you may also see other customization-related settings, but these two pages are the primary user-facing surfaces.
 
-## Custom Logo
+## Interface settings
 
-<Image
-  src="/images/features/customization/custom-logo.png"
-  height={1080}
-  width={1920}
-  quality={100}
-  alt="Custom Logo"
-/>
+The `Interface` page is the fast path for personal presentation preferences. It currently includes:
 
-You can replace the RealTimeX branded logo that appears on the login page and throughout the app with your own brand's logo. In this example, we have used a green square image for demonstration purposes.
+- `Theme`: choose the active visual theme
+- `Appearance mode`: follow `System`, or force `Dark` or `Light`
+- `Display language`: change the app language
+- `Chat message alignment`: keep all messages left-aligned, or place your own messages on the right
 
+Use this page when you want to change how RealTimeX feels for you without creating or editing theme files.
+
+## Themes
+
+The `Themes` page is where you manage reusable visual themes for the app.
+
+### Built-in themes
+
+RealTimeX includes built-in themes that you can select directly. These are the fastest option when you want a different look without creating anything custom.
+
+You can also set the current appearance mode here:
+
+- `System`: follow your operating system preference
+- `Dark`
+- `Light`
+
+If a theme only supports one mode, RealTimeX falls back to the mode that theme actually provides.
+
+### Custom themes
+
+Custom themes appear in a separate section from built-ins. From this page you can:
+
+- import a theme from a JSON file
+- export the current theme as JSON
+- create a new custom theme
+- edit an existing custom theme
+- delete a custom theme
+
+This makes it practical to keep a house style for your team, move themes between machines, or start from an exported theme and refine it.
+
+## Editing a custom theme
+
+Creating or editing a theme opens the theme editor. The editor is intended for advanced visual customization rather than simple preference changes.
+
+The editor includes:
+
+- a JSON editor for the theme file
+- validation before save
+- a visual preview
+- a `Theme Assistant` panel to help edit the theme file
+
+Custom themes are saved as theme JSON files. RealTimeX supports modern theme files with separate `dark` and `light` sections, and the theme schema also supports typography-related tokens in addition to color tokens.
+
+## When to use Interface vs Themes
+
+Use `Interface` when you want to:
+
+- switch theme quickly
+- change dark/light behavior
+- change language
+- adjust chat layout
+
+Use `Themes` when you want to:
+
+- manage a library of themes
+- import or export theme files
+- create a custom visual identity
+- edit colors, surfaces, and other theme tokens in detail
+
+## Practical workflow
+
+For most users, the simplest workflow is:
+
+1. Start in `Themes` and choose a built-in theme you like.
+2. Use `Interface` to decide whether it should follow `System`, `Dark`, or `Light`.
+3. If you need something more specific, export the current theme or create a new custom one and refine it in the theme editor.
