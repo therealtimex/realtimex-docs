@@ -1,26 +1,126 @@
 ---
 title: "API Access & Keys"
-description: "API keys are managed by accounts with the correct access level."
+description: "Generate API keys, open the live endpoint reference, and connect external clients to your RealTimeX instance"
 ---
-
-import Image from "next/image";
 
 # API Access & Keys
 
-You can find the API documentation for available endpoints on your instance at `/api/docs`
+RealTimeX exposes a developer API for scripts, backend services, automations, custom apps, and advanced integrations.
 
-API keys are managed by accounts with the correct access level.
+You manage access from `Settings > API Keys`.
 
-However, anyone with the API key can use the RealTimeX API, so do not share or publish this key anywhere.
+## What API keys do
 
-RealTimeX supports a full developer API that you can use to manage, update, embed, and even chat with your workspaces.
+An API key gives programmatic access to your RealTimeX instance. In practice, that means external clients can use it to call supported endpoints for things like:
 
-You can create and delete API keys on the fly if you are allowed permission to do so.
+- workspaces and threads
+- document ingestion and retrieval
+- system and admin automation
+- embed management
+- OpenAI-compatible chat and embeddings
 
-<Image
-  src="/images/features/api/api-keys.png"
-  height={1080}
-  width={1920}
-  quality={100}
-  alt="RealTimeX"
-/>
+Treat an API key like a password. Anyone who has it can act against your instance with the permissions that API surface allows.
+
+## Open the live API reference
+
+Your instance hosts its own interactive API reference at `/api/docs`.
+
+That page is the best place to check:
+
+- exact paths and request bodies
+- response formats
+- required headers
+- which endpoints belong to the standard API, OpenAI-compatible API, or SDK surfaces
+
+Use the docs on **your own instance**, not just `docs.realtimex.ai`, when you need request-level detail.
+
+## Create and manage keys
+
+Open `Settings > API Keys` to manage access.
+
+The current product flow lets you:
+
+- generate a new API key
+- copy an existing key
+- review who created the key
+- review when the key was created
+- deactivate old keys you no longer want to trust
+
+The settings page also links directly to `/api/docs`, so you can move from key management to endpoint testing without leaving the product.
+
+In multi-user setups, API keys are typically managed by admins. In single-user or system-managed setups, the system operator manages them.
+
+## Use the right auth header
+
+RealTimeX has more than one API surface, so the expected auth header can vary by route.
+
+In the current app:
+
+- many standard API and OpenAI-compatible requests use `Authorization: Bearer <YOUR_API_KEY>`
+- some SDK-oriented routes document `x-api-key`
+- registered local app flows can use `x-app-id` instead of a user-generated API key
+
+If you are calling a route from `/api/docs`, follow the auth header shown for that specific endpoint.
+
+## Main API surfaces
+
+### Standard developer API
+
+Use the standard API when you want to manage RealTimeX resources directly.
+
+Common areas include:
+
+- system information and health
+- workspaces and workspace threads
+- documents and ingestion
+- embeds
+- admin and user-management actions
+
+### OpenAI-compatible API
+
+Use the OpenAI-compatible endpoints when you want existing OpenAI-style clients to talk to RealTimeX with minimal changes.
+
+This surface includes endpoints for:
+
+- model listing
+- chat completions
+- embeddings
+
+In this mode, workspaces act like models. That means the `model` value you send is typically a RealTimeX workspace slug rather than a raw provider model name.
+
+### SDK and Local App routes
+
+Some integrations use the SDK-style routes and local-app identity model instead of a general API key.
+
+This matters when you are working with:
+
+- registered local apps
+- desktop runtime integrations
+- permission-scoped app access
+
+If you are building that kind of integration, also review [Local Apps](/local-apps).
+
+## API keys vs Credentials
+
+API keys and Credentials solve different problems:
+
+- `API Keys` let outside clients call **into** RealTimeX
+- [Credentials](/credentials) let RealTimeX agents, plugins, or tools authenticate **outward** to other systems
+
+If you are connecting a script, backend, or third-party client to RealTimeX, you usually need an API key.
+
+If you are storing OAuth tokens, bearer tokens, API secrets, or usernames/passwords for agent use inside RealTimeX, you usually need Credentials instead.
+
+## Rotation and safety
+
+Use a separate key per integration when possible. That makes it easier to rotate access without breaking unrelated automations.
+
+Recommended practices:
+
+- do not paste API keys into public chats, tickets, or docs
+- store keys in a secret manager or environment variable
+- deactivate keys that are no longer in use
+- rotate keys after team changes or suspected exposure
+- prefer dedicated app registration flows when an integration is built around Local Apps instead of shared API keys
+
+Deactivating a key should be treated as permanent. Update the client using that key before you remove it.
