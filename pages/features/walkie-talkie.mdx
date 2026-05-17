@@ -1,44 +1,70 @@
 ---
-title: Speech‑to‑Text (Walkie‑Talkie)
-description: Quickly dictate messages with push‑to‑talk. Click to start/stop; pauses finalize your text.
+title: "Speech‑to‑Text (Walkie‑Talkie)"
+description: "Dictate directly into the chat composer with the live speech provider configured for Voice & Speech"
 ---
 
 # Speech‑to‑Text (Walkie‑Talkie)
 
-Use Speech‑to‑Text (STT) to dictate messages directly into the chat composer. Click to start/stop listening; short pauses finalize the text for you.
+Speech‑to‑Text lets you dictate into the chat composer instead of typing.
 
-## Start dictation
+It uses the live speech provider configured in `Settings > Voice & Speech`.
 
-1. In the chat composer, click the STT mic button (Walkie‑Talkie).
-2. Speak your message. You’ll see text appear in the input.
-3. Click the mic button again to stop, or pause briefly — STT will finalize automatically.
-4. Press Send, or enable auto‑submit to send immediately.
+## Current live speech providers
 
-Keyboard shortcut: Press Ctrl+M to toggle STT on/off.
+The chat composer speech input currently supports:
 
-## Providers & languages
+- `Web Speech API`
+- `Whisper`
+- `Groq`
 
-- STT can run with different providers depending on your workspace settings:
-  - Native (browser built‑in)
-  - Local Whisper (on‑device)
-  - Cloud STT (e.g., Groq)
-- Choose your preferred language from the language selector next to the mic.
+If a different provider is configured elsewhere, the chat composer may warn that it is unsupported for prompt input.
 
-## Auto‑submit (optional)
+## How dictation works
 
-- Enable “Auto‑submit speech input” to send your dictated message as soon as it finalizes.
-- Otherwise, you can edit the text in the input and click Send when ready.
+When you start a Walkie‑Talkie session, RealTimeX listens to the mic and inserts the transcript into the prompt input.
 
-## Tips
+The current behavior supports:
 
-- Speak clearly and at a steady pace
-- Pause briefly between sentences for best results
-- Use a quiet environment or headset microphone when possible
+- inserting text at the current cursor position
+- stopping automatically after silence
+- keeping a language preference for speech recognition
+- optional auto-submit after the final transcript is produced
+
+You can also use the keyboard shortcut `Ctrl+M` to toggle dictation on or off.
+
+## Input language
+
+The composer includes a language selector for speech recognition.
+
+You can:
+
+- keep auto-detect enabled
+- choose a specific language manually
+- reuse your saved preference in later sessions
+
+This is especially useful when browser recognition or local transcription keeps choosing the wrong language.
+
+## Provider behavior
+
+### Web Speech API
+
+Use this for browser-native speech recognition when it is available.
+
+### Whisper
+
+Use this for local speech-to-text. In the current app, Whisper can use browser or desktop-native execution depending on your environment and settings.
+
+### Groq
+
+Use this for fast cloud speech-to-text.
 
 ## Troubleshooting
 
-- Mic access was denied
-  - Allow the microphone in your browser permissions and try again.
 - Nothing appears while speaking
-  - Ensure your input device is correct and not muted in your OS audio settings.
-
+  Check microphone permissions and confirm the selected speech provider is supported in chat input.
+- Web Speech is unavailable
+  Switch to `Whisper` or `Groq` in `Settings > Voice & Speech`.
+- Dictation uses the wrong language
+  Pick an explicit language instead of auto-detect.
+- Final text sends too early
+  Review whether auto-submit speech input is enabled in your appearance or chat preferences.

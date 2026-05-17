@@ -1,44 +1,84 @@
 ---
-title: Text-to-Speech (Read Aloud)
-description: Read chat messages and Personal Notes aloud with your configured TTS provider.
+title: "Text-to-Speech (Read Aloud)"
+description: "Choose the speech playback provider used across chat and other read-aloud surfaces"
 ---
 
 # Text-to-Speech (Read Aloud)
 
-RealTimeX can read text aloud using your configured text-to-speech provider. Playback starts progressively for longer content, so you can begin listening without waiting for the full response or note to finish generating.
+RealTimeX can read content aloud with a shared text-to-speech configuration.
 
-## Where you can use it
+Open these settings from `Settings > Voice & Speech`, then use the `Text to Speech` section.
 
-- Chat messages: Click the speaker button on a message to start playback.
-- Personal Notes: Open a Markdown note and click the speaker button in the editor toolbar to read the current note aloud.
+## Where read-aloud is used
 
-## How playback works
+The current product uses the shared TTS setting for surfaces such as:
 
-- Long text is split into smaller chunks for smoother playback.
-- Audio begins as chunks become available instead of waiting for the full text.
-- Click the same control again to pause playback.
-- You can use the same speech experience across chat and non-chat surfaces such as Personal Notes.
+- chat message playback
+- Personal Notes read-aloud
+- voice-chat reply playback
 
-## Supported providers
+## Current provider choices
 
-RealTimeX read-aloud works with configured local or cloud TTS providers, including:
+The current `Text to Speech` selector includes:
 
-- Local providers such as Piper and Supertonic
-- Cloud providers such as OpenAI, Groq, ElevenLabs, and OpenAI-compatible services
+- `OpenAI`
+- `ElevenLabs`
+- `PiperTTS`
+- `Supertonic-3`
+- `OpenAI Compatible`
+- `Groq`
 
-Note: The shared read-aloud controls are not shown when your TTS provider is set to the native system/browser option.
+## Local vs cloud playback
 
-## Tips
+### Local providers
 
-- Use a headset or speakers with clear output if you are listening to long content.
-- In Personal Notes, the current note content is read aloud directly from the editor.
-- If a cloud provider is selected, confirm its API key and voice settings are configured in your environment.
+`PiperTTS` and `Supertonic-3` run locally in the browser.
+
+Use them when you want:
+
+- on-device playback
+- lower dependence on cloud services
+- cached voices for repeat use
+
+`Supertonic-3` is the more advanced multilingual local option in the current product.
+
+### Cloud providers
+
+`OpenAI`, `ElevenLabs`, and `Groq` use hosted speech services.
+
+Use them when you want:
+
+- hosted voice quality
+- provider-managed inference
+- less local model management
+
+### OpenAI-compatible services
+
+Use `OpenAI Compatible` when your team runs a TTS service that exposes an OpenAI-style API.
+
+This can point to a local or remote endpoint.
+
+## Provider-specific notes
+
+- `Groq` TTS uses a provider setting here, but the Groq API key itself is managed in `Language Model` settings.
+- `PiperTTS` and `Supertonic-3` can cache local voice assets for faster repeat playback.
+- Older browser-native TTS references are no longer the main path in the current app. Existing native settings are migrated toward the local provider flow.
+
+## How playback behaves
+
+Read-aloud is designed to start progressively for longer content instead of waiting for the full response to finish processing.
+
+In practice, that means:
+
+- long text can be split into smaller chunks
+- playback can begin earlier
+- the same TTS choice can be reused across chat and note-reading surfaces
 
 ## Troubleshooting
 
-- No speaker button appears
-  - Check that a supported TTS provider is configured instead of the native system/browser provider.
-- Audio does not play
-  - Check your device volume, active output device, and whether the browser tab is muted.
-- Playback fails with a provider error
-  - Verify the selected provider is configured correctly and any required API credentials are available.
+- No audio plays
+  Check device output volume, active output device, and whether the tab or app is muted.
+- Playback fails for a cloud provider
+  Re-check the provider-specific configuration and any required API key.
+- Local voice is slow on first use
+  The provider may still be downloading or caching local voice assets.

@@ -1,58 +1,73 @@
 ---
-title: Voice Chat (Hands‑Free)
-description: Talk to the assistant hands‑free. Speak naturally; replies are read aloud.
+title: "Voice Chat (Hands‑Free)"
+description: "Talk to RealTimeX with live microphone input and hear replies through the configured speech stack"
 ---
 
 # Voice Chat (Hands‑Free)
 
-Voice Chat lets you talk to the assistant hands‑free. Speak naturally; short pauses create turns automatically. The assistant reads replies out loud while Voice Chat is open.
+Voice Chat lets you speak to RealTimeX continuously instead of typing each message.
 
-## Start a voice conversation
+Start it from the microphone control in the chat composer.
 
-1. Click the microphone in the chat composer to open Voice Chat.
-2. Wait for the short “ready” chime and animated audio dots.
-3. Speak naturally. A brief pause creates a turn; the assistant replies aloud.
-4. Use the mic button to pause/resume listening, or the X to end.
+## What Voice Chat depends on
 
-Tip: Press Esc to quickly close Voice Chat.
+Voice Chat uses the live `Speech to Text` provider configured in `Settings > Voice & Speech`.
 
-## How turns work
+The current chat voice stack supports:
 
-- You do not need to click for every sentence. Voice Chat detects natural pauses.
-- Each pause finalizes one “turn” and sends it to the assistant.
-- Long dictation is supported — Voice Chat won’t cut you off just because of time.
+- `Web Speech API`
+- `Whisper`
+- `Groq`
 
-## Hearing replies (text‑to‑speech)
+Replies are then spoken back through your configured `Text to Speech` provider.
 
-- While Voice Chat is open, replies auto‑play.
-- If you don’t hear audio:
-  - Check device volume and tab mute state.
-  - If your browser blocks autoplay, click the speaker icon on a message once. Future replies should play automatically.
+## Start and control a session
 
-## Panel controls
+When Voice Chat opens, the current panel can:
 
-- Mic button: pause/resume listening (mute/unmute)
-- X button: end Voice Chat
-- Audio dots: show current speaking level
+- show readiness and calibration status
+- listen continuously for your speech
+- let you mute or unmute the microphone
+- let you end the session
+- show an audio visualizer while the mic is active
 
-## Tips for clear results
+The current status flow includes states such as:
 
-- Speak at a normal pace and volume
-- Pause briefly between ideas
-- Reduce background noise or use a headset
+- `Ready`
+- `Calibrating`
+- `Listening`
+- `Transcribing`
+- `Microphone muted`
+- `Web Speech unavailable`
+- `Microphone blocked`
+
+## Input language
+
+Voice Chat includes an input-language selector in the live panel.
+
+You can:
+
+- leave language on auto-detect
+- pick a specific language when recognition is drifting
+- see when a model is effectively English-only
+
+In the current Whisper flow, some model choices are English-only. When that happens, the panel reflects that limitation instead of pretending multilingual input is available.
+
+## Choose the right speech provider
+
+- Use `Web Speech API` for browser-native recognition when your browser supports it.
+- Use `Whisper` when you want local transcription behavior.
+- Use `Groq` when you want fast cloud transcription.
+
+If the panel says `Web Speech unavailable`, switch to `Whisper` or `Groq` in `Settings > Voice & Speech`.
 
 ## Troubleshooting
 
-- Microphone access denied or not prompted
-  - Allow microphone in your browser’s site permissions and reopen Voice Chat.
-- Voice Chat hears nothing
-  - Check your input device in OS settings. Ensure the mic isn’t muted.
-- Replies not playing
-  - Increase volume; ensure tab isn’t muted. Click a message’s speaker icon once to allow audio.
-
-## Privacy & data
-
-- Your microphone audio is used to detect speech and transcribe your words into text.
-- Depending on your workspace settings, transcription may happen locally or via a configured cloud provider.
-- Audio isn’t stored by default.
-
+- Microphone blocked
+  Allow microphone access in the browser or desktop runtime, then reopen Voice Chat.
+- Web Speech unavailable
+  Your browser does not support that provider for this session. Switch to `Whisper` or `Groq`.
+- Replies are silent
+  Check the `Text to Speech` provider and your audio output device.
+- Recognition is inaccurate
+  Try setting an explicit input language instead of auto-detect.

@@ -1,64 +1,69 @@
 ---
 title: "Transcription Models"
-description: "RealTimeX supports custom audio transcription providers."
+description: "Choose how RealTimeX transcribes recorded audio and understand how this differs from chat speech controls"
 ---
-
-import { FeatureCard } from "../../components/FeatureCard";
 
 # Transcription Models
 
-RealTimeX supports both local and cloud-based audio transcription providers—enabling fast, accurate speech-to-text for any workflow.
+The `Transcription` page controls how RealTimeX transcribes audio recordings.
 
-## Supported Transcription Model Providers
+Open it from `Settings > Transcription`.
 
-### Local Transcription Model Providers
+## What this page is for
 
-<div style={{
-  display: "grid",
-  gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))",
-  gap: "1rem",
-  margin: "1.2rem 0"
-}}>
-  <FeatureCard title="Built-in (default)" href="https://huggingface.co/Xenova/whisper-small">
-    <img
-      src="/images/ai-providers/xenova.webp"
-      alt="Xenova Whisper"
-      height={38}
-      style={{
-        display: "block",
-        marginBottom: 8,
-        maxHeight: 38,
-        width: "auto",
-        maxWidth: 80,
-        objectFit: "contain"
-      }}
-    />
-    <div>Fast, private Whisper-based transcription via Xenova.</div>
-  </FeatureCard>
-</div>
+This page is for transcription workflows that process recorded or imported audio.
 
-### Cloud Transcription Model Providers
+It is **not** the same as the `Speech to Text` section inside `Settings > Voice & Speech`, which controls chat-thread dictation and voice chat.
 
-<div style={{
-  display: "grid",
-  gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))",
-  gap: "1rem",
-  margin: "1.2rem 0"
-}}>
-  <FeatureCard title="OpenAI" href="https://platform.openai.com/">
-    <img
-      src="/images/ai-providers/openai.svg"
-      alt="OpenAI"
-      height={38}
-      style={{
-        display: "block",
-        marginBottom: 8,
-        maxHeight: 38,
-        width: "auto",
-        maxWidth: 80,
-        objectFit: "contain"
-      }}
-    />
-    <div>Industry-leading Whisper Large-V3 and more for cloud STT.</div>
-  </FeatureCard>
-</div>
+Use `Transcription` when you are configuring the general audio-transcription pipeline.
+
+Use `Voice & Speech` when you are configuring live mic input in chat.
+
+## Current provider choices
+
+The current product exposes two transcription providers on this page:
+
+- `RealTimeX Local`
+- `OpenAI`
+
+## RealTimeX Local
+
+`RealTimeX Local` uses browser-based Whisper models for on-device transcription.
+
+The current setup flow lets you:
+
+- choose a Whisper model
+- download models on first use or ahead of time
+- trade speed against accuracy based on your device
+- keep transcription local to the machine running RealTimeX
+
+Smaller models are faster and lighter.
+
+Larger models are usually more accurate, but they require more device resources and more download time.
+
+## OpenAI
+
+`OpenAI` uses cloud Whisper transcription.
+
+The current setup is simple:
+
+- add an OpenAI API key
+- use the built-in OpenAI Whisper configuration shown in the page
+
+Use this when you want cloud transcription instead of downloading local models.
+
+## Choosing between local and cloud transcription
+
+- Use `RealTimeX Local` when privacy, offline use, or avoiding cloud calls matters most.
+- Use `OpenAI` when you want a managed cloud transcription path and do not want to handle local model downloads.
+
+## Important distinction: Transcription vs Speech to Text
+
+RealTimeX now has two separate audio input settings areas:
+
+- `Settings > Transcription`
+  This page controls the transcription pipeline for recorded audio workflows.
+- `Settings > Voice & Speech`
+  This controls live `Speech to Text` and `Text to Speech` behavior used in chat.
+
+If you are trying to change dictation or voice-chat behavior and nothing changes, you are probably on the wrong page.
