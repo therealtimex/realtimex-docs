@@ -1,96 +1,100 @@
 ---
 title: "System Prompt Variables"
-description: "Inject dynamic and static variables into your system prompt on the fly"
+description: "Reuse built-in and admin-defined variables inside workspace system prompts"
 ---
-import Image from "next/image";
-import { Callout } from "nextra/components";
 
 # System Prompt Variables
 
-System prompt variables allow you to inject **dynamic** and **static** variables into your system prompt on the fly. This is useful for a variety of use cases, such as:
+System prompt variables let you reuse values inside workspace system prompts by inserting placeholders such as `{date}` or `{company_name}`.
 
-- Injecting the user's name into the system prompt
-- Injecting the current date and time into the system prompt
-- Injecting static information into the system prompt like your company's name
-- and more!
+They are useful when you want prompts that stay consistent but still adapt to runtime context, such as:
 
-## Default Variables
+- current date and time
+- the current signed-in user's profile fields
+- reusable organization-specific values maintained by an admin
 
-<Callout type="info" emoji="️💡">
-  RealTimeX can have varying default variables depending on if you are using the **RealTimeX via Docker** or **RealTimeX Desktop** version.
-</Callout>
+## Where variables are managed
 
-RealTimeX comes with a set of default variables that you can use in your system prompt. You can view the full list of active variables by clicking on the **System Prompt Variables** link in the sidebar under **Tools** when on the settings page.
+Admins manage variables in `Settings > Tools > System Prompt Variables`.
 
-<Image
-  src="/images/features/system-prompt-variables/sidebar-link.png"
-  height={1080}
-  width={1920}
-  quality={100}
-  alt="RealTimeX System Prompt Variables"
-  style={{ borderRadius: 20, marginBottom: 10 }}
-/>
+The page lists each variable's:
 
-| Variable | Description | Available in |
-| -------- | ----------- | ------------ |
-| `{date}` | The current date | ALL VERSIONS |
-| `{time}` | The current time | ALL VERSIONS |
-| `{datetime}` | The current date and time | ALL VERSIONS |
-| `{user.name}` | The name of the user | ALL VERSIONS |
-| `{user.bio}` | The bio field of the user | ALL VERSIONS |
-| `{os.name}` | The name of the operating system | RealTimeX Desktop |
-| `{os.arch}` | The architecture of the operating system | RealTimeX Desktop |
+- key
+- current value
+- description
+- type
 
-_Note: Any time based variable will the current time **of the machine** RealTimeX is running on. Keep this in mind in Docker based versions of RealTimeX._
+## Built-in variables
 
-## Custom Variables
+Current built-ins include:
 
-You can also create your own custom variables by clicking the **Add Variable** button on the **System Prompt Variables** page.
+- `{time}`
+- `{date}`
+- `{datetime}`
+- `{user.name}`
+- `{user.email}`
+- `{user.bio}`
 
-<Image
-  src="/images/features/system-prompt-variables/add-variable.png"
-  height={1080}
-  width={1920}
-  quality={100}
-  alt="RealTimeX Custom Variables"
-/>
+Two practical notes:
 
-All user created variables are static values and will not change when expanded into a system prompt.
+- date and time values come from the machine running RealTimeX
+- `user.*` variables depend on signed-in user context and are mainly relevant in multi-user flows
 
-## How to use system prompt variables
+## Variable types
 
-<Callout type="info" emoji="️💡">
-  Invalid variables will simply not be expanded into the system prompt - you will not see an error message during an LLM request.
+RealTimeX distinguishes between a few kinds of variables:
 
-  You can tell if a variable is invalid once you stop editing the system prompt and it is **not highlighted in blue** in the UI.
-</Callout>
+- `System`: built-in runtime values such as date and time
+- `User`: built-in values taken from the current user's profile
+- `Static`: admin-defined values stored in the app
 
-System prompt variables can be used any workspace's **System Prompt** field. You can inject a variable by editing the system prompt and using the variable in the prompt.
+In practice, admins create and maintain `Static` variables. Built-in `System` and `User` variables are read-only.
+
+## Creating a custom variable
+
+Use `Add Variable` on the management page to create a new static variable.
+
+For custom keys:
+
+- keys must use letters, numbers, and underscores only
+- keys cannot start with `user.` or `system.`
+- admins can edit or delete static variables later
+
+Examples of good custom keys:
+
+- `{company_name}`
+- `{support_hours}`
+- `{legal_disclaimer}`
+
+## Using variables in a workspace prompt
+
+Variables are used inside a workspace's `System Prompt` field in **Workspace Settings > Chat**.
+
+The system prompt editor already helps here:
+
+- it links directly to the variables management page
+- it shows available variables
+- it highlights recognized placeholders in the prompt display
 
 Example:
 
-```
-You are a helpful assistant.
+```text
+You are a helpful assistant for {company_name}.
 Today is {date} and the current time is {time}.
-The user's name is {user.name}, they work at {company_name} and this is what we know about them:
+The current user is {user.name}. Use this profile context when relevant:
 {user.bio}
 ```
 
-When expanded into a system prompt, it will look like this:
+## What happens if a variable is invalid
 
-```
-You are a helpful assistant.
-Today is 2024-01-01 and the current time is 12:00:00.
-The user's name is John Doe, they work at Google and this is what we know about them:
-Rock climbing is my favorite hobby and I am obsessed with optimizing AI agents and workflows.
-```
+If RealTimeX does not recognize a placeholder, it is not expanded into a real value. That means variable names should be checked carefully when editing prompts.
 
-### UI Example:
+## Good uses
 
-<Image
-  src="/images/features/system-prompt-variables/system-prompt-var.png"
-  height={1080}
-  width={1920}
-  quality={100}
-  alt="RealTimeX System Prompt Variables"
-/>
+System prompt variables work best for values that are reused across many workspaces or prompts:
+
+- organization name
+- reusable policy snippets
+- support contact details
+- date and time context
+- signed-in user context
