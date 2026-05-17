@@ -1,326 +1,134 @@
 ---
 title: "Large Language Models"
-description: "RealTimeX allows you to use a host of LLM providers for chatting and generative AI."
+description: "Choose the system LLM, manage local model backends, and override providers per workspace"
 ---
-
-import { FeatureCard } from "../../components/FeatureCard";
-import { Callout } from "nextra/components";
 
 # Large Language Models
 
-<Callout type="info" emoji="💡">
-  **Tip:** Multi-modal models (text-to-text & image-to-text) are supported for both System and Workspace use.
-</Callout>
+RealTimeX lets you choose a system-wide language model provider, then override it per workspace when a specific chat flow needs something different.
 
-RealTimeX empowers you to chat, generate, and build with the world’s best LLMs—from local models to global cloud providers.  
-Select your preferred provider and model; some may require additional configuration.
+Open the main selector from `Settings > Language Model`.
 
-## Supported Language Model Providers
+## How the system LLM setting works
 
-### Local Language Model Providers
+The `Language Model` page controls the default provider used by the instance.
 
-<div style={{
-  display: "grid",
-  gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))",
-  gap: "1rem",
-  margin: "1.2rem 0"
-}}>
-  <FeatureCard title="Built-in (default)" href="#">
-    <img
-      src="/images/ai-providers/realtimex.png"
-      alt="Built-in (default)"
-      height={38}
-      style={{
-        display: "block",
-        marginBottom: 8,
-        maxHeight: 38,
-        width: "auto",
-        maxWidth: 80,
-        objectFit: "contain"
-      }}
-    />
-    <div>Default fast and private model for all users.</div>
-  </FeatureCard>
-  <FeatureCard title="Ollama" href="https://ollama.com/">
-    <img
-      src="/images/ai-providers/ollama.svg"
-      alt="Ollama"
-      height="38"
-      style={{
-        display: "block",
-        marginBottom: 8,
-        maxHeight: 38,
-        width: "auto",
-        maxWidth: 80,
-        objectFit: "contain"
-      }}
-    />
-    <div>Modern local LLM runner, supports many open models.</div>
-  </FeatureCard>
-  <FeatureCard title="LM Studio" href="https://lmstudio.ai/">
-    <img
-      src="/images/ai-providers/lmstudio.svg"
-      alt="LM Studio"
-      height={38}
-      style={{
-        display: "block",
-        marginBottom: 8,
-        maxHeight: 38,
-        width: "auto",
-        maxWidth: 80,
-        objectFit: "contain"
-      }}
-    />
-    <div>Easy-to-use desktop app for local LLM inference.</div>
-  </FeatureCard>
-  <FeatureCard title="Local AI" href="https://localai.io/">
-    <img
-      src="/images/ai-providers/localai.png"
-      alt="Local AI"
-      height={38}
-      style={{
-        display: "block",
-        marginBottom: 8,
-        maxHeight: 38,
-        width: "auto",
-        maxWidth: 80,
-        objectFit: "contain"
-      }}
-    />
-    <div>Open source, extensible local inference backend.</div>
-  </FeatureCard>
-</div>
+That default matters for:
 
-### Cloud Language Model Providers
+- workspace chats that inherit the system setting
+- features that rely on the shared system LLM preference
+- any workflow that does not explicitly choose a different provider
 
-<div style={{
-  display: "grid",
-  gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))",
-  gap: "1rem",
-  margin: "1.2rem 0"
-}}>
-  <FeatureCard title="OpenAI" href="https://platform.openai.com/">
-    <img
-      src="/images/ai-providers/openai.svg"
-      alt="OpenAI"
-      height={38}
-      style={{
-        display: "block",
-        marginBottom: 8,
-        maxHeight: 38,
-        width: "auto",
-        maxWidth: 80,
-        objectFit: "contain"
-      }}
-    />
-    <div>GPT-4o, GPT-4, GPT-3.5, and more.</div>
-  </FeatureCard>
-  <FeatureCard title="Azure OpenAI" href="https://azure.microsoft.com/en-us/products/ai-services/openai-service">
-    <img
-      src="/images/ai-providers/azure.svg"
-      alt="Azure OpenAI"
-      height={38}
-      style={{
-        display: "block",
-        marginBottom: 8,
-        maxHeight: 38,
-        width: "auto",
-        maxWidth: 80,
-        objectFit: "contain"
-      }}
-    />
-    <div>Microsoft’s enterprise OpenAI service.</div>
-  </FeatureCard>
-  <FeatureCard title="AWS Bedrock" href="https://aws.amazon.com/bedrock">
-    <img
-      src="/images/ai-providers/bedrock-color.svg"
-      alt="AWS Bedrock"
-      height={38}
-      style={{
-        display: "block",
-        marginBottom: 8,
-        maxHeight: 38,
-        width: "auto",
-        maxWidth: 80,
-        objectFit: "contain"
-      }}
-    />
-    <div>Amazon’s generative AI platform.</div>
-  </FeatureCard>
-  <FeatureCard title="Anthropic" href="https://anthropic.com/">
-    <img
-      src="/images/ai-providers/anthropic.svg"
-      alt="Anthropic"
-      height={38}
-      style={{
-        display: "block",
-        marginBottom: 8,
-        maxHeight: 38,
-        width: "auto",
-        maxWidth: 80,
-        objectFit: "contain"
-      }}
-    />
-    <div>Claude family models (Claude 3, Opus, etc).</div>
-  </FeatureCard>
-  <FeatureCard title="Cohere" href="https://cohere.com/">
-    <img
-      src="/images/ai-providers/cohere-color.svg"
-      alt="Cohere"
-      height={38}
-      style={{
-        display: "block",
-        marginBottom: 8,
-        maxHeight: 38,
-        width: "auto",
-        maxWidth: 80,
-        objectFit: "contain"
-      }}
-    />
-    <div>Enterprise language and embedding models.</div>
-  </FeatureCard>
-  <FeatureCard title="Google Gemini Pro" href="https://ai.google.dev/">
-    <img
-      src="/images/ai-providers/gemini-color.svg"
-      alt="Gemini"
-      height={38}
-      style={{
-        display: "block",
-        marginBottom: 8,
-        maxHeight: 38,
-        width: "auto",
-        maxWidth: 80,
-        objectFit: "contain"
-      }}
-    />
-    <div>Google’s latest multi-modal AI.</div>
-  </FeatureCard>
-  <FeatureCard title="Hugging Face" href="https://huggingface.co/">
-    <img
-      src="/images/ai-providers/huggingface-color.svg"
-      alt="Hugging Face"
-      height={38}
-      style={{
-        display: "block",
-        marginBottom: 8,
-        maxHeight: 38,
-        width: "auto",
-        maxWidth: 80,
-        objectFit: "contain"
-      }}
-    />
-    <div>Run any model from the Hugging Face Hub.</div>
-  </FeatureCard>
-  <FeatureCard title="Together AI" href="https://www.together.ai/">
-    <img
-      src="/images/ai-providers/together-color.svg"
-      alt="Together AI"
-      height={38}
-      style={{
-        display: "block",
-        marginBottom: 8,
-        maxHeight: 38,
-        width: "auto",
-        maxWidth: 80,
-        objectFit: "contain"
-      }}
-    />
-    <div>Fast, multi-model provider with open APIs.</div>
-  </FeatureCard>
-  <FeatureCard title="OpenRouter" href="https://openrouter.ai/">
-    <img
-      src="/images/ai-providers/openrouter.svg"
-      alt="OpenRouter"
-      height={38}
-      style={{
-        display: "block",
-        marginBottom: 8,
-        maxHeight: 38,
-        width: "auto",
-        maxWidth: 80,
-        objectFit: "contain"
-      }}
-    />
-    <div>Unified API for many top LLMs.</div>
-  </FeatureCard>
-  <FeatureCard title="Perplexity AI" href="https://www.perplexity.ai/">
-    <img
-      src="/images/ai-providers/perplexity.svg"
-      alt="Perplexity AI"
-      height={38}
-      style={{
-        display: "block",
-        marginBottom: 8,
-        maxHeight: 38,
-        width: "auto",
-        maxWidth: 80,
-        objectFit: "contain"
-      }}
-    />
-    <div>Conversational search and AI answers.</div>
-  </FeatureCard>
-  <FeatureCard title="Mistral API" href="https://mistral.ai/">
-    <img
-      src="/images/ai-providers/mistral-color.svg"
-      alt="Mistral"
-      height={38}
-      style={{
-        display: "block",
-        marginBottom: 8,
-        maxHeight: 38,
-        width: "auto",
-        maxWidth: 80,
-        objectFit: "contain"
-      }}
-    />
-    <div>Fast, powerful open models (Mistral, Mixtral, etc).</div>
-  </FeatureCard>
-  <FeatureCard title="Groq" href="https://groq.com/">
-    <img
-      src="/images/ai-providers/groq.svg"
-      alt="Groq"
-      height={38}
-      style={{
-        display: "block",
-        marginBottom: 8,
-        maxHeight: 38,
-        width: "auto",
-        maxWidth: 80,
-        objectFit: "contain"
-      }}
-    />
-    <div>Ultra-fast inference for top LLMs.</div>
-  </FeatureCard>
-  <FeatureCard title="KoboldCPP" href="https://github.com/LostRuins/koboldcpp">
-    <img
-      src="/images/ai-providers/koboldcpp.png"
-      alt="KoboldCPP"
-      height={38}
-      style={{
-        display: "block",
-        marginBottom: 8,
-        maxHeight: 38,
-        width: "auto",
-        maxWidth: 80,
-        objectFit: "contain"
-      }}
-    />
-    <div>Run GGUF models on your own hardware.</div>
-  </FeatureCard>
-  <FeatureCard title="OpenAI (generic)" href="/RealTimeX-setup/llm-configuration/cloud/openai-generic">
-    <img
-      src="/images/ai-providers/openai.svg"
-      alt="OpenAI (generic)"
-      height={38}
-      style={{
-        display: "block",
-        marginBottom: 8,
-        maxHeight: 38,
-        width: "auto",
-        maxWidth: 80,
-        objectFit: "contain"
-      }}
-    />
-    <div>Generic OpenAI-compatible API.</div>
-  </FeatureCard>
-</div>
+When you select a provider, RealTimeX shows that provider's configuration fields directly below the selector. Depending on the provider, that can include:
+
+- API keys
+- base URLs
+- deployment names
+- token limits
+- model selectors
+- provider-specific advanced options
+
+## Provider types
+
+The current product supports several kinds of language model provider.
+
+### RealTimeX-managed options
+
+- `RealTimeX Cloud` for hosted models without local inference setup
+- `RealTimeX Local` for GGUF models running on your machine through the managed `llama-server` runtime
+
+### Hosted cloud providers
+
+Current built-in cloud choices include providers such as:
+
+- `OpenAI`
+- `Azure OpenAI`
+- `Anthropic`
+- `Gemini`
+- `DeepSeek`
+- `Groq`
+- `Mistral`
+- `Cohere`
+- `Perplexity`
+- `OpenRouter`
+- `Together AI`
+- `Fireworks AI`
+- `AWS Bedrock`
+- `xAI`
+- `Moonshot AI`
+- `Novita AI`
+- `PPIO`
+- `APIpie`
+
+### Self-hosted and local endpoints
+
+Current built-in local or self-hosted choices include:
+
+- `Ollama`
+- `LM Studio`
+- `llama.cpp`
+- `Local AI`
+- `KoboldCPP`
+- `Oobabooga Web UI`
+- `Dell Pro AI Studio`
+- `LiteLLM`
+- `Generic OpenAI`
+
+### Plugin providers
+
+Plugins can register additional LLM providers. When that happens, those providers appear in the same selector as the built-in options.
+
+## Workspace overrides
+
+Each workspace can either inherit the system default or choose its own provider.
+
+In workspace chat settings, the current flow supports:
+
+- `System default` to inherit the instance-wide provider
+- a workspace-specific provider selection
+- a workspace-specific model selection when that provider supports it
+
+Some providers do not yet support full multi-model workspace selection. In those cases, the workspace can still point at that provider, but the actual model comes from the system-level configuration for that provider.
+
+## Local model management
+
+If you use local inference, there are two related settings areas.
+
+### `Settings > RealTimeX Local`
+
+Use this page when you want the built-in managed local workflow. The current product uses it to manage:
+
+- the `llama-server` runtime
+- runtime download and update status
+- hardware/backend availability
+- the default `RealTimeX Local` model
+
+### `Settings > Local Models`
+
+Use this page when you want to inspect or manage model inventories across local backends.
+
+The current UI covers:
+
+- `Ollama`
+- `LocalAI`
+- `LM Studio`
+- `llama.cpp`
+- `RealTimeX Local`
+
+Depending on the backend, you can inspect status, review model counts, pull or download models, delete models, warm models into memory, and set defaults.
+
+## Choosing the right option
+
+- Use `RealTimeX Cloud` when you want the simplest hosted setup.
+- Use `RealTimeX Local` when you want an integrated on-device GGUF workflow without running a separate model server yourself.
+- Use a hosted provider like `OpenAI`, `Anthropic`, or `Gemini` when your team already operates around that vendor.
+- Use `Generic OpenAI` or `LiteLLM` when you want a compatibility layer in front of multiple model backends.
+- Use `Ollama`, `LM Studio`, or `llama.cpp` when you already run local model infrastructure and want RealTimeX to connect to it.
+
+## Credentials and access
+
+Many hosted providers require keys, endpoints, or deployment details. Those are configured inside the provider section on the `Language Model` page.
+
+Use [API Access & Keys](/features/api) when outside clients need to call into RealTimeX.
+
+Use [Credentials](/credentials) when RealTimeX agents or tools need reusable outbound secrets for other systems.

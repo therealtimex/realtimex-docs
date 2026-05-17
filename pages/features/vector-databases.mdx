@@ -1,179 +1,86 @@
 ---
 title: "Vector Databases"
-description: "RealTimeX supports a wide range of local and cloud vector database providers for AI applications."
+description: "Choose where embeddings are stored, understand reset behavior, and tune retrieval per workspace"
 ---
-
-import { FeatureCard } from "../../components/FeatureCard";
 
 # Vector Databases
 
-RealTimeX comes with a private built-in vector database powered by [LanceDB](https://lancedb.com/).  
-Your vectors never leave RealTimeX when using the default option.
+RealTimeX stores embeddings in a vector database so it can retrieve relevant context from your indexed content.
 
-RealTimeX supports many vector database providers out of the box.
+Open the system-wide storage selector from `Settings > Vector Database`.
 
-## Supported Vector Databases
+## The default experience
 
-### Local Vector Database Providers
+The default built-in option is `LanceDB`.
 
-<div style={{
-  display: "grid",
-  gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))",
-  gap: "1rem",
-  margin: "1.2rem 0"
-}}>
-  <FeatureCard title="LanceDB (Built-in)" href="https://github.com/lancedb/lancedb">
-    <img
-      src="/images/ai-providers/lancedb.png"
-      alt="LanceDB"
-      height={38}
-      style={{
-        display: "block",
-        marginBottom: 8,
-        maxHeight: 38,
-        width: "auto",
-        maxWidth: 80,
-        objectFit: "contain"
-      }}
-    />
-    <div>Private, high-performance built-in vector database.</div>
-  </FeatureCard>
-  <FeatureCard title="PGVector" href="https://github.com/pgvector/pgvector">
-    <img
-      src="/images/ai-providers/pgvector.svg"
-      alt="PGVector"
-      height={38}
-      style={{
-        display: "block",
-        marginBottom: 8,
-        maxHeight: 38,
-        width: "auto",
-        maxWidth: 80,
-        objectFit: "contain"
-      }}
-    />
-    <div>PostgreSQL extension for vector search.</div>
-  </FeatureCard>
-  <FeatureCard title="Chroma" href="https://github.com/chroma-core/chroma">
-    <img
-      src="/images/ai-providers/chroma.webp"
-      alt="Chroma"
-      height={38}
-      style={{
-        display: "block",
-        marginBottom: 8,
-        maxHeight: 38,
-        width: "auto",
-        maxWidth: 80,
-        objectFit: "contain"
-      }}
-    />
-    <div>Open-source embedding database.</div>
-  </FeatureCard>
-  <FeatureCard title="Milvus" href="https://milvus.io/">
-    <img
-      src="/images/ai-providers/milvus.svg"
-      alt="Milvus"
-      height={38}
-      style={{
-        display: "block",
-        marginBottom: 8,
-        maxHeight: 38,
-        width: "auto",
-        maxWidth: 80,
-        objectFit: "contain"
-      }}
-    />
-    <div>Scalable vector database for AI applications.</div>
-  </FeatureCard>
-</div>
+This is the simplest path for many desktop and self-hosted deployments because it runs locally and does not require a separate managed vector service.
 
-### Cloud Vector Database Providers
+## Current database choices
 
-<div style={{
-  display: "grid",
-  gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))",
-  gap: "1rem",
-  margin: "1.2rem 0"
-}}>
-  <FeatureCard title="Pinecone" href="https://www.pinecone.io/">
-    <img
-      src="/images/ai-providers/pinecone.svg"
-      alt="Pinecone"
-      height={38}
-      style={{
-        display: "block",
-        marginBottom: 8,
-        maxHeight: 38,
-        width: "auto",
-        maxWidth: 380,
-        objectFit: "contain"
-      }}
-    />
-    <div>Managed, production-ready vector database.</div>
-  </FeatureCard>
-  <FeatureCard title="Zilliz" href="https://zilliz.com/">
-    <img
-      src="/images/ai-providers/zilliz.svg"
-      alt="Zilliz"
-      height={38}
-      style={{
-        display: "block",
-        marginBottom: 8,
-        maxHeight: 38,
-        width: "auto",
-        maxWidth: 280,
-        objectFit: "contain"
-      }}
-    />
-    <div>Cloud-native vector database by Milvus creators.</div>
-  </FeatureCard>
-  <FeatureCard title="AstraDB" href="https://www.datastax.com/products/datastax-astra">
-    <img
-      src="/images/ai-providers/astradb.svg"
-      alt="AstraDB"
-      height={38}
-      style={{
-        display: "block",
-        marginBottom: 8,
-        maxHeight: 38,
-        width: "auto",
-        maxWidth: 280,
-        objectFit: "contain"
-      }}
-    />
-    <div>Serverless, multi-cloud vector storage.</div>
-  </FeatureCard>
-  <FeatureCard title="Qdrant" href="https://qdrant.tech/">
-    <img
-      src="/images/ai-providers/qdrant.svg"
-      alt="Qdrant"
-      height={38}
-      style={{
-        display: "block",
-        marginBottom: 8,
-        maxHeight: 38,
-        width: "auto",
-        maxWidth: 980,
-        objectFit: "contain"
-      }}
-    />
-    <div>Open-source vector similarity search in the cloud.</div>
-  </FeatureCard>
-  <FeatureCard title="Weaviate" href="https://weaviate.io/">
-    <img
-      src="/images/ai-providers/weaviate.svg"
-      alt="Weaviate"
-      height={38}
-      style={{
-        display: "block",
-        marginBottom: 8,
-        maxHeight: 38,
-        width: "auto",
-        maxWidth: 980,
-        objectFit: "contain"
-      }}
-    />
-    <div>Semantic vector database, easy cloud deployment.</div>
-  </FeatureCard>
-</div>
+The current product exposes these vector database providers:
+
+- `LanceDB`
+- `PGVector`
+- `Chroma`
+- `Chroma Cloud`
+- `Pinecone`
+- `Zilliz Cloud`
+- `Qdrant`
+- `Weaviate`
+- `Milvus`
+- `AstraDB`
+
+Some are built for local or self-hosted use, while others are managed cloud services that require connection details and credentials.
+
+## Switching the vector database is destructive
+
+Changing the system vector database affects the entire instance, not just one workspace.
+
+The current product warns that switching providers will:
+
+- reset previously embedded documents in all workspaces
+- clear all embeddings from the vector database
+- remove documents from workspaces
+- keep uploaded source files available for re-embedding
+
+Treat a provider switch as an infrastructure migration, not a minor preference change.
+
+## Workspace-level retrieval settings
+
+After the system-wide database is chosen, each workspace still has its own retrieval controls.
+
+In workspace vector settings, the current UI lets you:
+
+- inspect the workspace vector database identifier
+- inspect the current vector count
+- choose `Default Search` or `Rerank Search` when the active database supports it
+- set the maximum number of context snippets
+- set the document similarity threshold
+- reset the vector database for that workspace only
+
+The workspace reset action is separate from the system-wide provider change. Use it when one workspace needs its vectors rebuilt without migrating the entire instance.
+
+## Search mode support
+
+`Search Mode` is currently shown only for supported vector databases. In the current UI, that support is limited to databases such as `LanceDB`.
+
+Use:
+
+- `Default Search` for standard vector similarity lookup
+- `Rerank Search` when you want candidate retrieval followed by reranking for better relevance
+
+## Choosing built-in vs external storage
+
+- Use `LanceDB` when you want the simplest local setup.
+- Use `PGVector` when your team already operates PostgreSQL and wants vector search there.
+- Use a managed cloud service when you want remote infrastructure, external scaling, or centralized database operations.
+- Use a self-hosted vector engine when you need more direct control over storage and deployment topology.
+
+## Vector database vs embedding model
+
+The vector database stores vectors. The embedding model creates them.
+
+If retrieval quality is poor, inspect both sides:
+
+- [Embedding Models](/features/embedding-models) for how content is encoded
+- `Vector Database` settings for where vectors are stored and how workspaces retrieve them

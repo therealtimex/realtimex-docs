@@ -1,86 +1,104 @@
 ---
 title: "Embedding Models"
-description: "RealTimeX supports many embedding model providers out of the box with very little, if any setup"
+description: "Choose how RealTimeX vectorizes documents and understand the impact of changing embedder settings"
 ---
-
-import { FeatureCard } from "@/components/FeatureCard";
 
 # Embedding Models
 
-RealTimeX supports a variety of embedding model providers out of the box with minimal setup.
+Embeddings turn documents and indexed workspace content into vectors so RealTimeX can retrieve relevant context for chat, query, and retrieval workflows.
 
-Embedding models transform text into numerical vectors for storage and fast similarity search in your vector database—this is the foundation of Retrieval Augmented Generation (RAG).
+Open the embedding selector from `Settings > Embedding Model`.
 
-## Supported Embedding Model Providers
+## What this setting controls
 
-### Local Embedding Model Providers
+The `Embedding Model` page controls how RealTimeX vectorizes content before it is stored in the vector database.
 
-<div style={{
-  display: "grid",
-  gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))",
-  gap: "1rem",
-  margin: "1.2rem 0"
-}}>
-  <FeatureCard title="Built-in (default)" href="/setup/embedder-configuration/local/built-in">
-    <img src="/images/ai-providers/realtimex.png" alt="Built-in (default)" height={38} style={{marginBottom: 8, width: "auto", maxHeight: 38, display: "block", objectFit: "contain"}} />
-    <div>Default RealTimeX embedder, works instantly—no extra setup required.</div>
-  </FeatureCard>
-  <FeatureCard title="Ollama" href="/setup/embedder-configuration/local/ollama">
-    <img src="/images/ai-providers/ollama.svg" alt="Ollama" height={38} style={{marginBottom: 8, width: "auto", maxHeight: 38, display: "block", objectFit: "contain"}} />
-    <div>Modern local LLM runner supporting a range of embedding models.</div>
-  </FeatureCard>
-  <FeatureCard title="LM Studio" href="/setup/embedder-configuration/local/lmstudio">
-    <img src="/images/ai-providers/lmstudio.svg" alt="LM Studio" height={38} style={{marginBottom: 8, width: "auto", maxHeight: 38, display: "block", objectFit: "contain"}} />
-    <div>Desktop app for local inference and embedding generation.</div>
-  </FeatureCard>
-  <FeatureCard title="Local AI" href="/setup/embedder-configuration/local/localai">
-    <img src="/images/ai-providers/localai.png" alt="Local AI" height={38} style={{marginBottom: 8, width: "auto", maxHeight: 38, display: "block", objectFit: "contain"}} />
-    <div>Open source local inference backend for flexible, private embedding.</div>
-  </FeatureCard>
-</div>
+This affects retrieval quality across features that depend on embeddings, including:
 
-### Cloud Embedding Model Providers
+- workspace document search
+- retrieval-backed chat and query flows
+- any feature that relies on semantic similarity instead of exact keyword matching
 
-<div style={{
-  display: "grid",
-  gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))",
-  gap: "1rem",
-  margin: "1.2rem 0"
-}}>
-  <FeatureCard title="OpenAI" href="/setup/embedder-configuration/cloud/openai">
-    <img src="/images/ai-providers/openai.svg" alt="OpenAI" height={38} style={{marginBottom: 8, width: "auto", maxHeight: 38, display: "block", objectFit: "contain"}} />
-    <div>State-of-the-art text embedding models (e.g. text-embedding-3).</div>
-  </FeatureCard>
-  <FeatureCard title="Azure OpenAI" href="/setup/embedder-configuration/cloud/azure-openai">
-    <img src="/images/ai-providers/azure.svg" alt="Azure OpenAI" height={38} style={{marginBottom: 8, width: "auto", maxHeight: 38, display: "block", objectFit: "contain"}} />
-    <div>Microsoft’s enterprise-grade OpenAI API for embedding and language.</div>
-  </FeatureCard>
-  <FeatureCard title="Cohere" href="/setup/embedder-configuration/cloud/cohere">
-    <img src="/images/ai-providers/cohere-color.svg" alt="Cohere" height={38} style={{marginBottom: 8, width: "auto", maxHeight: 38, display: "block", objectFit: "contain"}} />
-    <div>Powerful multilingual and domain-specific embedding models.</div>
-  </FeatureCard>
-  <FeatureCard title="Google Gemini Pro" href="/setup/embedder-configuration/cloud/google-gemini">
-    <img src="/images/ai-providers/gemini-color.svg" alt="Gemini" height={38} style={{marginBottom: 8, width: "auto", maxHeight: 38, display: "block", objectFit: "contain"}} />
-    <div>Google’s advanced multi-modal embedding models.</div>
-  </FeatureCard>
-  <FeatureCard title="Hugging Face" href="/setup/embedder-configuration/cloud/huggingface">
-    <img src="/images/ai-providers/huggingface-color.svg" alt="Hugging Face" height={38} style={{marginBottom: 8, width: "auto", maxHeight: 38, display: "block", objectFit: "contain"}} />
-    <div>Run any open embedding model from Hugging Face Hub.</div>
-  </FeatureCard>
-  <FeatureCard title="Together AI" href="/setup/embedder-configuration/cloud/together-ai">
-    <img src="/images/ai-providers/together-color.svg" alt="Together AI" height={38} style={{marginBottom: 8, width: "auto", maxHeight: 38, display: "block", objectFit: "contain"}} />
-    <div>Multi-model cloud embedding with simple API.</div>
-  </FeatureCard>
-  <FeatureCard title="OpenRouter" href="/setup/embedder-configuration/cloud/openrouter">
-    <img src="/images/ai-providers/openrouter.svg" alt="OpenRouter" height={38} style={{marginBottom: 8, width: "auto", maxHeight: 38, display: "block", objectFit: "contain"}} />
-    <div>Unified API for embedding models across providers.</div>
-  </FeatureCard>
-  <FeatureCard title="Mistral API" href="/setup/embedder-configuration/cloud/mistral-ai">
-    <img src="/images/ai-providers/mistral-color.svg" alt="Mistral" height={38} style={{marginBottom: 8, width: "auto", maxHeight: 38, display: "block", objectFit: "contain"}} />
-    <div>Fast, powerful open models for language and embedding.</div>
-  </FeatureCard>
-  <FeatureCard title="Groq" href="/setup/embedder-configuration/cloud/groq">
-    <img src="/images/ai-providers/groq.svg" alt="Groq" height={38} style={{marginBottom: 8, width: "auto", maxHeight: 38, display: "block", objectFit: "contain"}} />
-    <div>Ultra-fast inference for embedding and LLM models.</div>
-  </FeatureCard>
-</div>
+## Current provider types
+
+The current app supports several kinds of embedding provider.
+
+### Built-in and managed options
+
+- `Native` for built-in local embedding models
+- `RealTimeX Cloud` for hosted embedding models without local setup
+
+### Hosted providers
+
+Current hosted choices include:
+
+- `OpenAI`
+- `Azure OpenAI`
+- `Gemini`
+- `Cohere`
+- `Voyage AI`
+- `Mistral AI`
+
+### Local and self-hosted providers
+
+Current local or self-hosted choices include:
+
+- `Local AI`
+- `Ollama`
+- `LM Studio`
+- `llama.cpp`
+
+### Compatibility layers and plugins
+
+The current selector also supports:
+
+- `LiteLLM`
+- `Generic OpenAI`
+- plugin-registered embedding providers
+
+## What you configure on this page
+
+The fields shown under the selector depend on the provider you choose.
+
+Common examples include:
+
+- API keys
+- base URLs
+- deployment names
+- embedding model names
+- loaded model selectors for local runtimes
+- maximum embedding chunk length
+
+RealTimeX saves the provider choice and the provider-specific fields together, so you can keep the embedding configuration fully separate from chat model settings.
+
+## Changing the embedding model is destructive
+
+If your instance already has embeddings or cached embedding data, changing the embedder is not a cosmetic change.
+
+The current product warns that switching the embedding provider or model will:
+
+- clear embeddings from the vector database
+- remove documents from workspaces
+- keep the uploaded source files available for re-embedding
+
+This is an irreversible operation. Plan the change before switching production workspaces to a new embedder.
+
+## Embeddings vs vector database
+
+The embedding model and the vector database solve different parts of retrieval:
+
+- the embedding model decides how content is encoded into vectors
+- the vector database decides where those vectors are stored and searched
+
+Change the embedder when you want different retrieval behavior or a different provider.
+
+Change the vector database when you want different storage, scaling, or infrastructure.
+
+For storage choices, see [Vector Databases](/features/vector-databases).
+
+## Tips for stable retrieval
+
+- Keep the same embedding model across workspaces when you want consistent retrieval behavior.
+- Re-embed important workspaces after switching providers or models.
+- Confirm local embedding endpoints are reachable before making them the system default.
+- Treat chunk-length changes carefully, because they can alter how documents are segmented before embedding.
