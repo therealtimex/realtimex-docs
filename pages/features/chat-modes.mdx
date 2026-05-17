@@ -1,70 +1,81 @@
 ---
 title: "Chat Modes"
-description: "Understanding the difference between Query and Chat modes in RealTimeX"
+description: "Choose between broader conversation and document-grounded answers"
 ---
 
-import { Callout } from "nextra/components";
-import Image from "next/image";
+# Chat Modes
 
-# Chat Modes in RealTimeX
+Chat Mode is a workspace setting that controls how strictly RealTimeX stays grounded in workspace content when answering.
 
-RealTimeX offers two ways to chat with your documents: Query mode and Chat mode. Let's understand what each does and how to get the best results.
+You can change it in **Workspace Settings > Chat**. The same concept also appears in `Chat Embed` as the embed `Response mode`.
 
-## Query Mode vs Chat Mode
+## The two modes
 
-**Query Mode**:
-- Only uses information from your uploaded documents
-- Will tell you if it can't find relevant information
-- Best for when you need accurate, document-based answers
+### Chat
 
-**Chat Mode**:
-- Uses both your documents and the AI's general knowledge
-- More conversational and flexible
-- Good for brainstorming and exploring topics
+`Chat` is the broader, more flexible mode.
 
-## Common Questions
+- answers general questions
+- can respond even when the answer is not in your workspace documents
+- works well for assistants, brainstorming, onboarding, and support flows where broader model knowledge is acceptable
 
-### "It keeps saying 'No relevant information found' in Query mode"
+### Query
 
-This usually means one of three things:
-1. The information might be in your document but worded differently
-2. The similarity settings might be too strict
-3. The document might be too large and split in a way that makes finding information difficult
+`Query` is the stricter, document-grounded mode.
 
-**Quick fixes to try:**
-1. Go to workspace settings → Vector Database Settings
-2. Change "Document similarity threshold" to "No restriction"
-3. Try asking your question using words that match how it's written in your document
+- aims to answer from workspace context
+- only answers when relevant context is found
+- returns the workspace's `Query Refusal Response` when it cannot ground the answer
 
-<Callout type="info" emoji="💡">
-  Instead of asking "How do I start the app?", try using terms from your document like "How do I initialize the application?"
-</Callout>
+This makes `Query` the better choice for policy lookups, internal knowledge bases, technical documentation, and any workflow where you want RealTimeX to avoid improvising.
 
-### "When should I use Query mode vs Chat mode?"
+## Where Query mode gets its answer
 
-Use **Query mode** when:
-- You need factual answers from your documents
-- You're working with technical documentation
-- You want to prevent made-up information
+Query mode depends on the workspace's indexed content and retrieval settings. In practice, the answer quality is shaped by:
 
-Use **Chat mode** when:
-- You want more conversational responses
-- You need additional context or examples
-- You're brainstorming ideas
+- the documents and notes in the workspace
+- the `Document Similarity Threshold` in **Workspace Settings > Vector**
+- the number of context snippets included from search
+- the custom `Query Refusal Response` in **Workspace Settings > Chat**
 
-### "Why does it work better with some documents than others?"
+If the workspace has no usable indexed content, or search cannot find relevant context, Query mode will refuse instead of guessing.
 
-Documents are processed in chunks, and each chunk is analyzed separately. This means:
-- Large documents might need more specific questions
-- Technical documents work better with technical questions
+## When to use each mode
 
-## Tips for Better Results
+Choose `Chat` when you want:
 
-1. **Start with Query mode** and "No restriction" similarity if you're not finding information
-2. **Use specific terms** from your documents in your questions
-3. **Switch to Chat mode** if you need more context or explanation
-4. **Try rephrasing your question** if you're not getting good results
+- a more conversational assistant
+- help that can combine workspace context with broader model knowledge
+- responses to general questions, even if the question is only loosely related to your documents
 
-<Callout type="warning" emoji="⚠️">
-  If you're still not getting good results, check your workspace settings and try adjusting the "Document similarity threshold" between No restriction, Low (≥ .25), Medium (≥ .50), or High (≥ .75) to find what works best for your documents.
-</Callout>
+Choose `Query` when you want:
+
+- answers grounded in workspace material
+- fewer speculative or made-up answers
+- a searchable knowledge-base experience instead of a general assistant
+
+## Common problems
+
+### Query mode says it cannot find relevant information
+
+Usually one of these is true:
+
+1. The workspace does not have indexed content yet.
+2. The relevant wording in your documents is too different from the question.
+3. The similarity threshold is too strict.
+
+Practical checks:
+
+1. Confirm the workspace actually contains processed documents, notes, or other indexed content.
+2. Lower the `Document Similarity Threshold` in **Workspace Settings > Vector** if retrieval is too strict.
+3. Ask with terms that more closely match the wording in the source material.
+
+### Chat mode answers questions that are not in the workspace
+
+That is expected. `Chat` mode is intentionally permissive. If you want RealTimeX to answer only when the workspace can support the answer, switch the workspace or embed to `Query`.
+
+## Good defaults
+
+- Start with `Query` for internal docs, SOPs, contracts, policies, and reference-heavy workspaces.
+- Start with `Chat` for demos, customer-facing assistants, and exploratory conversations.
+- If users complain that Query mode is too strict, adjust retrieval settings before switching modes entirely.
