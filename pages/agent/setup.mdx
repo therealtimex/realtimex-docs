@@ -1,107 +1,93 @@
 ---
 title: "AI Agent Setup"
-description: "This guide explain how to setup AI Agents on RealTimeX"
+description: "Configure the current RealTimeX agent stack across workspace skills, flows, MCP servers, and runtime controls."
 ---
 
-import { Callout } from "nextra/components";
-import Image from "next/image";
+# Setting Up AI Agents
 
-# Setting up AI Agents
+The current RealTimeX agent setup flow is spread across a few connected surfaces. Start with the workspace `Agent` tab, then add runtime or plugin prerequisites only when your workflow needs them.
 
-### 1) Go to Agent configuration
+## 1. Open the workspace Agent settings
 
-Open the workspace settings and go to the agent configuration menu
+Go to your workspace, then open:
 
-<Image
-  src="/images/realtimex-setup/agent-configuration/configuration-menu.png"
-  height={1080}
-  width={1920}
-  quality={100}
-  alt="RealTimeX Agent Configuration Menu"
-/>
+- `Workspace Settings > Agent`
 
-### 2) Choose the LLM for your Agent
+This is the main capability configuration surface for interactive `@agent` sessions in that workspace.
 
-On workspace settings, select your LLM Provider and the Model you want your Agent to use. Be sure to click the "Update workspace agent" button or your settings will not be saved.
+## 2. Configure Skills
 
-<Image
-  src="/images/realtimex-setup/agent-configuration/llm.png"
-  height={1080}
-  width={1920}
-  quality={100}
-  alt="RealTimeX Agent LLM"
-/>
+In the `Skills` tab, choose which built-in plugin skills and imported skills the workspace agent can use.
 
-After updating the workspace agent settings, click the "Configure Agent Skills" button.
+This includes:
 
-<Image
-  src="/images/realtimex-setup/agent-configuration/configure-agent-skills-button.png"
-  height={1080}
-  width={1920}
-  quality={100}
-  alt="RealTimeX Agent LLM"
-/>
+- plugin-contributed skills
+- imported custom skills
 
-<Callout type="error" emoji="️⚠️">
-  **Caution**
+If a skill is enabled here, the workspace agent can use it. If it is disabled here, the agent cannot rely on it even if the skill exists elsewhere in the instance.
 
-    Not all LLM Models works well as Agents, you may need to use higher quantization models for better responses.
-    Example: `Llama 3 8B 8Bit Quantization` gives better responses as an Agent
+## 3. Configure Agent Flows
 
-</Callout>
+In the `Agent Flows` tab, enable the flows you want available to the workspace agent.
 
-<Callout type="info" emoji="️ℹ️">
-  **Note**
+Use this when the agent should be able to trigger reusable automation instead of handling everything as a pure chat task.
 
-    RealTimeX supports a lot of LLM providers for use with `@agent`s and you can see all the supported LLMs from [here](https://docs.realtimex.ai/features/language-models#supported-language-model-providers)
+## 4. Configure MCP Servers
 
-</Callout>
+In the `MCP Servers` tab, expose the remote or local MCP servers the workspace agent is allowed to use.
 
-### 3) Choose your Agent skills
+This is the main integration layer when you want agents to work with external tool ecosystems beyond built-in skills.
 
-Choose the skills, or tools, for your Agent to use. The skills labled "Default" are default skills that cannot be disabled.
+## 5. Check runtime prerequisites
 
-<Image
-  src="/images/realtimex-setup/agent-configuration/tools.png"
-  height={1080}
-  width={1920}
-  quality={100}
-  alt="RealTimeX Agent Skills"
-/>
+Some capabilities depend on runtime setup outside the workspace `Agent` tab.
 
-<Callout type="info" emoji="️ℹ️">
-  **Note**
+Review [Agent Runtime](/agent-runtime) when you need:
 
-    Some tools like `RAG`, `Summarize Documents` and `Scrape Websites` are enabled by default and you cannot disable them.
+- Agentic CLIs
+- working directories
+- Ambient Agent behavior
+- runtime visibility and diagnostics
 
-</Callout>
+## 6. Add browser capability when needed
 
-### 4) Choose your Search Provider (Optional)
+If your workflow needs authenticated browsing or automation:
 
-One of the tools agents can use is `Web-Browsing` which allows agents to browse the internet.
+1. Keep the [Agent Browser](/plugins/agent-browser) built-in enabled.
+2. Configure browser sessions in [Browser Tool](/features/browser-tool).
+3. Test the flow from chat with `@agent`.
 
-Currently we support the following search providers:
+## 7. Add reusable authentication when needed
 
-- [SearchApi](https://www.searchapi.io/) - Supports multiple search engines like Google, Bing, Baidu, Google News, YouTube, and etc.
-- [Google](https://www.google.com/)
-- [Serper](https://serper.dev/)
-- [Bing Search](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/bing-entity-search-api/)
-- [Serply](https://serply.io/)
+If advanced agent workflows need reusable secrets:
 
-<Callout type="info" emoji="️ℹ️">
-  **Note**
+- add them in [Credentials](/credentials)
 
-    You can ignore this step if you don't plan to use the `Web-Browsing` tool
+This is separate from plugin-specific API key forms and separate from CLI login state in [Agent Runtime](/agent-runtime).
 
-</Callout>
+## 8. Test with a small agent prompt
 
-<Image
-  src="/images/realtimex-setup/agent-configuration/search.png"
-  height={1080}
-  width={1920}
-  quality={100}
-  alt="RealTimeX Agent Web Browsing"
-/>
+After configuration, test with a short task in the target workspace.
 
-With Google Search Engine you can perform up to 100 search for free everyday.
+Examples:
 
+- `@agent summarize the important documents in this workspace`
+- `@agent use the enabled browser workflow to inspect this page`
+- `@agent use the configured MCP tools to check the current system state`
+
+## Setup checklist
+
+- `Skills` tab reviewed
+- `Agent Flows` tab reviewed if needed
+- `MCP Servers` tab reviewed if needed
+- runtime prerequisites configured
+- browser sessions configured if needed
+- credentials added if needed
+- one real prompt tested successfully
+
+## Related guides
+
+- [AI Agent Usage](/agent/usage)
+- [AI Agents Feature Page](/features/ai-agents)
+- [Agent Runtime](/agent-runtime)
+- [Plugins](/plugins)

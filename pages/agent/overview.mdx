@@ -1,25 +1,23 @@
 ---
 title: "AI Agents"
-description: "What are AI Agents in RealTimeX and how to use them?"
+description: "Understand what AI agents are in RealTimeX and where setup, usage, and runtime controls now live."
 ---
 
 import { FeatureCard } from "@/components/FeatureCard";
+import { Bot, BookOpenCheck, Activity } from "lucide-react";
 import { Callout } from "nextra/components";
 
 # AI Agents
 
-AI Agents in RealTimeX are LLM-powered assistants with access to tools, automations, and integrations.  
-Agents operate within your workspace but can be invoked in any chat or workflow via `@agent`.
+AI agents in RealTimeX are workspace-aware assistants that can operate across chat, skills, flows, MCP integrations, browser sessions, and runtime tooling.
+
+They are no longer just a thin wrapper around a few fixed built-in tools. In the current product, agent capability comes from a combination of workspace configuration, plugins, and runtime controls.
 
 <Callout type="info" emoji="🤖">
-  **Good to know:**  
-  All agents share the same toolset across workspaces, but can behave differently depending on their workspace context.  
-  More customization and advanced agent features are coming soon!
+  Interactive chat agents, Ambient Agent, Agentic CLIs, Browser Tool, and plugin-backed skills are related but separate parts of the system. This section focuses on the interactive `@agent` experience first.
 </Callout>
 
-## Quick Start Guides
-
-import { Bot, BookOpenCheck } from "lucide-react";
+## Start here
 
 <div style={{
   display: "grid",
@@ -27,28 +25,26 @@ import { Bot, BookOpenCheck } from "lucide-react";
   gap: "1.2rem",
   margin: "2rem 0"
 }}>
-  <FeatureCard title="Agent Setup Guide" href="./agent/setup">
-    <div style={{
-      marginBottom: 12,
-      display: "flex",
-      alignItems: "center",
-      height: 48
-    }}>
-      <Bot size={38} style={{marginRight: 12, color: "#226cff"}} />
-      <span style={{ fontWeight: 600, fontSize: "1.09em" }}>Agent Setup Guide</span>
-    </div>
-    <div>How to create, configure, and launch your first AI agent in RealTimeX.</div>
+  <FeatureCard title="Agent Setup" href="/agent/setup" icon={<Bot size={36} color="#226cff" />}>
+    Configure workspace skills, flows, MCP servers, and related runtime prerequisites.
   </FeatureCard>
-  <FeatureCard title="Agent Usage Guide" href="./agent/usage">
-    <div style={{
-      marginBottom: 12,
-      display: "flex",
-      alignItems: "center",
-      height: 48
-    }}>
-      <BookOpenCheck size={38} style={{marginRight: 12, color: "#0da37f"}} />
-      <span style={{ fontWeight: 600, fontSize: "1.09em" }}>Agent Usage Guide</span>
-    </div>
-    <div>Tips, commands, and workflows for getting the most out of your AI agents.</div>
+  <FeatureCard title="Agent Usage" href="/agent/usage" icon={<BookOpenCheck size={36} color="#0da37f" />}>
+    Start `@agent` sessions, continue them correctly, and understand how to end them.
+  </FeatureCard>
+  <FeatureCard title="Agent Runtime" href="/agent-runtime" icon={<Activity size={36} color="#31b5d6" />}>
+    Manage CLIs, working directories, Ambient Agent, diagnostics, and agent feed.
   </FeatureCard>
 </div>
+
+## What matters most now
+
+- Agent sessions start from chat with `@agent`.
+- Workspace capability is configured in `Workspace Settings > Agent`.
+- Operational power comes from [Agent Runtime](/agent-runtime).
+- Additional behavior often comes from [Plugins](/plugins).
+
+## Related guides
+
+- [AI Agents Feature Page](/features/ai-agents)
+- [Plugins](/plugins)
+- [Credentials](/credentials)

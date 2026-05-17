@@ -1,38 +1,113 @@
 ---
 title: "AI Agents"
-description: "Agents on RealTimeX can scrape websites, list and summarize your documents, search the web, make charts, and even save files to desktop and their own memory."
+description: "Start agent sessions with @agent and connect them to workspace skills, flows, MCP servers, and runtime tools."
 ---
 
 import { Callout } from "nextra/components";
-import Image from "next/image";
 import Link from "next/link";
 
 # AI Agents
 
-Agents are basically an LLM that has access to some simple tools. We will be adding much more customization in this area soon. All agents share the same tools across workspaces, but operate within the workspace they were invoked via `@agent`.
+AI Agents in RealTimeX are session-based assistants that can do more than answer a prompt once. When you invoke an agent, it can combine workspace context, enabled skills, flows, MCP servers, and runtime tools to complete multi-step work.
 
-You can start an agent session by going into any workspace and typing `@agent <your prompt>` and exit by just typing `exit`
+## How agent sessions start
 
-Agents can scrape websites, list and summarize your documents, search the web, make charts, and even save files to desktop and their own memory.
+In a workspace chat, start an agent session with:
+
+```text
+@agent your request here
+```
+
+Once the session is active, you can continue the conversation normally without repeating `@agent` on every turn.
+
+To end the session early, use:
+
+```text
+/exit
+```
 
 <Callout type="info" emoji="💡">
-  **Examples:** <br />
-    1: `@agent` what documents can you see - > LLM will "look" at what are the documents it can see
-
-    2: `@agent` summarize readme.pdf - > LLM will summarize that specific embedded file
-
+  Agent sessions are interactive loops, not one-shot prompts. RealTimeX will hand the chat over to the agent until the session completes or you end it with `/exit`.
 </Callout>
 
-<Image
-  src="/images/features/ai-agents/ai-agent.png"
-  height={1080}
-  width={1920}
-  quality={100}
-  alt="RealTimeX AI Agents"
-/>
+## What agents can use
 
-<div className="center-cta mt-20">
+The current RealTimeX agent model is broader than the older built-in tool list. Depending on how your workspace is configured, an agent can use:
+
+- workspace documents and search context
+- built-in and imported skills
+- agent flows
+- remote or local MCP servers
+- configured Agentic CLIs
+- working directories and writable wiki projects
+- browser sessions through Browser Tool and Agent Browser
+- stored credentials used by advanced workflows
+
+## Where agent capability comes from
+
+### Workspace Agent configuration
+
+Use `Workspace Settings > Agent` to control the main capability layer for that workspace.
+
+The current tabs are:
+
+- `Skills`: built-in plugin skills and imported skills
+- `Agent Flows`: reusable flow automations
+- `MCP Servers`: remote and local MCP integrations
+
+### Runtime controls
+
+Use [Agent Runtime](/agent-runtime) for the operational side of agents:
+
+- Agentic CLIs
+- working directories
+- Ambient Agent
+- diagnostics and agent feed
+
+### Plugins
+
+Use [Plugins](/plugins) when the capability depends on a built-in or installed plugin, such as:
+
+- [Agent Browser](/plugins/agent-browser)
+- [RealtimeX Moderator](/plugins/realtimex-moderator)
+- [Notes, Wiki & Memory Plugins](/plugins/note-and-knowledge-plugins)
+
+## Typical use cases
+
+- search workspace material and summarize findings
+- work through browser-backed research or QA tasks
+- run flow-based automations from chat
+- call external tools through MCP servers
+- work across trusted folders or wiki projects
+- produce exports, charts, or structured outputs when the right skills are enabled
+
+## Good prompts
+
+Examples that fit the current product well:
+
+- `@agent review the documents in this workspace and give me a decision brief`
+- `@agent use the browser to compare these three pricing pages`
+- `@agent update the wiki project in my working directory with today's findings`
+- `@agent use the enabled MCP tools to check the deployment status`
+
+## What to configure first when an agent feels limited
+
+If the agent cannot do what you expect, check these layers in order:
+
+1. `Workspace Settings > Agent`
+2. [Agent Runtime](/agent-runtime)
+3. [Plugins](/plugins)
+4. [Credentials](/credentials) if the workflow needs reusable authentication
+
+## Related guides
+
+- [AI Agent Overview](/agent/overview)
+- [AI Agent Setup](/agent/setup)
+- [AI Agent Usage](/agent/usage)
+- [Agent Runtime](/agent-runtime)
+
+<div className="center-cta mt-16">
   <Link href="/agent/usage">
-    <b>View all the available `@agent` skills &rarr;</b>
+    <b>Continue to the AI Agent usage guide &rarr;</b>
   </Link>
 </div>
