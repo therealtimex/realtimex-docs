@@ -1,0 +1,79 @@
+---
+title: Agent Browser
+description: Use the built-in Agent Browser plugin with RealTimeX Browser sessions for browsing, automation, screenshots, and authenticated workflows.
+---
+
+# Agent Browser
+
+`Agent Browser` is a built-in plugin that gives RealTimeX agents browser automation capability. It is enabled by default.
+
+Use it when you want an agent to:
+
+- open websites and move across pages
+- click buttons and submit forms
+- capture screenshots or extract page data
+- work inside authenticated browser sessions you already opened in RealTimeX Browser
+
+## Where it shows up
+
+- `Settings > Plugins`: enable, disable, or reload the `Agent Browser` plugin
+- `Settings > Tools > Browser Tool`: manage the browser sessions and profiles the plugin can use
+- agent workflows that need browser access: the plugin runs in the background rather than adding a standalone workspace page
+
+## Agent Browser vs Browser Tool
+
+The plugin and the Browser Tool are related, but they are not the same thing.
+
+- `Agent Browser` is the capability agents use.
+- `Browser Tool` is the desktop session manager for profiles, cookies, auth state, tabs, and guardrails.
+
+See [Browser Tool](/features/browser-tool) for the full session manager guide.
+
+## Default session vs named sessions
+
+RealTimeX Browser supports two session styles.
+
+### Default session
+
+- general-purpose browser profile
+- unrestricted
+- uses the default debug port
+- best for quick manual browsing or one-off tasks
+
+### Named sessions
+
+- separate cookies, auth state, tabs, and profile storage
+- own debug port
+- start with anchored-origin guardrails
+- best for reusable workflows, protected sites, or separate accounts
+
+Named sessions are the safer choice when you want an agent to work inside a specific site without sharing state with the default browser profile.
+
+## Typical workflow
+
+1. Open `Settings > Tools > Browser Tool` in RealTimeX Desktop.
+2. Create a named session if you want an isolated profile.
+3. Open the session and sign in to the sites you want available.
+4. Return to your agent or workflow and run the browser-backed task.
+5. Reopen, clear, or delete the session later from Browser Tool.
+
+## Good use cases
+
+- testing a web flow end to end
+- working inside a logged-in SaaS app or internal portal
+- capturing screenshots for review
+- extracting structured data from a site
+- keeping separate browser state for different tasks or accounts
+
+## Operational tips
+
+- Browser session management is desktop-only.
+- If a site behaves oddly, clear that session and sign in again.
+- Delete named sessions when you no longer need their stored browser state.
+- If Browser Tool reports a port conflict, stop the conflicting process before reopening the session.
+
+## Related guides
+
+- [Built-In Plugins](/plugins/built-in-plugins)
+- [Browser Tool](/features/browser-tool)
+- [Troubleshooting Plugins](/plugins/troubleshooting)

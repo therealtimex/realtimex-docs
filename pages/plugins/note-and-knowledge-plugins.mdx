@@ -1,0 +1,107 @@
+---
+title: Notes, Wiki & Memory Plugins
+description: Understand how QMD, Personal Notes, LLM Wiki, and Workspace Memories work together in RealTimeX.
+---
+
+# Notes, Wiki & Memory Plugins
+
+Several built-in plugins work together behind the note, search, and memory features in RealTimeX. They are all enabled by default.
+
+This stack includes:
+
+- `QMD`
+- `RealtimeX Personal Notes`
+- `RealtimeX LLM Wiki`
+- `RealtimeX Workspace Memories`
+
+## What each plugin does
+
+### QMD
+
+Provides markdown search and retrieval. This is the plugin behind optional note search and other markdown-heavy retrieval workflows.
+
+### RealtimeX Personal Notes
+
+Lets agents read accessible personal note files as context. This complements the main [Personal Notes](/personal-notes) feature.
+
+### RealtimeX LLM Wiki
+
+Lets agents work with structured wiki projects across working directories.
+
+### RealtimeX Workspace Memories
+
+Lets agents recall persistent workspace memory files, preferences, and historical facts.
+
+## Where you see this stack in the app
+
+- [Personal Notes](/personal-notes): note editor, uploads, `Notes Assistant`, `Note Search Settings`, and `New Wiki Project`
+- [Agent Runtime](/agent-runtime): working directories and wiki-backed agent workspaces
+- background agent workflows: note retrieval and workspace memory recall happen behind the scenes
+
+## How the plugins work together
+
+1. Store notes or source documents in [Personal Notes](/personal-notes).
+2. Turn larger research sets into a wiki project when you want more structure.
+3. Enable QMD-based note search if you want retrieval instead of manual file browsing.
+4. Add a wiki project as a working directory when you want agents to read and write inside it.
+5. Leave workspace memories enabled so agents can keep using persistent workspace facts over time.
+
+## Using QMD for note search
+
+In `Personal Notes`, open `Note Search Settings` to control retrieval behavior.
+
+You can:
+
+- turn note search on or off
+- choose `search`, `vsearch`, or `query`
+- tune max results
+- tune timeout
+
+Mode guidance:
+
+- `search`: fastest keyword search and the best starting point
+- `vsearch`: vector similarity search
+- `query`: hybrid search with reranking for the best quality
+
+If `QMD is not installed on this server`, the note-search toggle will stay unavailable until the server has QMD installed.
+
+`vsearch` and `query` can also require model downloads before they are ready. RealTimeX exposes that download flow directly in the note search settings panel.
+
+## Using wiki projects
+
+Create a wiki project from `Personal Notes > New Wiki Project`.
+
+RealTimeX scaffolds:
+
+- `WIKI.md`
+- `raw/`
+- `index.md`
+- `log.md`
+
+Use a wiki project when you want:
+
+- a research notebook with source material and synthesized pages
+- an operating manual agents can expand over time
+- a structured knowledge set you can later register as a working directory
+
+## Workspace memories vs personal notes
+
+- Use [Personal Notes](/personal-notes) for files, drafts, uploads, and research you browse directly.
+- Use workspace memories for shorter persistent facts an agent should recall during workspace activity.
+- Use a wiki project when you want structured, growing knowledge with an index and change history.
+- Use [Knowledge Manager](/knowledge-manager) when you want curated knowledge collections in a separate admin surface.
+
+## Troubleshooting
+
+- If QMD is unavailable, install it on the server or ask your admin to do so.
+- If `vsearch` or `query` are not ready, download the required models from the note search settings panel.
+- If note search feels noisy, lower max results or start with `search` mode.
+- If an agent should write into a wiki project but cannot, add that project to [Agent Runtime](/agent-runtime) working directories.
+- If outdated context keeps appearing, review both the source notes and the workspace memory files that support the workflow.
+
+## Related guides
+
+- [Built-In Plugins](/plugins/built-in-plugins)
+- [Personal Notes](/personal-notes)
+- [Agent Runtime](/agent-runtime)
+- [Knowledge Manager](/knowledge-manager)

@@ -11,6 +11,12 @@
   "built-in-plugins": {
     "title": "Built-In Plugins"
   },
+  "agent-browser": {
+    "title": "Agent Browser"
+  },
+  "note-and-knowledge-plugins": {
+    "title": "Notes, Wiki & Memory Plugins"
+  },
   "image-generation-plugins": {
     "title": "Image Generation Plugins"
   },

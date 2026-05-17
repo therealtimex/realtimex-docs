@@ -18,47 +18,42 @@ These plugins are part of the product, but they still use the same plugin manage
 
 ## Built-in plugin catalog
 
-| Plugin | Enabled by default | What it adds | Where it matters |
+| Plugin | Enabled by default | What it adds | Detailed guide |
 | --- | --- | --- | --- |
-| `Agent Browser` | Yes | Browser automation skill for agents | agent and browser automation workflows |
-| `RealtimeX Moderator` | Yes | SDK-backed control of RealTimeX platform features | advanced agent workflows involving workspaces, threads, tools, and platform state |
-| `QMD` | Yes | Markdown knowledge and notes search skill | note and markdown retrieval workflows |
-| `RealtimeX Personal Notes` | Yes | Agent access to personal notes context | Personal Notes and agent memory workflows |
-| `RealtimeX Workspace Memories` | Yes | Agent access to workspace memory files | workspace memory recall |
-| `RealtimeX LLM Wiki` | Yes | Agent support for wiki-style knowledge projects | wiki and working-directory-based knowledge workflows |
-| `Runtime Auto-Approve` | No | Auto-approve or deny agent permission requests using policy rules | ACP and supervised terminal workflows |
-| `OpenAI Image Generation` | No | OpenAI-based image generation provider | image generation features |
-| `Google Gemini Image Generation` | No | Gemini-based image generation provider | image generation features |
-| `FAL Flux Image Generation` | No | FAL-based image generation provider | image generation features |
-| `MiniMax Image Generation` | No | MiniMax image generation provider | image generation features |
+| `Agent Browser` | Yes | Browser automation skill for agents | [Agent Browser](/plugins/agent-browser) |
+| `RealtimeX Moderator` | Yes | SDK-backed control of RealTimeX platform features | No separate end-user page yet |
+| `QMD` | Yes | Markdown knowledge and notes search skill | [Notes, Wiki & Memory Plugins](/plugins/note-and-knowledge-plugins) |
+| `RealtimeX Personal Notes` | Yes | Agent access to personal notes context | [Notes, Wiki & Memory Plugins](/plugins/note-and-knowledge-plugins) |
+| `RealtimeX Workspace Memories` | Yes | Agent access to workspace memory files | [Notes, Wiki & Memory Plugins](/plugins/note-and-knowledge-plugins) |
+| `RealtimeX LLM Wiki` | Yes | Agent support for wiki-style knowledge projects | [Notes, Wiki & Memory Plugins](/plugins/note-and-knowledge-plugins) |
+| `Runtime Auto-Approve` | No | Auto-approve or deny agent permission requests using policy rules | [Runtime Auto-Approve](/plugins/runtime-auto-approve) |
+| `OpenAI Image Generation` | No | OpenAI-based image generation provider | [Image Generation Plugins](/plugins/image-generation-plugins) |
+| `Google Gemini Image Generation` | No | Gemini-based image generation provider | [Image Generation Plugins](/plugins/image-generation-plugins) |
+| `FAL Flux Image Generation` | No | FAL-based image generation provider | [Image Generation Plugins](/plugins/image-generation-plugins) |
+| `MiniMax Image Generation` | No | MiniMax image generation provider | [Image Generation Plugins](/plugins/image-generation-plugins) |
 
-## Built-in plugins enabled by default
+## Detailed guides for the most user-visible built-ins
 
-The default-enabled built-ins mostly add background capability for agents rather than a new standalone page.
+- Use [Agent Browser](/plugins/agent-browser) when you need browser sessions, authenticated browsing, screenshots, or web automation.
+- Use [Notes, Wiki & Memory Plugins](/plugins/note-and-knowledge-plugins) when you want to understand how QMD, Personal Notes, LLM Wiki, and Workspace Memories work together.
+- Use [Image Generation Plugins](/plugins/image-generation-plugins) when you need provider setup, ordering, or fallback behavior.
+- Use [Runtime Auto-Approve](/plugins/runtime-auto-approve) when you are intentionally changing approval policy behavior.
+
+## Default-enabled built-ins
+
+Most default-enabled built-ins add background capability to agents rather than creating a completely separate page.
 
 ### Agent Browser
 
-Adds browser automation capability for agents. Use it when you want an agent to navigate websites, click through flows, take screenshots, or interact with web-style interfaces.
+Enabled by default. Pairs with the desktop [Browser Tool](/features/browser-tool) so agents can work inside reusable browser sessions.
 
 ### RealtimeX Moderator
 
-Lets agents work directly with RealTimeX platform features through the RealTimeX SDK, including workspaces, threads, tools, and related platform state.
+Enabled by default. Gives advanced agent workflows direct access to RealTimeX platform features such as workspaces, threads, activities, tools, and related state.
 
-### QMD
+### QMD, Personal Notes, Workspace Memories, and RealtimeX LLM Wiki
 
-Adds markdown-oriented search capability. It is especially relevant when your notes or knowledge are stored as markdown and you want retrieval behavior instead of manual browsing.
-
-### RealtimeX Personal Notes
-
-Lets agents recall accessible personal note files as context. This complements the [Personal Notes](/personal-notes) feature page.
-
-### RealtimeX Workspace Memories
-
-Lets agents recall workspace memory files so they can use persistent workspace facts, preferences, and historical context more effectively.
-
-### RealtimeX LLM Wiki
-
-Lets agents work with wiki-style knowledge projects across working directories. This is most useful when your team maintains structured markdown knowledge rather than isolated note files.
+Enabled by default. Together these plugins power note retrieval, structured wiki workflows, and background memory recall across notes and working directories.
 
 ## Built-in plugins that usually need intentional setup
 

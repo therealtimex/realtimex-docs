@@ -1,75 +1,89 @@
 ---
-title: "Authenticated Scraping"
-description: "Have your LLM access and scrape authenticated content with RealTimeX's Authenticated Scraping tool"
+title: "Browser Tool"
+description: "Manage RealTimeX Browser sessions, isolated profiles, and guardrails for browser-backed agent workflows."
 ---
 
 import { Callout } from "nextra/components";
-import Image from "next/image";
 
 <Callout type="info" emoji="🖥️">
-  **Desktop Only Feature (v1.0.4+)**<br/>
-  The Authenticated Scraping tool is exclusively available in the RealTimeX Desktop application!
+  **Desktop only**<br/>
+  Browser session management is available in the RealTimeX Desktop app.
 </Callout>
 
-# Authenticated Scraping
+# Browser Tool
 
-<Callout type="warning" emoji="⚠️">
-  **Security Note**
-  All credentials and session data are stored locally on your machine. RealTimeX never transmits or stores your login information outside of your local machine.
-</Callout>
+`Browser Tool` is the session manager for RealTimeX Browser. Use it to create isolated browser profiles, keep authenticated sessions available for agent workflows, and control how browser state is separated between tasks.
 
-The Authenticated Scraping tool enables you to access and scrape gated online content from websites or services that require authentication but hold critical contexual content you might want to use in your workflows, such as your personal LinkedIn feed or internal company portals that you have access to.
+The built-in [Agent Browser](/plugins/agent-browser) plugin uses these browser sessions when an agent needs to browse or automate the web.
 
-Your LLM can now access these websites and scrape and view content just like you would in a regular browser!
+## Where to find it
 
-## Key Features
+- Open `Settings > Tools > Browser Tool` in RealTimeX Desktop.
 
-- **Secure Session Storage**: Credentials are stored locally using isolated browser sessions
-- **Session Persistence**: Login sessions persist between app restarts until explicitly cleared or the authentication expires for the associated service
-- **Isolated Environment**: Separate from your actual web browser
-- **Full User Control**: Clear stored data or sessions at any time with a single click
+## What the Browser Tool manages
 
-## Using the Authenticated Scraping Tool
+- the default browser session
+- named browser sessions
+- cookies and authentication state per session
+- profile storage and open tabs
+- debug ports and session guardrails
 
-### Accessing the Tool
-1. Open RealTimeX Desktop
-2. Navigate to Settings > Tools > Browser Tool
-3. Click "Open Private Browser" to launch the isolated browser window
+## Default session vs named sessions
 
+### Default session
 
-### Authentication Process
-1. Log into your desired service (e.g., LinkedIn, Gmail) through the Authenticated Scraping tool.
-2. Your session will persist until you explicitly clear the browser data or the authentication expires for the associated service.
-3. RealTimeX can now access authenticated content from these services when scraping or via agentic workflow execution.
-4. The returned content will be text only. No images, videos, or other media will be returned.
+- stays open as the general-purpose browser profile
+- unrestricted
+- uses the default debug port
+- best for quick manual browsing
 
-<Callout type="info" emoji="💡">
-  **Heads up!**
-  The Authenticated Scraping tool is not a magic bullet. It is a tool that allows you to access authenticated content from websites that require authentication. It cannot currently **interact** with the content of the page you are accessing (eg: browser automation, RPA, etc).
-</Callout>
+### Named sessions
 
-### Managing Browser Data
+- keep separate cookies, auth state, tabs, and profile storage
+- get their own debug port
+- start in anchored-origin mode
+- work well for site-specific agent workflows or separate accounts
 
-- **Clearing Data**: Use the "Clear Browser Data" button to remove all stored credentials and sessions
-- **When should you clear the browser data?**:
-  - When switching between different service accounts
-  - If you encounter authentication issues when the LLM tries to access the site you want to scrape
+Anchored-origin mode keeps a named session tied to the first site origin it opens, which is useful when you want tighter guardrails for agent browsing flows.
 
-## Common Use Cases
+## Typical setup
 
-<Callout type="warning" emoji="⚠️">
-  **Warning!**
-  Some web services may not you doing this. While the private browser tool is by any proxy, just a regular browser, some services may not like it. So use this tool at your discretion to prevent whatever service you are trying to access from blocking your account!
-</Callout>
+1. Open Browser Tool.
+2. Create a named session if you want an isolated profile.
+3. Open the session.
+4. Sign in to the sites you need.
+5. Return to your agent or workflow and run the browser-backed task.
+6. Reopen, clear, or delete the session later as needed.
 
-- Scraping your personal linkedin profile or feed.
-- Accessing internal company documentation that is behind a login or SSO portal.
-- Collecting or accessing data from paid or authenticated web service you have access to normally.
+## Common tasks
+
+### Open or focus a session
+
+Use `Open Session` for a stopped session or `Focus Session` for a running one.
+
+### Clear session data
+
+Use this when you want to remove stored cookies and auth state without deleting the session entry itself.
+
+### Delete a named session
+
+Use this when you no longer need the profile. Deleting removes the named session after the browser stops running.
+
+## When to use named sessions
+
+- you want separate logins for different accounts
+- you want one browser profile per workspace or task
+- you want authenticated browsing without mixing state with your default session
+- you want origin-aware guardrails for agent handoff
 
 ## Troubleshooting
 
-If you encounter issues:
-1. Clear the browser data and try again
-2. Ensure you're fully logged into the service by opening the private browser and navigating to the site you want the LLM to access.
+- If Browser Tool says a port is already in use, stop the conflicting process and try again.
+- If a site stops working, clear that session and sign in again.
+- If you need a fresh environment, create a new named session instead of reusing the default one.
 
-Some services have very short lived sessions, those services may require you to log in again after a certain amount of time or might be a bad use-case for this tool. You can always re-authenticate with the service by opening the private browser and navigating to the site you want the LLM to access and logging in again to refresh the session.
+## Related guides
+
+- [Agent Browser](/plugins/agent-browser)
+- [Built-In Plugins](/plugins/built-in-plugins)
+- [Troubleshooting Plugins](/plugins/troubleshooting)
