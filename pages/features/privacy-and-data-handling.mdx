@@ -1,23 +1,67 @@
 ---
 title: "Privacy & Data"
-description: "Security features of RealTimeX"
+description: "Understand diagnostic logging, optional device ID consent, and retained data"
 ---
-
-import { Callout } from "nextra/components";
 
 # Privacy & Data Handling
 
-<Callout type="info" emoji="️💡">
-  **Tip:**
+The current `Privacy & Data` page in RealTimeX is focused on diagnostic logging. It explains what anonymous diagnostic data is collected, what is never collected, and whether your device ID is included.
 
-    RealTimeX is transparent telling you who and what has access to your data.
+You can open it from `Settings > Privacy & Data`.
 
-</Callout>
+## What this setting controls
 
-## Anonymous Telemetry
+This page does **not** act as a master switch for every kind of logging in the product. Its main control is whether RealTimeX includes your device ID in diagnostic logs.
 
-RealTimeX collects anonymous telemetry and never collects any of your personal data.
+The behavior is:
 
-We collect telemetry to help improve our product.
+- anonymous diagnostic logs are still collected
+- enabling consent adds the device ID so issues can be traced per machine
+- changing the setting takes effect on the next app launch
 
-If for any reason you would not like to participate in sharing telemetry with us, you can disable it in this menu.
+## What is always collected
+
+According to the current app surface, the anonymous diagnostic set includes:
+
+- startup and service logs with anonymized file paths
+- error messages and stack traces
+- session ID
+- platform information such as macOS, Linux, or Windows
+
+## What is only collected when you allow it
+
+If you enable the privacy toggle, RealTimeX also includes:
+
+- device ID, so the team can trace repeated issues on the same machine
+
+This is the specific consent choice surfaced both in the settings page and in the first-launch consent prompt.
+
+## What is never collected
+
+The current UI explicitly says diagnostic logs do **not** include:
+
+- chat messages
+- document content
+- API keys or credentials
+- usernames or email addresses
+- IP addresses
+
+## Retention
+
+The current app states that diagnostic logs are retained for 14 days and then automatically deleted.
+
+## First-launch prompt
+
+In desktop builds, RealTimeX may show a privacy prompt on first launch asking whether device ID can be included in diagnostic logs.
+
+If you decline, anonymous diagnostics still exist, but device ID stays out. You can change that choice later in `Settings > Privacy & Data`.
+
+## Desktop availability
+
+This privacy control depends on the desktop app's diagnostic bridge. If that surface is not available in your environment, the page may be limited or empty.
+
+## Privacy page vs Diagnostics page
+
+Use `Privacy & Data` when you want to control diagnostic consent and understand the diagnostic data categories.
+
+Use `Diagnostics` when you want to inspect runtime sessions, incidents, events, or generated diagnostic bundles.
