@@ -1,47 +1,91 @@
 ---
 title: Meeting Minutes
-description: Record, transcribe, and analyze your meetings with AI-powered Meeting Minutes workspaces.
+description: Capture live meetings, import meeting records, and generate structured outputs with RealTimeX Meeting Minutes.
 ---
-
-import { Callout } from "nextra/components";
-import Image from "next/image";
 
 # Meeting Minutes
 
-The **Meeting Minutes** feature transforms RealTimeX into a powerful AI assistant for your meetings. It captures audio, provides real-time transcription, and automatically prepares the content for AI analysis.
+Meeting Minutes has expanded from a basic recorder into a full meeting evidence and synthesis workflow. You can start from live capture, import existing files, link meetings to calendar events, and generate reusable outputs with ACP-powered synthesis.
 
-## How it Works
+## What the dashboard gives you
 
-Meeting Minutes operates within a specialized **Workspace Type**. When you create a Meeting Minutes workspace, the interface is optimized for recording and reviewing transcripts.
+- `Active Meeting` for sessions still collecting evidence or waiting on wrap-up
+- `Upcoming Meetings` for calendar-linked or manually scheduled meetings
+- `Recent Outputs` for generated drafts such as minutes, summaries, action items, or follow-ups
+- `Readiness` checks so you can see whether recording and synthesis prerequisites are available
 
-### 1. Recording & Transcription
-- **Real-time Streaming**: As you speak, RealTimeX uses your selected **Transcription Model** to provide a live preview of the text.
-- **High Accuracy**: Use local models like Whisper or cloud-based providers for high-speed, high-accuracy transcripts.
-- **Timestamps**: Every chunk of text is automatically timestamped for easy reference.
+## Live capture workflow
 
-### 2. Post-Meeting Processing
-Once you stop the recording, RealTimeX performs several automated actions:
-- **Audio Storage**: Saves a high-quality audio recording (`.wav`) of the session.
-- **Markdown Export**: Generates a clean, timestamped transcript in Markdown format.
-- **Automated Renaming**: An AI Agent analyzes the transcript to give the meeting a descriptive title (e.g., "GTM Strategy Sync" instead of "New Meeting").
+For live meetings, RealTimeX can:
 
-### 3. AI Analysis (RAG Integration)
-This is where the magic happens. The transcript is immediately ingested back into the workspace's chat context. You can immediately ask your AI Agent:
-- *"Summarize the key decisions from this meeting."*
-- *"What were the action items for John?"*
-- *"Did we discuss the budget for Q3?"*
+- record and store session audio
+- stream or process transcription with the configured runtime
+- keep meeting evidence inside the thread
+- generate a first draft once the session is ready for synthesis
 
-## Setting Up Meeting Minutes
+The current settings surface focuses on transcription runtime, local Whisper model management, and synthesis defaults for new meetings.
 
-1.  **Create Workspace**: Click the **+** button next to Workspaces and select **Meeting Minutes** as the workspace type.
-2.  **Select Tools**: Ensure you have an active **Transcription Model** configured in **Settings** → **Transcription**.
-3.  **Start Recording**: Click the **Record** button to begin the session.
-4.  **Stop & Save**: Click **Stop** when the meeting ends. The transcript and audio will appear in your chat history instantly.
+## Import existing meeting records
 
-<Callout type="tip">
-**Multi-User Meetings**
-For best results in multi-user environments, ensure your microphone is positioned centrally or use a dedicated meeting room speakerphone. RealTimeX will attempt to differentiate speakers based on context, but clear audio is key.
-</Callout>
+You can also start from existing evidence instead of a live recording.
 
-## Viewing Past Meetings
-All your meetings are saved as threads within your Meeting Minutes workspace. You can switch between threads to view the audio, transcript, and previous AI chats for any past session.
+Supported inputs include:
+
+- audio files
+- video files
+- transcripts
+- screenshots
+- PDFs
+- other supporting meeting documents
+
+Imported files can either create a new meeting or be added to an existing one before synthesis runs.
+
+## Synthesis and reusable outputs
+
+Meeting Minutes can generate multiple output styles from the same source meeting:
+
+- minutes
+- summary
+- action items
+- decisions
+- follow-up
+
+Defaults are managed in `Settings > Meeting Minutes`, where you can set:
+
+- the preferred transcription provider and runtime behavior
+- storage defaults
+- the ACP synthesis agent used for first drafts
+- an optional model override
+- watcher cooldown behavior
+- reusable synthesis templates
+
+## Calendar-linked meetings
+
+Meeting Minutes now works better with Calendar workflows:
+
+- upcoming meetings can appear directly in the dashboard
+- meeting context can arrive from calendar-linked events
+- calendar planning and meeting capture can stay in one workflow instead of two disconnected tools
+
+## After the meeting
+
+Once a meeting finishes, RealTimeX keeps the meeting thread and generated outputs together so you can:
+
+- reopen the original meeting context
+- regenerate or compare outputs
+- review recent drafts from the dashboard
+- continue asking AI questions against the meeting evidence
+
+## Recommended setup
+
+1. Configure Meeting Minutes defaults in `Settings > Meeting Minutes`.
+2. Confirm your transcription runtime and local model availability.
+3. Choose whether you want to start from live capture or imported records.
+4. If you already use Calendar, connect it so upcoming meetings can flow into this workspace more cleanly.
+
+## Tips
+
+- Use imported records when a live meeting has already happened elsewhere.
+- Treat templates as the fastest way to standardize output across recurring meeting types.
+- Pair Meeting Minutes with [Calendar](/calendar) when you want scheduling, prep, capture, and follow-up to stay connected.
+ 

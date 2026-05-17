@@ -1,0 +1,91 @@
+---
+title: Image Generation Plugins
+description: Enable and configure the built-in image generation provider plugins in RealTimeX.
+---
+
+# Image Generation Plugins
+
+RealTimeX includes several built-in plugins that add image generation providers. These plugins are managed from `Settings > Plugins` and are disabled by default until you configure them.
+
+## Available built-in providers
+
+RealTimeX currently ships built-in image generation plugins for:
+
+- OpenAI Image Generation
+- Google Gemini Image Generation
+- FAL Flux Image Generation
+- MiniMax Image Generation
+
+## What these plugins do
+
+Each image generation plugin adds an image generation provider to RealTimeX. Once enabled and configured, that provider can be used anywhere RealTimeX supports image generation workflows.
+
+These plugins do not all use the same API or the same defaults, so each one has its own configuration form.
+
+## Typical setup flow
+
+1. Open `Settings > Plugins`.
+2. Find the image generation plugin you want.
+3. Click `Enable`.
+4. Click `Configure`.
+5. Enter the required API key.
+6. Review optional values such as base URL or default model.
+7. Save the configuration.
+8. Reload the plugin.
+
+## Common configuration fields
+
+Most image generation plugins use some combination of:
+
+- `API Key`
+- `API Base URL`
+- `Default Model`
+
+The exact labels vary by provider, but the setup pattern is the same.
+
+## Provider ordering and fallback
+
+The Plugins page includes an image generation provider priority chain.
+
+Use it to:
+
+- choose the primary provider
+- drag providers into fallback order
+- enable automatic fallback when supported
+
+This is useful when you want one provider to handle most requests but still want another provider available if the first one is unavailable.
+
+## When to enable multiple providers
+
+Enable more than one image generation plugin when:
+
+- you want a fallback provider
+- you need access to different model families
+- you use different providers for cost, quality, or reliability reasons
+
+If you only plan to use one provider, keep the others disabled.
+
+## Provider notes
+
+### OpenAI Image Generation
+
+Best for users who already operate with OpenAI credentials and want a straightforward built-in provider flow.
+
+### Google Gemini Image Generation
+
+Useful when your RealTimeX setup already depends on Google's AI stack or you want a Gemini-based image generation path.
+
+### FAL Flux Image Generation
+
+Useful when you specifically want Flux-family generation through FAL.
+
+### MiniMax Image Generation
+
+Useful when your environment is centered on MiniMax image generation.
+
+## Troubleshooting
+
+- If the provider does not appear usable, confirm the plugin is both enabled and configured.
+- If the plugin saves but still does not work, reload it.
+- If you added multiple providers, check the provider order and fallback settings.
+- If a provider-specific API key is wrong or missing, the plugin may show an error on its card.

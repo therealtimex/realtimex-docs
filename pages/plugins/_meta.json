@@ -1,0 +1,23 @@
+{
+  "index": {
+    "title": "Overview"
+  },
+  "manage-plugins": {
+    "title": "Install & Manage Plugins"
+  },
+  "configure-plugin-settings": {
+    "title": "Configure Plugin Settings"
+  },
+  "built-in-plugins": {
+    "title": "Built-In Plugins"
+  },
+  "image-generation-plugins": {
+    "title": "Image Generation Plugins"
+  },
+  "runtime-auto-approve": {
+    "title": "Runtime Auto-Approve"
+  },
+  "troubleshooting": {
+    "title": "Troubleshooting"
+  }
+}

@@ -1,0 +1,93 @@
+---
+title: Agent Runtime
+description: Manage the CLIs, folders, schedules, and runtime visibility that power RealTimeX agents.
+---
+
+# Agent Runtime
+
+RealTimeX now ships a fuller runtime layer around agents. Instead of only choosing an agent and sending a prompt, you can decide which tools it can use, which folders it can touch, when it should run, and how you review what happened afterward.
+
+## Where to find it
+
+- `Settings > Agentic CLIs`
+- `Settings > Agents > Working Directories`
+- `Settings > Agents > Ambient Agent`
+- `Agent feed` in the main sidebar
+- `Settings > Diagnostics` on desktop
+
+## Agentic CLIs
+
+Agentic CLIs are external command-line tools your agents can rely on, such as `gh` or `glab`.
+
+- RealTimeX tracks whether each CLI is installed, authenticated, and ready.
+- Admins can add CLIs from the registry or register custom executables.
+- RealtimeX does not store those CLI credentials for you. You authenticate the CLI in your terminal, then RealTimeX probes readiness and exposes that status to agents.
+- You can attach install docs, auth commands, probe commands, and a short prompt hint so the agent knows when the CLI should be used.
+
+Agentic CLIs are not the same thing as CLI agents. CLI agents are runtimes such as Codex or Claude Code. Agentic CLIs are the tools those runtimes use to do work.
+
+### Typical flow
+
+1. Install and authenticate the CLI on the machine running RealTimeX.
+2. Add it in `Settings > Agentic CLIs`.
+3. Probe it to confirm install and auth state.
+4. Enable it so agents can rely on it during sessions.
+
+## Working Directories
+
+Working Directories let you pre-authorize folders outside a workspace so agents can read and write there without repeated permission prompts.
+
+- Add any trusted absolute path.
+- Attach a short description so the agent can choose the right folder on its own.
+- Optionally limit a directory to specific workspaces or specific agents.
+- Add a wiki project from [Personal Notes](/personal-notes) directly into the registry if you want agents to treat that project as a writable working area.
+
+This is the safest way to let an agent work across real local projects without giving it unrestricted filesystem access.
+
+## Ambient Agent
+
+Ambient Agent is the scheduled agent runner that wakes up in the background and acts on `HEARTBEAT.md`.
+
+- Choose which agent runs and optionally override its LLM.
+- Set a check interval, timezone, and active hours.
+- Add scheduled task blocks inside `HEARTBEAT.md` so different jobs can run on their own cadence.
+- Use custom instructions for tone, language, or priorities.
+- Trigger a manual wake immediately, or queue instructions for the next scheduled run.
+- Review recent activity, last result, and next wake-up from the same screen.
+
+### Calendar-aware routines
+
+Ambient Agent can also add calendar context to its work:
+
+- `Morning brief`
+- `Pre-meeting prep`
+- `Follow-up suggestions`
+
+These routines are most useful when your `HEARTBEAT.md` instructions already explain what the agent should do with that context.
+
+## Agent feed
+
+The `Agent feed` page is a live operations board for agent work.
+
+- Watch tasks move through `Upcoming`, `In Progress`, `Review`, `Done`, `Failed`, and `Canceled`.
+- Filter the board down to one or more agents.
+- Open tasks that need user input or approval.
+- Use it as the fastest way to see what your background and scheduled automation is doing right now.
+
+## Diagnostics
+
+Desktop builds include a runtime diagnostics surface for monitored sessions.
+
+- Inspect recorded sessions from the current machine.
+- Review incidents, timeline events, and sampled app health.
+- Open the raw session folder locally.
+- Generate a diagnostic bundle or review a ticket draft when you need to escalate an issue.
+
+Diagnostics is operational tooling, not a user chat log. Use it when you need to understand what happened around a runtime problem.
+
+## Best practices
+
+- Keep Agentic CLI entries focused on tools agents actually need.
+- Register only the directories you truly trust.
+- Treat `HEARTBEAT.md` as the source of truth for what your Ambient Agent is allowed to do.
+- Use Agent feed for active work and Diagnostics for post-mortem analysis.

@@ -1,0 +1,105 @@
+---
+title: Configure Plugin Settings
+description: Understand how plugin settings work in RealTimeX, including secrets, structured fields, and LLM slot configuration.
+---
+
+# Configure Plugin Settings
+
+Many plugins expose a configuration form in `Settings > Plugins > Configure`. RealTimeX renders these forms from the plugin's own settings schema, so the exact fields can vary from plugin to plugin.
+
+## What the configuration modal is for
+
+Plugin configuration is where you provide the values the plugin needs in order to work.
+
+Common examples include:
+
+- API keys
+- provider base URLs
+- default model names
+- behavior presets
+- risk or approval policies
+- plugin-specific tags or lists
+
+## Common field types
+
+RealTimeX plugin configuration supports several field styles.
+
+### Text fields
+
+Used for values such as:
+
+- API base URLs
+- model names
+- short labels or identifiers
+
+### Password fields
+
+Used for secrets such as API keys.
+
+These are usually required before the plugin can function.
+
+### Boolean toggles
+
+Used for on/off behavior, for example:
+
+- enable logging
+- enable analysis
+- allow fallback behavior
+
+### Select fields
+
+Used when the plugin wants you to choose one value from a fixed list, such as:
+
+- an approval preset
+- a mode
+- a predefined behavior profile
+
+### Multi-select fields
+
+Used when the plugin can accept several allowed values at once, such as:
+
+- approved tool kinds
+- approved command groups
+
+### Tag-list fields
+
+Used for free-form lists such as:
+
+- extra command prefixes
+- blocked prefixes
+- custom patterns
+
+### LLM slots
+
+Some plugins expose one or more LLM slots instead of plain text fields.
+
+An LLM slot lets the plugin use a specific provider and model for one internal task. For example, a plugin might need a separate model for risk analysis or another background decision step.
+
+## Save vs reload
+
+Saving plugin settings stores the new values, but some plugins work more reliably after a manual reload.
+
+A safe rule is:
+
+- `Save` after changing configuration
+- `Reload` the plugin afterward if the plugin powers a runtime feature or provider
+
+## When Configure does not appear
+
+If a plugin card has no `Configure` button, that usually means one of the following:
+
+- the plugin has no user-configurable settings
+- the plugin only contributes built-in skills or background capability
+- the plugin is already usable without setup
+
+## Best practices
+
+- Add required secrets first, before enabling a provider-dependent plugin for users.
+- Keep custom URLs and model names consistent with the service you are using.
+- If a plugin still fails after saving settings, reload it and then re-check the plugin card for errors.
+
+## Related guides
+
+- For installation and lifecycle actions, see [Install & Manage Plugins](/plugins/manage-plugins)
+- For provider ordering, see [Image Generation Plugins](/plugins/image-generation-plugins)
+- For policy settings, see [Runtime Auto-Approve](/plugins/runtime-auto-approve)

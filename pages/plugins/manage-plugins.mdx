@@ -1,0 +1,111 @@
+---
+title: Install & Manage Plugins
+description: Install new plugins, enable built-in plugins, and manage the lifecycle of plugins in RealTimeX.
+---
+
+# Install & Manage Plugins
+
+Use `Settings > Plugins` to install new plugins and manage both built-in and installed plugins from one place.
+
+## Before you start
+
+In most RealTimeX deployments, plugin management is an admin task. If you do not see `Settings > Plugins`, ask your instance administrator.
+
+## Install a new plugin
+
+RealTimeX currently installs new plugins from a `.zip` package.
+
+1. Open `Settings > Plugins`.
+2. Click `Install Plugin`.
+3. Drag a `.zip` file into the upload area, or click to browse.
+4. Confirm the installation.
+5. Wait for the new plugin card to appear in the list.
+
+If the upload succeeds, the plugin is added to the installed plugin list. From there you can enable it, configure it, reload it, or uninstall it later.
+
+## Understand the plugin card
+
+Each plugin card shows the operational information you need first.
+
+- `Name`: the plugin display name
+- `Version`: the currently installed version
+- `Description`: the plugin's short purpose
+- `Author`: who published or shipped the plugin
+- `Built-in`: whether the plugin ships with RealTimeX
+- `Status dot`: whether the plugin is active, loaded, disabled, or in error
+
+Some plugins also show error text directly on the card when something failed during load or runtime.
+
+## Available actions
+
+### Enable / Disable
+
+Use this to turn a plugin on or off without removing it.
+
+- `Enable` activates the plugin for use.
+- `Disable` keeps it installed but inactive.
+
+This is the safest way to pause a plugin while keeping its configuration.
+
+### Configure
+
+If a plugin exposes settings, a `Configure` button appears.
+
+Use this to add API keys, select behavior presets, set provider-specific values, or assign LLM slots depending on the plugin.
+
+See [Configure Plugin Settings](/plugins/configure-plugin-settings) for details.
+
+### Reload
+
+Reload asks RealTimeX to reinitialize the plugin.
+
+Use this after:
+
+- changing plugin settings
+- fixing missing credentials
+- updating provider values
+- recovering from a plugin runtime error
+
+### Publish
+
+Some non-built-in plugins show a `Publish` action.
+
+This is used for marketplace publishing workflows. Built-in plugins do not show this action.
+
+### Uninstall
+
+Installed plugins can be removed from the instance.
+
+- Uninstall is available only for non-built-in plugins.
+- Built-in plugins cannot be removed from the UI.
+
+If you only want to stop using a plugin temporarily, disable it instead of uninstalling it.
+
+## Manage built-in plugins
+
+Built-in plugins are managed from the same page.
+
+- They may already be enabled when RealTimeX starts.
+- They can often be disabled if you do not want them active.
+- They cannot be uninstalled.
+
+See [Built-In Plugins](/plugins/built-in-plugins) for the shipped set and what each one does.
+
+## Good operational workflow
+
+When you add a new plugin, use this order:
+
+1. Install the plugin zip.
+2. Enable the plugin.
+3. Open `Configure` if it requires setup.
+4. Save the configuration.
+5. Reload the plugin.
+6. Test the RealTimeX feature that depends on it.
+
+## Notes for shared instances
+
+If you run RealTimeX for a team:
+
+- keep only necessary plugins enabled
+- document which plugin powers which user-facing feature
+- reload plugins during a low-risk period if they affect active workflows

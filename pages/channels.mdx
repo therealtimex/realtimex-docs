@@ -1,0 +1,64 @@
+---
+title: Channels
+description: Connect external messaging platforms to your workspace AI with channel plugins, pairing, and user approval flows.
+---
+
+# Channels
+
+Channels lets you expose workspace AI through external messaging platforms. Instead of keeping conversations only inside the RealTimeX app, you can connect bots and messaging endpoints that route users back into your chosen workspace.
+
+## Where to find it
+
+- `Settings > Channels`
+
+## Supported channel types
+
+The current Channels UI includes setup flows for:
+
+- Telegram
+- Discord
+- Slack
+- WhatsApp
+- Zalo
+- Zalo Personal
+
+## How channel plugins work
+
+Each channel connection is managed as a channel plugin.
+
+From the Channels page you can:
+
+- add a new channel
+- choose the target workspace
+- start or stop the plugin runtime
+- review channel status
+- remove a channel when it is no longer needed
+
+Some providers also support re-login flows directly from the same page.
+
+## Pairing and access control
+
+After a channel is created, RealTimeX helps you control who can use it.
+
+- `Pairing Codes` handles approval and access bootstrap for supported channels.
+- `Users` shows authorized users who have been approved to chat with your AI.
+- `Settings` controls routing, access, default thread behavior, and other channel-specific configuration.
+
+This is the main surface for making sure a channel is connected to the right workspace and only reachable by the right people.
+
+## Operational states
+
+Each channel plugin exposes a runtime state such as:
+
+- running
+- starting
+- stopped
+- error
+
+Use these status indicators first when debugging a channel that is not responding as expected.
+
+## Tips
+
+- Treat each channel as a workspace entry point, not just a bot token.
+- Keep channel access tight by reviewing pairing and authorized users regularly.
+- If a provider uses QR or re-login flows, perform those from the Channels page instead of recreating the plugin from scratch.

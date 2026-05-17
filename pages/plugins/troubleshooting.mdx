@@ -1,0 +1,106 @@
+---
+title: Troubleshooting
+description: Fix common plugin problems in RealTimeX, including install, configuration, runtime, and provider issues.
+---
+
+# Plugin Troubleshooting
+
+When a plugin does not behave the way you expect, start with the plugin card in `Settings > Plugins`. It usually gives you the fastest clue about whether the problem is installation, configuration, or runtime state.
+
+## A plugin zip will not install
+
+Check the basics first.
+
+- The file must be a `.zip`
+- The upload must complete successfully
+- The plugin must appear in the plugin list afterward
+
+If the upload fails immediately, retry with the exact plugin package you intended to install.
+
+## The plugin is installed but not active
+
+Make sure the plugin is enabled.
+
+- `Installed` does not always mean `enabled`
+- Use `Enable` if the plugin is currently disabled
+
+Then reload it if needed.
+
+## The plugin has a `Configure` button but still does not work
+
+This usually means one of these:
+
+- required settings were never saved
+- a secret such as an API key is missing or incorrect
+- the plugin needs a reload after configuration
+
+Use this sequence:
+
+1. Open `Configure`
+2. Re-check required fields
+3. Save
+4. Reload
+
+## The plugin shows an error on its card
+
+Read the error text on the card first. Then check:
+
+- whether the plugin is enabled
+- whether required configuration is present
+- whether a provider URL or model name is valid
+- whether the plugin needs a reload
+
+If the error appeared after changing settings, reload before doing anything more drastic.
+
+## I cannot see a `Configure` button
+
+That usually means the plugin has no user-configurable settings.
+
+This is normal for some built-in skill plugins that only extend agent capability in the background.
+
+## I cannot uninstall a built-in plugin
+
+This is expected.
+
+Built-in plugins can be enabled, disabled, configured, or reloaded, but they cannot be removed from the Plugins UI.
+
+## The Publish action is missing
+
+The `Publish` action is only available for non-built-in plugins that support marketplace-style publishing workflows.
+
+Built-in plugins do not show this action.
+
+## An image generation provider does not appear to work
+
+Check the full chain:
+
+1. The plugin is enabled
+2. The plugin is configured
+3. The plugin was reloaded after configuration
+4. The provider appears in the image generation priority chain
+5. The provider order is what you intended
+
+See [Image Generation Plugins](/plugins/image-generation-plugins) for the setup flow.
+
+## Runtime Auto-Approve is behaving too broadly or too narrowly
+
+Open its configuration and review:
+
+- preset selection
+- allowed command groups
+- extra allowed prefixes
+- blocked prefixes
+- logging
+
+If you are unsure, move back toward a stricter preset and reintroduce custom allowances gradually.
+
+## Good troubleshooting habit
+
+When a plugin fails, change one thing at a time:
+
+1. enable or disable
+2. configure
+3. reload
+4. test the dependent feature
+
+This makes it much easier to tell whether the problem was installation, configuration, or runtime state.

@@ -1,0 +1,81 @@
+---
+title: Built-In Plugins
+description: Review the plugins that ship with RealTimeX and understand which ones are enabled by default.
+---
+
+# Built-In Plugins
+
+Built-in plugins ship with RealTimeX and appear in `Settings > Plugins` with a `Built-in` badge.
+
+These plugins are part of the product, but they still use the same plugin management flow as installed plugins. That means you can usually enable, disable, configure, or reload them from the Plugins page.
+
+## What is different about built-in plugins
+
+- they ship with RealTimeX
+- they cannot be uninstalled from the UI
+- some are enabled by default
+- some expose settings, while others simply add agent skills or provider integrations
+
+## Built-in plugin catalog
+
+| Plugin | Enabled by default | What it adds | Where it matters |
+| --- | --- | --- | --- |
+| `Agent Browser` | Yes | Browser automation skill for agents | agent and browser automation workflows |
+| `RealtimeX Moderator` | Yes | SDK-backed control of RealTimeX platform features | advanced agent workflows involving workspaces, threads, tools, and platform state |
+| `QMD` | Yes | Markdown knowledge and notes search skill | note and markdown retrieval workflows |
+| `RealtimeX Personal Notes` | Yes | Agent access to personal notes context | Personal Notes and agent memory workflows |
+| `RealtimeX Workspace Memories` | Yes | Agent access to workspace memory files | workspace memory recall |
+| `RealtimeX LLM Wiki` | Yes | Agent support for wiki-style knowledge projects | wiki and working-directory-based knowledge workflows |
+| `Runtime Auto-Approve` | No | Auto-approve or deny agent permission requests using policy rules | ACP and supervised terminal workflows |
+| `OpenAI Image Generation` | No | OpenAI-based image generation provider | image generation features |
+| `Google Gemini Image Generation` | No | Gemini-based image generation provider | image generation features |
+| `FAL Flux Image Generation` | No | FAL-based image generation provider | image generation features |
+| `MiniMax Image Generation` | No | MiniMax image generation provider | image generation features |
+
+## Built-in plugins enabled by default
+
+The default-enabled built-ins mostly add background capability for agents rather than a new standalone page.
+
+### Agent Browser
+
+Adds browser automation capability for agents. Use it when you want an agent to navigate websites, click through flows, take screenshots, or interact with web-style interfaces.
+
+### RealtimeX Moderator
+
+Lets agents work directly with RealTimeX platform features through the RealTimeX SDK, including workspaces, threads, tools, and related platform state.
+
+### QMD
+
+Adds markdown-oriented search capability. It is especially relevant when your notes or knowledge are stored as markdown and you want retrieval behavior instead of manual browsing.
+
+### RealtimeX Personal Notes
+
+Lets agents recall accessible personal note files as context. This complements the [Personal Notes](/personal-notes) feature page.
+
+### RealtimeX Workspace Memories
+
+Lets agents recall workspace memory files so they can use persistent workspace facts, preferences, and historical context more effectively.
+
+### RealtimeX LLM Wiki
+
+Lets agents work with wiki-style knowledge projects across working directories. This is most useful when your team maintains structured markdown knowledge rather than isolated note files.
+
+## Built-in plugins that usually need intentional setup
+
+### Runtime Auto-Approve
+
+This plugin is disabled by default because it changes how permission approvals are handled for ACP and supervised terminal workflows.
+
+Only enable it when you explicitly want policy-based auto-approval behavior.
+
+### Image generation built-ins
+
+The image generation plugins are disabled by default because they usually require API keys and provider configuration before use.
+
+See [Image Generation Plugins](/plugins/image-generation-plugins) for setup.
+
+## Best practices
+
+- Keep the default-enabled skill plugins on unless you have a specific reason to reduce available agent capabilities.
+- Treat `Runtime Auto-Approve` as a security-sensitive plugin, not a convenience toggle.
+- Enable only the image generation providers you actually plan to configure and use.

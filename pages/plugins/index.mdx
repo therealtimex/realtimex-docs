@@ -1,0 +1,89 @@
+---
+title: Plugins
+description: Learn how RealTimeX plugins work, which ones ship built in, and how to install and manage them as an end user.
+---
+
+# Plugins
+
+Plugins extend RealTimeX with extra providers, agent skills, and runtime behavior. The `Settings > Plugins` page is the main control surface for enabling built-in plugins, installing new ones, configuring plugin settings, and troubleshooting plugin problems.
+
+## Who this guide is for
+
+This section is written for RealTimeX end users who manage their own desktop or hosted instance.
+
+- If you administer the instance, this is your operational guide.
+- If you use RealTimeX in a shared deployment, your admin may enable plugins for you, but you may still want to understand what they do.
+
+This is not plugin developer documentation. It explains how to use plugins already available to your RealTimeX instance.
+
+## What counts as a plugin in RealTimeX
+
+Plugins can add one or more of the following:
+
+- new AI capabilities for agents
+- new image generation providers
+- configurable runtime policies
+- reusable integration logic that appears elsewhere in the product
+
+Some plugins are visible because they add a new provider or a new settings workflow. Others work more quietly by extending what agents can do in the background.
+
+## Built-in plugins vs installed plugins
+
+RealTimeX supports two main plugin types.
+
+### Built-in plugins
+
+Built-in plugins ship with RealTimeX itself.
+
+- They appear with a `Built-in` badge.
+- Some are enabled by default.
+- They can usually be enabled, disabled, configured, or reloaded.
+- They cannot be uninstalled from the UI.
+
+### Installed plugins
+
+Installed plugins are added to your instance later, usually from a `.zip` package.
+
+- They appear beside built-in plugins in the same list.
+- They can be enabled, disabled, configured, reloaded, and uninstalled.
+- Some can also be published to the marketplace after installation.
+
+## Common plugin tasks
+
+- Learn which plugins ship with RealTimeX on [Built-In Plugins](/plugins/built-in-plugins)
+- Install or remove plugins on [Install & Manage Plugins](/plugins/manage-plugins)
+- Understand plugin forms and LLM slots on [Configure Plugin Settings](/plugins/configure-plugin-settings)
+- Set up provider ordering on [Image Generation Plugins](/plugins/image-generation-plugins)
+- Configure permission policies on [Runtime Auto-Approve](/plugins/runtime-auto-approve)
+- Fix common problems on [Troubleshooting](/plugins/troubleshooting)
+
+## How plugins appear in the UI
+
+Each plugin card can show some combination of:
+
+- status and version
+- description
+- author
+- a `Built-in` badge
+- `Enable` or `Disable`
+- `Configure`
+- `Reload`
+- `Publish`
+- `Uninstall`
+
+If a plugin does not expose configurable settings, the `Configure` action will not appear.
+
+## Important behavior to remember
+
+- Saving plugin settings does not replace the plugin itself. It only updates that plugin's stored configuration.
+- Some changes take effect immediately, but reloading the plugin is the safest way to apply new settings after a significant change.
+- Disabled plugins stay installed. They are simply inactive.
+- Built-in plugins cannot be uninstalled.
+
+## Recommended approach
+
+1. Start by reviewing [Built-In Plugins](/plugins/built-in-plugins).
+2. Enable only the plugins you actually need.
+3. Configure required API keys or provider settings before first use.
+4. Reload the plugin after major configuration changes.
+5. Test the user-facing feature that depends on the plugin.

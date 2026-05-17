@@ -391,6 +391,18 @@ At spawn time, the server reads `REALTIMEX_AI_API_KEY` from its environment, map
 Provider forwarding requires the target provider's API key to be configured on the RealTimeX server (e.g., `REALTIMEX_AI_API_KEY` for RealTimeX AI, `OPEN_AI_KEY` for OpenAI). If credentials are missing, session creation will fail.
 </Callout>
 
+### Troubleshooting Qwen authentication mismatches
+
+If a Qwen-backed session fails with an error like `Authentication failed: ANTHROPIC_BASE_URL environment variable not found`, the session is not using native Qwen/DashScope authentication. It is running with the forwarded provider's protocol, so the Qwen process expects that provider's environment and base URL configuration.
+
+- Native Qwen or DashScope usage typically runs through an OpenAI-compatible endpoint and needs the matching API key plus base URL.
+- If `forwardedProvider` is `anthropic`, the spawned Qwen process must receive Anthropic-compatible settings such as `ANTHROPIC_API_KEY` and `ANTHROPIC_BASE_URL`.
+- If `forwardedProvider` is `openai` or another OpenAI-compatible provider, the process must receive OpenAI-compatible settings such as `OPENAI_API_KEY` and `OPENAI_BASE_URL`.
+
+<Callout type="warning">
+The auth prompt may still mention `QWEN_API_KEY` or `DASHSCOPE_API_KEY` because the CLI binary is Qwen. When provider forwarding is enabled, follow the forwarded provider's auth requirements instead. Qwen Code's official auth matrix is documented at [Qwen Code Authentication](https://qwenlm.github.io/qwen-code-docs/en/users/configuration/auth/).
+</Callout>
+
 ---
 
 ## Attachments

@@ -1,0 +1,117 @@
+---
+title: Runtime Auto-Approve
+description: Learn what the Runtime Auto-Approve plugin does and how to configure its approval policy safely.
+---
+
+# Runtime Auto-Approve
+
+`Runtime Auto-Approve` is a built-in plugin that can automatically approve or deny some ACP agent permissions and supervised terminal permissions based on rules you configure.
+
+It is disabled by default for a reason: it changes the safety boundary around agent actions.
+
+## When to use it
+
+Enable this plugin only when you want to reduce manual approval friction for well-understood agent workflows.
+
+Good examples:
+
+- repeated safe read-only inspection work
+- tightly controlled terminal workflows
+- supervised environments where you want policy consistency
+
+Not a good example:
+
+- broad experimentation where you are still learning what the agent might ask to do
+
+## Where to configure it
+
+1. Open `Settings > Plugins`.
+2. Enable `Runtime Auto-Approve`.
+3. Click `Configure`.
+
+## Main configuration areas
+
+### ACP safe tool kinds
+
+This list controls which ACP tool kinds can be auto-approved.
+
+Examples include:
+
+- `read`
+- `edit`
+- `delete`
+- `move`
+- `search`
+- `fetch`
+- `switch_mode`
+- `other`
+
+`execute` is intentionally more sensitive than most other tool kinds.
+
+### Terminal approval preset
+
+The preset controls the overall approval posture.
+
+- `Ask Every Time`: no automatic trust
+- `Recommended`: the safer guided default
+- `Custom`: you explicitly choose allowed actions and command groups
+
+### Auto-allowed terminal actions
+
+In `Custom` mode, you can allow specific supervised terminal actions, such as:
+
+- reading terminal output
+- web search
+- web fetch
+- sending signals
+- writing raw terminal input
+- approving structured commands
+
+Raw writes and command approvals are the most sensitive options in this group.
+
+### Auto-allowed command groups
+
+Also in `Custom` mode, you can approve recognized command groups such as:
+
+- read-only shell commands
+- git inspection commands
+- test commands
+
+### Extra allowed command prefixes
+
+Use this when you want to allow additional structured command prefixes that are not covered by the built-in command groups.
+
+### Blocked command prefixes
+
+These are denied before allow rules are considered.
+
+Treat this list as an explicit guardrail layer, not just an optional convenience setting.
+
+### Log decisions
+
+Keeps an audit trail of approval and denial behavior in system logging.
+
+This is recommended when you are tuning a policy.
+
+### LLM command analysis
+
+This optional mode allows an LLM to review commands that pass static pattern checks.
+
+Use this only if:
+
+- you understand the extra complexity it adds
+- you have configured the related LLM slot
+- you still keep strict static rules in place
+
+## Safe rollout advice
+
+1. Start with `Ask Every Time` or `Recommended`.
+2. Observe what the agent actually requests.
+3. Move to `Custom` only when you understand the request patterns.
+4. Keep blocked prefixes conservative.
+5. Leave decision logging on while tuning.
+
+## Related guides
+
+- For general plugin lifecycle actions, see [Install & Manage Plugins](/plugins/manage-plugins)
+- For configuration behavior, see [Configure Plugin Settings](/plugins/configure-plugin-settings)

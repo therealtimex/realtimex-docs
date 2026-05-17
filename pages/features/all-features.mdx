@@ -5,10 +5,13 @@ description: "All the features of RealTimeX"
 
 import { FeatureCard } from "@/components/FeatureCard";
 import {
+  Activity,
   Bot,
+  BookOpen,
   Key,
   Paintbrush,
   MessagesSquare,
+  MessageSquare,
   Layout,
   Globe,
   FileText,
@@ -21,8 +24,10 @@ import {
   Cloud,
   Settings,
   Laptop,
+  FolderOpen,
   Calendar,
   AudioLines,
+  Plug,
   Volume2
 } from "lucide-react";
 
@@ -36,55 +41,70 @@ Explore the full range of what RealTimeX can do. Click any card to learn more.
   gap: "1.2rem",
   marginTop: "2rem"
 }}>
-  <FeatureCard title="AI Agents" href="./features/ai-agents" icon={<Bot size={36} color="#226cff" />}>
+  <FeatureCard title="AI Agents" href="/features/ai-agents" icon={<Bot size={36} color="#226cff" />}>
     Build and automate with advanced AI agents.
   </FeatureCard>
-  <FeatureCard title="API Access & Keys" href="./features/api" icon={<Key size={36} color="#0da37f" />}>
+  <FeatureCard title="Agent Runtime" href="/agent-runtime" icon={<Activity size={36} color="#31b5d6" />}>
+    Control CLIs, working directories, scheduled runs, and diagnostics.
+  </FeatureCard>
+  <FeatureCard title="API Access & Keys" href="/features/api" icon={<Key size={36} color="#0da37f" />}>
     Connect, integrate, and extend with APIs.
   </FeatureCard>
-  <FeatureCard title="Appearance Customization" href="./features/customization" icon={<Paintbrush size={36} color="#efc04a" />}>
+  <FeatureCard title="Appearance Customization" href="/features/customization" icon={<Paintbrush size={36} color="#efc04a" />}>
     Personalize themes, layouts, and more.
   </FeatureCard>
-  <FeatureCard title="Chat Logs" href="./features/chat-logs" icon={<MessagesSquare size={36} color="#ad4ae6" />}>
+  <FeatureCard title="Chat Logs" href="/features/chat-logs" icon={<MessagesSquare size={36} color="#ad4ae6" />}>
     Review, search, and export conversations.
   </FeatureCard>
-  <FeatureCard title="Chat Modes" href="./features/chat-modes" icon={<Layout size={36} color="#31b5d6" />}>
+  <FeatureCard title="Chat Modes" href="/features/chat-modes" icon={<Layout size={36} color="#31b5d6" />}>
     Switch between different chat experiences.
   </FeatureCard>
-  <FeatureCard title="Local Apps" href="../local-apps" icon={<Laptop size={36} color="#f97316" />}>
+  <FeatureCard title="Local Apps" href="/local-apps" icon={<Laptop size={36} color="#f97316" />}>
     Connect and automate local applications with AI Agents.
   </FeatureCard>
-  <FeatureCard title="Embedded Chat Widgets" href="./features/chat-widgets" icon={<Globe size={36} color="#e3694d" />}>
+  <FeatureCard title="Personal Notes" href="/personal-notes" icon={<BookOpen size={36} color="#ad4ae6" />}>
+    Capture notes, create wiki projects, and search them with AI.
+  </FeatureCard>
+  <FeatureCard title="Knowledge Manager" href="/knowledge-manager" icon={<FolderOpen size={36} color="#0da37f" />}>
+    Build reusable knowledge collections for agent reference.
+  </FeatureCard>
+  <FeatureCard title="Embedded Chat Widgets" href="/features/chat-widgets" icon={<Globe size={36} color="#e3694d" />}>
     Embed interactive chat on any website.
   </FeatureCard>
-  <FeatureCard title="Event Logs" href="./features/event-logs" icon={<FileText size={36} color="#a2b123" />}>
+  <FeatureCard title="Event Logs" href="/features/event-logs" icon={<FileText size={36} color="#a2b123" />}>
     Track all actions and system events.
   </FeatureCard>
-  <FeatureCard title="Large Language Models" href="./features/language-models" icon={<Brain size={36} color="#226cff" />}>
+  <FeatureCard title="Large Language Models" href="/features/language-models" icon={<Brain size={36} color="#226cff" />}>
     Support for a wide range of LLMs.
   </FeatureCard>
-  <FeatureCard title="Embedding Models" href="./features/embedding-models" icon={<Puzzle size={36} color="#0da37f" />}>
+  <FeatureCard title="Embedding Models" href="/features/embedding-models" icon={<Puzzle size={36} color="#0da37f" />}>
     Integrate with leading embedding models.
   </FeatureCard>
-  <FeatureCard title="Transcription Models" href="./features/transcription-models" icon={<Mic size={36} color="#efc04a" />}>
+  <FeatureCard title="Transcription Models" href="/features/transcription-models" icon={<Mic size={36} color="#efc04a" />}>
     Convert audio to text with ease.
   </FeatureCard>
-  <FeatureCard title="Text-to-Speech" href="./features/text-to-speech" icon={<Volume2 size={36} color="#0da37f" />}>
+  <FeatureCard title="Text-to-Speech" href="/features/text-to-speech" icon={<Volume2 size={36} color="#0da37f" />}>
     Read chat messages and notes aloud with local or cloud voices.
   </FeatureCard>
-  <FeatureCard title="Vector Databases" href="./features/vector-databases" icon={<Database size={36} color="#ad4ae6" />}>
+  <FeatureCard title="Vector Databases" href="/features/vector-databases" icon={<Database size={36} color="#ad4ae6" />}>
     Store and search embeddings at scale.
   </FeatureCard>
-  <FeatureCard title="Privacy & Data Handling" href="./features/privacy-and-data-handling" icon={<Lock size={36} color="#e3694d" />}>
+  <FeatureCard title="Privacy & Data Handling" href="/features/privacy-and-data-handling" icon={<Lock size={36} color="#e3694d" />}>
     Private by design, with strict data handling.
   </FeatureCard>
-  <FeatureCard title="Calendar" href="../calendar" icon={<Calendar size={36} color="#31b5d6" />}>
-    Unified planning for tasks, agent schedules, and events.
+  <FeatureCard title="Calendar" href="/calendar" icon={<Calendar size={36} color="#31b5d6" />}>
+    Unified planning for tasks, synced calendars, and events.
   </FeatureCard>
-  <FeatureCard title="Meeting Minutes" href="../meeting-minutes" icon={<AudioLines size={36} color="#ad4ae6" />}>
-    Record, transcribe, and analyze meetings with AI.
+  <FeatureCard title="Meeting Minutes" href="/meeting-minutes" icon={<AudioLines size={36} color="#ad4ae6" />}>
+    Record, import, transcribe, and synthesize meetings with AI.
   </FeatureCard>
-  <FeatureCard title="System Prompt Variables" href="./features/system-prompt-variables" icon={<Settings size={36} color="#0da37f" />}>
+  <FeatureCard title="Channels" href="/channels" icon={<MessageSquare size={36} color="#e3694d" />}>
+    Connect workspace AI to messaging platforms such as Slack or Telegram.
+  </FeatureCard>
+  <FeatureCard title="Plugins" href="/plugins" icon={<Plug size={36} color="#efc04a" />}>
+    Install and configure extensions that expand RealTimeX.
+  </FeatureCard>
+  <FeatureCard title="System Prompt Variables" href="/features/system-prompt-variables" icon={<Settings size={36} color="#0da37f" />}>
     Customize prompts with flexible variables.
   </FeatureCard>
 </div>

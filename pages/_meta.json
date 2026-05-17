@@ -88,6 +88,33 @@
       "toc": true
     }
   },
+  "agent-runtime": {
+    "title": "Agent Runtime",
+    "theme": {
+      "breadcrumb": true,
+      "footer": true,
+      "pagination": true,
+      "toc": true
+    }
+  },
+  "personal-notes": {
+    "title": "Personal Notes",
+    "theme": {
+      "breadcrumb": true,
+      "footer": true,
+      "pagination": true,
+      "toc": true
+    }
+  },
+  "knowledge-manager": {
+    "title": "Knowledge Manager",
+    "theme": {
+      "breadcrumb": true,
+      "footer": true,
+      "pagination": true,
+      "toc": true
+    }
+  },
   "meeting-minutes": {
     "title": "Meeting Minutes",
     "theme": {
@@ -99,6 +126,24 @@
   },
   "calendar": {
     "title": "Calendar",
+    "theme": {
+      "breadcrumb": true,
+      "footer": true,
+      "pagination": true,
+      "toc": true
+    }
+  },
+  "channels": {
+    "title": "Channels",
+    "theme": {
+      "breadcrumb": true,
+      "footer": true,
+      "pagination": true,
+      "toc": true
+    }
+  },
+  "plugins": {
+    "title": "Plugins",
     "theme": {
       "breadcrumb": true,
       "footer": true,
