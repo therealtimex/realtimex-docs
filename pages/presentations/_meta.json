@@ -6,5 +6,9 @@
   "partner-overview": {
     "title": "Partner Overview",
     "display": "hidden"
+  },
+  "investor-overview": {
+    "title": "Investor Overview",
+    "display": "hidden"
   }
 }
