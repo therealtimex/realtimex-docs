@@ -10,5 +10,9 @@
   "investor-overview": {
     "title": "Investor Overview",
     "display": "hidden"
+  },
+  "product-demo-flow": {
+    "title": "Product Demo Flow",
+    "display": "hidden"
   }
 }
