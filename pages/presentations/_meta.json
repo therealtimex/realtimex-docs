@@ -2,5 +2,9 @@
   "customer-overview": {
     "title": "Customer Overview",
     "display": "hidden"
+  },
+  "partner-overview": {
+    "title": "Partner Overview",
+    "display": "hidden"
   }
 }
