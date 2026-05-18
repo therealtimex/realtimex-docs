@@ -1,38 +1,107 @@
 ---
 title: "Overview"
-description: "Large language models are AI systems capable of understanding and generating human language by processing vast amounts of text data."
+description: "Choose the default language model provider, connect local or cloud backends, and find provider-specific setup guides."
 ---
 
 import { FeatureCard } from "@/components/FeatureCard";
 import { Callout } from "nextra/components";
 
-# Large Language Models
+# LLM Setup
+
+This section explains how to connect language model providers in RealTimeX.
+
+Use it when you need to:
+
+- choose the default system LLM
+- connect a cloud or local provider
+- select the default model for that provider
+- find the provider-specific setup page for a backend you want to use
+
+Open the main selector from `Settings > AI Providers > LLM`.
 
 <Callout type="info" emoji="💡">
-  **Tip:** Multi-modal models (text-to-text & image-to-text) are supported for both System and Workspace LLMs.
+  Use [Large Language Models](/features/language-models) when you want the behavior guide for system defaults, workspace overrides, and provider strategy. This section is for connection and setup.
 </Callout>
 
-Large language models (LLMs) are advanced AI systems that understand and generate human language by processing vast amounts of data.  
-RealTimeX gives you the flexibility to mix and match LLMs—local or cloud, general-purpose or specialized—to fit every workflow.
+## What this setting controls
 
-## Types of LLMs in RealTimeX
+The `LLM` page is the instance-wide source of truth for the default chat model provider.
 
-### System LLM
-The default LLM RealTimeX will use for all workspaces and agents unless a more specific LLM is configured.
+From that page, you configure:
 
-### Workspace LLM
-Assign workspace-specific LLMs to override the system LLM for individual teams or projects. This allows each workspace to use its own provider and model.
+- the system default provider
+- provider credentials, endpoints, or base URLs
+- the default model used by that provider
+- plugin-provided LLM providers when plugins register them
+- the provider list used by workspace and agent override pickers
 
-### Agent LLM
-RealTimeX supports agent-specific LLMs. Some models are better for tool calling or agent orchestration.  
-Assign dedicated models for AI agents where advanced features or reliability is critical.
+## Common setup flow
 
-## Supported LLM Providers
+Most providers follow the same setup pattern:
 
-You can switch your provider, model, or configuration at any time with no downtime.  
-Connect to both local and cloud LLMs simultaneously—even mix and match as you go!
+1. Open `Settings > AI Providers > LLM`.
+2. Select the provider you want to use.
+3. Enter the required connection details.
+4. Choose a model, or type a model ID when the provider expects manual entry.
+5. Save the configuration.
+6. Test the result in a normal chat before using it in workspaces, agents, or automations.
 
-### Local Language Model Providers
+Depending on the provider, RealTimeX may load the model list only after you enter a valid API key, endpoint, or base URL.
+
+## How provider selection layers work
+
+### System default
+
+The system LLM is the fallback provider for the instance.
+
+If nothing more specific is selected, RealTimeX uses this provider for:
+
+- regular chats
+- new workspaces that inherit the default
+- tools or automations that do not define their own provider
+
+### Workspace override
+
+Workspaces can stay on `System default` or choose a different provider and model for that workspace only.
+
+Use workspace overrides when:
+
+- one team needs a different vendor
+- one workspace needs a larger context window
+- one project should stay on local inference while the rest of the instance uses cloud models
+
+### Agent and runtime override
+
+Some agent surfaces can override the inherited provider and model as well.
+
+If an agent or runtime does not define its own LLM, it falls back to the workspace or system selection, depending on that feature's configuration.
+
+## Which provider type should you choose?
+
+### RealTimeX-managed options
+
+- `RealTimeX Cloud` is the simplest hosted path when you want a managed cloud provider inside RealTimeX.
+- `RealTimeX Local` is the integrated local GGUF workflow when you want on-device inference without running a separate model server yourself.
+
+`RealTimeX Cloud` is configured directly from the same `LLM` selector and normally does not require a separate setup flow beyond choosing the provider and model.
+
+### External cloud providers
+
+Use providers like `OpenAI`, `Anthropic`, `Gemini`, `Azure OpenAI`, `Groq`, or `Mistral` when your team already operates around that vendor or you want access to that model family directly.
+
+### Local or self-hosted endpoints
+
+Use providers like `Ollama`, `LM Studio`, `Local AI`, `KoboldCPP`, `llama.cpp`, or `Generic OpenAI` when you already run local inference infrastructure or a self-hosted gateway.
+
+### Compatibility and proxy layers
+
+Use `Generic OpenAI` or `LiteLLM` when you want RealTimeX to connect through an OpenAI-compatible proxy or compatibility layer instead of a vendor-specific integration.
+
+### Plugin providers
+
+Plugins can register additional LLM providers. When that happens, they appear in the same selector as built-in providers and follow the same general setup flow.
+
+## Local and managed setup guides
 
 <div style={{
   display: "grid",
@@ -40,89 +109,27 @@ Connect to both local and cloud LLMs simultaneously—even mix and match as you 
   gap: "1rem",
   margin: "1.2rem 0"
 }}>
-  <FeatureCard title="Built-in (default)" href="./setup/llm-configuration/local/built-in">
-    <img
-      src="/images/ai-providers/realtimex.png"
-      alt="RealTimeX Built-in"
-      height={38}
-      style={{
-        display: "block",
-        marginBottom: 8,
-        maxHeight: 38,
-        width: "auto",
-        maxWidth: 80,
-        objectFit: "contain"
-      }}
-    />
-    <div>Default, private, high-performance LLM engine—no setup needed.</div>
+  <FeatureCard title="RealTimeX Local" href="/realtimex-local">
+    <div>Managed on-device GGUF runtime, download flow, and local model execution.</div>
   </FeatureCard>
-  <FeatureCard title="Ollama" href="./setup/llm-configuration/local/ollama">
-    <img
-      src="/images/ai-providers/ollama.svg"
-      alt="Ollama"
-      height={38}
-      style={{
-        display: "block",
-        marginBottom: 8,
-        maxHeight: 38,
-        width: "auto",
-        maxWidth: 80,
-        objectFit: "contain"
-      }}
-    />
-    <div>Modern local LLM runner, supporting a wide range of open models.</div>
+  <FeatureCard title="Local Models" href="/local-models">
+    <div>Model inventory, status, pulling, downloading, warming, and deletion across local backends.</div>
   </FeatureCard>
-  <FeatureCard title="LM Studio" href="./setup/llm-configuration/local/lmstudio">
-    <img
-      src="/images/ai-providers/lmstudio.svg"
-      alt="LM Studio"
-      height={38}
-      style={{
-        display: "block",
-        marginBottom: 8,
-        maxHeight: 38,
-        width: "auto",
-        maxWidth: 80,
-        objectFit: "contain"
-      }}
-    />
-    <div>Easy desktop app for local LLM inference and management.</div>
+  <FeatureCard title="Ollama" href="/setup/llm-configuration/local/ollama">
+    <div>Connect to an Ollama server and choose one of your installed models.</div>
   </FeatureCard>
-  <FeatureCard title="Local AI" href="./setup/llm-configuration/local/localai">
-    <img
-      src="/images/ai-providers/localai.png"
-      alt="Local AI"
-      height={38}
-      style={{
-        display: "block",
-        marginBottom: 8,
-        maxHeight: 38,
-        width: "auto",
-        maxWidth: 80,
-        objectFit: "contain"
-      }}
-    />
-    <div>Open source, extensible local inference backend for LLMs.</div>
+  <FeatureCard title="LM Studio" href="/setup/llm-configuration/local/lmstudio">
+    <div>Use LM Studio as a local LLM backend for RealTimeX.</div>
   </FeatureCard>
-  <FeatureCard title="KoboldCPP" href="./setup/llm-configuration/local/kobaldcpp">
-    <img
-      src="/images/ai-providers/koboldcpp.png"
-      alt="KoboldCPP"
-      height={38}
-      style={{
-        display: "block",
-        marginBottom: 8,
-        maxHeight: 38,
-        width: "auto",
-        maxWidth: 80,
-        objectFit: "contain"
-      }}
-    />
-    <div>Run GGUF models on your own hardware, locally.</div>
+  <FeatureCard title="Local AI" href="/setup/llm-configuration/local/localai">
+    <div>Connect to a Local AI deployment for self-hosted inference.</div>
+  </FeatureCard>
+  <FeatureCard title="KoboldCPP" href="/setup/llm-configuration/local/kobaldcpp">
+    <div>Use KoboldCPP for GGUF-based local model serving.</div>
   </FeatureCard>
 </div>
 
-### Cloud Language Model Providers
+## Cloud setup guides
 
 <div style={{
   display: "grid",
@@ -130,196 +137,85 @@ Connect to both local and cloud LLMs simultaneously—even mix and match as you 
   gap: "1rem",
   margin: "1.2rem 0"
 }}>
-  <FeatureCard title="OpenAI" href="./setup/llm-configuration/cloud/openai">
-    <img
-      src="/images/ai-providers/openai.svg"
-      alt="OpenAI"
-      height={38}
-      style={{
-        display: "block",
-        marginBottom: 8,
-        maxHeight: 38,
-        width: "auto",
-        maxWidth: 80,
-        objectFit: "contain"
-      }}
-    />
-    <div>GPT-4o, GPT-4, GPT-3.5, and more—state-of-the-art performance.</div>
+  <FeatureCard title="OpenAI" href="/setup/llm-configuration/cloud/openai">
+    <div>Connect a standard OpenAI API key and choose an OpenAI chat model.</div>
   </FeatureCard>
-  <FeatureCard title="Azure OpenAI" href="./setup/llm-configuration/cloud/azure-openai">
-    <img
-      src="/images/ai-providers/azure.svg"
-      alt="Azure OpenAI"
-      height={38}
-      style={{
-        display: "block",
-        marginBottom: 8,
-        maxHeight: 38,
-        width: "auto",
-        maxWidth: 80,
-        objectFit: "contain"
-      }}
-    />
-    <div>Enterprise-grade LLMs managed by Microsoft Azure.</div>
+  <FeatureCard title="Azure OpenAI" href="/setup/llm-configuration/cloud/azure-openai">
+    <div>Use Azure-hosted OpenAI deployments with endpoint and deployment configuration.</div>
   </FeatureCard>
-  <FeatureCard title="Anthropic" href="./setup/llm-configuration/cloud/anthropic">
-    <img
-      src="/images/ai-providers/anthropic.svg"
-      alt="Anthropic"
-      height={38}
-      style={{
-        display: "block",
-        marginBottom: 8,
-        maxHeight: 38,
-        width: "auto",
-        maxWidth: 80,
-        objectFit: "contain"
-      }}
-    />
-    <div>Claude 3, Opus, and the full Anthropic model family.</div>
+  <FeatureCard title="Anthropic" href="/setup/llm-configuration/cloud/anthropic">
+    <div>Connect Claude models directly through Anthropic.</div>
   </FeatureCard>
-  <FeatureCard title="Cohere" href="./setup/llm-configuration/cloud/cohere">
-    <img
-      src="/images/ai-providers/cohere-color.svg"
-      alt="Cohere"
-      height={38}
-      style={{
-        display: "block",
-        marginBottom: 8,
-        maxHeight: 38,
-        width: "auto",
-        maxWidth: 80,
-        objectFit: "contain"
-      }}
-    />
-    <div>Enterprise language and embedding models.</div>
+  <FeatureCard title="Google Gemini" href="/setup/llm-configuration/cloud/google-gemini">
+    <div>Use Gemini models through Google's hosted API.</div>
   </FeatureCard>
-  <FeatureCard title="Google Gemini Pro" href="./setup/llm-configuration/cloud/google-gemini">
-    <img
-      src="/images/ai-providers/gemini-color.svg"
-      alt="Gemini"
-      height={38}
-      style={{
-        display: "block",
-        marginBottom: 8,
-        maxHeight: 38,
-        width: "auto",
-        maxWidth: 80,
-        objectFit: "contain"
-      }}
-    />
-    <div>Google’s latest multi-modal LLM (Gemini series).</div>
+  <FeatureCard title="Groq" href="/setup/llm-configuration/cloud/groq">
+    <div>Connect Groq-hosted models for low-latency inference.</div>
   </FeatureCard>
-  <FeatureCard title="Hugging Face" href="./setup/llm-configuration/cloud/huggingface">
-    <img
-      src="/images/ai-providers/huggingface-color.svg"
-      alt="Hugging Face"
-      height={38}
-      style={{
-        display: "block",
-        marginBottom: 8,
-        maxHeight: 38,
-        width: "auto",
-        maxWidth: 80,
-        objectFit: "contain"
-      }}
-    />
-    <div>Access any model from the Hugging Face Hub.</div>
+  <FeatureCard title="Mistral AI" href="/setup/llm-configuration/cloud/mistral-ai">
+    <div>Use Mistral-hosted models through the Mistral API.</div>
   </FeatureCard>
-  <FeatureCard title="Together AI" href="./setup/llm-configuration/cloud/together-ai">
-    <img
-      src="/images/ai-providers/together-color.svg"
-      alt="Together AI"
-      height={38}
-      style={{
-        display: "block",
-        marginBottom: 8,
-        maxHeight: 38,
-        width: "auto",
-        maxWidth: 80,
-        objectFit: "contain"
-      }}
-    />
-    <div>Fast, multi-model LLM provider with open APIs.</div>
+  <FeatureCard title="Cohere" href="/setup/llm-configuration/cloud/cohere">
+    <div>Connect Cohere command models through a hosted API key.</div>
   </FeatureCard>
   <FeatureCard title="OpenRouter" href="/setup/llm-configuration/cloud/openrouter">
-    <img
-      src="/images/ai-providers/openrouter.svg"
-      alt="OpenRouter"
-      height={38}
-      style={{
-        display: "block",
-        marginBottom: 8,
-        maxHeight: 38,
-        width: "auto",
-        maxWidth: 80,
-        objectFit: "contain"
-      }}
-    />
-    <div>Unified API for many top LLMs.</div>
+    <div>Route model access through OpenRouter's multi-provider catalog.</div>
   </FeatureCard>
-  <FeatureCard title="Perplexity AI" href="./setup/llm-configuration/cloud/perplexity-ai">
-    <img
-      src="/images/ai-providers/perplexity.svg"
-      alt="Perplexity AI"
-      height={38}
-      style={{
-        display: "block",
-        marginBottom: 8,
-        maxHeight: 38,
-        width: "auto",
-        maxWidth: 80,
-        objectFit: "contain"
-      }}
-    />
-    <div>Conversational search and generative AI.</div>
+  <FeatureCard title="Together AI" href="/setup/llm-configuration/cloud/together-ai">
+    <div>Use Together-hosted open model APIs inside RealTimeX.</div>
   </FeatureCard>
-  <FeatureCard title="Mistral API" href="./setup/llm-configuration/cloud/mistral-ai">
-    <img
-      src="/images/ai-providers/mistral-color.svg"
-      alt="Mistral API"
-      height={38}
-      style={{
-        display: "block",
-        marginBottom: 8,
-        maxHeight: 38,
-        width: "auto",
-        maxWidth: 80,
-        objectFit: "contain"
-      }}
-    />
-    <div>Fast, powerful open models (Mistral, Mixtral, etc).</div>
+  <FeatureCard title="Perplexity AI" href="/setup/llm-configuration/cloud/perplexity-ai">
+    <div>Connect hosted Perplexity models where that provider fits your workflow.</div>
   </FeatureCard>
-  <FeatureCard title="Groq" href="./setup/llm-configuration/cloud/groq">
-    <img
-      src="/images/ai-providers/groq.svg"
-      alt="Groq"
-      height={38}
-      style={{
-        display: "block",
-        marginBottom: 8,
-        maxHeight: 38,
-        width: "auto",
-        maxWidth: 80,
-        objectFit: "contain"
-      }}
-    />
-    <div>Ultra-fast inference for popular LLMs.</div>
+  <FeatureCard title="AWS Bedrock" href="/setup/llm-configuration/cloud/aws-bedrock">
+    <div>Use foundation models through your AWS Bedrock account.</div>
   </FeatureCard>
-  <FeatureCard title="OpenAI (generic)" href="./setup/llm-configuration/cloud/openai-generic">
-    <img
-      src="/images/ai-providers/openai.svg"
-      alt="OpenAI (generic)"
-      height={38}
-      style={{
-        display: "block",
-        marginBottom: 8,
-        maxHeight: 38,
-        width: "auto",
-        maxWidth: 80,
-        objectFit: "contain"
-      }}
-    />
-    <div>Generic OpenAI-compatible API for custom setups.</div>
+  <FeatureCard title="Hugging Face" href="/setup/llm-configuration/cloud/hugging-face">
+    <div>Point RealTimeX at a Hugging Face Inference Endpoint.</div>
   </FeatureCard>
 </div>
+
+## Compatibility and gateway guides
+
+<div style={{
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))",
+  gap: "1rem",
+  margin: "1.2rem 0"
+}}>
+  <FeatureCard title="Generic OpenAI" href="/setup/llm-configuration/cloud/openai-generic">
+    <div>Connect any OpenAI-compatible service through a custom endpoint and model configuration.</div>
+  </FeatureCard>
+</div>
+
+## Providers you may also see in the app
+
+The current in-app selector can include additional built-in providers and runtimes that do not all have dedicated setup guides in this section yet, including:
+
+- `DeepSeek`
+- `Fireworks AI`
+- `Novita AI`
+- `Moonshot AI`
+- `xAI`
+- `PPIO`
+- `NVIDIA NIM`
+- `LiteLLM`
+- `APIpie`
+- `llama.cpp`
+- `Oobabooga Web UI`
+- `Dell Pro AI Studio`
+
+Those still follow the same core pattern:
+
+- choose the provider
+- enter the required API key or endpoint
+- select or enter a model
+- save and test
+
+## Related guides
+
+- [Large Language Models](/features/language-models)
+- [RealTimeX Local](/realtimex-local)
+- [Local Models](/local-models)
+- [API Access & Keys](/features/api)
+- [Credentials](/credentials)
