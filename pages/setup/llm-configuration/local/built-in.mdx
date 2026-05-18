@@ -1,30 +1,73 @@
 ---
-title: "RealTimeX Default LLM"
-description: "RealTimeX ships with a built-in LLM engine and provider that enables you to download popular and highly-rated LLMs like LLama-3, Phi-3 and more that can run locally on your CPU and GPU."
+title: "RealTimeX Local"
+description: "Select the managed built-in local provider, then use the dedicated runtime and model screens to run GGUF models on your own machine."
 ---
 
 import { Callout } from "nextra/components";
-import Image from "next/image";
 
-# RealTimeX Default LLM
+# RealTimeX Local
 
-<Callout type="info" emoji="️💡">
-  **DESKTOP ONLY!**
+`RealTimeX Local` is the managed built-in local LLM provider in RealTimeX.
 
-    This default llm provider feature is only present on Desktop Version of RealTimeX
+Use it when you want RealTimeX to run GGUF chat models on your own machine without connecting to a separate Ollama, LM Studio, or other external server.
 
+<Callout type="info" emoji="💡">
+  The deeper operational guides now live at [RealTimeX Local](/realtimex-local) and [Local Models](/local-models). This page is the setup handoff from `Settings > AI Providers > LLM`.
 </Callout>
 
-RealTimeX ships with a built-in LLM engine and provider that enables you to download popular and highly-rated LLMs like LLama-3, Phi-3 and more that can run locally on your CPU and GPU.
+## Where it appears
 
-When you boot up RealTimeX Desktop you will be able to select the model you wish to download. Its progress will be tracked in the top-right of the application window.
+- provider selection: `Settings > AI Providers > LLM`
+- runtime and built-in model management: `Settings > AI Providers > RealTimeX Local`
+- broader cross-provider inventory: `Settings > AI Providers > Local Model Management`
 
-You can update your model to a different model at any time in the **Settings**.
+## What this provider controls
 
-<Image
-  src="/images/realtimex-setup/llm-configuration/local/built-in/default-llm.png"
-  height={1080}
-  width={1920}
-  quality={100}
-  alt="RealTimeX Default LLM"
-/>
+Choosing `RealTimeX Local` in the `LLM` selector tells RealTimeX to use the managed built-in local runtime as the system LLM provider.
+
+That selection depends on a second setup layer:
+
+- the runtime must be installed
+- a hardware backend must be available
+- at least one local model must be downloaded
+- one model must be selected as the preferred built-in model
+
+## Current setup flow
+
+1. Open `Settings > AI Providers > LLM`.
+2. Choose `RealTimeX Local`.
+3. Open `Settings > AI Providers > RealTimeX Local`.
+4. Download the runtime if it is missing.
+5. Keep `Autodetect` for the backend unless you have a reason to pin `Metal`, `CUDA`, `Vulkan`, or `CPU only`.
+6. Download a recommended GGUF model, search Hugging Face, or enter a repository or file path manually.
+7. Set the model as the preferred built-in model and load it.
+8. Return to chat and test a normal conversation.
+
+## What the current runtime page manages
+
+The current `RealTimeX Local` page is more than a simple model dropdown.
+
+It can manage:
+
+- runtime installation state
+- backend selection
+- context size
+- model download and load state
+- warmup readiness
+- unload, refresh, delete, and repair actions
+
+If you are looking for those controls, use the dedicated page instead of expecting everything inside the `LLM` selector itself.
+
+## When to use this provider
+
+- Use `RealTimeX Local` when you want the simplest built-in local inference flow.
+- Use it when you do not want to run a separate local model server.
+- Use it when on-device privacy or offline-capable chat matters more than cloud-only convenience.
+
+If you want to connect RealTimeX to an external local provider instead, use pages such as [Ollama](/setup/llm-configuration/local/ollama), `LM Studio`, or `llama.cpp`.
+
+## Related guides
+
+- [RealTimeX Local](/realtimex-local)
+- [Local Models](/local-models)
+- [Large Language Models](/features/language-models)

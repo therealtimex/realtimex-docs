@@ -1,26 +1,106 @@
 ---
-title: "Ollama LLM"
-description: "Ollama is a popular open-source command-line tool and engine that allows you to download quantized versions of the most popular LLM chat models"
+title: "Ollama"
+description: "Connect RealTimeX to an Ollama server, choose one of its installed models, and tune endpoint and runtime behavior."
 ---
 
-import Image from "next/image";
+# Ollama
 
-# Ollama LLM
+`Ollama` lets RealTimeX use a model served by an Ollama instance instead of the built-in managed local runtime.
 
-[Ollama](https://ollama.com) is a popular [open-source](https://github.com/ollama/ollama) command-line tool and engine that allows you to download quantized versions of the most popular LLM chat models.
+Open it from `Settings > AI Providers > LLM`, then choose `Ollama`.
 
-Ollama is a _separate_ application that you need to download first and connect to. Ollama supports both running LLMs on CPU and GPU.
+## What you need
 
-## Connecting to Ollama
+Before RealTimeX can use Ollama:
 
-When running ollama locally, you should connect to Ollama with `http://127.0.0.1:11434` when using the default settings.
+- Ollama must already be installed and running
+- the Ollama server URL must be reachable from the RealTimeX instance
+- at least one chat model must already exist in Ollama
 
-You can update your model to a different model at any time in the **Settings**.
+This page selects from existing Ollama models. It does not pull the model for you from the main LLM selector.
 
-<Image
-  src="/images/realtimex-setup/llm-configuration/local/ollama/ollama-llm.png"
-  height={1080}
-  width={1920}
-  quality={100}
-  alt="Ollama LLM settings"
-/>
+If you still need to pull a model first, use the Ollama CLI or [Local Models](/local-models).
+
+## Current setup flow
+
+1. Start Ollama.
+2. Make sure the model you want is already installed in Ollama.
+3. Open `Settings > AI Providers > LLM`.
+4. Choose `Ollama`.
+5. Select the model from the dropdown.
+6. Expand `Advanced` if you need to change the endpoint or runtime behavior.
+7. Save the provider settings.
+8. Test a normal chat.
+
+## Model selection behavior
+
+The model dropdown is populated dynamically from the Ollama server.
+
+Important behavior:
+
+- if the URL is missing or invalid, the model list stays unavailable
+- if the server is reachable but has no models, there is nothing to select
+- if you recently pulled a new model, refresh or reopen the page so RealTimeX can load it
+
+## Endpoint setup
+
+The current advanced controls expose the Ollama base URL.
+
+Common local values include:
+
+- `http://127.0.0.1:11434`
+- `http://host.docker.internal:11434`
+- `http://172.17.0.1:11434`
+
+The UI can also try endpoint auto-detection against common local addresses.
+
+## Advanced controls
+
+The current Ollama LLM setup supports more than just URL plus model.
+
+### Maximum tokens
+
+Use `Maximum Tokens` to set the context budget RealTimeX should assume for this Ollama provider.
+
+### Performance mode
+
+The current dropdown supports:
+
+- `Base`
+- `Maximum`
+
+Leave it on the default unless you have measured a reason to change it.
+
+### Keep-alive memory behavior
+
+The current keep-alive options control how long Ollama should keep a model in memory:
+
+- unload immediately
+- keep warm for a few minutes
+- keep warm for an hour
+- keep warm indefinitely
+
+This is useful when you want faster repeated chats at the cost of keeping more memory occupied.
+
+### Auth token
+
+The auth token field is optional. Use it only when your Ollama endpoint is behind authentication and expects a bearer token.
+
+## When to use Ollama instead of RealTimeX Local
+
+- Use `Ollama` when you already run Ollama and want RealTimeX to attach to it.
+- Use `RealTimeX Local` when you want the fully managed built-in GGUF flow instead of a separate external runtime.
+
+## Troubleshooting
+
+### The model dropdown says it is waiting for the URL
+
+Enter a working Ollama URL first or use auto-detect.
+
+### The URL is correct but no models appear
+
+The Ollama server may be up with no models installed yet. Pull a model first, then return to the selector.
+
+### RealTimeX can reach Ollama only on some machines
+
+Double-check whether you are connecting to a local desktop instance, Docker host bridge, or a remote/self-hosted Ollama service. The correct URL differs by deployment.

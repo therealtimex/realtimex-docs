@@ -1,35 +1,94 @@
 ---
-title: "Azure OpenAI LLM"
-description: "Use GPT models in a private and enterprise environment that is managed by Microsoft."
+title: "Azure OpenAI"
+description: "Connect Azure-hosted OpenAI deployments with endpoint, API key, deployment name, token limit, and model-type settings."
 ---
 
 import { Callout } from "nextra/components";
-import Image from "next/image";
 
+# Azure OpenAI
 
-# Azure OpenAI LLM
+`Azure OpenAI` lets RealTimeX use an OpenAI deployment hosted in your Azure environment instead of a direct OpenAI API account.
 
-Microsoft Azure OpenAI offers the same LLM models the base [OpenAI provider](openai) does, but running on your Azure account with all privacy and agreements pertaining to that subscription.
+Open it from `Settings > AI Providers > LLM`, then choose `Azure OpenAI`.
 
-## Connecting to Azure OpenAI
+## What you need
 
-<Callout type="info" emoji="️💡">
-  **Valid account setup required!**
+Before you configure it in RealTimeX, you need:
 
-    You must have a valid [Azure OpenAI](https://azure.microsoft.com/en-us/products/ai-services/openai-service) subscription set up to use this integration.
+- an Azure OpenAI resource
+- the Azure OpenAI endpoint URL
+- an Azure OpenAI API key
+- the deployment name you want RealTimeX to call
+- the context-window size that matches that deployment
 
+<Callout type="info" emoji="💡">
+  The current Azure setup is manual. RealTimeX does not auto-discover deployment names from Azure the way the native OpenAI page loads models from an API key.
 </Callout>
 
-It is possible to use Microsoft Azure for your LLM chat model.
+## Current setup flow
 
-This allows you to use GPT models in a private and enterprise environment that is managed by Microsoft.
+1. Open `Settings > AI Providers > LLM`.
+2. Choose `Azure OpenAI`.
+3. Paste the Azure endpoint URL.
+4. Paste the Azure API key.
+5. Enter the chat deployment name.
+6. Choose the token limit that matches that deployment.
+7. Choose the model type.
+8. Save the settings.
+9. Test a normal chat.
 
-You can update your model to a different model at any time in the **Settings**.
+## Fields the current UI exposes
 
-<Image
-  src="/images/realtimex-setup/llm-configuration/cloud/azure-openai/azure-openai-llm.png"
-  height={1080}
-  width={1920}
-  quality={100}
-  alt="Azure OpenAI LLM settings"
-/>
+### Service endpoint
+
+This is the Azure OpenAI endpoint URL for your resource.
+
+### API key
+
+This is the Azure OpenAI key tied to that resource.
+
+### Chat deployment name
+
+This is the deployment identifier RealTimeX should call.
+
+Use the Azure deployment name, not just the underlying model family name.
+
+### Chat model token limit
+
+The current UI asks you to choose the context-window size explicitly.
+
+Choose the value that matches the deployment you created in Azure. If this is wrong, your effective context assumptions inside RealTimeX will also be wrong.
+
+### Model type
+
+The current selector supports:
+
+- `Default`
+- `Reasoning`
+
+Use `Reasoning` only when the Azure deployment is a reasoning-style model that should be treated differently by the current provider integration.
+
+## When to choose Azure OpenAI instead of native OpenAI
+
+- Choose `Azure OpenAI` when your organization standardizes on Azure-hosted OpenAI resources.
+- Choose it when compliance, networking, or enterprise procurement requirements are tied to Azure.
+- Use native [OpenAI](/setup/llm-configuration/cloud/openai) when you want the simpler API-key-plus-model-list workflow.
+
+## Troubleshooting
+
+### The provider saves but responses fail
+
+Check the four most common mismatches:
+
+- wrong endpoint
+- wrong API key
+- wrong deployment name
+- wrong token-limit assumption
+
+### The deployment exists in Azure but RealTimeX still cannot use it
+
+Make sure the deployment is a chat-capable Azure OpenAI deployment and that the key belongs to the same resource as the endpoint you entered.
+
+### You are not sure whether to pick `Default` or `Reasoning`
+
+Start with `Default` unless you intentionally created a reasoning deployment and know that is the behavior you want RealTimeX to use.

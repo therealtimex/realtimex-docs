@@ -1,36 +1,75 @@
 ---
-title: "OpenAI LLM"
-description: "OpenAI is the most popular closed-source option for many RealTimeX users"
+title: "OpenAI"
+description: "Connect an OpenAI API key, load the available chat models for that account, and use OpenAI as the RealTimeX system provider."
 ---
 
 import { Callout } from "nextra/components";
-import Image from "next/image";
 
-# OpenAI LLM
+# OpenAI
 
-[OpenAI](https://OpenAI.com) is the most popular closed-source option for many RealTimeX users.
+`OpenAI` is the standard hosted provider flow for many RealTimeX installations.
 
-We support all of the current chat models for System, Workspace, and Agent execution.
+Open it from `Settings > AI Providers > LLM`, then choose `OpenAI`.
 
-## Connecting to OpenAI
+## What you need
 
-<Callout type="info" emoji="️💡">
-  **Valid API Key required!**
+You need:
 
-    You must obtain a valid API key from [platform.openai.com](https://platform.openai.com) for this integration to work.
+- a valid OpenAI API key
+- a working OpenAI account with billing or quota that allows model access
 
-    Ensure you also have attached a billing account or you may still be unable to use this provider.
-
+<Callout type="info" emoji="💡">
+  The current RealTimeX page loads the available model list from your API key. If the key is invalid or the account cannot access models, the model selector stays empty or fails to load.
 </Callout>
 
-All OpenAI models are currently available for use with RealTimeX.
+## Current setup flow
 
-You can update your model to a different model at any time in the **Settings**.
+1. Open `Settings > AI Providers > LLM`.
+2. Choose `OpenAI`.
+3. Paste the API key.
+4. Wait for RealTimeX to load the available chat models.
+5. Choose the model you want as the system default.
+6. Save the settings.
+7. Test a normal chat.
 
-<Image
-  src="/images/realtimex-setup/llm-configuration/cloud/openai/openai-llm.png"
-  height={1080}
-  width={1920}
-  quality={100}
-  alt="OpenAI LLM settings"
-/>
+## How model selection works
+
+The current OpenAI setup is dynamic.
+
+RealTimeX calls the OpenAI model list for the supplied key and builds the dropdown from the result.
+
+Important behavior:
+
+- model options can change with the account behind the key
+- the list loads only after RealTimeX has a usable key
+- models are grouped by organization in the selector when OpenAI returns organization metadata
+
+This means the docs should not be treated as a fixed list of every model you will see.
+
+## What happens after save
+
+Once `OpenAI` is the system provider:
+
+- normal chats can inherit it directly
+- workspaces can keep using `System default`
+- specific workspaces or agents can override it later
+
+See [Large Language Models](/features/language-models) for the override model.
+
+## Troubleshooting
+
+### The model list never loads
+
+Check:
+
+- the API key is valid
+- the account has active billing or remaining quota
+- the key has not been rotated or revoked
+
+### The key works elsewhere but RealTimeX shows no usable model
+
+Some keys or organizations do not expose the same model catalog. Try reloading the page or selecting a different model that appears for that account.
+
+### You want to use an OpenAI-compatible gateway instead of OpenAI itself
+
+Use [Generic OpenAI](/setup/llm-configuration/cloud/openai-generic) instead of the native OpenAI provider page.
