@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { type ReactNode, useEffect, useMemo, useRef } from "react";
+import { type ReactNode, useEffect, useRef } from "react";
 
 export type DeckSlide = {
   id: string;
@@ -13,9 +13,6 @@ type PresentationDeckProps = {
   pageDescription: string;
   slides: DeckSlide[];
   renderSlide: (slide: DeckSlide) => ReactNode;
-  homeHref?: string;
-  brandLabel?: string;
-  statusLabel?: string;
 };
 
 const accentGradients: Record<string, string> = {
@@ -36,18 +33,8 @@ export default function PresentationDeck({
   pageDescription,
   slides,
   renderSlide,
-  homeHref = "/",
-  brandLabel = "RealTimeX Presentation",
-  statusLabel = "Hidden route",
 }: PresentationDeckProps) {
   const deckRef = useRef<HTMLDivElement | null>(null);
-  const deckLinks = useMemo(
-    () => ({
-      printHref: "?print-pdf",
-      homeHref,
-    }),
-    [homeHref]
-  );
 
   useEffect(() => {
     let isMounted = true;
@@ -107,19 +94,6 @@ export default function PresentationDeck({
       </Head>
 
       <div className="rtx-presentation-page">
-        <div className="rtx-presentation-toolbar">
-          <a href={deckLinks.homeHref} className="rtx-presentation-brand">
-            <span className="rtx-presentation-brand-mark" />
-            <span className="rtx-presentation-brand-copy">{brandLabel}</span>
-          </a>
-          <div className="rtx-presentation-actions">
-            <span className="rtx-presentation-pill">{statusLabel}</span>
-            <a className="rtx-presentation-link" href={deckLinks.printHref}>
-              Print / PDF
-            </a>
-          </div>
-        </div>
-
         <div className="reveal-viewport rtx-reveal-viewport has-dark-background">
           <div className="reveal realtimex-presentation" ref={deckRef}>
             <div className="slides">
