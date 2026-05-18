@@ -459,6 +459,7 @@ export default function PartnerOverviewPresentation() {
     <PresentationDeck
       pageTitle="Partner Overview | RealTimeX Presentation"
       pageDescription="A hidden presentation route for distribution partner-facing RealTimeX overview decks."
+      pagePath="/presentations/partner-overview/"
       slides={slides}
       renderSlide={(slide) => {
         if (slide.id === "hero") return <HeroSlide />;

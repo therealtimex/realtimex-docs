@@ -395,6 +395,7 @@ export default function CustomerOverviewPresentation() {
     <PresentationDeck
       pageTitle="Customer Overview | RealTimeX Presentation"
       pageDescription="A hidden presentation route for customer-facing RealTimeX overview decks."
+      pagePath="/presentations/customer-overview/"
       slides={slides}
       renderSlide={(slide) => {
         if (slide.id === "hero") return <HeroSlide />;

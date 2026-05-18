@@ -11,6 +11,7 @@ export type DeckSlide = {
 type PresentationDeckProps = {
   pageTitle: string;
   pageDescription: string;
+  pagePath: string;
   slides: DeckSlide[];
   renderSlide: (slide: DeckSlide) => ReactNode;
 };
@@ -31,10 +32,12 @@ const accentGradients: Record<string, string> = {
 export default function PresentationDeck({
   pageTitle,
   pageDescription,
+  pagePath,
   slides,
   renderSlide,
 }: PresentationDeckProps) {
   const deckRef = useRef<HTMLDivElement | null>(null);
+  const canonicalUrl = `https://docs.realtimex.ai${pagePath}`;
 
   useEffect(() => {
     let isMounted = true;
@@ -59,7 +62,7 @@ export default function PresentationDeck({
         controlsLayout: "edges",
         controlsBackArrows: "faded",
         progress: true,
-        slideNumber: "c/t",
+        slideNumber: false,
         navigationMode: "linear",
         transition: "slide",
         backgroundTransition: "fade",
@@ -91,6 +94,17 @@ export default function PresentationDeck({
       <Head>
         <title>{pageTitle}</title>
         <meta name="description" content={pageDescription} />
+        <meta name="robots" content="noindex,follow" />
+        <meta name="theme-color" content="#07101b" />
+        <link rel="canonical" href={canonicalUrl} />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:site_name" content="RealTimeX Docs" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDescription} />
       </Head>
 
       <div className="rtx-presentation-page">

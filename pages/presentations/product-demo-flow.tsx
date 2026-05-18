@@ -425,6 +425,7 @@ export default function ProductDemoFlowPresentation() {
     <PresentationDeck
       pageTitle="Product Demo Flow | RealTimeX Presentation"
       pageDescription="A hidden presentation route for internal or partner-led RealTimeX product demos."
+      pagePath="/presentations/product-demo-flow/"
       slides={slides}
       renderSlide={(slide) => {
         if (slide.id === "hero") return <HeroSlide />;
