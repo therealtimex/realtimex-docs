@@ -1,0 +1,169 @@
+---
+title: Calendar Integration
+description: Set up provider OAuth credentials, connect user accounts, and control which external calendars sync into RealTimeX.
+---
+
+# Calendar Integration
+
+`Calendar Integration` is the admin setup surface for bringing external calendar providers into RealTimeX.
+
+Open it from `Settings > Calendar Integration`.
+
+## What this page does
+
+Current builds split calendar integration into two layers:
+
+- admins configure provider OAuth credentials
+- users connect their own calendar accounts and choose what syncs
+
+This means one admin setup can support multiple user connections later.
+
+## Current provider support
+
+In the current product build, this flow is centered on `Google Calendar`.
+
+The page is built to handle provider cards, but the shipped user-facing connection and write-access flows are Google-focused today.
+
+## Admin setup overview
+
+Each provider card shows:
+
+- provider name
+- configured or not-configured status
+- the OAuth redirect URI
+- setup guidance
+- credential inputs for `Client ID` and `Client Secret`
+
+If the provider is already configured, the page also shows the connected-account section below the credential form.
+
+## The redirect URI matters
+
+When creating the OAuth client in Google Cloud, use the exact `Redirect URI` shown on the page.
+
+Current builds let you copy this value directly from the UI. Do that instead of typing it manually.
+
+## Recommended Google setup flow
+
+The current in-app setup guidance maps to this process:
+
+1. Open Google Cloud Console and create or choose a project.
+2. Enable the Google Calendar API.
+3. Create an `OAuth 2.0 Client ID`.
+4. Set the application type to `Web application`.
+5. Add the exact RealTimeX redirect URI shown in the page.
+6. Download the JSON file or copy the `Client ID` and `Client Secret`.
+7. If you need non-organization Google accounts, set the consent screen to `External` and add test users.
+
+The page includes links for these Google Cloud Console steps directly in the provider card.
+
+## Import credentials JSON
+
+The Google provider card supports two input methods:
+
+- drag-and-drop or browse for the downloaded credentials JSON
+- manual entry of `Client ID` and `Client Secret`
+
+If you import the JSON file, RealTimeX pre-fills the fields for review.
+
+### Redirect mismatch warning
+
+If the JSON file does not include the redirect URI shown in RealTimeX, the page warns you before save. Fix that in Google Cloud Console first, or the browser authorization step will fail later.
+
+## Save, update, or remove credentials
+
+After both credential fields are present, save the provider card.
+
+Current behavior:
+
+- `Save Credentials` stores the provider credentials
+- `Update Credentials` replaces the existing credentials
+- `Remove credentials` disables future connections for that provider and invalidates current user connections for it
+
+Treat credential removal carefully if your users already rely on synced calendars.
+
+## Connected accounts
+
+Once provider credentials are configured, the page exposes `Connected Accounts` for that provider.
+
+This section is the handoff between admin setup and user account connection.
+
+## User connection flow
+
+Users connect through a browser authorization flow launched from RealTimeX.
+
+Current account-level actions include:
+
+- `Connect` or `Add account`
+- manual sync
+- disconnect
+- optional write-access upgrade
+- per-calendar selection
+
+## Read-only vs write access
+
+Google account connections can start in a read-only state.
+
+That is enough for:
+
+- syncing external events into RealTimeX
+- showing them in Calendar
+- using them for planning and meeting context
+
+If you want RealTimeX to create or edit provider-backed events, the account needs write access.
+
+The current UI exposes this as `Enable write access`.
+
+## Per-calendar selection
+
+For each connected account, RealTimeX can list readable calendars and let the user choose which ones stay selected for sync.
+
+This matters when one Google account has many calendars but only some should appear inside RealTimeX.
+
+## Syncing behavior
+
+The provider card supports manual refresh or sync after accounts are connected.
+
+Use that when you:
+
+- just connected a new account
+- changed selected calendars
+- want to pull fresh events without waiting
+
+## Good setup sequence
+
+1. Configure the provider credentials as an admin.
+2. Save and confirm the provider shows as configured.
+3. Connect a real user account through the browser flow.
+4. Select which calendars should sync.
+5. Upgrade to write access only if you want provider-backed event edits from RealTimeX.
+6. Open [Calendar](/calendar) and verify events appear as expected.
+
+## Troubleshooting
+
+### Browser authorization never completes
+
+Check the redirect URI in Google Cloud Console against the exact value shown in the RealTimeX page.
+
+### The JSON imported, but connection still fails
+
+The credentials file may be valid while the redirect URI is still wrong or the consent-screen setup is incomplete.
+
+### Events sync but cannot be edited
+
+That usually means the account is connected read-only. Upgrade that account with `Enable write access`.
+
+### Only some calendars should appear
+
+Use the per-account calendar selection controls instead of disconnecting the whole provider account.
+
+## Calendar Integration vs Calendar
+
+Use `Calendar Integration` to configure provider credentials and account sync.
+
+Use [Calendar](/calendar) to work with the resulting events, assistant workflows, and scheduling UI.
+
+## Related guides
+
+- [Calendar](/calendar)
+- [Meeting Minutes](/meeting-minutes)
+- [Meeting Minutes Settings](/meeting-minutes-settings)

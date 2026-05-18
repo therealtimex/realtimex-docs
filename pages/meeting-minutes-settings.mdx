@@ -1,0 +1,200 @@
+---
+title: Meeting Minutes Settings
+description: Configure transcription, storage, synthesis defaults, and reusable output templates for Meeting Minutes.
+---
+
+# Meeting Minutes Settings
+
+`Meeting Minutes Settings` is the configuration surface behind `Settings > Meeting Minutes`.
+
+It controls how RealTimeX prepares meeting transcription and first-draft synthesis before you start capturing or importing meetings.
+
+## Important scope note
+
+Current builds persist most settings from this page in the local app profile or browser storage.
+
+That matters because:
+
+- runtime tuning values are local to the current installation or browser profile
+- custom templates are stored locally
+- these settings act as defaults layered into new meetings, not as a strict central policy engine
+
+So if you switch machines or app profiles, you may need to reapply some preferences and custom templates.
+
+## The four tabs
+
+The current page is split into:
+
+- `Transcription`
+- `Storage`
+- `Synthesis`
+- `Templates`
+
+## Transcription
+
+The `Transcription` tab controls the engine and local runtime behavior used for meeting transcription.
+
+### Provider
+
+Current builds expose:
+
+- `Whisper`
+- `OpenAI (coming soon)`
+- `AssemblyAI (coming soon)`
+
+In practice, the current supported path is local `Whisper`.
+
+### Runtime status
+
+When `Whisper` is selected, the page shows runtime diagnostics such as:
+
+- whether the native runtime is available
+- whether GPU acceleration was detected
+- whether the system is currently CPU-only
+- which backend devices were reported
+
+This helps you tell the difference between:
+
+- normal local readiness
+- desktop-only limitations
+- missing native runtime availability
+
+### CPU threads
+
+The page lets you choose how many CPU threads Whisper can use.
+
+Current builds expose `1` through `4` threads.
+
+Higher values can improve throughput on capable machines, but they also consume more local CPU.
+
+### Realtime processing
+
+`Realtime processing` controls whether audio is processed continuously during recording.
+
+Use it when you want to reduce the time between the end of the meeting and the availability of a transcript or first draft.
+
+### Available models
+
+The bottom of the tab exposes local Whisper model management.
+
+Use it to:
+
+- review which models are already available
+- download additional local models
+- prepare the machine before a meeting starts
+
+## Storage
+
+The `Storage` tab is a review surface for the default Meeting Minutes working-data path.
+
+Current behavior:
+
+- the path is shown as read-only
+- desktop builds can open the folder directly
+
+This is where recordings, transcripts, and generated outputs are stored for that installation's working-data directory.
+
+## Synthesis
+
+The `Synthesis` tab controls what happens when a new meeting generates its first draft.
+
+### Default template
+
+Choose which template new meetings should use by default.
+
+The selected template also determines the default output type for first-pass synthesis, such as:
+
+- minutes
+- summary
+- action items
+- decisions
+- follow-up
+
+### ACP synthesis agent
+
+You can choose which ACP-backed agent should generate the first draft.
+
+If you leave this at the system default, new meetings fall back to the default ACP agent path instead of one named agent.
+
+### Optional model override
+
+When an ACP agent is selected, the page can also pass a specific model override to that agent for meeting synthesis.
+
+Use this when:
+
+- the same ACP agent supports several models
+- meeting drafts should use a different model from the agent's usual default
+
+### Watcher cooldown
+
+`Watcher cooldown` controls how long RealTimeX waits after a meeting goes quiet before auto-generating the first draft.
+
+Shorter values trigger synthesis sooner. Longer values give the meeting more time to settle before automation runs.
+
+## Templates
+
+The `Templates` tab manages reusable synthesis templates.
+
+### Built-in templates
+
+Current built-in templates include:
+
+- `Structured Minutes`
+- `Executive Brief`
+- `Action Item Tracker`
+- `Follow-up Email`
+
+Built-in templates are read-only.
+
+### Custom templates
+
+To customize a built-in template:
+
+1. Select it.
+2. Click `Duplicate`.
+3. Edit the copy.
+4. Save the new custom template.
+
+Custom templates define:
+
+- template key
+- template name
+- output type
+- instructions
+
+The instructions are passed into synthesis and stored with new or regenerated drafts.
+
+## Good setup sequence
+
+1. Choose the transcription provider, which is typically `Whisper` today.
+2. Confirm the runtime status and available backends.
+3. Download the local Whisper models you actually plan to use.
+4. Review the storage path.
+5. Choose the default synthesis template.
+6. Pick the ACP synthesis agent and optional model override if needed.
+7. Set a watcher cooldown that matches how quickly you want first drafts to appear.
+8. Duplicate and customize templates for recurring meeting formats.
+
+## When to revisit this page
+
+Return here when:
+
+- transcription feels too slow
+- a machine loses GPU acceleration
+- you want a different first-draft style
+- meeting outputs need a new standard format
+- you moved to a different local model setup
+
+## Meeting Minutes Settings vs Meeting Minutes
+
+Use `Meeting Minutes Settings` to control defaults and reusable behavior.
+
+Use [Meeting Minutes](/meeting-minutes) for the actual dashboard, live capture, imports, recent outputs, and meeting-by-meeting work.
+
+## Related guides
+
+- [Meeting Minutes](/meeting-minutes)
+- [Calendar](/calendar)
+- [Calendar Integration](/calendar-integration)
+- [Transcription Models](/features/transcription-models)
+- [Agent Authentication](/agent-authentication)
