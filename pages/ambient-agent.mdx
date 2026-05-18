@@ -1,6 +1,6 @@
 ---
 title: Ambient Agent
-description: Schedule background agent runs, manage HEARTBEAT.md, and add calendar-aware routines in RealTimeX.
+description: Schedule background agent runs, manage HEARTBEAT.md, and track ambient goals in RealTimeX.
 ---
 
 import { Callout } from "nextra/components";
@@ -10,6 +10,19 @@ import { Callout } from "nextra/components";
 `Ambient Agent` is the scheduled background agent runner in RealTimeX. Instead of waiting for a user to start an `@agent` session from chat, it wakes on a schedule, reads `HEARTBEAT.md`, and decides whether anything needs action.
 
 Open it from `Settings > Agents > Ambient Agent`.
+
+Ambient Agent also now has a second user-facing surface: the `Ambient Agent` workspace home, which acts as the cross-workspace goals board.
+
+## Settings vs dashboard
+
+There are two different Ambient Agent workflows in the current product:
+
+- `Settings > Agents > Ambient Agent` for scheduler setup, execution agent selection, `HEARTBEAT.md`, task blocks, and calendar routines
+- the `Ambient Agent` workspace home for `Goals & Ambient Dashboard`
+
+Use the settings page when you are configuring how background runs behave. Use the dashboard when you are tracking durable goals, promoting threads or terminal sessions, and reviewing ambient follow-up across workspaces.
+
+For the goal board itself, see [Goals & Ambient Dashboard](/goals).
 
 ## What Ambient Agent is for
 
@@ -26,6 +39,11 @@ This is different from interactive `@agent` chat:
 
 - `@agent` is user-started and thread-driven
 - `Ambient Agent` is schedule-driven and instruction-file-driven
+
+It is also different from the goals board:
+
+- settings define how Ambient Agent wakes, reads instructions, and runs
+- the dashboard shows what work is being tracked and how that work is progressing
 
 ## Main setup flow
 
@@ -240,6 +258,7 @@ Disable `Resume Session`, save, and try again with the new execution agent.
 
 ## Related guides
 
+- [Goals & Ambient Dashboard](/goals)
 - [Agent Runtime](/agent-runtime)
 - [AI Agents](/features/ai-agents)
 - [Agentic CLIs](/agentic-clis)

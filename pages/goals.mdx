@@ -1,0 +1,205 @@
+---
+title: Goals & Ambient Dashboard
+description: Track durable cross-workspace goals, promote chats and terminal sessions, and manage ambient monitoring in RealTimeX.
+---
+
+# Goals & Ambient Dashboard
+
+`Goals & Ambient Dashboard` is the central board for durable work that should survive beyond one chat turn, one thread, or one terminal session.
+
+Use it when you want RealTimeX to keep track of an outcome over time, such as:
+
+- a project or deliverable that spans multiple conversations
+- a terminal-driven implementation task that may need follow-up
+- a recurring operational objective that Ambient Agent should monitor
+- a thread that has turned into a real piece of work instead of a one-off discussion
+
+Open it by selecting the `Ambient Agent` workspace from the main sidebar. The dashboard is the home view of that workspace.
+
+## How this differs from Ambient Agent settings
+
+RealTimeX now has two related but different Ambient Agent surfaces:
+
+- `Settings > Agents > Ambient Agent` controls scheduler behavior, execution agent selection, `HEARTBEAT.md`, task blocks, and calendar routines
+- the `Ambient Agent` workspace home is the cross-workspace goal board
+
+In practice:
+
+- use settings when you are configuring how background runs work
+- use the dashboard when you are tracking outcomes, reviewing progress, and responding to ambient follow-up
+
+For the scheduler and `HEARTBEAT.md` setup flow, see [Ambient Agent](/ambient-agent).
+
+## Ways to create goals
+
+There are four common ways goals enter the board.
+
+### Create a goal directly
+
+Use `Create goal` in the dashboard when you want to add a human-created goal from scratch.
+
+This is the cleanest option when:
+
+- the goal is bigger than one existing thread
+- you already know the target workspace
+- you want to define the title, description, and priority yourself
+
+### Track a chat thread as a goal
+
+Regular workspace threads can show a `Track this thread` callout with a `Track as goal` button.
+
+Use it when a conversation has become durable work that should be monitored beyond the current thread. After saving the goal, RealTimeX opens the `Ambient Agent` workspace and selects the new goal on the board.
+
+### Track a terminal session in Ambient
+
+Terminal history cards can show `Track in Ambient`.
+
+Use it when a CLI-backed agent session, coding run, or runtime task should turn into an ongoing goal with follow-up, review, or later intervention.
+
+This is especially useful when:
+
+- the session produced partial progress but is not done
+- you want Ambient Agent to watch for new implementation activity
+- you want the work to stay visible after the terminal session ends
+
+### Promote a candidate
+
+The `Candidates` tab shows recent chat threads and terminal sessions that look like durable goals.
+
+Use `Promote` when RealTimeX already surfaced the work for you and you want to move it into the main board without recreating it manually.
+
+## Dashboard structure
+
+The top of the dashboard summarizes current work with KPI cards such as:
+
+- open goals
+- running now
+- needs review
+- completed
+
+The main board is split into three tabs:
+
+- `Open`: active goals across all workspaces
+- `Completed`: achieved goals with completion evidence and artifacts
+- `Candidates`: chats or terminal sessions that look promotion-worthy
+
+You can also filter by:
+
+- search
+- workspace
+- goal status
+- archived visibility
+
+## Goal sources
+
+Goals can come from different source types. The most common are:
+
+- `Manual`: created directly in the dashboard
+- `Chat thread`: promoted from a workspace conversation
+- `Terminal session`: promoted from terminal history
+- `Ambient task`: derived from Ambient Agent task blocks or recurring workspace behavior
+
+In more advanced setups, you may also see goals created from external signals or hooks.
+
+## Reading goal status
+
+The board uses status chips to show how a goal is progressing. The most important statuses are:
+
+- `Running`: Ambient Agent is actively working or monitoring the goal right now
+- `Needs input`: Ambient Agent requested human guidance before continuing
+- `Needs review`: a run typically needs human attention before it can proceed
+- `Blocked`: the last proactive pass encountered an error or failed path
+- `Due`: the goal is ready for another proactive pass
+- `Acted`: recent progress or activity was observed
+- `Achieved`: the goal reached a successful outcome
+- `Archived`: the goal is hidden from the main active view but can be restored
+
+You may also see `Idle` or `Disabled` depending on the workspace state and current monitoring behavior.
+
+## Goal detail view
+
+Selecting a goal opens its detail panel.
+
+The detail view is where you review:
+
+- source workspace
+- linked threads
+- last run or completion time
+- next due time
+- completion artifact when one exists
+- monitoring policy
+- linked live terminal focus, if the goal currently has an active runtime session
+
+The activity area is split into three timelines:
+
+- `Implementation`: observed work happening in linked threads, terminals, or related execution surfaces
+- `Monitoring`: Ambient Agent oversight runs for that goal
+- `Events`: lifecycle events such as creation, enhancement, consultation, status changes, archive/restore, and completion evidence
+
+## Monitoring policy
+
+Each goal has its own monitoring policy.
+
+Main modes:
+
+- `Off`: keep the goal on the board without ambient follow-up
+- `Passive`: observe progress and refine the goal without proactive intervention
+- `Active`: proactively monitor and intervene when appropriate
+
+Other controls let you tune:
+
+- cadence: `Event-driven`, `Adaptive`, or `Manual review`
+- review sensitivity
+- watched sources such as chat threads, terminal sessions, activity cards, and hooks
+- `Auto-enhance`
+- `Auto-intervene`
+
+Use conservative settings first. `Passive` is usually the safest starting point for thread and terminal goals.
+
+## Consultations and enhancements
+
+Goals do not always proceed autonomously.
+
+When Ambient Agent needs direction, the goal can move into a `Needs input` state and show a response action. This lets you answer the consultation without leaving the goal board.
+
+You can also request `Enhance goal` when you want RealTimeX to refine the brief, clarify success criteria, or suggest stronger next actions.
+
+## Completion and artifacts
+
+Completed goals move to the `Completed` tab.
+
+When available, RealTimeX can attach completion evidence such as:
+
+- a completion summary
+- a linked artifact or output file
+- observed implementation history
+- the final executor or runtime context
+
+Use this tab when you want a durable record of what was achieved, not just a live operational board.
+
+## Archiving and restoring
+
+Use `Archive goal` when the goal should leave the active board without being deleted.
+
+Archive is useful when:
+
+- the work is no longer relevant
+- the goal was superseded by another goal
+- you want to keep history without keeping it in the main active view
+
+Use `Show archived` to review archived goals, then `Restore goal` if the work becomes active again.
+
+## Best practices
+
+- Promote threads only when they represent durable work, not ordinary chat.
+- Use clear goal titles so the board stays scannable across many workspaces.
+- Prefer `Passive` monitoring before enabling proactive intervention.
+- Respond to consultation requests quickly so the goal does not stall in `Needs input`.
+- Archive stale goals instead of leaving the active board noisy.
+
+## Related guides
+
+- [Ambient Agent](/ambient-agent)
+- [Agent Runtime](/agent-runtime)
+- [Chat Interface](/chat-ui)
+- [AI Agents](/features/ai-agents)
