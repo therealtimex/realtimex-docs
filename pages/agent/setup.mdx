@@ -51,7 +51,17 @@ Review [Agent Runtime](/agent-runtime) when you need:
 - [Ambient Agent](/ambient-agent) scheduling and behavior
 - runtime visibility and diagnostics
 
-## 6. Add browser capability when needed
+## 6. Configure behavior when needed
+
+Agent capability is not only about tools. Some important behavior layers live elsewhere:
+
+- `Workspace Settings > Chat` for the active workspace `System Prompt`
+- `Workspace Settings > Personality` for file-based workspace identity and instruction files
+- [Slash Commands](/slash-commands) for reusable manually-invoked prompt presets
+
+For the reusable preset libraries themselves, see [System Prompts](/system-prompts) and [Personality](/personality).
+
+## 7. Add browser capability when needed
 
 If your workflow needs authenticated browsing or automation:
 
@@ -59,15 +69,16 @@ If your workflow needs authenticated browsing or automation:
 2. Configure browser sessions in [Browser Tool](/features/browser-tool).
 3. Test the flow from chat with `@agent`.
 
-## 7. Add reusable authentication when needed
+## 8. Add reusable authentication when needed
 
-If advanced agent workflows need reusable secrets:
+Authentication can live in more than one layer.
 
-- add them in [Credentials](/credentials)
+- Use [Credentials](/credentials) when workflows need reusable outbound secrets.
+- Use [Agent Authentication](/agent-authentication) when launched runtimes such as `Claude Code`, `Codex CLI`, `Qwen`, or `Ambient Agent` need provider API keys injected by RealTimeX.
 
 This is separate from plugin-specific API key forms and separate from CLI login state in [Agent Runtime](/agent-runtime).
 
-## 8. Test with a small agent prompt
+## 9. Test with a small agent prompt
 
 After configuration, test with a short task in the target workspace.
 
@@ -82,9 +93,11 @@ Examples:
 - `Skills` tab reviewed
 - `Agent Flows` tab reviewed if needed
 - `MCP Servers` tab reviewed if needed
+- behavior layer reviewed if needed
 - runtime prerequisites configured
 - browser sessions configured if needed
 - credentials added if needed
+- agent authentication added if needed
 - one real prompt tested successfully
 
 ## Related guides
@@ -94,4 +107,8 @@ Examples:
 - [Agent Runtime](/agent-runtime)
 - [Ambient Agent](/ambient-agent)
 - [Agentic CLIs](/agentic-clis)
+- [Agent Authentication](/agent-authentication)
+- [Slash Commands](/slash-commands)
+- [System Prompts](/system-prompts)
+- [Personality](/personality)
 - [Plugins](/plugins)

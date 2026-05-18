@@ -35,7 +35,9 @@ import {
   Scissors,
   Terminal,
   Heart,
-  Flag
+  Flag,
+  Slash,
+  UserRound
 } from "lucide-react";
 
 # All Features of RealTimeX
@@ -62,6 +64,18 @@ Explore the full range of what RealTimeX can do. Click any card to learn more.
   </FeatureCard>
   <FeatureCard title="Agentic CLIs" href="/agentic-clis" icon={<Terminal size={36} color="#e3694d" />}>
     Register external command-line tools, probe auth state, and expose them to agents.
+  </FeatureCard>
+  <FeatureCard title="Agent Authentication" href="/agent-authentication" icon={<Shield size={36} color="#226cff" />}>
+    Store provider API keys that RealTimeX injects into launched agent runtimes.
+  </FeatureCard>
+  <FeatureCard title="Slash Commands" href="/slash-commands" icon={<Slash size={36} color="#efc04a" />}>
+    Create reusable prompt commands that appear when users type `/` in chat.
+  </FeatureCard>
+  <FeatureCard title="System Prompts" href="/system-prompts" icon={<FileText size={36} color="#0da37f" />}>
+    Manage reusable system prompt presets and apply them to workspace chat behavior.
+  </FeatureCard>
+  <FeatureCard title="Personality" href="/personality" icon={<UserRound size={36} color="#ad4ae6" />}>
+    Edit file-based agent identity, memory, and instruction layers.
   </FeatureCard>
   <FeatureCard title="RealTimeX Local" href="/realtimex-local" icon={<Cpu size={36} color="#0da37f" />}>
     Run GGUF local chat models with the managed llama-server runtime.

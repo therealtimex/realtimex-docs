@@ -1,0 +1,124 @@
+---
+title: Agent Authentication
+description: Store provider API keys that RealTimeX injects into launched agent runtimes such as Claude Code, Codex CLI, Gemini CLI, Qwen, and Ambient Agent.
+---
+
+# Agent Authentication
+
+`Agent Authentication` is the RealTimeX control surface for API keys that should be injected into launched agent runtimes automatically.
+
+Open it from `Settings > Agents > Agent Authentication`.
+
+Use it when RealTimeX needs to start an agent runtime and provide the provider key on your behalf, instead of relying only on shell environment variables.
+
+## What this is for
+
+This page is mainly relevant for ACP-backed or CLI-backed agent runtimes such as:
+
+- `Gemini CLI`
+- `Claude Code`
+- `Codex CLI`
+- `Qwen CLI`
+- `OpenCode`
+- `RealTimeX Ambient Agent`
+
+If the runtime expects a provider API key, this page lets you store that key in RealTimeX so the runtime can receive it automatically at launch.
+
+## What this is not
+
+`Agent Authentication` is easy to confuse with two other features:
+
+- [Agentic CLIs](/agentic-clis): tracks whether a CLI is installed, reachable, and authenticated on the host
+- [Credentials](/credentials): stores reusable secrets for integrations, tools, and workflows outside the agent-runtime auth path
+
+Use `Agent Authentication` when the runtime itself needs a provider key.
+
+Use `Credentials` when an agent or plugin needs to call some other external system.
+
+Use `Agentic CLIs` when RealTimeX needs to know whether a command-line tool exists and is ready to use.
+
+## Current provider profiles
+
+The current UI supports these provider profiles:
+
+- `Gemini CLI`: `GEMINI_API_KEY`
+- `Claude Code`: `ANTHROPIC_API_KEY`
+- `Codex CLI`: `OPENAI_API_KEY`
+- `OpenCode`: `OPENAI_API_KEY` or `ANTHROPIC_API_KEY`
+- `Qwen CLI`: `QWEN_API_KEY`, `DASHSCOPE_API_KEY`, plus multiple OpenAI-compatible profiles and selected Anthropic, Gemini, and RealTimeX AI keys
+- `RealTimeX Ambient Agent`: the same broader provider set exposed for `Qwen CLI`
+
+The exact dropdown options come from the current product build. If RealTimeX adds more runtime providers later, this page may show more choices than this guide lists.
+
+## How to add a key
+
+1. Open `Settings > Agents > Agent Authentication`.
+2. Click `Add API Key`.
+3. Choose the target runtime profile.
+4. Paste the API key for the environment-variable slot that RealTimeX shows.
+5. Save it.
+
+If the selected provider is already configured, saving again replaces the existing stored key for that provider profile.
+
+## What the page shows
+
+The main table focuses on runtime auth state, not general secret storage.
+
+Typical fields include:
+
+- provider
+- profile or environment-variable slot
+- credential type
+- created time
+
+If no stored keys appear and the page says agents are already authenticated via environment variables, the runtime may already be satisfied from the host environment instead of the in-app store.
+
+## When to use this instead of environment variables
+
+Use the in-app page when you want:
+
+- a clearer runtime-specific auth inventory
+- easier replacement of keys without editing host shell config
+- different stored keys for different runtime profiles
+
+Use environment variables when your deployment already manages those keys outside the app and you do not want RealTimeX to store them directly.
+
+## Typical situations
+
+### Claude Code or Codex launches but is unauthenticated
+
+If the runtime exists but immediately reports missing provider auth, add or update the matching provider key here.
+
+### Ambient Agent needs a provider key
+
+If your ambient runtime path depends on a provider-backed agent configuration, store the matching profile in `Agent Authentication` instead of assuming [Credentials](/credentials) will be used.
+
+### Qwen or compatible runtime needs a different provider backend
+
+The current UI supports broader profile mappings for `Qwen CLI` and `RealTimeX Ambient Agent`, so make sure you choose the correct provider slot instead of pasting a key into the wrong profile.
+
+## Troubleshooting
+
+### The runtime still says auth is missing
+
+Check:
+
+- that you selected the correct runtime profile
+- that the key was saved under the correct environment-variable slot
+- whether the runtime is actually the one your workspace is launching
+- whether a stale environment variable on the host is conflicting with what you expect
+
+### I already logged in to the CLI manually
+
+That may be enough for [Agentic CLIs](/agentic-clis), but it does not replace `Agent Authentication` when the launched runtime expects an injected provider API key.
+
+### I already stored the secret in Credentials
+
+`Credentials` and `Agent Authentication` are separate systems. A secret stored in [Credentials](/credentials) is not automatically used as a runtime provider key.
+
+## Related guides
+
+- [Agent Runtime](/agent-runtime)
+- [Agentic CLIs](/agentic-clis)
+- [Credentials](/credentials)
+- [Ambient Agent](/ambient-agent)

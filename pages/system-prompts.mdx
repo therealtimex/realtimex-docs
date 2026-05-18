@@ -1,0 +1,162 @@
+---
+title: System Prompts
+description: Manage reusable system prompt presets and apply them to workspace chat behavior in RealTimeX.
+---
+
+# System Prompts
+
+`System Prompts` are reusable instruction presets for workspace chat behavior.
+
+Open the preset management page from `Settings > Agents > System Prompts`.
+
+Use them when you want instruction templates that can be reused across multiple workspaces instead of rewriting each workspace prompt from scratch.
+
+## What system prompts affect
+
+System prompts shape how a workspace responds before the user prompt is processed.
+
+They are a good place for:
+
+- tone and style rules
+- domain constraints
+- formatting requirements
+- response policies
+- reusable organizational guidance
+
+They are not the same thing as one-off prompt commands or file-based personality data.
+
+## Where presets are managed vs applied
+
+RealTimeX splits this workflow into two surfaces:
+
+- `Settings > Agents > System Prompts`: create and manage reusable presets
+- `Workspace Settings > Chat`: apply or edit the system prompt used by a specific workspace
+
+This means the preset library is shared, but the final active prompt still belongs to each workspace.
+
+## Managing the preset library
+
+The `System Prompts` management page supports:
+
+- search
+- filtering between `All`, `My created`, and `Purchased`
+- create
+- edit
+- delete
+- copy prompt text
+- publish or update publish to Marketplace
+
+Each preset has:
+
+- name
+- optional description
+- prompt body
+
+## Creating a preset
+
+1. Open `Settings > Agents > System Prompts`.
+2. Click `Create`.
+3. Add a name.
+4. Add an optional description.
+5. Write the prompt body.
+6. Save it.
+
+After saving, the preset becomes available from the workspace prompt editor.
+
+## Applying a preset to a workspace
+
+Go to:
+
+- `Workspace Settings > Chat`
+
+In the `System Prompt` area, current builds support:
+
+- direct editing
+- `Quick Apply Preset`
+- prompt history
+- publishing the current prompt to Marketplace
+
+`Quick Apply Preset` is the fastest way to seed a workspace with a managed system prompt template.
+
+## Variables inside system prompts
+
+System prompts can reference managed variables such as:
+
+- `{date}`
+- `{time}`
+- `{datetime}`
+- `{user.name}`
+
+The workspace editor links directly to the variable manager and shows available placeholders.
+
+For the full variable guide, see [System Prompt Variables](/features/system-prompt-variables).
+
+## Good uses
+
+System prompt presets work best for reusable baseline behavior such as:
+
+- "answer as a finance operations assistant"
+- "format every answer as a structured checklist"
+- "respond in a given language unless the user asks otherwise"
+- "follow a specific support policy or escalation style"
+
+## System prompts vs slash commands
+
+Use `System Prompts` when:
+
+- the behavior should apply automatically
+- the instruction is part of the workspace's baseline operating rules
+- you want consistent behavior across many chats in the same workspace
+
+Use [Slash Commands](/slash-commands) when:
+
+- the user should invoke the behavior manually
+- the instruction is situational rather than always-on
+
+## System prompts vs personality
+
+Use `System Prompts` when:
+
+- you need a single active instruction block for chat behavior
+- the behavior is relatively compact and workspace-specific
+
+Use [Personality](/personality) when:
+
+- you want a broader file-based instruction or identity layer
+- the behavior needs richer structure than one prompt field
+- the configuration should live as durable files rather than one text area
+
+## Marketplace behavior
+
+System prompts can also be local, purchased, or published.
+
+That makes them useful for:
+
+- rolling out common prompt strategies across teams
+- reusing approved prompt baselines across workspaces
+- distributing curated prompt packs through Marketplace
+
+## Troubleshooting
+
+### I created a preset but do not see it in a workspace
+
+Check:
+
+- that the preset saved successfully
+- that you are editing `Workspace Settings > Chat`
+- whether the preset is being filtered or not loaded yet
+
+### The workspace behavior still does not match the preset
+
+Check:
+
+- whether the workspace prompt was actually replaced or edited afterward
+- whether [System Prompt Variables](/features/system-prompt-variables) contain the values you expect
+- whether other workspace configuration is also shaping the output
+
+## Related guides
+
+- [System Prompt Variables](/features/system-prompt-variables)
+- [Chat Interface](/chat-ui)
+- [Slash Commands](/slash-commands)
+- [Sharing to the Marketplace](/marketplace-sharing)

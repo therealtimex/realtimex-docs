@@ -48,6 +48,8 @@ What your agent can do depends on workspace and runtime setup, not just one fixe
 Depending on configuration, an agent may use:
 
 - workspace documents and search
+- workspace system prompts
+- workspace personality files
 - plugin skills
 - imported skills
 - agent flows
@@ -56,6 +58,7 @@ Depending on configuration, an agent may use:
 - working directories
 - browser sessions
 - reusable credentials
+- runtime-injected provider authentication
 
 ## Good prompt patterns
 
@@ -97,7 +100,7 @@ Current RealTimeX agents are broader than the old built-in tool catalog. If the 
 
 ### Expecting browser or file access without setup
 
-If the task needs browser sessions, working directories, or credentials, those prerequisites must already be configured.
+If the task needs browser sessions, working directories, reusable credentials, or runtime-injected provider auth, those prerequisites must already be configured.
 
 ### Repeating `@agent` unnecessarily
 
@@ -110,7 +113,7 @@ Check these layers:
 1. `Workspace Settings > Agent`
 2. [Agent Runtime](/agent-runtime)
 3. [Plugins](/plugins)
-4. [Credentials](/credentials) if auth is involved
+4. [Credentials](/credentials) or [Agent Authentication](/agent-authentication) if auth is involved
 
 ## Related guides
 
@@ -118,5 +121,8 @@ Check these layers:
 - [AI Agents Feature Page](/features/ai-agents)
 - [Agent Runtime](/agent-runtime)
 - [Agentic CLIs](/agentic-clis)
+- [Agent Authentication](/agent-authentication)
+- [System Prompts](/system-prompts)
+- [Personality](/personality)
 - [Browser Tool](/features/browser-tool)
 - [Plugins](/plugins)

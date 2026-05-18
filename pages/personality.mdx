@@ -1,0 +1,119 @@
+---
+title: Personality
+description: Manage file-based agent identity, instructions, and memory at the shared or workspace level in RealTimeX.
+---
+
+# Personality
+
+`Personality` is the file-based instruction layer for agent identity, behavior, memory, and long-lived guidance.
+
+In current RealTimeX builds, you will typically encounter it in one or both of these places:
+
+- `Workspace Settings > Personality`
+- a shared `Personality` manager route such as `/settings/personality` on builds that expose the global editor
+
+## What personality is for
+
+Use it when one text prompt is no longer enough.
+
+Typical uses:
+
+- richer agent identity and behavior rules
+- long-lived instruction files
+- memory or context documents that should evolve over time
+- shared or workspace-scoped behavior packs
+
+The editor is file-based rather than just a single prompt field.
+
+## Shared vs workspace personality
+
+RealTimeX currently supports two scopes:
+
+- shared personality files: broader files not tied to only one workspace
+- workspace personality files: instructions and identity scoped to a single workspace
+
+Use workspace personality when the behavior should only affect that workspace.
+
+Use the shared manager when your deployment exposes it and you need a broader reusable file set.
+
+## How the editor works
+
+The current Personality screen uses a file-manager-style editor.
+
+Key behavior:
+
+- files are created and edited directly in the app
+- the current personality editors do not focus on deep folder trees
+- an assistant can help you work on the files from the same surface
+
+This makes Personality closer to a writable instruction project than to a single settings form.
+
+## Good uses
+
+Personality works best for durable guidance such as:
+
+- agent role definitions
+- memory files the agent should keep aligned over time
+- reusable behavioral instructions split across multiple files
+- workspace-specific identity and instruction packs
+
+## Personality vs system prompts
+
+Use `Personality` when:
+
+- you want a file-based instruction system
+- the behavior is large, evolving, or structured
+- identity and memory should live alongside instructions
+
+Use [System Prompts](/system-prompts) when:
+
+- you want one active text block in `Workspace Settings > Chat`
+- the behavior is mostly a concise workspace prompt
+
+In practice, many advanced setups use both:
+
+- `System Prompt` for the immediate response rules
+- `Personality` for deeper identity, memory, or instruction files
+
+## Personality vs knowledge files
+
+Personality files are for agent behavior and identity.
+
+Knowledge files are for source material the agent should search, retrieve, or cite.
+
+If the content should change how the agent behaves, `Personality` is usually the better fit.
+
+If the content is reference material the agent should consult, use [Knowledge Manager](/knowledge-manager) or [Personal Notes](/personal-notes) instead.
+
+## Workspace personality flow
+
+For workspace-specific behavior:
+
+1. Open the target workspace.
+2. Go to `Workspace Settings > Personality`.
+3. Create or edit the instruction files you want that workspace to carry.
+
+This is useful for agents that should behave differently across workspaces even when the underlying runtime stack is the same.
+
+## Shared personality flow
+
+On deployments that expose the shared editor:
+
+1. Open the shared `Personality` manager.
+2. Create or edit the reusable personality files.
+3. Keep the files focused and durable rather than mixing in unrelated knowledge content.
+
+## Best practices
+
+- Keep personality files behavior-focused, not knowledge-dump focused.
+- Split large instruction sets into a few clear files instead of one giant block.
+- Use [System Prompts](/system-prompts) for short workspace response rules and Personality for deeper structure.
+- Prefer workspace-scoped personality when the behavior should not leak across teams or use cases.
+
+## Related guides
+
+- [System Prompts](/system-prompts)
+- [AI Agent Setup](/agent/setup)
+- [AI Agent Usage](/agent/usage)
+- [Knowledge Manager](/knowledge-manager)
+- [Personal Notes](/personal-notes)

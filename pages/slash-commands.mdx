@@ -1,0 +1,151 @@
+---
+title: Slash Commands
+description: Create reusable prompt commands, manage marketplace-published presets, and use them from the RealTimeX chat command surface.
+---
+
+# Slash Commands
+
+`Slash Commands` are reusable prompt presets that appear in the chat command picker when you type `/` or open `Commands`.
+
+Open the management page from `Settings > Agents > Slash Commands`.
+
+Use them when you want repeatable prompt patterns that users can invoke quickly without retyping the full request every time.
+
+## Where slash commands appear
+
+In chat, open the command surface by:
+
+- typing `/`
+- clicking `Commands` in the composer
+
+The current command surface can combine:
+
+- built-in commands such as `/reset`
+- image-generation entry points such as `/image`
+- your saved slash command presets
+- agent-advertised commands during some active agent sessions
+
+## Regular chat vs active agent sessions
+
+Saved slash command presets are mainly part of the normal chat command surface.
+
+During an active agent session, the command menu changes shape. In current builds it can prioritize:
+
+- `/exit`
+- agent-advertised commands
+- ACP-specific command entries
+
+So if a saved preset does not appear where you expect, first check whether you are currently inside an active `@agent` session.
+
+## What a slash command contains
+
+Each saved command has three main parts:
+
+- command name
+- optional description
+- required prompt template
+
+In the form, you enter the command name without needing to worry about the leading slash. RealTimeX stores and presents it as a slash command automatically.
+
+## Creating a slash command
+
+1. Open `Settings > Agents > Slash Commands`.
+2. Click `Create`.
+3. Enter the command name.
+4. Add an optional description so users know what it does.
+5. Write the prompt template.
+6. Save it.
+
+After saving, the command becomes available from the chat command picker.
+
+## Placeholder syntax
+
+The prompt template supports placeholders so one command can be reused with different inputs.
+
+Current examples shown in the product include:
+
+- `{{name}}`
+- `{{name: description}}`
+- `{{name | default="value"}}`
+- `{{name: description | default="value"}}`
+
+Example:
+
+```text
+Summarize this for {{audience: who is this for? | default="an executive reader"}}.
+```
+
+This is useful when you want one repeatable command but still need a small amount of per-use customization.
+
+## Managing existing commands
+
+The management screen supports:
+
+- search
+- filtering between `All`, `My created`, and `Purchased`
+- edit
+- delete
+- publish or update publish to Marketplace
+
+This matters because slash commands are now part of the broader Marketplace workflow, not just local-only chat shortcuts.
+
+## Marketplace behavior
+
+Slash commands can exist in several states:
+
+- local only
+- purchased or imported
+- published to Marketplace
+
+Use Marketplace publishing when the command is valuable beyond one instance or one user workflow.
+
+For broader marketplace behavior, see [Sharing to the Marketplace](/marketplace-sharing) and [Syncing from the Marketplace](/marketplace-syncing).
+
+## Good uses
+
+Slash commands work best for user-invoked prompt patterns such as:
+
+- recurring summarization styles
+- reusable writing or editing instructions
+- standard report formats
+- analysis prompts with a few variable fields
+
+They are less useful for always-on behavior that should apply automatically to a workspace.
+
+## Slash commands vs system prompts
+
+Use `Slash Commands` when:
+
+- a user should invoke the behavior manually
+- the instruction is task-oriented
+- the prompt should be optional and reusable across chats
+
+Use [System Prompts](/system-prompts) when:
+
+- the instruction should apply automatically to workspace responses
+- the behavior is part of the workspace's baseline rules
+
+## Troubleshooting
+
+### My command does not appear in chat
+
+Check:
+
+- whether the command was saved successfully
+- whether you are in a normal chat flow or an active agent session
+- whether you are searching with the wrong command name
+
+### The command appears but behaves badly
+
+Review:
+
+- the prompt template itself
+- the placeholder names and defaults
+- whether the command is too general and should be split into multiple presets
+
+## Related guides
+
+- [Chat Interface](/chat-ui)
+- [System Prompts](/system-prompts)
+- [Sharing to the Marketplace](/marketplace-sharing)
+- [Syncing from the Marketplace](/marketplace-syncing)

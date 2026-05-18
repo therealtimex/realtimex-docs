@@ -124,6 +124,42 @@
       "toc": true
     }
   },
+  "agent-authentication": {
+    "title": "Agent Authentication",
+    "theme": {
+      "breadcrumb": true,
+      "footer": true,
+      "pagination": true,
+      "toc": true
+    }
+  },
+  "slash-commands": {
+    "title": "Slash Commands",
+    "theme": {
+      "breadcrumb": true,
+      "footer": true,
+      "pagination": true,
+      "toc": true
+    }
+  },
+  "system-prompts": {
+    "title": "System Prompts",
+    "theme": {
+      "breadcrumb": true,
+      "footer": true,
+      "pagination": true,
+      "toc": true
+    }
+  },
+  "personality": {
+    "title": "Personality",
+    "theme": {
+      "breadcrumb": true,
+      "footer": true,
+      "pagination": true,
+      "toc": true
+    }
+  },
   "realtimex-local": {
     "title": "RealTimeX Local",
     "theme": {

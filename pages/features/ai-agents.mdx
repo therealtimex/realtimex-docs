@@ -35,6 +35,8 @@ To end the session early, use:
 The current RealTimeX agent model is broader than the older built-in tool list. Depending on how your workspace is configured, an agent can use:
 
 - workspace documents and search context
+- workspace system prompts
+- workspace personality files
 - built-in and imported skills
 - agent flows
 - remote or local MCP servers
@@ -42,6 +44,7 @@ The current RealTimeX agent model is broader than the older built-in tool list. 
 - working directories and writable wiki projects
 - browser sessions through Browser Tool and Agent Browser
 - stored credentials used by advanced workflows
+- runtime-injected provider authentication when supported by the launched agent
 
 ## Where agent capability comes from
 
@@ -97,7 +100,7 @@ If the agent cannot do what you expect, check these layers in order:
 1. `Workspace Settings > Agent`
 2. [Agent Runtime](/agent-runtime)
 3. [Plugins](/plugins)
-4. [Credentials](/credentials) if the workflow needs reusable authentication
+4. [Credentials](/credentials), [Agent Authentication](/agent-authentication), or behavior config such as [System Prompts](/system-prompts) and [Personality](/personality)
 
 ## Related guides
 
@@ -108,6 +111,9 @@ If the agent cannot do what you expect, check these layers in order:
 - [Ambient Agent](/ambient-agent)
 - [Goals & Ambient Dashboard](/goals)
 - [Agentic CLIs](/agentic-clis)
+- [Agent Authentication](/agent-authentication)
+- [System Prompts](/system-prompts)
+- [Personality](/personality)
 
 <div className="center-cta mt-16">
   <Link href="/agent/usage">
