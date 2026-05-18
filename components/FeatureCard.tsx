@@ -14,6 +14,10 @@ export function FeatureCard({
   children: ReactNode;
 }) {
   const { basePath } = useRouter();
+  const normalizedBasePath = (basePath || '').replace(/\/+$/, '');
+  const resolvedHref = href.startsWith('http')
+    ? href
+    : `${normalizedBasePath}${href.startsWith('/') ? href : `/${href}`}`;
 
   const processedChildren = Children.map(children, (child) => {
     if (React.isValidElement(child) && child.type === 'img') {
@@ -28,7 +32,7 @@ export function FeatureCard({
 
   return (
     <a
-      href={href.startsWith('http') ? href : `${basePath}/${href}`}
+      href={resolvedHref}
       style={{
         display: 'block',
         padding: '1.5rem',
