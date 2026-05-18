@@ -1,0 +1,247 @@
+---
+title: Ambient Agent
+description: Schedule background agent runs, manage HEARTBEAT.md, and add calendar-aware routines in RealTimeX.
+---
+
+import { Callout } from "nextra/components";
+
+# Ambient Agent
+
+`Ambient Agent` is the scheduled background agent runner in RealTimeX. Instead of waiting for a user to start an `@agent` session from chat, it wakes on a schedule, reads `HEARTBEAT.md`, and decides whether anything needs action.
+
+Open it from `Settings > Agents > Ambient Agent`.
+
+## What Ambient Agent is for
+
+Use it when you want recurring agent work such as:
+
+- daily briefs
+- meeting preparation
+- follow-up suggestions after meetings
+- recurring backlog or repo checks
+- note, wiki, or working-directory maintenance
+- routine operational review
+
+This is different from interactive `@agent` chat:
+
+- `@agent` is user-started and thread-driven
+- `Ambient Agent` is schedule-driven and instruction-file-driven
+
+## Main setup flow
+
+1. Enable the scheduler.
+2. Choose the execution agent.
+3. Set the run interval, timezone, and active hours.
+4. Create or edit `HEARTBEAT.md`.
+5. Add task blocks or calendar routines if you need them.
+6. Test the setup with a manual wake.
+
+## Execution agent and prerequisites
+
+Ambient Agent lets you choose which agent runs each scheduled check.
+
+You can also override the LLM or model used for heartbeat runs from the same page.
+
+The selected agent still depends on the rest of your RealTimeX setup. If a scheduled job needs extra capability, configure those layers first:
+
+- [Agentic CLIs](/agentic-clis) for external command-line tools
+- working directories from [Agent Runtime](/agent-runtime)
+- [Browser Tool](/features/browser-tool) and [Agent Browser](/plugins/agent-browser) for browser-backed work
+- [Credentials](/credentials) for reusable external authentication
+- workspace `Skills`, `Agent Flows`, and `MCP Servers` when the job needs those capabilities
+
+## Run schedule
+
+The scheduler controls when Ambient Agent wakes up to check for due work.
+
+Main controls:
+
+- enable or disable the scheduler
+- choose a main interval
+- select the timezone
+- set active start and end hours
+
+Important behavior:
+
+- the scheduler decides when Ambient Agent checks in
+- `HEARTBEAT.md` still decides whether anything should actually happen
+- a run can wake up, conclude that no action is needed, and exit cleanly
+
+<Callout type="info" emoji="💡">
+  Start with a wider interval first, then tighten it only after the instructions are behaving the way you expect.
+</Callout>
+
+## HEARTBEAT.md
+
+`HEARTBEAT.md` is the main instruction file for Ambient Agent. Treat it as the source of truth for what the background agent should monitor, when it should act, and what it should avoid.
+
+The default template is structured around sections such as:
+
+- mission
+- scheduled tasks
+- what to check for
+- when action is needed
+- when nothing is needed
+- allowed actions
+- never do
+- style
+
+Two practical rules matter a lot:
+
+- keep the instructions concrete enough that the agent can tell when to act
+- keep a clear no-op path so the agent can do nothing when nothing needs doing
+
+The default template uses a deterministic no-op response of `HEARTBEAT_OK`. In practice, it is safest to preserve that pattern unless you have a strong reason to change it.
+
+## Editing HEARTBEAT.md
+
+The Ambient Agent page supports multiple ways to work on the file:
+
+- `Edit` for direct markdown editing
+- `Preview` to review the rendered output
+- `Split` to edit and preview at the same time
+- `Draft with agent` when you want RealTimeX to help rewrite or extend the file
+
+If `HEARTBEAT.md` does not exist yet, create the template from the same page.
+
+If you are coming from an older install and the page offers a legacy migration action, use it to move the older file into the current preferred storage path.
+
+If a save conflict appears, reload the remote copy or intentionally overwrite with your current draft after reviewing the difference.
+
+## Scheduled task blocks
+
+When `HEARTBEAT.md` contains a `tasks:` block, Ambient Agent can treat recurring jobs as separate scheduled units instead of one large undifferentiated instruction set.
+
+Task blocks are useful when:
+
+- one heartbeat file covers several recurring jobs
+- different jobs should run on different cadences
+- one task should use a different execution agent or model
+
+Current task behavior:
+
+- tasks without their own schedule inherit the main heartbeat interval
+- tasks can use interval shorthand such as `30m`
+- tasks can also use cron-style schedules
+- tasks can optionally override the inherited executor for that task
+
+The Ambient Agent UI includes task editors so you do not have to hand-author the whole block from scratch.
+
+## Runtime behavior options
+
+### Auto Pilot
+
+`Auto Pilot` is mainly relevant for CLI-based agents. When enabled, the CLI agent auto-approves permission requests instead of stopping to ask.
+
+Use this carefully. It improves unattended execution, but it also reduces human review at the moment of action.
+
+### Resume Session
+
+When enabled, each heartbeat run resumes the previous agent session.
+
+This is useful for continuity, but if you switch to a different execution agent later, disable `Resume Session` first to avoid session mismatch problems.
+
+### Custom instructions
+
+Use `Custom instructions` for extra constraints that should sit on top of `HEARTBEAT.md`, such as:
+
+- tone
+- output style
+- language preference
+- recurring operational priorities
+
+Keep these short. The durable process logic should still live in `HEARTBEAT.md`.
+
+## Manual wake
+
+The `Manual wake` section lets you test or steer Ambient Agent without waiting for the next scheduled run.
+
+You can send one-off text in two modes:
+
+- `Now` to trigger an immediate run
+- `Next heartbeat` to queue the text for the next scheduled run
+
+This is useful when:
+
+- you just changed `HEARTBEAT.md` and want a fast test
+- you want to inject one temporary priority
+- you want the next scheduled run to include a short note or instruction
+
+## Calendar-aware routines
+
+Ambient Agent can also work with calendar context.
+
+The current built-in routines are:
+
+- `Morning brief`
+- `Pre-meeting prep`
+- `Follow-up suggestions`
+
+These routines add structured timing and event context, but they still work best when `HEARTBEAT.md` explains what the agent should do with that context.
+
+In practice:
+
+- `Morning brief` runs at a chosen local time
+- `Pre-meeting prep` runs a chosen number of minutes before a meeting
+- `Follow-up suggestions` runs at a chosen time after the day’s meetings
+
+If your calendar setup is weak or your instructions are vague, these routines can feel noisy. They work best when paired with [Calendar](/calendar) and, where relevant, [Meeting Minutes](/meeting-minutes).
+
+## Activity and review
+
+The Ambient Agent page also acts as an operational status screen.
+
+You can review:
+
+- current runtime status
+- last run time
+- next run time
+- trigger type
+- linked thread
+- last result or current running note
+- task activity summaries when task blocks exist
+
+For broader background work across the system, also use `Agent feed` from the main sidebar.
+
+## Best practices
+
+- Keep `HEARTBEAT.md` specific enough that the agent can tell when not to act.
+- Split distinct recurring jobs into task blocks instead of building one huge prompt.
+- Avoid destructive or irreversible actions unless they are explicitly approved elsewhere in your workflow.
+- Test changes with `Manual wake` after editing important instructions.
+- Revisit active hours and interval settings if the agent is producing too much or too little activity.
+
+## Troubleshooting
+
+### Ambient Agent wakes up but does nothing
+
+That can be normal. Review `HEARTBEAT.md` first. The correct result may be to take no action when nothing is due or relevant.
+
+### The scheduler is enabled but runs are missing
+
+Check:
+
+- active start and end hours
+- timezone
+- whether `HEARTBEAT.md` exists
+- whether the selected execution agent is valid
+
+### A recurring task feels too noisy
+
+Review the task’s own schedule versus the main heartbeat interval. Tasks without an explicit schedule inherit the main interval.
+
+### Calendar routines are not helpful
+
+Check your calendar integration and tighten the instructions in `HEARTBEAT.md` so the agent knows when to stay quiet.
+
+### Runs started failing after changing agents
+
+Disable `Resume Session`, save, and try again with the new execution agent.
+
+## Related guides
+
+- [Agent Runtime](/agent-runtime)
+- [AI Agents](/features/ai-agents)
+- [Agentic CLIs](/agentic-clis)
+- [Calendar](/calendar)
+- [Meeting Minutes](/meeting-minutes)

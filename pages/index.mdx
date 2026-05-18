@@ -23,7 +23,8 @@ import {
   Shield,
   Cpu,
   HardDrive,
-  Terminal
+  Terminal,
+  Heart
 } from "lucide-react";
 
 # RealTimeX Documentation
@@ -65,6 +66,9 @@ Learn about RealTimeX's newest features and how to use them.
   </FeatureCard>
   <FeatureCard title="Agent Runtime" href="/agent-runtime" icon={<Bot size={36} color="#31b5d6" />}>
     Control CLIs, working directories, scheduled agents, and diagnostics.
+  </FeatureCard>
+  <FeatureCard title="Ambient Agent" href="/ambient-agent" icon={<Heart size={36} color="#ef4444" />}>
+    Schedule background agent runs and manage `HEARTBEAT.md` instructions.
   </FeatureCard>
   <FeatureCard title="Agentic CLIs" href="/agentic-clis" icon={<Terminal size={36} color="#e3694d" />}>
     Register external CLIs, probe readiness, and expose them to agents safely.
