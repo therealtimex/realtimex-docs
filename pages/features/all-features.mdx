@@ -32,7 +32,8 @@ import {
   AudioLines,
   Plug,
   Volume2,
-  Scissors
+  Scissors,
+  Terminal
 } from "lucide-react";
 
 # All Features of RealTimeX
@@ -50,6 +51,9 @@ Explore the full range of what RealTimeX can do. Click any card to learn more.
   </FeatureCard>
   <FeatureCard title="Agent Runtime" href="/agent-runtime" icon={<Activity size={36} color="#31b5d6" />}>
     Control CLIs, working directories, scheduled runs, and diagnostics.
+  </FeatureCard>
+  <FeatureCard title="Agentic CLIs" href="/agentic-clis" icon={<Terminal size={36} color="#e3694d" />}>
+    Register external command-line tools, probe auth state, and expose them to agents.
   </FeatureCard>
   <FeatureCard title="RealTimeX Local" href="/realtimex-local" icon={<Cpu size={36} color="#0da37f" />}>
     Run GGUF local chat models with the managed llama-server runtime.

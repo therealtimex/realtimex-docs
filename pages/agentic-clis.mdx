@@ -1,0 +1,257 @@
+---
+title: Agentic CLIs
+description: Register external CLI tools, probe their readiness, and expose them to RealTimeX agents safely.
+---
+
+import { Callout } from "nextra/components";
+
+# Agentic CLIs
+
+`Agentic CLIs` is the RealTimeX control surface for external command-line tools that agents may rely on, such as `gh`, `glab`, or other authenticated CLIs available on the runtime host.
+
+Open it from:
+
+- `Settings > Agentic CLIs`
+- `Workspace Settings > Agentic CLIs` when you need workspace-level exposure control
+
+## What this feature is for
+
+Use `Agentic CLIs` when you want RealTimeX to know:
+
+- whether a CLI is installed on the runtime host
+- whether that CLI is authenticated and ready
+- which command agents should call
+- what short prompt hint tells the agent when the CLI is appropriate
+
+In most multi-user deployments, adding, editing, probing, or deleting CLI definitions is an admin task.
+
+This is different from:
+
+- CLI agents such as Codex or Claude Code
+- [Credentials](/credentials), which store reusable secrets inside RealTimeX
+- [Plugins](/plugins), which extend product behavior in other ways
+
+<Callout type="warning" emoji="⚠️">
+  RealTimeX does not install or log in the CLI for you. You install the binary on the runtime host, authenticate it in the terminal if needed, then RealTimeX probes and tracks its readiness.
+</Callout>
+
+## Runtime host matters
+
+The CLI must exist on the machine that actually runs the RealTimeX agent runtime.
+
+- On Desktop, that is usually your local machine.
+- On self-hosted deployments, that is the server or container host running RealTimeX.
+
+If a CLI exists in your personal shell but not in the RealTimeX runtime environment, probing can still fail.
+
+## How agents use managed CLIs
+
+When a CLI is managed here, RealTimeX can pass that information into agent runtime prompts.
+
+In practice:
+
+- `ready` CLIs are advertised as available tools
+- enabled but unauthenticated CLIs are surfaced as warnings so agents know they are not usable yet
+- enabled but unavailable CLIs are also surfaced as warnings
+- the `Skill hint` helps the agent decide when that CLI is relevant
+
+This makes `Agentic CLIs` an operational allowlist, not just a note-taking page for installed tools.
+
+## Typical flow
+
+1. Install the CLI on the runtime host.
+2. Authenticate it in a terminal if the CLI requires login.
+3. Add it from the registry or register it as a custom executable.
+4. Probe it so RealTimeX can check install and auth state.
+5. Leave it enabled only if agents should be allowed to rely on it.
+6. Optionally disable it for specific workspaces from `Workspace Settings > Agentic CLIs`.
+7. Test it in a real `@agent` workflow.
+
+## Add from the registry
+
+The `Registry` tab is the easiest path for common tools such as `GitHub CLI` and `GitLab CLI`.
+
+Registry entries can already include:
+
+- a default binary name
+- a version probe
+- an auth check command
+- a login command
+- install documentation
+- a prompt hint
+
+Recommended flow:
+
+1. Open `Add CLI`.
+2. Stay on the `Registry` tab.
+3. Search by name, binary, or description.
+4. Run `Probe` before adding when you want to check this machine first.
+5. If the CLI is missing, open the install docs from the registry card.
+6. Click `Add`.
+
+After adding, RealTimeX probes the CLI and moves it into the managed list.
+
+## Register a custom executable
+
+Use the `Executable` tab when the CLI is not in the registry or when your environment needs a custom binary path or custom auth behavior.
+
+The most important field is `Executable`.
+
+That can be:
+
+- a command available on PATH, such as `gh`
+- an absolute path, such as `/opt/homebrew/bin/gh`
+
+`Display name` is optional. If you leave it blank, RealTimeX derives one from the executable name.
+
+## Desktop helper actions
+
+On Desktop, the custom form can expose helper actions:
+
+- `Find Path`: searches PATH and fills the resolved executable path
+- `Browse`: lets you pick a local executable file
+- `Inspect CLI`: reads help and version output to suggest better defaults
+
+<Callout type="info" emoji="💡">
+  These helper actions are Desktop-only conveniences. If you do not see them, you can still type the executable path manually.
+</Callout>
+
+## Advanced fields
+
+The custom executable form supports a few optional fields that matter a lot operationally.
+
+### Auth check command
+
+Use a non-interactive command that returns success when the CLI is already authenticated.
+
+Example idea:
+
+```text
+gh auth status
+```
+
+RealTimeX uses this to decide whether the CLI is `ready` or `unauthenticated`.
+
+### Auth instructions
+
+Use a copyable login command or short instruction that helps the user authenticate the CLI when probing shows auth is missing.
+
+Example idea:
+
+```text
+gh auth login
+```
+
+### Version command
+
+Use an informational version check.
+
+Example idea:
+
+```text
+gh --version
+```
+
+This helps inspection and metadata, but version probing alone does not decide readiness.
+
+### Install docs URL
+
+Add the official install page if the CLI may need to be installed or reinstalled on another runtime host.
+
+### Skill hint
+
+Add a short, task-focused sentence that tells the agent when this CLI should be used.
+
+Example:
+
+```text
+Use for GitHub issues, pull requests, repositories, and Actions workflows.
+```
+
+Keep this short and precise. It is prompt guidance, not a full manual.
+
+## AI-assisted config suggestions
+
+The custom form also supports `Describe behavior` and `Suggest config`.
+
+Use this when the CLI has host-specific or profile-specific behavior that a generic registry entry would miss, for example:
+
+- a self-hosted GitLab hostname
+- a non-default auth profile
+- a special install path or runtime assumption
+
+Important behavior:
+
+- RealTimeX uses the current default LLM from `Settings > AI Providers > LLM`
+- the suggestion is not saved automatically
+- you still need to apply the suggestion and save the CLI entry
+
+If this fails, check the default LLM first before assuming the CLI feature is broken.
+
+## Probe statuses
+
+The managed list revolves around probe status.
+
+- `Ready`: the binary is available and any auth probe succeeded.
+- `Auth required` or `Unauthenticated`: the binary is present, but the auth probe failed.
+- `Not installed`: the executable was not found or could not run on the runtime host.
+- `Error`: the probe itself failed or timed out.
+- `Not checked`: no probe result yet.
+
+The `Enabled` switch is separate from probe status. A CLI can exist in the list but still be disabled for agents.
+
+## Workspace Agentic CLIs
+
+`Workspace Settings > Agentic CLIs` is the workspace-level override screen.
+
+Use it when a CLI should exist at the instance level but should not be exposed in every workspace.
+
+Important limits:
+
+- workspaces do not create new CLI definitions there
+- workspaces can only override exposure for instance-managed CLIs
+- if the instance-level CLI is disabled, the workspace cannot force it on
+
+This is useful when:
+
+- one workspace should not use a sensitive CLI
+- one team does not need a noisy or dangerous CLI
+- you want instance-wide management with per-workspace narrowing
+
+## Best practices
+
+- Register only CLIs that agents should genuinely use.
+- Prefer official auth status commands for the auth probe.
+- Keep `Skill hint` focused on tasks, not implementation detail.
+- Re-probe after updating a CLI, rotating login state, or changing runtime hosts.
+- Test from a real `@agent` task after the CLI reaches `Ready`.
+
+## Troubleshooting
+
+### The CLI works in my shell but RealTimeX says it is not installed
+
+The RealTimeX runtime may be using a different PATH or even a different machine. Re-check the executable path from the runtime host perspective.
+
+### The CLI is installed but shows unauthenticated
+
+Run the login command in a terminal on the runtime host, then probe again.
+
+### The registry is incomplete or unavailable
+
+Refresh the registry. RealTimeX can fall back to cached or bundled registry data, so the `Source` badge may not always say `remote`.
+
+### Suggest config failed
+
+Open `Settings > AI Providers > LLM` and confirm the default LLM is working and suitable for structured output.
+
+### Desktop helper buttons are missing
+
+Those helpers are Desktop-only. On web or hosted admin surfaces, enter the executable path manually.
+
+## Related guides
+
+- [Agent Runtime](/agent-runtime)
+- [AI Agents](/features/ai-agents)
+- [AI Agent Setup](/agent/setup)
+- [AI Agent Usage](/agent/usage)
+- [Credentials](/credentials)
