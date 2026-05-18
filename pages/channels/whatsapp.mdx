@@ -1,0 +1,114 @@
+---
+title: WhatsApp
+description: Connect a WhatsApp account by QR code, choose DM and group policies, and run a RealTimeX workspace through WhatsApp.
+---
+
+# WhatsApp
+
+The WhatsApp channel uses QR login instead of a bot token. RealTimeX links a WhatsApp account, then routes incoming chats into the workspace you choose.
+
+Open the setup flow from `Settings > Channels > Add Channel > WhatsApp`.
+
+## What you need
+
+Before you start:
+
+- choose the target workspace
+- decide whether you want a dedicated thread or per-user threads
+- decide who should be able to message the channel
+- have the phone that owns the WhatsApp account available for QR scanning
+
+## What you configure during setup
+
+The current setup wizard includes:
+
+- workspace
+- optional thread
+- optional display name
+- DM policy
+- group policy
+- `Self Chat Mode`
+
+### DM policy
+
+The current WhatsApp flow supports:
+
+- `Pairing`: require admin approval before a user can chat
+- `Open`: allow anyone to chat
+- `Disabled`: do not accept direct messages
+
+### Group policy
+
+The current WhatsApp flow supports:
+
+- `Disabled`: no group messages
+- `Open`: respond in groups
+
+### Self Chat Mode
+
+`Self Chat Mode` is designed for testing. It lets you message the connected WhatsApp account from the same number.
+
+## Connect the account
+
+1. Open `Settings > Channels`.
+2. Click `Add Channel`.
+3. Choose `WhatsApp`.
+4. Fill in workspace, optional thread, optional display name, and policies.
+5. Click `Next: QR login`.
+6. On your phone, open WhatsApp and go to `Settings > Linked Devices > Link a Device`.
+7. Scan the QR code shown in RealTimeX.
+8. Wait for the connection confirmation.
+9. Click `Save & Start`.
+
+Unlike token-based channels, the setup flow itself can finish the start step after QR login.
+
+## How to use it
+
+After the account is connected and started:
+
+- users can message the connected WhatsApp account directly if DM policy allows it
+- users can message in groups if group policy allows it
+- if DM policy is `Pairing`, approve the request in `Pairing Codes` first
+- use `Users` later to disable or remove existing WhatsApp users
+
+## Settings you can change later
+
+The current `Settings` view lets you change:
+
+- display name
+- default thread routing
+- agent whitelist
+- DM policy
+- group policy
+- `Self Chat Mode`
+
+## Re-login and recovery
+
+WhatsApp is one of the current providers with an in-place relogin path.
+
+If the plugin enters `error`:
+
+1. open the channel card
+2. use the QR relogin action
+3. scan the new QR code
+4. let RealTimeX restart the plugin
+
+Use this before resorting to delete-and-recreate.
+
+## Troubleshooting
+
+### The QR code expires or never completes
+
+Cancel the QR flow and start it again. You may need a fresh scan if the login window times out.
+
+### The account connected but users still cannot talk to it
+
+Check:
+
+- the plugin status is `running`
+- the DM or group policy actually allows the route being tested
+- a required pairing request was approved
+
+### Group replies are too noisy
+
+Turn group policy back to `Disabled`, or keep it enabled only while you intentionally test that channel.

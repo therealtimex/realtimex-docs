@@ -1,0 +1,135 @@
+---
+title: Zalo Personal
+description: Connect a personal Zalo account by QR code, then control who can chat through DM, group, and allowlist policies.
+---
+
+# Zalo Personal
+
+The Zalo Personal channel uses QR login to connect a personal Zalo account to a RealTimeX workspace. It is the most policy-rich channel flow in the current product.
+
+Open it from `Settings > Channels > Add Channel > Zalo Personal`.
+
+## What makes it different
+
+Unlike token-based channels, this flow:
+
+- logs in through a QR code
+- can load your Zalo friends and groups after connection
+- supports allowlists for both DMs and groups
+- can require mentions before responding in groups
+
+## Step 1: Basic setup
+
+Before QR login, the current flow asks for:
+
+- workspace
+- optional thread
+- optional display name
+
+After that, click `Next: QR login`.
+
+## Step 2: QR login
+
+1. Open the Zalo app on your phone.
+2. Scan the QR code shown in RealTimeX.
+3. Wait for the account to connect.
+
+If the login succeeds, RealTimeX can show the connected account name and move you into the policy step.
+
+## Step 3: Choose access policies
+
+After the account is connected, the current flow supports four DM modes:
+
+- `Pairing`
+- `Open`
+- `Allowlist`
+- `Disabled`
+
+It also supports three group modes:
+
+- `Disabled`
+- `Open`
+- `Allowlist`
+
+### DM policy behavior
+
+- `Pairing` means users need approval before they can chat.
+- `Open` means anyone who can reach the account can chat.
+- `Allowlist` means only selected friends can chat.
+- `Disabled` means direct messages are ignored.
+
+### Group policy behavior
+
+- `Disabled` means the account does not respond in groups.
+- `Open` means it can respond in groups.
+- `Allowlist` means only selected groups are allowed.
+
+When group access is enabled, you can also require an `@mention` before the account replies.
+
+## Friend and group allowlists
+
+When you choose `Allowlist`, RealTimeX loads directory data from the connected account:
+
+- friends for DM allowlists
+- groups for group allowlists
+
+For group allowlists, the current flow can also store per-group mention requirements.
+
+This means you can allow only a few selected groups and still require a mention inside those groups.
+
+## Save and start
+
+After policies are configured:
+
+1. review the selected friends or groups if you used allowlists
+2. click `Save & Start`
+
+## How to use it
+
+After the plugin is running:
+
+- approved friends can DM the connected account if DM policy allows it
+- allowed groups can trigger replies if group policy allows it
+- if `Pairing` is enabled, review first-contact requests in `Pairing Codes`
+- use `Users` to disable or remove previously approved users
+
+## Settings you can change later
+
+The current `Settings` view lets you change:
+
+- display name
+- default thread routing
+- agent whitelist
+- DM policy
+- DM allowlist
+- group policy
+- group allowlist
+- mention requirements
+
+## Re-login and recovery
+
+Zalo Personal supports QR relogin from the channel card when the plugin enters `error`.
+
+Use relogin before deleting the channel. Existing policy configuration is much easier to preserve that way.
+
+## Troubleshooting
+
+### No friends or groups appear in the allowlist pickers
+
+Directory data is loaded only after the account is connected. Finish QR login first, then reopen the policy step or the `Settings` tab.
+
+### The account answers too often in groups
+
+Tighten the group policy:
+
+- switch from `Open` to `Allowlist`
+- require mentions
+- remove noisy groups from the allowlist
+
+### Access rules are too confusing for users
+
+Start simpler:
+
+- use `Pairing` for DMs
+- leave groups `Disabled`
+- expand to allowlists or group access only after the private chat flow is working

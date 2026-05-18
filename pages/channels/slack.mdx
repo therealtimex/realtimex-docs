@@ -1,0 +1,98 @@
+---
+title: Slack
+description: Create a Slack app, connect it to a RealTimeX workspace, and run DM-first Slack conversations with pairing and policy controls.
+---
+
+# Slack
+
+The Slack channel lets a RealTimeX workspace answer through a Slack app and bot user.
+
+Open the setup flow from `Settings > Channels > Add Channel > Slack`.
+
+## What you need
+
+Slack setup is stricter than Telegram or Discord because the current RealTimeX flow expects two credentials:
+
+- a bot token
+- an app-level token
+
+You also need:
+
+- a target workspace in RealTimeX
+- an optional thread
+- an optional display name
+
+## Create and prepare the Slack app
+
+The current in-app guide expects this setup in the Slack API dashboard:
+
+1. Create a new app from scratch.
+2. Enable `Socket Mode`.
+3. Create an app-level token.
+4. Add OAuth scopes such as `chat:write`, `im:read`, `im:write`, and `app_mentions:read`.
+5. Add any extra history or file scopes your workflow needs.
+6. Enable `Event Subscriptions`.
+7. Subscribe to `message.im` and `app_mention`.
+8. Install the app into your Slack workspace.
+9. Copy the `Bot User OAuth Token` and the `App-Level Token`.
+
+## Connect it in RealTimeX
+
+1. Open `Settings > Channels`.
+2. Click `Add Channel`.
+3. Choose `Slack`.
+4. Paste the bot token.
+5. Paste the app-level token.
+6. Click `Test`.
+7. Choose the RealTimeX workspace that should receive the chats.
+8. Optionally choose a specific thread.
+9. Optionally set a display name.
+10. Click `Create Slack bot`.
+
+If the new channel is `stopped`, start it from the plugin card.
+
+## How to use it
+
+The current Slack flow is DM-first.
+
+1. Make sure the plugin is running from the Channels page.
+2. Open Slack and find the bot in your sidebar.
+3. Send the bot a DM.
+4. If pairing is enabled, approve the request in `Pairing Codes`.
+5. Continue messaging normally after approval.
+
+You can also try simple messages such as `hi` or mention the bot where your Slack app is configured to listen.
+
+## Settings you can change later
+
+The current `Settings` view lets you change:
+
+- display name
+- default thread routing
+- agent whitelist
+
+## Important limitations
+
+- Workspace assignment is fixed after creation.
+- The current `Settings` view does not let you replace Slack credentials.
+
+If you rotate either the bot token or the app-level token, create a new Slack channel plugin with the updated credentials, verify it, then remove the old one.
+
+## Troubleshooting
+
+### The connection test fails
+
+Make sure you did not swap the bot token and app-level token. Both must match the same Slack app configuration.
+
+### The plugin starts but Slack messages never arrive
+
+Recheck:
+
+- `Socket Mode` is enabled
+- `Event Subscriptions` are enabled
+- `message.im` and `app_mention` are subscribed
+- the Slack app is installed in the workspace you are testing
+
+### Users can see the bot but cannot chat yet
+
+Check `Pairing Codes`. A pending access request may still be waiting for approval.

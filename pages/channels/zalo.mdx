@@ -1,0 +1,92 @@
+---
+title: Zalo OA
+description: Connect a Zalo OA bot token to RealTimeX and use Zalo as a workspace-backed messaging entry point.
+---
+
+# Zalo OA
+
+The Zalo OA channel connects a token-based Zalo bot to a RealTimeX workspace.
+
+Open the setup flow from `Settings > Channels > Add Channel > Zalo`.
+
+## What you need
+
+Before you configure the channel in RealTimeX, create a Zalo bot and obtain its token.
+
+The current flow expects:
+
+- a Zalo bot token
+- a target workspace
+- an optional thread
+- an optional display name
+
+## Create the Zalo bot
+
+The current in-app guide points to the Zalo bot creation flow:
+
+1. Open the Zalo app on your device.
+2. Find the OA named `Zalo Bot Manager`.
+3. Use `Zalo Bot Creator`.
+4. Create a bot name that starts with `Bot`, for example `Bot MyShop`.
+5. Finish the required details.
+6. Copy the bot token you receive after creation.
+
+RealTimeX also links to the Zalo Bot Platform documentation during setup.
+
+## Connect it in RealTimeX
+
+1. Open `Settings > Channels`.
+2. Click `Add Channel`.
+3. Choose `Zalo`.
+4. Paste the bot token.
+5. Click `Test`.
+6. Choose the workspace that should receive the chats.
+7. Optionally choose a specific thread.
+8. Optionally set a display name.
+9. Click `Create Zalo bot`.
+
+If the new channel is `stopped`, start it from the plugin card.
+
+## How to use it
+
+After the plugin is running:
+
+1. Open the Zalo bot conversation from the Zalo side.
+2. Send a first message.
+3. If the channel requires approval, review it in `Pairing Codes`.
+4. Continue chatting after approval.
+
+Use the `Users` tab to revoke individual access later without deleting the whole channel.
+
+## Settings you can change later
+
+The current `Settings` view lets you change:
+
+- display name
+- default thread routing
+- agent whitelist
+
+## Important limitations
+
+- Workspace assignment is fixed after creation.
+- The current `Settings` view does not expose token replacement.
+
+If the bot token changes, create a new Zalo OA channel with the new token, verify it, then remove the old one.
+
+## Troubleshooting
+
+### The token test fails
+
+Recheck the token that came from the Zalo bot creation flow before continuing.
+
+### The channel exists but never answers
+
+Check:
+
+- the plugin status is `running`
+- any required approval request was accepted
+- you are messaging the correct Zalo bot
+
+### You need to change the workspace later
+
+Recreate the channel. Workspace is read-only after the plugin is created.

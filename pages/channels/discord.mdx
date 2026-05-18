@@ -1,0 +1,90 @@
+---
+title: Discord
+description: Connect a Discord bot to RealTimeX, invite it to your server, and manage access through channel pairing and settings.
+---
+
+# Discord
+
+The Discord channel lets a RealTimeX workspace answer through a Discord bot.
+
+Open the setup flow from `Settings > Channels > Add Channel > Discord`.
+
+## What you need
+
+Before you configure the channel in RealTimeX, create a bot in the Discord Developer Portal.
+
+The current flow expects:
+
+- a Discord bot token
+- a target workspace
+- an optional thread
+- an optional display name
+
+## Create and prepare the Discord bot
+
+The in-app guide currently walks through this setup:
+
+1. Open the Discord Developer Portal and create a new application.
+2. Go to `Bot`.
+3. Reset or copy the bot token.
+4. Enable `Message Content Intent`.
+5. Open `OAuth2 > URL Generator`.
+6. Choose the scopes and permissions the bot needs, including sending messages and reading message history.
+7. Open the generated URL and invite the bot to your target server.
+
+## Connect it in RealTimeX
+
+1. Open `Settings > Channels`.
+2. Click `Add Channel`.
+3. Choose `Discord`.
+4. Paste the bot token.
+5. Click `Test`.
+6. Choose the workspace that should receive the chats.
+7. Optionally choose a specific thread.
+8. Optionally set a display name.
+9. Click `Create Discord bot`.
+
+If the new channel remains `stopped`, start it from the channel card.
+
+## How to use it
+
+After the plugin is running:
+
+1. Go to the Discord server where the bot was invited.
+2. Send the bot a message in an allowed location.
+3. If the channel uses pairing, approve the request in `Pairing Codes`.
+4. Continue chatting after approval.
+
+If you use Discord as a shared team entry point, review the `Users` tab regularly so former testers or old accounts do not keep lingering access.
+
+## Settings you can change later
+
+The current `Settings` view lets you adjust:
+
+- display name
+- default thread routing
+- agent whitelist
+
+The workspace and provider type remain fixed.
+
+## Important limitations
+
+The current `Settings` tab does not expose token replacement. If the bot token changes, recreate the Discord channel with the new token and then remove the old plugin.
+
+## Troubleshooting
+
+### The test succeeds but the bot does not answer in Discord
+
+Check:
+
+- the bot was actually invited to the server you are testing
+- the channel plugin status is `running`
+- the user passed any pairing or approval step
+
+### The bot sees nothing that users send
+
+Recheck the Discord app setup, especially `Message Content Intent` and the permissions granted through the invite URL.
+
+### You need to move the bot to another workspace
+
+Recreate the channel. Workspace assignment is not editable after creation.

@@ -1,0 +1,93 @@
+---
+title: Telegram
+description: Create a Telegram bot, connect it to a RealTimeX workspace, and manage pairing, routing, and voice replies.
+---
+
+# Telegram
+
+The Telegram channel lets users chat with a RealTimeX workspace through a Telegram bot.
+
+Open the setup flow from `Settings > Channels > Add Channel > Telegram`.
+
+## What you need
+
+Before you configure the channel in RealTimeX, create a Telegram bot with `BotFather`.
+
+The current in-app flow expects:
+
+- a Telegram bot token
+- a target workspace
+- an optional thread
+- an optional display name
+
+## Create the Telegram bot
+
+The current RealTimeX guide mirrors the standard BotFather flow:
+
+1. Open Telegram and start a chat with `BotFather`.
+2. Send `/newbot`.
+3. Choose a display name.
+4. Choose a unique username that ends in `bot`.
+5. Copy the token BotFather gives you.
+
+## Connect it in RealTimeX
+
+1. Open `Settings > Channels`.
+2. Click `Add Channel`.
+3. Choose `Telegram`.
+4. Paste the bot token.
+5. Click `Test` to verify the token before saving.
+6. Choose the workspace that should receive the chats.
+7. Optionally choose a specific thread.
+8. Optionally set a display name.
+9. Click `Create Telegram bot`.
+
+If the channel card shows `stopped` after creation, start it from the channel list.
+
+## How to use it
+
+After the plugin is running:
+
+1. Open the bot chat in Telegram.
+2. Send a first message.
+3. If your channel requires pairing, approve the request in `Pairing Codes`.
+4. Continue chatting normally after approval.
+
+Use the `Users` tab later if you need to disable or remove Telegram users without deleting the whole channel.
+
+## Settings you can change later
+
+The Telegram `Settings` view currently lets you change:
+
+- display name
+- default thread routing
+- agent whitelist
+- `Voice Reply (TTS)`
+
+`Voice Reply (TTS)` sends an audio response after each text reply using the system TTS provider configured in RealTimeX.
+
+## Important limitations
+
+- The workspace is fixed after creation.
+- The provider type is fixed after creation.
+- The current `Settings` view does not expose token replacement.
+
+If you rotate the Telegram bot token, create a new Telegram channel plugin with the new token, confirm it works, then remove the old one.
+
+## Troubleshooting
+
+### The token test fails
+
+Recheck the token copied from BotFather. Testing happens before save, so fix the credential first instead of continuing with setup.
+
+### The bot exists but does not answer
+
+Check:
+
+- the plugin status is `running`
+- you started a real conversation with the bot in Telegram
+- any required access request was approved in `Pairing Codes`
+
+### Voice replies do not play
+
+Telegram voice reply depends on the system text-to-speech setup. Review your [Text-to-Speech](/features/text-to-speech) provider configuration if text replies work but audio replies do not.

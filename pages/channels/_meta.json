@@ -1,0 +1,23 @@
+{
+  "index": {
+    "title": "Overview"
+  },
+  "telegram": {
+    "title": "Telegram"
+  },
+  "discord": {
+    "title": "Discord"
+  },
+  "slack": {
+    "title": "Slack"
+  },
+  "whatsapp": {
+    "title": "WhatsApp"
+  },
+  "zalo": {
+    "title": "Zalo OA"
+  },
+  "zalo-personal": {
+    "title": "Zalo Personal"
+  }
+}

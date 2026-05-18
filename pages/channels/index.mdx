@@ -1,0 +1,153 @@
+---
+title: Channels
+description: Connect workspace AI to messaging platforms, manage access, and choose the right provider for your use case.
+---
+
+# Channels
+
+`Channels` lets you expose a RealTimeX workspace through external messaging apps such as Telegram, Slack, WhatsApp, Discord, and Zalo. Instead of keeping conversations inside the desktop or web app only, you can give approved users a provider-specific entry point into the workspace you choose.
+
+Open it from `Settings > Channels`.
+
+## What a channel plugin does
+
+Each channel connection is created as a channel plugin.
+
+A channel plugin binds together:
+
+- one provider such as Telegram or WhatsApp
+- one workspace
+- optional default thread routing
+- runtime status such as `running`, `starting`, `stopped`, or `error`
+- access-control behavior such as pairing, approved users, and provider-specific message policies
+
+After a channel exists, you manage it from the channel list and the right-hand detail views.
+
+## Supported providers
+
+| Provider | Setup model | Best for | Guide |
+| --- | --- | --- | --- |
+| Telegram | Bot token | Lightweight bot access and optional voice replies | [Telegram](/channels/telegram) |
+| Discord | Bot token plus server invite | Community or team chat inside Discord servers | [Discord](/channels/discord) |
+| Slack | Bot token plus app-level token | Internal workspace chat in Slack | [Slack](/channels/slack) |
+| WhatsApp | QR login | Using a connected WhatsApp account as the chat entry point | [WhatsApp](/channels/whatsapp) |
+| Zalo OA | Bot token | Official Zalo bot flows | [Zalo OA](/channels/zalo) |
+| Zalo Personal | QR login | Personal-account-based Zalo messaging with friend and group policies | [Zalo Personal](/channels/zalo-personal) |
+
+## Common setup flow
+
+Most channel setups follow the same shape even though the credential type differs by provider.
+
+1. Click `Add Channel`.
+2. Choose the provider.
+3. Choose the target workspace.
+4. Optionally bind the channel to a specific thread.
+5. Optionally set a display name.
+6. Finish provider auth with either token validation or QR login.
+7. Start the plugin if the flow does not start it automatically.
+8. Test a real message from the external platform.
+
+## Workspace and thread routing
+
+Every channel must target one workspace.
+
+You can also choose an optional thread:
+
+- If you choose a thread, new messages route into that thread.
+- If you leave the thread blank, RealTimeX can auto-create or separate conversations per user instead of forcing everyone into one shared thread.
+
+The provider type and workspace are effectively fixed after creation. If you need to move a channel to a different workspace, recreate it.
+
+## What to do after the channel is created
+
+Once a plugin exists, the rest of the operational work usually happens in three tabs.
+
+### Pairing Codes
+
+Use `Pairing Codes` when a provider or channel policy requires approval before a user can chat with your AI.
+
+From this view you can:
+
+- review pending requests
+- approve or reject access requests
+- generate a pairing code manually
+
+If a user says the bot is reachable but they still cannot chat, check this tab first.
+
+### Users
+
+Use `Users` to review everyone who has already been approved.
+
+From this view you can:
+
+- see platform usernames or IDs
+- disable or re-enable access
+- remove a user entirely
+
+This is the fastest way to revoke access without deleting the whole channel.
+
+### Settings
+
+Use `Settings` to control how an existing channel behaves.
+
+Common settings include:
+
+- display name
+- default thread routing
+- agent whitelist
+
+Provider-specific settings can also appear here. Examples:
+
+- Telegram can enable voice replies through the system TTS provider.
+- WhatsApp can change DM or group policy and self-chat mode.
+- Zalo Personal can manage allowlists and mention requirements.
+
+## Runtime controls
+
+Each channel card shows runtime state and the main actions:
+
+- `Start`
+- `Stop`
+- `Delete`
+
+Watch the status indicator first when troubleshooting:
+
+- `running` means the channel runtime is active
+- `starting` means it is still coming online
+- `stopped` means the channel exists but is not active
+- `error` means the provider login or runtime needs attention
+
+## Credential changes and re-login
+
+QR-based providers and token-based providers do not behave the same way when credentials expire.
+
+### WhatsApp and Zalo Personal
+
+These providers support in-product QR re-login. If the channel reaches an `error` state, use the relogin action from the channel card instead of deleting the channel immediately.
+
+### Telegram, Discord, Slack, and Zalo OA
+
+These providers are created from tokens. The current `Settings` view shows that a credential exists, but it does not expose token replacement.
+
+In practice, if you rotate one of these tokens, the safest workflow is:
+
+1. create a new channel plugin with the new credential
+2. verify it works
+3. remove the old plugin
+
+## Choosing the right provider
+
+- Choose [Telegram](/channels/telegram) when you want a straightforward bot setup and a low-friction user chat flow.
+- Choose [Slack](/channels/slack) when your users already live in a Slack workspace and you want DM-first internal usage.
+- Choose [Discord](/channels/discord) when the bot needs to live inside a server-based community workflow.
+- Choose [WhatsApp](/channels/whatsapp) when the entry point should be a linked WhatsApp account and phone-based QR login is acceptable.
+- Choose [Zalo OA](/channels/zalo) when you want an official Zalo bot token workflow.
+- Choose [Zalo Personal](/channels/zalo-personal) when you need personal-account access control, group allowlists, or mention requirements.
+
+## Best practices
+
+- Start with one workspace and one provider first, then add more only after the access flow is working cleanly.
+- Leave thread routing blank unless you intentionally want everyone to land in the same thread.
+- Use `Users` for routine access review instead of recreating the channel.
+- Recreate token-based channels when credentials change.
+- For QR-based channels, prefer relogin over delete-and-rebuild when the connected account simply needs to authenticate again.
