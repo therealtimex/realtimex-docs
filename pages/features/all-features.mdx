@@ -37,7 +37,12 @@ import {
   Heart,
   Flag,
   Slash,
-  UserRound
+  UserRound,
+  Users,
+  ShieldCheck,
+  Smartphone,
+  ScrollText,
+  Store
 } from "lucide-react";
 
 # All Features of RealTimeX
@@ -76,6 +81,24 @@ Explore the full range of what RealTimeX can do. Click any card to learn more.
   </FeatureCard>
   <FeatureCard title="Personality" href="/personality" icon={<UserRound size={36} color="#ad4ae6" />}>
     Edit file-based agent identity, memory, and instruction layers.
+  </FeatureCard>
+  <FeatureCard title="Users" href="/users" icon={<Users size={36} color="#226cff" />}>
+    Invite users, choose roles, and manage account status for a multi-user instance.
+  </FeatureCard>
+  <FeatureCard title="Workspaces" href="/workspaces" icon={<Layout size={36} color="#31b5d6" />}>
+    Create collaboration spaces and manage who belongs to each one.
+  </FeatureCard>
+  <FeatureCard title="Security" href="/security" icon={<ShieldCheck size={36} color="#e3694d" />}>
+    Choose between account-based multi-user access and single shared-password protection.
+  </FeatureCard>
+  <FeatureCard title="Connected Mobile Devices" href="/connected-mobile-devices" icon={<Smartphone size={36} color="#0da37f" />}>
+    Pair the mobile app, approve devices, and revoke access when needed.
+  </FeatureCard>
+  <FeatureCard title="System Logs" href="/system-logs" icon={<ScrollText size={36} color="#efc04a" />}>
+    Inspect low-level application and server logs with filters and live refresh.
+  </FeatureCard>
+  <FeatureCard title="Marketplace Operations" href="/marketplace-operations" icon={<Store size={36} color="#ad4ae6" />}>
+    Manage purchased items, published listings, and billing inside RealTimeX.
   </FeatureCard>
   <FeatureCard title="RealTimeX Local" href="/realtimex-local" icon={<Cpu size={36} color="#0da37f" />}>
     Run GGUF local chat models with the managed llama-server runtime.

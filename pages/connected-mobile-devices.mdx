@@ -1,0 +1,98 @@
+---
+title: Connected Mobile Devices
+description: Pair the RealTimeX mobile app, approve or revoke devices, and avoid common QR pairing mistakes.
+---
+
+# Connected Mobile Devices
+
+`Connected Mobile Devices` is the pairing surface for linking the RealTimeX mobile app to your desktop or hosted instance.
+
+In current builds, this surface may appear only in specific desktop or experimental configurations.
+
+## What it is for
+
+Pairing a device lets the mobile app connect to your RealTimeX instance so you can work on the go.
+
+The current app copy describes this mobile flow as supporting sync for:
+
+- workspaces
+- chats
+- threads
+- documents
+
+It also positions RealTimeX Mobile for two broad behaviors:
+
+- private mobile-side local-model use
+- relaying chats back to the paired instance
+
+## Register a new device
+
+1. Open `Connected Mobile Devices`.
+2. Click `Register New Device`.
+3. Scan the QR code with the RealTimeX mobile app.
+4. Approve the device if it appears as pending access.
+
+If no devices are registered yet, current builds open the QR modal automatically.
+
+## Important network requirement
+
+Do not generate the pairing QR code from a `localhost`, `127.0.0.1`, or `0.0.0.0` URL.
+
+The mobile app cannot use that address to reach your instance.
+
+Instead, open RealTimeX through:
+
+- your machine's private LAN IP
+- a custom domain
+- another network-reachable hostname
+
+If you ignore this, the QR modal can fail with a pairing error even though the desktop app itself looks healthy.
+
+## What the device list shows
+
+The device table includes:
+
+- device name
+- device OS
+- registration time
+- linked user when available
+
+The page refreshes the device list automatically, so newly paired devices can appear without a full page reload.
+
+## Approve, deny, or revoke
+
+Current device actions include:
+
+- `Approve Access` for a newly paired device
+- `Deny` to reject a pending request
+- `Revoke` to remove an already approved device
+
+Use `Revoke` when a phone is lost, replaced, or should no longer sync with the instance.
+
+## When pairing is useful
+
+Use this feature when you want:
+
+- mobile access to ongoing workspace activity
+- continuity between desktop and mobile threads
+- controlled device-by-device approval instead of open mobile access
+
+## Troubleshooting
+
+### The QR code does not work
+
+Check whether you opened the page from `localhost` or another non-routable address. Reopen the instance using a LAN IP or custom domain first.
+
+### The device stays pending
+
+Return to the device list and approve the request manually if the device has not been accepted yet.
+
+### A device should no longer sync
+
+Use `Revoke` to remove the device from the approved list, then pair it again only if you want to restore access.
+
+## Related guides
+
+- [Workspaces](/workspaces)
+- [Chat Interface](/chat-ui)
+- [RealTimeX Local](/realtimex-local)

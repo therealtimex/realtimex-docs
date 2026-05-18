@@ -1,0 +1,114 @@
+---
+title: Users
+description: Invite users, assign roles, and manage account status for a multi-user RealTimeX instance.
+---
+
+# Users
+
+The `Users` page is the instance-level account management surface for RealTimeX.
+
+Open it from `Settings > Admin > Users`.
+
+It is mainly relevant on multi-user deployments and is typically used by admins and managers.
+
+## What the page shows
+
+The main table lists:
+
+- email or username
+- role
+- status
+- date added
+
+This is the fastest way to review who can access the instance and whether their account is active.
+
+## Invite a user
+
+Use `Add User` to send a new invitation.
+
+The current invite flow supports:
+
+- email address
+- optional display name
+- optional welcome message
+- optional bio
+- role selection
+
+Current builds describe this as an SSO-backed invite flow. The invited user receives the invitation by email and completes sign-in through your configured authentication path.
+
+## Roles
+
+The current product surfaces four main roles:
+
+### Administrator
+
+- full access to users, settings, credentials, and instance administration
+- can create, update, and delete instance-wide resources
+
+### Manager
+
+- can manage workspaces, agents, and operational settings
+- cannot perform admin-only system-management actions
+
+### Default
+
+- can use assigned workspaces and chat with agents
+- cannot manage users or instance-wide settings
+
+### Guest
+
+- intended for limited or temporary access
+- exact capabilities depend on the guest-mode behavior enabled in your deployment
+
+## User status
+
+Current user rows can show these states:
+
+- `Active`: the account can use the instance
+- `Pending`: the invitation exists but the user has not completed access yet
+- `Suspended`: the account is blocked from using the instance until restored
+
+## Common actions
+
+For accounts you are allowed to manage, the page supports actions such as:
+
+- suspend
+- unsuspend
+- delete
+
+Deleting a user is irreversible. Suspending is safer when you may need to restore access later.
+
+Current builds also prevent some self-destructive actions and may restrict which roles a given operator can modify.
+
+## Message limits
+
+The broader RealTimeX user model supports per-user daily message limits for non-admin accounts.
+
+If your build exposes that control in user-management workflows, use it to cap how many successful chats or queries a user can send within a 24-hour window.
+
+## Users vs workspaces
+
+The `Users` page manages who can access the instance.
+
+The [Workspaces](/workspaces) page manages the work areas inside the instance and where invited users should actually collaborate.
+
+In practice:
+
+- create or invite the user here
+- assign them to the appropriate workspace separately
+
+## When to use this page
+
+Use `Users` when you need to:
+
+- onboard new teammates
+- review who currently has access
+- suspend or remove an account
+- choose the right role for a new user
+
+## Related guides
+
+- [Security](/security)
+- [Workspaces](/workspaces)
+- [Chat Logs](/features/chat-logs)
+- [Configuration](/configuration)

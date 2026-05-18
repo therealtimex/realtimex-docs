@@ -1,0 +1,97 @@
+---
+title: Workspaces
+description: Create instance workspaces, open them quickly, and manage who belongs to each one.
+---
+
+# Workspaces
+
+`Workspaces` are the main collaboration containers in RealTimeX. They hold chats, documents, agent behavior, integrations, and member access for a specific team or use case.
+
+Open the admin list from `Settings > Admin > Workspaces`.
+
+## What the page shows
+
+The instance workspaces table includes:
+
+- workspace name
+- workspace slug or link
+- assigned user count
+- created date
+
+The slug link opens the workspace chat directly. The user count link opens the workspace members screen.
+
+## Create a workspace
+
+1. Open `Settings > Admin > Workspaces`.
+2. Click `New Workspace`.
+3. Enter the workspace name.
+4. Save it.
+
+After creation, the workspace becomes available immediately in the instance.
+
+Current builds also remind you that you can add users later, so you do not need to finish all membership setup during creation.
+
+## Open a workspace quickly
+
+From the admin list, click the workspace slug to jump straight into that workspace's chat surface.
+
+This is useful when you want to:
+
+- verify the workspace opens correctly
+- test chat behavior
+- check agent or document configuration in context
+
+## Manage workspace members
+
+From the user-count column, open the workspace's `Members` settings page.
+
+The current members flow supports:
+
+- seeing who already belongs to the workspace
+- opening a member-management modal
+- searching users
+- selecting or unselecting users
+- saving the new membership set
+
+This is where you decide which invited users can actually work inside a specific workspace.
+
+## Delete a workspace
+
+The admin list also supports deleting a workspace.
+
+Use deletion carefully:
+
+- the action is irreversible
+- the workspace becomes unavailable in the instance
+
+If you only need to change who can use the workspace, update membership instead of deleting it.
+
+## Workspaces vs users
+
+Use [Users](/users) to manage accounts and roles.
+
+Use `Workspaces` to decide:
+
+- which collaboration areas exist
+- which users belong to each one
+
+A user can exist in the instance without being useful yet if they have not been assigned to the right workspace.
+
+## Good workspace patterns
+
+Create separate workspaces when you need:
+
+- different teams
+- different system prompts or personality files
+- different connected channels or plugins
+- different document sets or knowledge boundaries
+
+Avoid using one giant workspace for unrelated teams or tasks if you need clean separation of behavior, data, or access.
+
+## Related guides
+
+- [Users](/users)
+- [Chat Interface](/chat-ui)
+- [Knowledge Manager](/knowledge-manager)
+- [Channels](/channels)
+- [System Prompts](/system-prompts)

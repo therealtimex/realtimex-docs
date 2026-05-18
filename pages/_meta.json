@@ -268,6 +268,64 @@
       "toc": true
     }
   },
+  "-- Instance Administration": {
+    "type": "separator",
+    "title": "Instance Administration"
+  },
+  "users": {
+    "title": "Users",
+    "theme": {
+      "breadcrumb": true,
+      "footer": true,
+      "pagination": true,
+      "toc": true
+    }
+  },
+  "workspaces": {
+    "title": "Workspaces",
+    "theme": {
+      "breadcrumb": true,
+      "footer": true,
+      "pagination": true,
+      "toc": true
+    }
+  },
+  "security": {
+    "title": "Security",
+    "theme": {
+      "breadcrumb": true,
+      "footer": true,
+      "pagination": true,
+      "toc": true
+    }
+  },
+  "connected-mobile-devices": {
+    "title": "Connected Mobile Devices",
+    "theme": {
+      "breadcrumb": true,
+      "footer": true,
+      "pagination": true,
+      "toc": true
+    }
+  },
+  "system-logs": {
+    "title": "System Logs",
+    "theme": {
+      "breadcrumb": true,
+      "footer": true,
+      "pagination": true,
+      "toc": true
+    }
+  },
+  "marketplace-operations": {
+    "title": "Marketplace Operations",
+    "theme": {
+      "breadcrumb": true,
+      "footer": true,
+      "pagination": true,
+      "toc": true
+    }
+  },
   "-- RealTimeX Marketplace": {
     "type": "separator",
     "title": "RealTimeX Marketplace"

@@ -1,0 +1,115 @@
+---
+title: System Logs
+description: Inspect application and server logs with filters, live refresh, and structured context expansion.
+---
+
+# System Logs
+
+`System Logs` is the low-level operational log viewer for RealTimeX.
+
+Open it from `Settings > Tools > System Logs`.
+
+Use it when you need app and server log detail rather than chat history or audit-style event records.
+
+## What the page shows
+
+The current log table includes:
+
+- level
+- source
+- message
+- timestamp
+
+Rows load in pages, and the total entry count appears in the header.
+
+## Levels
+
+Current builds support these level filters:
+
+- `all`
+- `debug`
+- `info`
+- `warn`
+- `error`
+- `fatal`
+
+Use level filtering to narrow the page quickly when you already know whether you are hunting for general diagnostics or hard failures.
+
+## Sources
+
+Current builds support these source filters:
+
+- `all`
+- `app`
+- `server`
+- `llm`
+- `vector-db`
+- `channel`
+- `embed`
+- `external`
+
+This is useful when the issue belongs to one subsystem, such as model calls, vector storage, embedded chat, or external integrations.
+
+## Search and live refresh
+
+The page supports:
+
+- free-text search
+- manual refresh
+- auto-refresh
+- pagination
+
+`Live` mode refreshes the log list automatically so you can reproduce a problem in another tab and watch the entries appear here.
+
+## Expand structured context
+
+Some log entries include extra structured context.
+
+When that happens, click the row to expand the attached payload. Current builds render this context as formatted JSON when possible.
+
+This is often where the most useful debugging detail lives.
+
+## Clearing logs
+
+The page supports clearing logs, but use it carefully.
+
+Important current behavior:
+
+- level and source filters affect the clear action
+- the free-text search box does not define the clear scope
+
+So if you want to clear only a subset, set the appropriate level or source filters first.
+
+## Good uses
+
+Use `System Logs` when you need to:
+
+- inspect runtime failures
+- trace model or vector back-end problems
+- watch channel or embed integrations during troubleshooting
+- confirm whether an issue is coming from the app, server, or an external dependency
+
+## System Logs vs Event Logs
+
+Use `System Logs` for technical log lines, subsystem sources, and debugging context.
+
+Use [Event Logs](/features/event-logs) for audit-style records of actions that happened in the product.
+
+## System Logs vs Chat Logs
+
+Use `System Logs` for infrastructure and application behavior.
+
+Use [Chat Logs](/features/chat-logs) for saved prompt and response content.
+
+## System Logs vs Diagnostics
+
+Use `System Logs` when you want the running log stream inside the app.
+
+Use `Diagnostics` when you need broader runtime health, incident review, or bundle-based troubleshooting.
+
+## Related guides
+
+- [Event Logs](/features/event-logs)
+- [Chat Logs](/features/chat-logs)
+- [Privacy & Data Handling](/features/privacy-and-data-handling)
+- [Configuration](/configuration)

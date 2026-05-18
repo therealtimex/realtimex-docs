@@ -1,0 +1,99 @@
+---
+title: Security
+description: Choose between multi-user access and single shared-password access for your RealTimeX instance.
+---
+
+# Security
+
+The `Security` page controls the main access mode for a RealTimeX instance.
+
+Open it from `Settings > Security` when that surface is available in your deployment.
+
+## What this page controls
+
+Current builds focus on two security models:
+
+- `Multi-User Mode` for account-based access
+- `Password Protection` for a single shared-password gate
+
+These are different operating models, not just two unrelated toggles.
+
+## Multi-User Mode
+
+`Multi-User Mode` enables account-based access for multiple people on the same instance.
+
+When you enable it, the current flow asks for:
+
+- the initial admin username
+- the initial admin password
+
+After the change succeeds, RealTimeX signs you out and redirects you into the multi-user admin flow.
+
+### When to use it
+
+Use multi-user mode when:
+
+- more than one person needs access
+- you need roles such as admin, manager, default, or guest
+- you want user-by-user control instead of one shared password
+
+### Important behavior
+
+The current UI is designed as an enablement flow, not as a casual toggle you flip back and forth every day.
+
+Treat this as an intentional instance setup decision.
+
+## Password Protection
+
+`Password Protection` is the simpler single-user or shared-instance gate.
+
+It lets you require one instance password before someone can access the app.
+
+This mode is most appropriate when:
+
+- the instance is not using full multi-user accounts
+- you just need a basic access gate
+- the deployment is personal, local, or very small-scale
+
+When you change the password setting, RealTimeX refreshes the session afterward.
+
+## Multi-user mode vs password protection
+
+Choose `Multi-User Mode` when you need:
+
+- separate accounts
+- roles and account status
+- user lifecycle management through [Users](/users)
+
+Choose `Password Protection` when you need:
+
+- one shared entry password
+- a lighter single-instance access model
+- no account-by-account administration
+
+## Password format note
+
+The current password-protection flow validates the password format. If saving fails unexpectedly, retry with a simpler password that avoids unsupported characters.
+
+## Security vs credentials
+
+`Security` controls who can access the RealTimeX instance itself.
+
+[Credentials](/credentials) are different:
+
+- `Security` decides who gets into the app
+- `Credentials` store reusable secrets for integrations and agent workflows
+
+## Security vs privacy
+
+Use `Security` for access control.
+
+Use [Privacy & Data Handling](/features/privacy-and-data-handling) for diagnostic-consent behavior and what telemetry categories exist.
+
+## Related guides
+
+- [Users](/users)
+- [Workspaces](/workspaces)
+- [Credentials](/credentials)
+- [Privacy & Data Handling](/features/privacy-and-data-handling)
+- [Configuration](/configuration)

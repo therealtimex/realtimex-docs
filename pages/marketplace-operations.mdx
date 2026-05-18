@@ -1,0 +1,149 @@
+---
+title: Marketplace Operations
+description: Manage purchased Marketplace items, published listings, and billing from inside RealTimeX.
+---
+
+# Marketplace Operations
+
+The `Marketplace` section in RealTimeX is more than discovery and publishing. Current builds also include in-app operational pages for purchases, published listings, and billing.
+
+Open these surfaces from `Settings > Marketplace`.
+
+## The three main operator pages
+
+Current Marketplace operations revolve around:
+
+- `My Purchases`
+- `My Published`
+- `Usage and Billing`
+
+These are different from the public Marketplace website and different from the one-time sync or publish flows.
+
+## My Purchases
+
+`My Purchases` is your in-app Marketplace library.
+
+The page currently includes:
+
+- a purchased-item count
+- latest purchase summary
+- paginated results
+- item cards with type, price, author, and tags
+
+Each purchased item can expose actions such as:
+
+- `Open in app`
+- `View details`
+
+`Open in app` routes you back into the appropriate RealTimeX management surface for that item type.
+
+### Supported item types
+
+Current purchase cards recognize Marketplace items such as:
+
+- agents
+- tools
+- plugins
+- MCP servers
+- local MCP servers
+- local apps
+- agent flows
+- agent skills
+- slash commands
+- system prompts
+
+### Offline behavior
+
+Current builds cache recent purchase views for offline use.
+
+That means:
+
+- you may still see cached purchases while offline
+- detail links and fresh Marketplace data still require a live connection
+
+## My Published
+
+`My Published` is the management surface for items you have already listed in the Marketplace.
+
+The page supports:
+
+- search
+- type filtering
+- status review
+- `Update Publish` actions
+
+Current published-item types include:
+
+- local apps
+- local MCP servers
+- MCP servers
+- agent flows
+- slash commands
+- agents
+- system prompts
+
+### Statuses
+
+Current builds surface statuses such as:
+
+- `Draft`
+- `Available`
+- `Maintenance`
+- `Unavailable`
+
+Use this page when you need to update metadata, cover imagery, tags, or listing state after the first publish.
+
+## Usage and Billing
+
+`Usage and Billing` is the account-level Marketplace billing surface inside RealTimeX.
+
+Current builds include:
+
+- a cloud-status summary card
+- top-up actions when billing services are reachable
+- billing history
+- invoice and receipt access
+
+### Billing history
+
+The billing history view is useful for:
+
+- reviewing invoices
+- checking payment status
+- opening receipt links
+
+Like `My Purchases`, it can fall back to cached data when you are offline, but fresh receipts and payment actions still depend on a live service connection.
+
+## Marketplace operations vs syncing
+
+Use [Syncing Items](/marketplace-syncing) when you want to bring a Marketplace asset into your RealTimeX instance.
+
+Use `Marketplace Operations` when you want to manage what you already bought, published, or paid for.
+
+## Marketplace operations vs sharing
+
+Use [Sharing & Publishing](/marketplace-sharing) for the initial publish flow.
+
+Use `Marketplace Operations` after publication when you want to:
+
+- review your published catalog
+- search and filter your published items
+- update an existing listing
+
+## When to use these pages
+
+Use the Marketplace operator pages when you need to:
+
+- confirm that a purchase exists in your library
+- jump from a purchased item into the right in-app management page
+- review what you have already published
+- update Marketplace listings without republishing from scratch
+- inspect invoices or top up Marketplace credit
+
+## Related guides
+
+- [What is the Marketplace?](/marketplace-about)
+- [Syncing Items](/marketplace-syncing)
+- [Sharing & Publishing](/marketplace-sharing)
+- [Slash Commands](/slash-commands)
+- [System Prompts](/system-prompts)
