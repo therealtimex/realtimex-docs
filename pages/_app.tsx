@@ -1,4 +1,6 @@
 import "./index.css";
+import "reveal.js/reveal.css";
+import "../styles/presentations-reveal.css";
 function MyApp({ Component, pageProps }) {
   return (
     <>

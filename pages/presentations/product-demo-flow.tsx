@@ -84,8 +84,12 @@ function HeroSlide() {
             "One proof of execution",
             "One deployment fit",
             "One pilot ask",
-          ].map((tag) => (
-            <span key={tag} className="deck-chip">
+          ].map((tag, index) => (
+            <span
+              key={tag}
+              className="deck-chip fragment fade-up"
+              data-fragment-index={index}
+            >
               {tag}
             </span>
           ))}
@@ -94,15 +98,15 @@ function HeroSlide() {
       <div className="hero-panel">
         <div className="panel-title">Demo target</div>
         <div className="metric-stack">
-          <div className="metric-card">
+          <div className="metric-card fragment fade-up" data-fragment-index={1}>
             <span className="metric-number">15</span>
             <span className="metric-label">minutes to show the full product story</span>
           </div>
-          <div className="metric-card">
+          <div className="metric-card fragment fade-up" data-fragment-index={2}>
             <span className="metric-number">1</span>
             <span className="metric-label">connected workflow instead of a feature checklist</span>
           </div>
-          <div className="metric-card">
+          <div className="metric-card fragment fade-up" data-fragment-index={3}>
             <span className="metric-number">1</span>
             <span className="metric-label">next step the buyer can say yes to</span>
           </div>

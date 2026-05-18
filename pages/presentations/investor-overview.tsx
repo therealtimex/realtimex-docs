@@ -86,8 +86,12 @@ function HeroSlide() {
             "Local + Cloud + Hybrid",
             "Channels + Plugins + MCP",
             "Operator-Controlled AI",
-          ].map((tag) => (
-            <span key={tag} className="deck-chip">
+          ].map((tag, index) => (
+            <span
+              key={tag}
+              className="deck-chip fragment fade-up"
+              data-fragment-index={index}
+            >
               {tag}
             </span>
           ))}
@@ -96,19 +100,19 @@ function HeroSlide() {
       <div className="hero-panel">
         <div className="panel-title">What matters</div>
         <div className="metric-stack">
-          <div className="metric-card">
+          <div className="metric-card fragment fade-up" data-fragment-index={1}>
             <span className="metric-number">1</span>
             <span className="metric-label">
               operational layer between models and team workflows
             </span>
           </div>
-          <div className="metric-card">
+          <div className="metric-card fragment fade-up" data-fragment-index={2}>
             <span className="metric-number">3</span>
             <span className="metric-label">
               deployment paths: local, hosted, hybrid
             </span>
           </div>
-          <div className="metric-card">
+          <div className="metric-card fragment fade-up" data-fragment-index={3}>
             <span className="metric-number">6+</span>
             <span className="metric-label">
               product surfaces that create account expansion paths
