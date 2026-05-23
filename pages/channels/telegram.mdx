@@ -55,6 +55,28 @@ After the plugin is running:
 
 Use the `Users` tab later if you need to disable or remove Telegram users without deleting the whole channel.
 
+## Built-in Telegram commands
+
+Recent builds register the Telegram bot commands automatically, so Telegram can show them in the command picker for the connected bot.
+
+The current command set is:
+
+- `/start` to begin pairing or re-show the connected workspace message
+- `/new` to start a fresh workspace thread
+- `/threads` to list recent threads
+- `/switch <number>` to move into one of the listed threads
+- `/more` to read missed replies after a catch-up prompt
+- `/help` to show the command list again
+
+Typical thread flow:
+
+1. Send `/threads`.
+2. Review the recent-thread list.
+3. Send `/switch <number>` to move into the thread you want.
+4. If RealTimeX reports that replies arrived while you were away, send `/more` to read the missed messages in full.
+
+If the Telegram command picker does not show these entries yet, you can still type the commands manually as long as the plugin is running.
+
 ## Settings you can change later
 
 The Telegram `Settings` view currently lets you change:

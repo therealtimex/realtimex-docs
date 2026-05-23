@@ -58,6 +58,31 @@ You can also choose an optional thread:
 
 The provider type and workspace are effectively fixed after creation. If you need to move a channel to a different workspace, recreate it.
 
+## Built-in channel commands
+
+Recent builds add a shared set of conversation-management commands to channel plugins so users can manage their own thread routing without leaving the messaging app.
+
+The common commands are:
+
+- `/start` to pair the user or re-show the connected-workspace message
+- `/new` to start a fresh workspace thread
+- `/threads` to list recent workspace threads
+- `/switch <number>` to change the active thread after listing threads
+- `/more` to read the missed replies for the current thread after a catch-up prompt
+- `/help` to show the available commands again
+
+When a user switches back to a thread they previously left, RealTimeX can show a short catch-up status message such as `3 replies while you were away. Use /more to read all.` The `/more` command then delivers the missed replies and clears that catch-up marker.
+
+## Command syntax by provider
+
+The behavior is shared, but the exact command style depends on the provider:
+
+- Telegram, WhatsApp, Zalo OA, and Zalo Personal use slash-style commands such as `/new` and `/threads`
+- Slack DMs accept plain command words such as `new`, `threads`, `switch`, `more`, and `help`
+- Discord DMs commonly use `!new`, `!threads`, `!switch`, `!more`, and `!help`
+
+If users are unsure which format applies, tell them to send the provider's help command first.
+
 ## What to do after the channel is created
 
 Once a plugin exists, the rest of the operational work usually happens in three tabs.
