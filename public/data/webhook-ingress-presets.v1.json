@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-05-23",
+  "presets": [
+    {
+      "id": "generic-hmac",
+      "version": 1,
+      "provider": "generic",
+      "status": "active",
+      "label": "Generic HMAC",
+      "description": "Verify a signed raw request body with HMAC SHA-256 and route accepted deliveries into a workspace thread plus linked task.",
+      "setupDocsUrl": null,
+      "defaults": {
+        "signatureHeader": "X-Webhook-Signature-256",
+        "signaturePrefix": "sha256=",
+        "timestampHeader": "X-Webhook-Timestamp",
+        "deliveryIdHeader": "X-Webhook-Id",
+        "eventTypeHeader": "X-Webhook-Event",
+        "sourceHeader": "X-Webhook-Source",
+        "replayWindowSeconds": 300,
+        "payloadSizeLimitBytes": 1048576
+      },
+      "editor": {
+        "scopeTitle": "Generic HMAC v1 Scope",
+        "scopeSummary": "This slice records every verified delivery and routes accepted events into the existing thread and task workflow without provider-specific normalization.",
+        "operatorFocus": "The main page should stay focused on endpoint health and delivery inspection. Open the editor only when you need to create or adjust an ingress profile.",
+        "secretLabel": "Shared secret",
+        "secretPlaceholder": "Paste a shared HMAC secret",
+        "advancedSectionTitle": "Advanced verification settings",
+        "fieldOverrides": {}
+      }
+    },
+    {
+      "id": "github",
+      "version": 1,
+      "provider": "github",
+      "status": "active",
+      "label": "GitHub",
+      "description": "Verify GitHub webhook signatures, record immutable delivery rows, and route failed completed workflow runs into a workspace thread plus linked task.",
+      "setupDocsUrl": "https://docs.github.com/en/webhooks",
+      "defaults": {
+        "signatureHeader": "X-Hub-Signature-256",
+        "signaturePrefix": "sha256=",
+        "timestampHeader": null,
+        "deliveryIdHeader": "X-GitHub-Delivery",
+        "eventTypeHeader": "X-GitHub-Event",
+        "sourceHeader": null,
+        "replayWindowSeconds": 300,
+        "payloadSizeLimitBytes": 1048576
+      },
+      "editor": {
+        "scopeTitle": "GitHub v1 Scope",
+        "scopeSummary": "This slice records every signed delivery, normalizes workflow_run, and routes only failed completed runs.",
+        "operatorFocus": "The main page should stay focused on endpoint health and delivery inspection. Open the editor only when you need to create or adjust an ingress profile.",
+        "secretLabel": "Shared secret",
+        "secretPlaceholder": "Paste a shared HMAC secret",
+        "advancedSectionTitle": "Advanced verification settings",
+        "fieldOverrides": {
+          "allowedSourcePaths": {
+            "type": "string-list",
+            "label": "Allowed repositories",
+            "placeholder": "octo-org/platform-api\nocto-org/infra",
+            "helpText": "One owner/repo per line. Leave blank to allow failed workflow runs from any repository that uses this secret."
+          }
+        }
+      }
+    },
+    {
+      "id": "gitlab",
+      "version": 1,
+      "provider": "gitlab",
+      "status": "active",
+      "label": "GitLab",
+      "description": "Verify GitLab webhook secret tokens, record immutable delivery rows, and route failed pipeline hooks into a workspace thread plus linked task.",
+      "setupDocsUrl": "https://docs.gitlab.com/user/project/integrations/webhooks/",
+      "defaults": {
+        "signatureHeader": "X-Gitlab-Token",
+        "signaturePrefix": null,
+        "timestampHeader": null,
+        "deliveryIdHeader": "webhook-id",
+        "eventTypeHeader": "X-Gitlab-Event",
+        "sourceHeader": "X-Gitlab-Instance",
+        "replayWindowSeconds": 300,
+        "payloadSizeLimitBytes": 1048576
+      },
+      "editor": {
+        "scopeTitle": "GitLab v1 Scope",
+        "scopeSummary": "This slice records every verified delivery, normalizes Pipeline Hook, and routes only failed pipelines.",
+        "operatorFocus": "The main page should stay focused on endpoint health and delivery inspection. Open the editor only when you need to create or adjust an ingress profile.",
+        "secretLabel": "Shared secret",
+        "secretPlaceholder": "Paste the GitLab shared secret token",
+        "advancedSectionTitle": "Advanced verification settings",
+        "fieldOverrides": {
+          "allowedSourcePaths": {
+            "type": "string-list",
+            "label": "Allowed projects",
+            "placeholder": "rtlab/rtwebteam/realtimex-ai-app\nrtlab/platform/infra",
+            "helpText": "One group/project per line. Leave blank to allow failed pipelines from any project that uses this token."
+          }
+        }
+      }
+    }
+  ]
+}
