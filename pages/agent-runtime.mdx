@@ -26,7 +26,7 @@ Agentic CLIs are external command-line tools your agents can rely on, such as `g
 - This is separate from [Credentials](/credentials), which stores reusable secrets for agent workflows and integrations.
 - You can attach install docs, auth commands, probe commands, and a short prompt hint so the agent knows when the CLI should be used.
 
-Agentic CLIs are not the same thing as CLI agents. CLI agents are runtimes such as Codex or Claude Code. Agentic CLIs are the tools those runtimes use to do work.
+Agentic CLIs are not the same thing as CLI agents. CLI agents are runtimes such as Antigravity CLI, Cursor Agent, Codex CLI, or Claude Code. Agentic CLIs are the tools those runtimes use to do work.
 
 ### Typical flow
 
@@ -37,6 +37,36 @@ Agentic CLIs are not the same thing as CLI agents. CLI agents are runtimes such 
 
 For the full setup and troubleshooting guide, see [Agentic CLIs](/agentic-clis).
 
+## Terminal CLI agents
+
+RealTimeX also supports interactive terminal agent runtimes such as `Antigravity CLI`, `Cursor Agent`, `Claude Code`, `Codex CLI`, `Gemini CLI`, `Qwen CLI`, and `OpenCode`.
+
+One important implementation detail is that not every runtime uses the same launch path:
+
+- some runtimes can back ACP-style chat sessions
+- some runtimes are terminal-first and should be launched from the terminal runtime instead
+
+### Antigravity CLI notes
+
+`Antigravity CLI` is currently a terminal-first runtime in RealTimeX.
+
+- RealTimeX recognizes the handles `agy`, `antigravity`, and `antigravity-cli`
+- launch it from the terminal runtime path rather than ACP chat session creation
+- authenticate it with `agy` or the Antigravity IDE
+- RealTimeX can inspect the current Antigravity model for runtime status, but it does not switch Antigravity models at launch
+
+If Antigravity appears installed but cannot be launched from an ACP session, that is expected behavior for the current product build.
+
+### Cursor Agent notes
+
+`Cursor Agent` is ACP-launchable in RealTimeX and also exposes terminal runtime metadata.
+
+- RealTimeX discovers it with the synthetic provider id `acpx-cursor`
+- terminal launch resolves the `agent` command first and can fall back to `cursor-agent`
+- set `CURSOR_CLI_PATH` if you need to force a specific Cursor CLI path
+- Cursor uses its own authentication instead of an injected `Agent Authentication` API-key profile
+- ACPX-backed Cursor sessions currently use `approve-all`; interactive approval prompts are not forwarded through RealTimeX yet
+
 ## Agent Authentication
 
 `Agent Authentication` stores provider API keys that RealTimeX injects into launched agent runtimes such as `Claude Code`, `Codex CLI`, `Gemini CLI`, `Qwen CLI`, `OpenCode`, and `Ambient Agent`.
@@ -44,6 +74,8 @@ For the full setup and troubleshooting guide, see [Agentic CLIs](/agentic-clis).
 - Use it when the runtime needs a provider key at launch time.
 - This is separate from [Agentic CLIs](/agentic-clis), which track tool readiness.
 - This is also separate from [Credentials](/credentials), which store outbound integration secrets for workflows and tools.
+
+Agents that authenticate through their own CLI or OAuth state instead of injected API keys, such as `Antigravity CLI` and `Cursor Agent`, do not primarily use this page.
 
 For the full guide, see [Agent Authentication](/agent-authentication).
 

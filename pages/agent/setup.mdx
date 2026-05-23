@@ -76,6 +76,8 @@ Authentication can live in more than one layer.
 - Use [Credentials](/credentials) when workflows need reusable outbound secrets.
 - Use [Agent Authentication](/agent-authentication) when launched runtimes such as `Claude Code`, `Codex CLI`, `Qwen`, or `Ambient Agent` need provider API keys injected by RealTimeX.
 
+For `Antigravity CLI` and `Cursor Agent`, use the runtime's own login flow first, then verify readiness from [Agent Runtime](/agent-runtime) instead of expecting an `Agent Authentication` profile.
+
 This is separate from plugin-specific API key forms and separate from CLI login state in [Agent Runtime](/agent-runtime).
 
 ## 9. Test with a small agent prompt

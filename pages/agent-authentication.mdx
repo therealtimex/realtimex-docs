@@ -1,6 +1,6 @@
 ---
 title: Agent Authentication
-description: Store provider API keys that RealTimeX injects into launched agent runtimes such as Claude Code, Codex CLI, Gemini CLI, Qwen, and Ambient Agent.
+description: Store provider API keys that RealTimeX injects into launched agent runtimes such as Claude Code, Codex CLI, Gemini CLI, Qwen, OpenCode, and Ambient Agent.
 ---
 
 # Agent Authentication
@@ -37,6 +37,8 @@ Use `Credentials` when an agent or plugin needs to call some other external syst
 
 Use `Agentic CLIs` when RealTimeX needs to know whether a command-line tool exists and is ready to use.
 
+Agents that authenticate through their own CLI or IDE state instead of API-key injection, such as `Antigravity CLI` and `Cursor Agent`, are not mainly configured here.
+
 ## Current provider profiles
 
 The current UI supports these provider profiles:
@@ -49,6 +51,23 @@ The current UI supports these provider profiles:
 - `RealTimeX Ambient Agent`: the same broader provider set exposed for `Qwen CLI`
 
 The exact dropdown options come from the current product build. If RealTimeX adds more runtime providers later, this page may show more choices than this guide lists.
+
+## What is not listed here
+
+`Antigravity CLI` does not currently use `Agent Authentication` profiles.
+
+In the current product, Antigravity authentication is expected to come from the CLI's own local auth state, typically via:
+
+- `agy`
+- the Antigravity IDE
+
+Use [Agent Runtime](/agent-runtime) and [Agentic CLIs](/agentic-clis) to verify install and readiness for Antigravity instead of expecting an API-key profile on this page.
+
+`Cursor Agent` does not currently use `Agent Authentication` profiles either.
+
+In the current product, Cursor authentication is expected to come from Cursor's own authentication flow and local auth state rather than a stored API key on this page.
+
+Use [Agent Runtime](/agent-runtime) and [CLI Agent Sessions (ACP)](/local-apps/developer-guide/acp-agents) to verify discovery, install state, and launch behavior for Cursor instead of expecting an API-key profile here.
 
 ## How to add a key
 
@@ -111,6 +130,8 @@ Check:
 ### I already logged in to the CLI manually
 
 That may be enough for [Agentic CLIs](/agentic-clis), but it does not replace `Agent Authentication` when the launched runtime expects an injected provider API key.
+
+For runtimes such as `Antigravity CLI` and `Cursor Agent`, manual CLI or IDE authentication is the intended path, so not appearing in `Agent Authentication` can be normal.
 
 ### I already stored the secret in Credentials
 
