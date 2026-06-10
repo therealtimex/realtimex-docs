@@ -1,7 +1,19 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-05-27",
+  "updatedAt": "2026-06-10",
   "runtimeOptions": {
+    "claude.effort.fable5-opus48-opus47": {
+      "id": "effort",
+      "label": "Effort",
+      "category": "reasoning",
+      "type": "select",
+      "default": "xhigh",
+      "values": ["low", "medium", "high", "xhigh", "max"],
+      "launch": {
+        "kind": "flag-value",
+        "flag": "--effort"
+      }
+    },
     "claude.effort.opus47": {
       "id": "effort",
       "label": "Effort",
@@ -73,13 +85,6 @@
           }
         },
         {
-          "id": "gpt-5.3-codex",
-          "label": "GPT-5.3 Codex",
-          "description": "Most capable agentic coding model, combining Codex and GPT-5 training stacks. State-of-the-art on SWE-Bench Pro. Best-in-class code generation, reasoning, and general-purpose intelligence.",
-          "badges": ["coding"],
-          "runtimeOptionRefs": ["codex.reasoning.standard"]
-        },
-        {
           "id": "gpt-5.3-codex-spark",
           "label": "GPT-5.3 Codex Spark",
           "description": "Real-time coding model at 1000+ tokens/second. Highly capable small model optimized for near-instant response on ultra-low latency hardware. Text-only, 128k context. Research preview.",
@@ -94,10 +99,17 @@
           }
         },
         {
+          "id": "gpt-5.3-codex",
+          "label": "GPT-5.3 Codex",
+          "description": "Most capable agentic coding model from the previous generation, combining Codex and GPT-5 training stacks. Deprecated for ChatGPT sign-in; may remain available via API-key authentication.",
+          "badges": ["deprecated"],
+          "runtimeOptionRefs": ["codex.reasoning.standard"]
+        },
+        {
           "id": "gpt-5.2",
           "label": "GPT-5.2",
-          "description": "Previous generation baseline. Solid general-purpose coding capabilities. Recommended for API-key workflows where newer models are unavailable.",
-          "badges": [],
+          "description": "Previous generation baseline. Deprecated for ChatGPT sign-in; may remain available via API-key authentication where newer models are unavailable.",
+          "badges": ["deprecated"],
           "runtimeOptionRefs": ["codex.reasoning.standard"]
         }
       ]
@@ -105,10 +117,25 @@
     "gemini-cli": {
       "models": [
         {
-          "id": "gemini-3-flash-preview",
-          "label": "Gemini 3 Flash (Preview)",
-          "description": "Gemini 3 Pro-level reasoning at Flash speed and cost. Configurable thinking levels (minimal, low, medium, high). Supports multimodal input with adjustable media resolution. 1M token context.",
+          "id": "gemini-3-pro",
+          "label": "Gemini 3 Pro",
+          "description": "Google's most capable Gemini 3 model. Best for complex reasoning, agentic coding, and multi-step workflows. Used by the \"Auto (Gemini 3)\" router for hard prompts. 1M token context.",
+          "badges": ["recommended", "1M context"],
+          "default": true,
+          "metadata": { "contextWindow": "1M" }
+        },
+        {
+          "id": "gemini-3.1-pro-preview",
+          "label": "Gemini 3.1 Pro (Preview)",
+          "description": "Next-iteration Gemini 3 Pro, rolling out in preview. Select manually via /model if your account has access. Improved reasoning and agentic performance over Gemini 3 Pro.",
           "badges": ["preview", "1M context"],
+          "metadata": { "contextWindow": "1M" }
+        },
+        {
+          "id": "gemini-3-flash",
+          "label": "Gemini 3 Flash",
+          "description": "Gemini 3 Pro-level reasoning at Flash speed and cost. Generally available. Configurable thinking levels and multimodal input with adjustable media resolution. 1M token context.",
+          "badges": ["fast", "1M context"],
           "metadata": { "contextWindow": "1M" }
         },
         {
@@ -120,25 +147,41 @@
         {
           "id": "gemini-2.5-flash",
           "label": "Gemini 2.5 Flash",
-          "description": "Google's first fully hybrid reasoning model. Toggle thinking on or off with a configurable thinking budget. Fast multimodal with text, image, video, and audio input. 1M token context. Generally available.",
-          "badges": ["recommended"],
-          "default": true,
+          "description": "Previous-generation hybrid reasoning model. Toggle thinking on or off with a configurable thinking budget. Fast multimodal with text, image, video, and audio input. 1M token context. Used as a fallback by the Auto router.",
+          "badges": ["legacy"],
           "metadata": { "contextWindow": "1M" }
         },
         {
           "id": "gemini-2.5-flash-lite",
           "label": "Gemini 2.5 Flash-Lite",
           "description": "Lightweight, high-throughput variant of Gemini 2.5 Flash optimized for cost-efficient, high-volume workloads with minimal latency.",
-          "badges": ["fast"]
+          "badges": ["legacy", "fast"]
         }
       ]
     },
     "claude-cli": {
       "models": [
         {
+          "id": "claude-fable-5",
+          "label": "Claude Fable 5",
+          "description": "Anthropic's most powerful, most intelligent model — a new tier above Opus. Best for the hardest reasoning, long-horizon agentic, and knowledge-work tasks. 1M token context.",
+          "badges": ["powerful"],
+          "metadata": { "contextWindow": "1M" },
+          "runtimeOptionRefs": ["claude.effort.fable5-opus48-opus47"]
+        },
+        {
+          "id": "claude-opus-4-8",
+          "label": "Claude Opus 4.8",
+          "description": "Anthropic's most capable generally available model. State-of-the-art long-horizon agentic execution, knowledge work, and memory; clearer, warmer writing. Same request surface as Opus 4.7. 1M token context.",
+          "badges": ["recommended"],
+          "default": true,
+          "metadata": { "contextWindow": "1M" },
+          "runtimeOptionRefs": ["claude.effort.fable5-opus48-opus47"]
+        },
+        {
           "id": "claude-opus-4-7",
           "label": "Claude Opus 4.7",
-          "description": "Anthropic's most capable model. Best for advanced software engineering, complex reasoning, and demanding multi-step agentic tasks. 13% improvement on coding benchmarks over Opus 4.6. 1M token context.",
+          "description": "Previous-generation Opus. Highly autonomous; strong on long-horizon agentic work, complex reasoning, vision, and memory. 1M token context.",
           "badges": ["powerful"],
           "metadata": { "contextWindow": "1M" },
           "runtimeOptionRefs": ["claude.effort.opus47"]
@@ -146,16 +189,15 @@
         {
           "id": "claude-sonnet-4-6",
           "label": "Claude Sonnet 4.6",
-          "description": "Balanced intelligence and speed. Supports extended thinking for deeper reasoning. 1M token context (beta). Recommended for most workflows.",
-          "badges": ["recommended"],
-          "default": true,
+          "description": "Balanced intelligence and speed. Supports adaptive thinking for deeper reasoning. 1M token context. Recommended for most everyday workflows.",
+          "badges": ["balanced"],
           "metadata": { "contextWindow": "1M" },
           "runtimeOptionRefs": ["claude.effort.opus46-sonnet46"]
         },
         {
           "id": "claude-haiku-4-5",
           "label": "Claude Haiku 4.5",
-          "description": "Fastest and most cost-efficient Claude model. Matches Sonnet 4 performance on coding, computer use, and agent tasks. 200k token context.",
+          "description": "Fastest and most cost-efficient Claude model. Matches earlier Sonnet performance on coding, computer use, and agent tasks. 200k token context.",
           "badges": ["fast"],
           "metadata": { "contextWindow": "200k" }
         }
@@ -163,6 +205,13 @@
     },
     "qwen-cli": {
       "models": [
+        {
+          "id": "qwen3-coder",
+          "label": "Qwen3-Coder",
+          "description": "Qwen's coding-specialized model family (Qwen3-Coder series), optimized for agentic coding in the terminal. Recommended for codebase understanding and multi-step coding tasks via qwen-code.",
+          "badges": ["recommended", "coding"],
+          "default": true
+        },
         {
           "id": "qwen-max",
           "label": "Qwen Max",
@@ -172,20 +221,19 @@
         {
           "id": "qwen-plus",
           "label": "Qwen Plus",
-          "description": "Balanced inference quality, cost, and speed between Qwen Max and Qwen Flash. Supports thinking and non-thinking modes. Ideal for medium-complexity tasks.",
-          "badges": ["recommended"],
-          "default": true
+          "description": "Balanced inference quality, cost, and speed between Qwen Max and Qwen Flash. Supports thinking and non-thinking modes. Tracks the current Plus generation (Qwen3.6-Plus).",
+          "badges": ["balanced"]
         },
         {
           "id": "qwen-turbo",
           "label": "Qwen Turbo",
-          "description": "Legacy model, no longer updated by Alibaba. Consider upgrading to qwen-plus for better performance and continued support.",
+          "description": "Legacy model, no longer updated by Alibaba. Consider qwen-plus or qwen3-coder for better performance and continued support.",
           "badges": ["legacy"]
         },
         {
           "id": "qwen-long",
           "label": "Qwen Long",
-          "description": "Specialized for ultra-long document processing with a 10M token context window. Ideal for large-scale document analysis, information extraction, summarization, and classification.",
+          "description": "Specialized for ultra-long document processing with a 10M token context window. Ideal for large-scale document analysis, extraction, summarization, and classification.",
           "badges": ["10M context"],
           "metadata": { "contextWindow": "10M" }
         }
@@ -194,9 +242,35 @@
     "antigravity-cli": {
       "models": [
         {
-          "id": "antigravity-default",
-          "label": "Use Antigravity default",
+          "id": "gemini-3.5-flash",
+          "label": "Gemini 3.5 Flash",
+          "description": "Antigravity's default model. Outperforms Gemini 3.1 Pro on coding and agentic benchmarks while running ~4× faster than competing frontier models.",
+          "badges": ["recommended", "fast"],
           "default": true
+        },
+        {
+          "id": "gemini-3.1-pro",
+          "label": "Gemini 3.1 Pro",
+          "description": "Google's most capable Gemini 3.1 model. Best for the most complex reasoning and agentic coding tasks within Antigravity.",
+          "badges": ["powerful"]
+        },
+        {
+          "id": "claude-sonnet-4-6",
+          "label": "Claude Sonnet 4.6",
+          "description": "Anthropic's balanced model, available within Antigravity. Strong coding and agentic performance with adaptive thinking.",
+          "badges": ["balanced"]
+        },
+        {
+          "id": "claude-opus-4-6",
+          "label": "Claude Opus 4.6",
+          "description": "Anthropic's high-capability Opus model, available within Antigravity. Best for demanding multi-step agentic and reasoning tasks.",
+          "badges": ["powerful"]
+        },
+        {
+          "id": "gpt-oss-120b",
+          "label": "GPT-OSS 120B",
+          "description": "Open-weight 120B model available within Antigravity for self-hosted and open-model workflows.",
+          "badges": ["open"]
         }
       ]
     }
