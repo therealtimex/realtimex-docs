@@ -5,6 +5,10 @@
   "scripts": {
     "dev": "next dev --port 3333",
     "img": "node scripts/compress-images.mjs",
+    "sync:companions": "node scripts/sync-companion-registry.mjs",
+    "import:petdex-collections": "node scripts/import-petdex-collections.mjs",
+    "sync:companions:all": "node scripts/import-petdex-collections.mjs && node scripts/sync-companion-registry.mjs --prune",
+    "test:companions": "node scripts/test-companion-registry.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "yarn prettier --ignore-path .prettierignore --write ./pages"

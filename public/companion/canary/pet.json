@@ -1,0 +1,6 @@
+{
+  "id": "canary",
+  "displayName": "Canary",
+  "description": "A tiny yellow canary companion with a balanced oversized rounded head and small body.",
+  "spritesheetPath": "spritesheet.webp"
+}

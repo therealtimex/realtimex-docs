@@ -1,0 +1,6 @@
+{
+  "id": "run-dimo",
+  "displayName": "Dimo",
+  "description": "A small four-legged blue-and-white sprite companion with yellow markings, lively ears, and a star-tipped tail.",
+  "spritesheetPath": "spritesheet.webp"
+}

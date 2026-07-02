@@ -1,0 +1,6 @@
+{
+  "id": "nibble",
+  "displayName": "Nibble",
+  "description": "A compact Codex digital pet based on Nibble, a tiny expressive gray baby mouse.",
+  "spritesheetPath": "spritesheet.webp"
+}

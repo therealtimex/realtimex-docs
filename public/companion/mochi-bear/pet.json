@@ -1,0 +1,6 @@
+{
+  "id": "mochi-bear",
+  "displayName": "Mochi Bear",
+  "description": "A tiny white doodle bear desktop pet based on the provided reference image.",
+  "spritesheetPath": "spritesheet.webp"
+}

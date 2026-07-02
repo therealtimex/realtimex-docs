@@ -1,0 +1,4120 @@
+{
+  "schemaVersion": 2,
+  "importedAt": "2026-07-02T07:39:25.333Z",
+  "source": {
+    "provider": "petdex",
+    "collectionsUrl": "https://petdex.dev/collections",
+    "previewsUrl": "https://assets.petdex.dev/manifests/collection-previews-v1.json"
+  },
+  "hosting": {
+    "strategy": "top-loved-collections",
+    "hostedCollectionCount": 10,
+    "maxHostedPets": 150,
+    "scoreFormula": "sum(likeCount) + 0.5 * sum(installCount)"
+  },
+  "hostedCollectionIds": [
+    "crafter-originals",
+    "category-playful-kawaii",
+    "anime-heroes",
+    "category-sea-creature",
+    "cats-universe",
+    "category-exotic-animal",
+    "category-kawaii-wholesome",
+    "category-playful-cat",
+    "category-playful-bird",
+    "category-calm-cat"
+  ],
+  "hostedPetIds": [
+    "boba",
+    "doraemon",
+    "ddo-zvzo-2",
+    "wangcai",
+    "noir-webling",
+    "baobao-2",
+    "luffy",
+    "deployer-2",
+    "kiwi",
+    "xiwei",
+    "nezuko",
+    "capy",
+    "goku",
+    "theveller",
+    "gojo",
+    "gugugaga-2",
+    "duo",
+    "itachi",
+    "zoro",
+    "claude-crab",
+    "goku-blue",
+    "mallow",
+    "naruto",
+    "jiyi",
+    "lulu-capybara",
+    "anya-2",
+    "capybaralulu",
+    "boxcat",
+    "frieren-3",
+    "doubao-2",
+    "cache-capy",
+    "totoro",
+    "nibble",
+    "nyami",
+    "pingu",
+    "gugugaga",
+    "guga",
+    "calico",
+    "mochi",
+    "sukuna",
+    "taffy",
+    "frieren-4",
+    "kyojuro-rengoku",
+    "luffy-2",
+    "kebo",
+    "qq-penguin",
+    "gugugaga-5",
+    "finderguy",
+    "piney",
+    "bubu-3",
+    "gugugaga-6",
+    "feibi",
+    "kitmar",
+    "emma",
+    "sabo",
+    "tilly",
+    "maodie",
+    "gugugaga-3",
+    "torty",
+    "rocky",
+    "byte-bunny",
+    "acetafy",
+    "heimeiqiu",
+    "miso",
+    "cosmo",
+    "happy-cat",
+    "prompt-penguin",
+    "tenshi-kaiwai-2",
+    "silvercat-calm",
+    "ema",
+    "oo-ee-a-e-a-cat",
+    "buya",
+    "killua",
+    "siam",
+    "nukey",
+    "axobotl",
+    "chonk",
+    "pixel-panda",
+    "clawdex",
+    "kit-t",
+    "da-zhuang-2",
+    "inari",
+    "cash-cuy",
+    "gugugaga-4",
+    "gugugaga-7",
+    "socksy",
+    "gon",
+    "swag",
+    "boolet",
+    "anon-2",
+    "canary",
+    "marmalade",
+    "boba-2",
+    "daimao",
+    "harry-poptart",
+    "shrimpy",
+    "yamcha",
+    "scoop",
+    "run-dimo",
+    "kibshi",
+    "sima",
+    "strawwy",
+    "illya",
+    "a-b",
+    "ditta",
+    "mochi-bear",
+    "xiaobao",
+    "kaka",
+    "kwehlet",
+    "da-zhuang",
+    "jiro",
+    "longpaopao",
+    "kupobyte",
+    "pumpkin",
+    "chompers",
+    "awawa-hyrax-2",
+    "bulby",
+    "kuri-3",
+    "nightcap",
+    "pudding",
+    "chedarini",
+    "kyle-kun",
+    "aqua-wisp",
+    "catalright",
+    "otto",
+    "aoxiaotiger",
+    "foxat",
+    "pixel-skater",
+    "bubu-2",
+    "figaro-2",
+    "lulu-2",
+    "denissexy-itier",
+    "mimi-3",
+    "octohack",
+    "siamese",
+    "whip",
+    "cloudy",
+    "galatasaray-lion",
+    "huskguin",
+    "jumbo",
+    "pipey",
+    "yajiji-blue-final",
+    "bantik",
+    "gloopie",
+    "cappy",
+    "huangdou",
+    "mochi-5",
+    "peanut",
+    "taolulu",
+    "eagle"
+  ],
+  "stats": {
+    "collections": 101,
+    "hostedCollections": 10,
+    "uniquePets": 1176,
+    "hostedPets": 150,
+    "petSlots": 1362
+  },
+  "collections": [
+    {
+      "id": "franchise-a-record-of-a-mortals-journey-to-immortality",
+      "title": "A Record of a Mortal's Journey to Immortality",
+      "description": "5 community fan submissions inspired by A Record of a Mortal's Journey to Immortality. Made by Petdex creators.",
+      "kind": "franchise",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 583.5,
+      "coverPetId": "han-lao-mo",
+      "petIds": [
+        "han-lao-mo",
+        "han-li",
+        "hanli",
+        "hanli-q",
+        "yinyue-2"
+      ],
+      "hostedPetIds": [],
+      "petCount": 5,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 8,
+        "installCount": 1151
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/franchise-a-record-of-a-mortals-journey-to-immortality"
+      }
+    },
+    {
+      "id": "category-ai",
+      "title": "AI Companions",
+      "description": "40 ai companions from across the Petdex catalog.",
+      "kind": "category",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 955,
+      "coverPetId": "aiso-feather",
+      "petIds": [
+        "aiso-feather",
+        "bolt-2",
+        "bonzibuddy",
+        "claw-crawler",
+        "clippy-5",
+        "diana",
+        "dopami",
+        "fangbyte",
+        "goblin-sama",
+        "lil-finder",
+        "loop",
+        "max",
+        "max-2",
+        "mi-mo",
+        "nono",
+        "pip-spark",
+        "poddy",
+        "sam-head",
+        "sato",
+        "skillbit-2",
+        "voxi",
+        "wheatley",
+        "xiao-nan",
+        "xiao-hai",
+        "elyndex",
+        "amagi"
+      ],
+      "hostedPetIds": [],
+      "petCount": 26,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 30,
+        "installCount": 1850
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/category-ai"
+      }
+    },
+    {
+      "id": "anime-heroes",
+      "title": "Anime Heroes",
+      "description": "Shonen and beyond: Luffy, Naruto, Goku, Nezuko, Gojo, Frieren. The greatest hits in chibi form.",
+      "kind": "curated",
+      "featured": true,
+      "hosted": true,
+      "loveScore": 2850.5,
+      "coverPetId": "luffy",
+      "petIds": [
+        "luffy",
+        "luffy-2",
+        "zoro",
+        "sabo",
+        "naruto",
+        "itachi",
+        "goku",
+        "goku-blue",
+        "yamcha",
+        "nezuko",
+        "kyojuro-rengoku",
+        "gojo",
+        "sukuna",
+        "frieren-3",
+        "frieren-4",
+        "totoro",
+        "gon",
+        "killua",
+        "futuduozaemon",
+        "ryo-yamada-bass",
+        "marcille-dungeon-meshi",
+        "bochi-guitar"
+      ],
+      "hostedPetIds": [
+        "luffy",
+        "luffy-2",
+        "zoro",
+        "sabo",
+        "naruto",
+        "itachi",
+        "goku",
+        "goku-blue",
+        "yamcha",
+        "nezuko",
+        "kyojuro-rengoku",
+        "gojo",
+        "sukuna",
+        "frieren-3",
+        "frieren-4",
+        "totoro",
+        "gon",
+        "killua"
+      ],
+      "petCount": 22,
+      "hostedPetCount": 18,
+      "metrics": {
+        "likeCount": 149,
+        "installCount": 5403
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/anime-heroes"
+      }
+    },
+    {
+      "id": "franchise-arknights",
+      "title": "Arknights",
+      "description": "6 community fan submissions inspired by Arknights. Made by Petdex creators.",
+      "kind": "franchise",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 270.5,
+      "coverPetId": "vivimi-strict",
+      "petIds": [
+        "vivimi-strict",
+        "kal-tsit",
+        "kaltsit",
+        "amiya",
+        "susuro",
+        "closure"
+      ],
+      "hostedPetIds": [],
+      "petCount": 6,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 25,
+        "installCount": 491
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/franchise-arknights"
+      }
+    },
+    {
+      "id": "franchise-avatar-the-last-airbender",
+      "title": "Avatar: The Last Airbender",
+      "description": "4 community fan submissions inspired by Avatar: The Last Airbender. Made by Petdex creators.",
+      "kind": "franchise",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 123,
+      "coverPetId": "aang-2",
+      "petIds": [
+        "aang-2",
+        "aang",
+        "zuko",
+        "airring"
+      ],
+      "hostedPetIds": [],
+      "petCount": 4,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 5,
+        "installCount": 236
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/franchise-avatar-the-last-airbender"
+      }
+    },
+    {
+      "id": "franchise-bang-dream",
+      "title": "BanG Dream!",
+      "description": "13 community fan submissions inspired by BanG Dream!. Made by Petdex creators.",
+      "kind": "franchise",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 1428.5,
+      "coverPetId": "anon-2",
+      "petIds": [
+        "anon",
+        "mutsumi-2",
+        "sakiko-school-3",
+        "uika",
+        "mutsumi",
+        "umiri",
+        "soyo-2",
+        "soyo",
+        "anon-3",
+        "rana-2",
+        "taki",
+        "sakiko",
+        "tomori",
+        "taki-2",
+        "anon-2",
+        "anon-nailong",
+        "tomorin",
+        "yukina",
+        "anon-4",
+        "kokoro-2"
+      ],
+      "hostedPetIds": [
+        "anon-2"
+      ],
+      "petCount": 20,
+      "hostedPetCount": 1,
+      "metrics": {
+        "likeCount": 33,
+        "installCount": 2791
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/franchise-bang-dream"
+      }
+    },
+    {
+      "id": "category-bird",
+      "title": "Birds",
+      "description": "56 birds from across the Petdex catalog.",
+      "kind": "category",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 542,
+      "coverPetId": "duo",
+      "petIds": [
+        "astra",
+        "chikny",
+        "crittersquest",
+        "cursor-crow",
+        "duo",
+        "eagle",
+        "kanaria",
+        "kopbit",
+        "penguin-default",
+        "peri-the-owl",
+        "shadebird",
+        "shoeby",
+        "qiaowei"
+      ],
+      "hostedPetIds": [
+        "duo",
+        "eagle"
+      ],
+      "petCount": 13,
+      "hostedPetCount": 2,
+      "metrics": {
+        "likeCount": 25,
+        "installCount": 1034
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/category-bird"
+      }
+    },
+    {
+      "id": "franchise-breaking-bad",
+      "title": "Breaking Bad",
+      "description": "4 community fan submissions inspired by Breaking Bad. Made by Petdex creators.",
+      "kind": "franchise",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 145,
+      "coverPetId": "heisenberg-cook",
+      "petIds": [
+        "heisenberg-cook",
+        "codeberg",
+        "jesse-pinkman",
+        "walter"
+      ],
+      "hostedPetIds": [],
+      "petCount": 4,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 8,
+        "installCount": 274
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/franchise-breaking-bad"
+      }
+    },
+    {
+      "id": "category-bug",
+      "title": "Bugs",
+      "description": "14 bugs from across the Petdex catalog.",
+      "kind": "category",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 645,
+      "coverPetId": "noir-webling",
+      "petIds": [
+        "bugsy",
+        "cicada-2",
+        "crawlstack-polished",
+        "folded-lead-moth",
+        "kabuda",
+        "mothseal",
+        "noir-webling",
+        "seth-freshbee",
+        "suisui-2",
+        "suisui-3"
+      ],
+      "hostedPetIds": [
+        "noir-webling"
+      ],
+      "petCount": 10,
+      "hostedPetCount": 1,
+      "metrics": {
+        "likeCount": 28,
+        "installCount": 1234
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/category-bug"
+      }
+    },
+    {
+      "id": "category-calm",
+      "title": "Calm",
+      "description": "146 calm from across the Petdex catalog.",
+      "kind": "category",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 996.5,
+      "coverPetId": "foxat",
+      "petIds": [
+        "ark01",
+        "aurelius",
+        "axel",
+        "baoer",
+        "charlemagne",
+        "cinder",
+        "curly",
+        "daemon-dumpling",
+        "fine-pup",
+        "foxat",
+        "hank",
+        "java",
+        "kendall",
+        "klein-sip",
+        "kris-wu",
+        "leonardo-da-vinci",
+        "monica",
+        "phisher",
+        "rubick",
+        "taro",
+        "cloudy"
+      ],
+      "hostedPetIds": [
+        "foxat",
+        "cloudy"
+      ],
+      "petCount": 21,
+      "hostedPetCount": 2,
+      "metrics": {
+        "likeCount": 30,
+        "installCount": 1933
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/category-calm"
+      }
+    },
+    {
+      "id": "category-calm-cat",
+      "title": "Calm · Cat",
+      "description": "21 cat calm from across the Petdex catalog.",
+      "kind": "category-sub",
+      "featured": true,
+      "hosted": true,
+      "loveScore": 1606,
+      "coverPetId": "bantik",
+      "petIds": [
+        "bantik",
+        "catalright",
+        "da-zhuang",
+        "ditta",
+        "emma",
+        "figaro-2",
+        "gandalfclassy",
+        "hana",
+        "lulu-2",
+        "mochi-7",
+        "pixel-skater",
+        "siam",
+        "siamese",
+        "silver-maine",
+        "silverbell",
+        "silvercat-calm",
+        "taiji",
+        "tangyuan",
+        "tilly",
+        "wangcai",
+        "code-frenzy-cat"
+      ],
+      "hostedPetIds": [
+        "bantik",
+        "catalright",
+        "da-zhuang",
+        "ditta",
+        "emma",
+        "figaro-2",
+        "lulu-2",
+        "pixel-skater",
+        "siam",
+        "siamese",
+        "silvercat-calm",
+        "tilly",
+        "wangcai"
+      ],
+      "petCount": 21,
+      "hostedPetCount": 13,
+      "metrics": {
+        "likeCount": 18,
+        "installCount": 3176
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/category-calm-cat"
+      }
+    },
+    {
+      "id": "category-cozy-calm",
+      "title": "Calm Cozy",
+      "description": "32 calm cozy from across the Petdex catalog.",
+      "kind": "category-sub",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 1045,
+      "coverPetId": "carole",
+      "petIds": [
+        "carole",
+        "chillhouse",
+        "cloudlet",
+        "dewsnail",
+        "dude",
+        "green-tee",
+        "king-david",
+        "lulu",
+        "lulu-capybara-2",
+        "nanami",
+        "nappy-owl",
+        "nightly-fox",
+        "nongnong",
+        "quiet-kiln",
+        "rosalai",
+        "snuglet",
+        "soda",
+        "teatime",
+        "yaya",
+        "yi-er",
+        "java"
+      ],
+      "hostedPetIds": [],
+      "petCount": 21,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 45,
+        "installCount": 2000
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/category-cozy-calm"
+      }
+    },
+    {
+      "id": "category-kawaii-calm",
+      "title": "Calm Kawaii",
+      "description": "22 calm kawaii from across the Petdex catalog.",
+      "kind": "category-sub",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 703.5,
+      "coverPetId": "nyami",
+      "petIds": [
+        "blue-tea-cha",
+        "cantor-sprig",
+        "edg-zmjjkk",
+        "hana-v2",
+        "jiangjiang",
+        "liney",
+        "lumi",
+        "nyami",
+        "rainy",
+        "xiao-zhu",
+        "xiaobai",
+        "xingtong",
+        "xingxingren",
+        "zappy",
+        "inori",
+        "kaori",
+        "aerith-2",
+        "loopy",
+        "abeibei"
+      ],
+      "hostedPetIds": [
+        "nyami"
+      ],
+      "petCount": 19,
+      "hostedPetCount": 1,
+      "metrics": {
+        "likeCount": 35,
+        "installCount": 1337
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/category-kawaii-calm"
+      }
+    },
+    {
+      "id": "category-mystical-calm",
+      "title": "Calm Mystical",
+      "description": "22 calm mystical from across the Petdex catalog.",
+      "kind": "category-sub",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 919,
+      "coverPetId": "buddhist",
+      "petIds": [
+        "buddhist",
+        "ciel",
+        "earth-delegate",
+        "erii",
+        "frosty-codex",
+        "luo-ruying",
+        "maddie",
+        "ruri",
+        "ruri-2",
+        "violet-mage",
+        "wind-delegate",
+        "yelu",
+        "yinyue",
+        "yuanshi-tianzun",
+        "shinobu-2",
+        "cloud-2"
+      ],
+      "hostedPetIds": [],
+      "petCount": 16,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 31,
+        "installCount": 1776
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/category-mystical-calm"
+      }
+    },
+    {
+      "id": "category-cat",
+      "title": "Cats",
+      "description": "117 cats from across the Petdex catalog.",
+      "kind": "category",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 516,
+      "coverPetId": "daltanyang",
+      "petIds": [
+        "daltanyang",
+        "frostling",
+        "mimi-2",
+        "moyu-cat",
+        "neuralynx",
+        "ninjacat",
+        "pondbyte",
+        "purrcat",
+        "taige-2",
+        "toshi",
+        "voidcat-default",
+        "ding-ding",
+        "nightleaf",
+        "mimi-5",
+        "fufu",
+        "didi",
+        "doudou",
+        "lihua-3",
+        "xiao-lingjie",
+        "climber-cat"
+      ],
+      "hostedPetIds": [],
+      "petCount": 20,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 23,
+        "installCount": 986
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/category-cat"
+      }
+    },
+    {
+      "id": "cats-universe",
+      "title": "Cats Universe",
+      "description": "Felines of every variety. Catch them all, from Boxcat to Doraemon to that one round cat.",
+      "kind": "curated",
+      "featured": true,
+      "hosted": true,
+      "loveScore": 2567,
+      "coverPetId": "mochi",
+      "petIds": [
+        "mochi",
+        "boxcat",
+        "doraemon",
+        "happy-cat",
+        "calico",
+        "marmalade",
+        "nyami",
+        "miso",
+        "tilly",
+        "foxat",
+        "chonk",
+        "siam",
+        "figaro-2",
+        "shrimpy",
+        "harry-poptart",
+        "ditta",
+        "mallow",
+        "whip",
+        "emma",
+        "sima",
+        "dio-2",
+        "mochi-10"
+      ],
+      "hostedPetIds": [
+        "mochi",
+        "boxcat",
+        "doraemon",
+        "happy-cat",
+        "calico",
+        "marmalade",
+        "nyami",
+        "miso",
+        "tilly",
+        "foxat",
+        "chonk",
+        "siam",
+        "figaro-2",
+        "shrimpy",
+        "harry-poptart",
+        "ditta",
+        "mallow",
+        "whip",
+        "emma",
+        "sima"
+      ],
+      "petCount": 22,
+      "hostedPetCount": 20,
+      "metrics": {
+        "likeCount": 58,
+        "installCount": 5018
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/cats-universe"
+      }
+    },
+    {
+      "id": "franchise-chainsaw-man",
+      "title": "Chainsaw Man",
+      "description": "5 community fan submissions inspired by Chainsaw Man. Made by Petdex creators.",
+      "kind": "franchise",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 831,
+      "coverPetId": "makima",
+      "petIds": [
+        "makima",
+        "makima-the-control-devil",
+        "pochita",
+        "powerpet",
+        "spritesheet",
+        "pochita-mini"
+      ],
+      "hostedPetIds": [],
+      "petCount": 6,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 19,
+        "installCount": 1624
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/franchise-chainsaw-man"
+      }
+    },
+    {
+      "id": "category-chaotic",
+      "title": "Chaotic",
+      "description": "45 chaotic from across the Petdex catalog.",
+      "kind": "category",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 449.5,
+      "coverPetId": "black-knightling",
+      "petIds": [
+        "black-knightling",
+        "boss-banana",
+        "crumbly",
+        "firebaby",
+        "goblin",
+        "jaemyunglee",
+        "mini-sama",
+        "puffel",
+        "puteng-lu",
+        "vibecoder",
+        "vulcan",
+        "zaza",
+        "gizwick",
+        "cow-king"
+      ],
+      "hostedPetIds": [],
+      "petCount": 14,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 12,
+        "installCount": 875
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/category-chaotic"
+      }
+    },
+    {
+      "id": "category-meme-chaotic",
+      "title": "Chaotic Meme",
+      "description": "21 chaotic meme from across the Petdex catalog.",
+      "kind": "category-sub",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 666,
+      "coverPetId": "bombardiro",
+      "petIds": [
+        "bombardiro",
+        "clawd",
+        "daodun-dog",
+        "discopuff",
+        "dumpster-fire",
+        "feng-meme",
+        "gradient-gob",
+        "maodie-hiss",
+        "peter",
+        "ramapet",
+        "stan",
+        "triple-t",
+        "triple-t-2",
+        "unckle-stuart"
+      ],
+      "hostedPetIds": [],
+      "petCount": 14,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 29,
+        "installCount": 1274
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/category-meme-chaotic"
+      }
+    },
+    {
+      "id": "franchise-chiikawa",
+      "title": "Chiikawa",
+      "description": "5 community fan submissions inspired by Chiikawa. Made by Petdex creators.",
+      "kind": "franchise",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 1151,
+      "coverPetId": "chiikawa",
+      "petIds": [
+        "chiikawa",
+        "hachiware",
+        "hachiware-2",
+        "usagi",
+        "usagi-2",
+        "usagi-3"
+      ],
+      "hostedPetIds": [],
+      "petCount": 6,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 52,
+        "installCount": 2198
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/franchise-chiikawa"
+      }
+    },
+    {
+      "id": "clippy",
+      "title": "Clippy",
+      "description": "It looks like you're starting a project — would you like help? The Microsoft Office paperclip, multiplied across six chibi reincarnations.",
+      "kind": "curated",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 319.5,
+      "coverPetId": "clippy",
+      "petIds": [
+        "clippy",
+        "clippy-3",
+        "clippy-4",
+        "clippy-5",
+        "clippy-6",
+        "cool-clippy"
+      ],
+      "hostedPetIds": [],
+      "petCount": 6,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 9,
+        "installCount": 621
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/clippy"
+      }
+    },
+    {
+      "id": "coders-club",
+      "title": "Coders Club",
+      "description": "Pets that ship code. Engineers, hackers, mascots of dev tools. Your terminal companions.",
+      "kind": "curated",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 1332,
+      "coverPetId": "octohack",
+      "petIds": [
+        "octohack",
+        "codex",
+        "midudev",
+        "cogwick",
+        "clawdex",
+        "byte-bunny",
+        "denissexy-itier",
+        "codeberg",
+        "savage-codex-hacker",
+        "macintosh",
+        "mini-elon",
+        "axel",
+        "snoopy",
+        "elfie",
+        "barry",
+        "steve-jobs",
+        "bonzibuddy",
+        "shrimpy"
+      ],
+      "hostedPetIds": [
+        "octohack",
+        "clawdex",
+        "byte-bunny",
+        "denissexy-itier",
+        "shrimpy"
+      ],
+      "petCount": 18,
+      "hostedPetCount": 5,
+      "metrics": {
+        "likeCount": 39,
+        "installCount": 2586
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/coders-club"
+      }
+    },
+    {
+      "id": "franchise-counter-strike",
+      "title": "Counter-Strike",
+      "description": "3 community fan submissions inspired by Counter-Strike. Made by Petdex creators.",
+      "kind": "franchise",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 96,
+      "coverPetId": "t",
+      "petIds": [
+        "t",
+        "ct",
+        "flyhead",
+        "one-tap"
+      ],
+      "hostedPetIds": [],
+      "petCount": 4,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 4,
+        "installCount": 184
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/franchise-counter-strike"
+      }
+    },
+    {
+      "id": "category-cozy",
+      "title": "Cozy",
+      "description": "149 cozy from across the Petdex catalog.",
+      "kind": "category",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 1101,
+      "coverPetId": "ashcap-microforge",
+      "petIds": [
+        "ashcap-microforge",
+        "bellpup",
+        "black-dragon-pet",
+        "calcifer",
+        "cash-cuy-2",
+        "drizz",
+        "duoduo",
+        "echo",
+        "elfie",
+        "koda",
+        "lampy",
+        "laokuai",
+        "mochi-8",
+        "murmur-loom",
+        "naploaf",
+        "newsie",
+        "oleg",
+        "panda-2",
+        "sous-chef",
+        "tianyu-dragon",
+        "zunimog",
+        "rabbit",
+        "sparkbean",
+        "java",
+        "cozy-fluff"
+      ],
+      "hostedPetIds": [],
+      "petCount": 25,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 25,
+        "installCount": 2152
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/category-cozy"
+      }
+    },
+    {
+      "id": "category-cozy-cat",
+      "title": "Cozy · Cat",
+      "description": "37 cat cozy from across the Petdex catalog.",
+      "kind": "category-sub",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 1598.5,
+      "coverPetId": "boxcat",
+      "petIds": [
+        "afu-duo",
+        "boxcat",
+        "buge",
+        "calico",
+        "cat-eris",
+        "cc-cat",
+        "charles",
+        "chonk",
+        "fluff",
+        "kaki",
+        "lihua-2",
+        "loki",
+        "mallow",
+        "miso",
+        "mochi-10",
+        "mochi-6",
+        "mochi-9",
+        "mochi-crab",
+        "mox",
+        "munchkin",
+        "naitang",
+        "nyanko-v2",
+        "shrimpy",
+        "silvertabby",
+        "skipper",
+        "sunny",
+        "wabi"
+      ],
+      "hostedPetIds": [
+        "boxcat",
+        "calico",
+        "chonk",
+        "mallow",
+        "miso",
+        "shrimpy"
+      ],
+      "petCount": 27,
+      "hostedPetCount": 6,
+      "metrics": {
+        "likeCount": 40,
+        "installCount": 3117
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/category-cozy-cat"
+      }
+    },
+    {
+      "id": "category-kawaii-cozy",
+      "title": "Cozy Kawaii",
+      "description": "28 cozy kawaii from across the Petdex catalog.",
+      "kind": "category-sub",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 694.5,
+      "coverPetId": "bluebolt-hatch",
+      "petIds": [
+        "bluebolt-hatch",
+        "dongfang-xinniang",
+        "douos-douos",
+        "friday",
+        "jinbao",
+        "lizikou",
+        "mini-jerry",
+        "mofu",
+        "moonlet",
+        "morbbit",
+        "pet-sunny",
+        "pinkribbonchibi",
+        "sakura",
+        "sakura-moon",
+        "sandy-realistic-v2",
+        "shinning-twinkle",
+        "stormy",
+        "succy",
+        "sweet-dreams-bear",
+        "white-muse-realistic",
+        "inori",
+        "kaori",
+        "aerith-2",
+        "bochi-guitar"
+      ],
+      "hostedPetIds": [],
+      "petCount": 24,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 32,
+        "installCount": 1325
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/category-kawaii-cozy"
+      }
+    },
+    {
+      "id": "category-wholesome-cozy",
+      "title": "Cozy Wholesome",
+      "description": "48 cozy wholesome from across the Petdex catalog.",
+      "kind": "category-sub",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 1016.5,
+      "coverPetId": "bubu",
+      "petIds": [
+        "bubu",
+        "chefito",
+        "cuppy",
+        "dordor",
+        "maja",
+        "meiqiu",
+        "mia",
+        "mochi-2",
+        "narcibear",
+        "ordek",
+        "penguin-chick",
+        "pixel",
+        "rustle",
+        "sprig",
+        "tiaotiao",
+        "tibo",
+        "uniain",
+        "yier",
+        "java"
+      ],
+      "hostedPetIds": [],
+      "petCount": 19,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 18,
+        "installCount": 1997
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/category-wholesome-cozy"
+      }
+    },
+    {
+      "id": "crafter-originals",
+      "title": "Crafter Originals",
+      "description": "The Petdex foundation set: pets designed by the team behind the platform. Cozy, codex-themed, full of character.",
+      "kind": "curated",
+      "featured": true,
+      "hosted": true,
+      "loveScore": 3882.5,
+      "coverPetId": "cash-cuy",
+      "petIds": [
+        "cash-cuy",
+        "byte-bunny",
+        "cache-capy",
+        "socksy",
+        "cosmo",
+        "prompt-penguin",
+        "kebo",
+        "nukey",
+        "pixel-panda",
+        "boxcat",
+        "noir-webling",
+        "scoop",
+        "duo",
+        "boba",
+        "pedro-lapiz",
+        "sunny",
+        "canary",
+        "chedarini",
+        "octohack",
+        "eagle"
+      ],
+      "hostedPetIds": [
+        "cash-cuy",
+        "byte-bunny",
+        "cache-capy",
+        "socksy",
+        "cosmo",
+        "prompt-penguin",
+        "kebo",
+        "nukey",
+        "pixel-panda",
+        "boxcat",
+        "noir-webling",
+        "scoop",
+        "duo",
+        "boba",
+        "canary",
+        "chedarini",
+        "octohack",
+        "eagle"
+      ],
+      "petCount": 20,
+      "hostedPetCount": 18,
+      "metrics": {
+        "likeCount": 82,
+        "installCount": 7601
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/crafter-originals"
+      }
+    },
+    {
+      "id": "franchise-crayon-shin-chan",
+      "title": "Crayon Shin-chan",
+      "description": "10 community fan submissions inspired by Crayon Shin-chan. Made by Petdex creators.",
+      "kind": "franchise",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 799,
+      "coverPetId": "nobu",
+      "petIds": [
+        "nobu",
+        "xiaoxin",
+        "xiaoxin-q",
+        "nobu-3",
+        "shinchan",
+        "nobu-2",
+        "nobu-4",
+        "shinchan-2",
+        "shinchan-3",
+        "shinchanshiro"
+      ],
+      "hostedPetIds": [],
+      "petCount": 10,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 35,
+        "installCount": 1528
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/franchise-crayon-shin-chan"
+      }
+    },
+    {
+      "id": "franchise-demon-slayer",
+      "title": "Demon Slayer",
+      "description": "2 community fan submissions inspired by Demon Slayer. Made by Petdex creators.",
+      "kind": "franchise",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 480.5,
+      "coverPetId": "nezuko",
+      "petIds": [
+        "nezuko",
+        "tanjiro-kamado-balanced",
+        "nezuko-kamado",
+        "tanjiro-kamado",
+        "inosuke-hashibira",
+        "zenitsu-agatsuma",
+        "muzan-kibutsuji",
+        "giyu-tomioka"
+      ],
+      "hostedPetIds": [
+        "nezuko"
+      ],
+      "petCount": 8,
+      "hostedPetCount": 1,
+      "metrics": {
+        "likeCount": 41,
+        "installCount": 879
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/franchise-demon-slayer"
+      }
+    },
+    {
+      "id": "category-developer",
+      "title": "Developers",
+      "description": "136 developers from across the Petdex catalog.",
+      "kind": "category",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 1080.5,
+      "coverPetId": "byte-bunny",
+      "petIds": [
+        "batmeme",
+        "byte-bunny",
+        "crt-pal",
+        "ember",
+        "envy",
+        "fangjia",
+        "lanlan",
+        "lihuowang-calm",
+        "moxing",
+        "pan-chan-laptop",
+        "rusthound-default",
+        "savage-codex-hacker",
+        "shellbyte",
+        "stuff-and-nonsense",
+        "wisp",
+        "xiao-rong",
+        "xiaoma",
+        "yesman"
+      ],
+      "hostedPetIds": [
+        "byte-bunny"
+      ],
+      "petCount": 18,
+      "hostedPetCount": 1,
+      "metrics": {
+        "likeCount": 17,
+        "installCount": 2127
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/category-developer"
+      }
+    },
+    {
+      "id": "franchise-digimon",
+      "title": "Digimon",
+      "description": "19 community fan submissions inspired by Digimon. Made by Petdex creators.",
+      "kind": "franchise",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 921,
+      "coverPetId": "omegamon",
+      "petIds": [
+        "omegamon",
+        "agumon",
+        "agumon-2",
+        "angemon",
+        "growmon",
+        "digimon",
+        "omegamon-2",
+        "digimon-2",
+        "gabumon",
+        "gallantmon",
+        "gomamon",
+        "imperialdramonfm",
+        "kaizergreymon",
+        "palmon",
+        "patamon",
+        "piyomon",
+        "tentomon",
+        "veemon",
+        "veemon-2"
+      ],
+      "hostedPetIds": [],
+      "petCount": 19,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 35,
+        "installCount": 1772
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/franchise-digimon"
+      }
+    },
+    {
+      "id": "dog-squad",
+      "title": "Dog Squad",
+      "description": "Good boys and girls. Shibas, retrievers, corgis, and that one suspicious DaoDun.",
+      "kind": "curated",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 799.5,
+      "coverPetId": "kibshi",
+      "petIds": [
+        "golden-retriever",
+        "retriever",
+        "aka-shiba",
+        "kibshi",
+        "max",
+        "max-2",
+        "milo",
+        "daisy",
+        "rio",
+        "danny",
+        "cinder",
+        "jollio",
+        "daodun-dog",
+        "chedarini",
+        "samo"
+      ],
+      "hostedPetIds": [
+        "kibshi",
+        "chedarini"
+      ],
+      "petCount": 15,
+      "hostedPetCount": 2,
+      "metrics": {
+        "likeCount": 20,
+        "installCount": 1559
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/dog-squad"
+      }
+    },
+    {
+      "id": "category-dog",
+      "title": "Dogs",
+      "description": "83 dogs from across the Petdex catalog.",
+      "kind": "category",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 731,
+      "coverPetId": "cerbie",
+      "petIds": [
+        "cerbie",
+        "daodun",
+        "dog-creak",
+        "dogelon-mars",
+        "jollio",
+        "kuro",
+        "monica-2",
+        "ninja-doge-2",
+        "punchy",
+        "retriever",
+        "rocky-2",
+        "sk-ll-and-hati",
+        "vix",
+        "wode-daodun-3d",
+        "miniature-schnauzer",
+        "little-mao-puppy"
+      ],
+      "hostedPetIds": [],
+      "petCount": 16,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 20,
+        "installCount": 1422
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/category-dog"
+      }
+    },
+    {
+      "id": "franchise-dragon-ball",
+      "title": "Dragon Ball",
+      "description": "10 community fan submissions inspired by Dragon Ball. Made by Petdex creators.",
+      "kind": "franchise",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 851,
+      "coverPetId": "goku",
+      "petIds": [
+        "beerus",
+        "sara",
+        "gohan",
+        "super-goku",
+        "goku",
+        "fat-buu",
+        "goku-2",
+        "goku-blue",
+        "kid-goku-classic-actions",
+        "yamcha"
+      ],
+      "hostedPetIds": [
+        "goku",
+        "goku-blue",
+        "yamcha"
+      ],
+      "petCount": 10,
+      "hostedPetCount": 3,
+      "metrics": {
+        "likeCount": 33,
+        "installCount": 1636
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/franchise-dragon-ball"
+      }
+    },
+    {
+      "id": "category-edgy",
+      "title": "Edgy",
+      "description": "83 edgy from across the Petdex catalog.",
+      "kind": "category",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 573,
+      "coverPetId": "alt-sweetheart",
+      "petIds": [
+        "alt-sweetheart",
+        "bateman",
+        "carti",
+        "dealer",
+        "ferrari812",
+        "gangsta",
+        "ghostface",
+        "hiro-2",
+        "island-owner",
+        "jesse",
+        "nukie",
+        "pennywise",
+        "pouty",
+        "pouty-2",
+        "viper",
+        "xxxtentacion"
+      ],
+      "hostedPetIds": [],
+      "petCount": 16,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 22,
+        "installCount": 1102
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/category-edgy"
+      }
+    },
+    {
+      "id": "category-eldritch",
+      "title": "Eldritch Horrors",
+      "description": "22 eldritch horrors from across the Petdex catalog.",
+      "kind": "category",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 348,
+      "coverPetId": "anakaay-kegare",
+      "petIds": [
+        "anakaay-kegare",
+        "bad-air-reliquary",
+        "flaskling",
+        "hausdorff-crumb",
+        "ledger-tooth",
+        "mirror-nail",
+        "null-reliquary",
+        "palimpsest-pin",
+        "pressbreath-vessel",
+        "shoggoth",
+        "worry-compass"
+      ],
+      "hostedPetIds": [],
+      "petCount": 11,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 13,
+        "installCount": 670
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/category-eldritch"
+      }
+    },
+    {
+      "id": "category-exotic-animal",
+      "title": "Exotic Animals",
+      "description": "43 exotic animals from across the Petdex catalog.",
+      "kind": "category-sub",
+      "featured": true,
+      "hosted": true,
+      "loveScore": 2089.5,
+      "coverPetId": "awawa-hyrax-2",
+      "petIds": [
+        "adtiger-cub",
+        "awawa-hyrax-2",
+        "axobotl",
+        "cache-capy",
+        "cappy",
+        "capy",
+        "capybaralulu",
+        "cash-cuy",
+        "cash-cuy-4",
+        "daxter",
+        "elephant",
+        "froggle",
+        "galatasaray-lion",
+        "ganesh",
+        "jiro",
+        "jumbo",
+        "kaka",
+        "kebo",
+        "koko",
+        "leafwing",
+        "lulu-capybara",
+        "mochi-5",
+        "moru",
+        "mossy",
+        "ngu-linh-hoang-2",
+        "nibble",
+        "nightcap",
+        "orzeszek",
+        "peanut",
+        "rocky",
+        "run-dimo",
+        "sandworm-larva",
+        "shelly",
+        "snorp",
+        "torty",
+        "totoro",
+        "blingbara",
+        "owlbear-cub"
+      ],
+      "hostedPetIds": [
+        "awawa-hyrax-2",
+        "axobotl",
+        "cache-capy",
+        "cappy",
+        "capy",
+        "capybaralulu",
+        "cash-cuy",
+        "galatasaray-lion",
+        "jiro",
+        "jumbo",
+        "kaka",
+        "kebo",
+        "lulu-capybara",
+        "mochi-5",
+        "nibble",
+        "nightcap",
+        "peanut",
+        "rocky",
+        "run-dimo",
+        "torty",
+        "totoro"
+      ],
+      "petCount": 38,
+      "hostedPetCount": 21,
+      "metrics": {
+        "likeCount": 46,
+        "installCount": 4087
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/category-exotic-animal"
+      }
+    },
+    {
+      "id": "franchise-final-fantasy",
+      "title": "Final Fantasy",
+      "description": "2 community fan submissions inspired by Final Fantasy. Made by Petdex creators.",
+      "kind": "franchise",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 112.5,
+      "coverPetId": "sephiroth",
+      "petIds": [
+        "sephiroth",
+        "vivi",
+        "cloud-2",
+        "aerith-2"
+      ],
+      "hostedPetIds": [],
+      "petCount": 4,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 8,
+        "installCount": 209
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/franchise-final-fantasy"
+      }
+    },
+    {
+      "id": "franchise-final-fantasy-vii",
+      "title": "Final Fantasy VII",
+      "description": "2 community fan submissions inspired by Final Fantasy VII. Made by Petdex creators.",
+      "kind": "franchise",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 151,
+      "coverPetId": "tifa",
+      "petIds": [
+        "tifa",
+        "aerith",
+        "sephiroth",
+        "cloud",
+        "aerith-2",
+        "cloud-2"
+      ],
+      "hostedPetIds": [],
+      "petCount": 6,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 10,
+        "installCount": 282
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/franchise-final-fantasy-vii"
+      }
+    },
+    {
+      "id": "category-focused",
+      "title": "Focused",
+      "description": "110 focused from across the Petdex catalog.",
+      "kind": "category",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 763.5,
+      "coverPetId": "abg",
+      "petIds": [
+        "abg",
+        "akane",
+        "bernie",
+        "enzo",
+        "flavio",
+        "geats",
+        "gengkeliuxia",
+        "hedgehog",
+        "jeeves",
+        "kasumi",
+        "lando",
+        "ledger",
+        "max-4",
+        "meridian",
+        "octopus",
+        "orang-utan",
+        "poatan",
+        "xiao-nan",
+        "sephiroth",
+        "inori",
+        "kaori",
+        "cloud-2"
+      ],
+      "hostedPetIds": [],
+      "petCount": 22,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 36,
+        "installCount": 1455
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/category-focused"
+      }
+    },
+    {
+      "id": "category-focused-study",
+      "title": "Focused · Study",
+      "description": "17 study focused from across the Petdex catalog.",
+      "kind": "category-sub",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 510.5,
+      "coverPetId": "aaruna",
+      "petIds": [
+        "aaruna",
+        "cajal",
+        "einstein",
+        "fermion",
+        "humboldt",
+        "marie-curie",
+        "newton",
+        "ostrom",
+        "plato",
+        "scoutlet",
+        "wisemindai"
+      ],
+      "hostedPetIds": [],
+      "petCount": 11,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 25,
+        "installCount": 971
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/category-focused-study"
+      }
+    },
+    {
+      "id": "category-calm-focused",
+      "title": "Focused Calm",
+      "description": "15 focused calm from across the Petdex catalog.",
+      "kind": "category-sub",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 1263.5,
+      "coverPetId": "ada-lovelace",
+      "petIds": [
+        "ada-lovelace",
+        "ben",
+        "bitty",
+        "confucius-2",
+        "dex-star",
+        "juergen-habermas",
+        "junie",
+        "king-david-2",
+        "lumen",
+        "quill",
+        "ramanujan",
+        "testbird",
+        "sephiroth",
+        "aerith-2",
+        "cloud-2"
+      ],
+      "hostedPetIds": [],
+      "petCount": 15,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 17,
+        "installCount": 2493
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/category-calm-focused"
+      }
+    },
+    {
+      "id": "category-developer-focused",
+      "title": "Focused Developer",
+      "description": "46 focused developer from across the Petdex catalog.",
+      "kind": "category-sub",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 1425.5,
+      "coverPetId": "prompt-penguin",
+      "petIds": [
+        "al-khwarizmi",
+        "cogwick",
+        "commit-crab",
+        "commuai",
+        "dave-aitel",
+        "douos-watercolor",
+        "edison",
+        "gilfoyle",
+        "github-com-ww930912-tony",
+        "kaka-dawang",
+        "lint-sprout",
+        "luckfu",
+        "lumi-lazy",
+        "mariglow",
+        "midudev",
+        "nopidge",
+        "porter",
+        "prompt-penguin",
+        "quacktop",
+        "shannon",
+        "shirly",
+        "skillbit",
+        "suisui",
+        "terminal",
+        "terminal-ghost-2",
+        "theo",
+        "theo-3",
+        "triple-t-3",
+        "turing",
+        "workdou",
+        "wulujia",
+        "xiao-qie-peng",
+        "yy",
+        "zongzi"
+      ],
+      "hostedPetIds": [
+        "prompt-penguin"
+      ],
+      "petCount": 34,
+      "hostedPetCount": 1,
+      "metrics": {
+        "likeCount": 34,
+        "installCount": 2783
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/category-developer-focused"
+      }
+    },
+    {
+      "id": "category-galgame",
+      "title": "GalGame",
+      "description": "Visual novels and dating sim companions: Steins;Gate, K-On, Amakano, Tsukihime, Saekano, and more.",
+      "kind": "category",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 774.5,
+      "coverPetId": "kurisu-2",
+      "petIds": [
+        "kurisu-2",
+        "kurisu",
+        "chtholly2",
+        "mahiro",
+        "fujita-kotone",
+        "hachiroku",
+        "mio",
+        "chitose",
+        "okabe",
+        "rei",
+        "yuuhi",
+        "azumi-kotarou",
+        "kato-megumi",
+        "arcueid-dress",
+        "my-pet",
+        "mizuno-akane",
+        "makisekurisu",
+        "kisara-yuimi-chaya"
+      ],
+      "hostedPetIds": [],
+      "petCount": 18,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 45,
+        "installCount": 1459
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/category-galgame"
+      }
+    },
+    {
+      "id": "franchise-genshin-impact",
+      "title": "Genshin Impact",
+      "description": "10 community fan submissions inspired by Genshin Impact. Made by Petdex creators.",
+      "kind": "franchise",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 630,
+      "coverPetId": "hutao",
+      "petIds": [
+        "hutao",
+        "ayaka",
+        "hu-tao-pink",
+        "columbinya-2",
+        "albedo",
+        "kazuha",
+        "keqing",
+        "linnea-2",
+        "sayu",
+        "skirk-2",
+        "hu-tao-pet"
+      ],
+      "hostedPetIds": [],
+      "petCount": 11,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 41,
+        "installCount": 1178
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/franchise-genshin-impact"
+      }
+    },
+    {
+      "id": "franchise-goddess-of-victory-nikke",
+      "title": "Goddess of Victory: Nikke",
+      "description": "4 community fan submissions inspired by Goddess of Victory: Nikke. Made by Petdex creators.",
+      "kind": "franchise",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 273,
+      "coverPetId": "doro",
+      "petIds": [
+        "doro",
+        "doro-2",
+        "doro-pink-pup",
+        "doro-pink-pup-2"
+      ],
+      "hostedPetIds": [],
+      "petCount": 4,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 17,
+        "installCount": 512
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/franchise-goddess-of-victory-nikke"
+      }
+    },
+    {
+      "id": "category-mystical-gothic",
+      "title": "Gothic Mystical",
+      "description": "15 gothic mystical from across the Petdex catalog.",
+      "kind": "category-sub",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 471.5,
+      "coverPetId": "ash-salt-bell",
+      "petIds": [
+        "ash-salt-bell",
+        "belvedere",
+        "black-salt-hourglass",
+        "blind-key-coffer",
+        "briar-thimble",
+        "fever-fork",
+        "grief-shears",
+        "gukegare",
+        "heart-ledger-stamp",
+        "mourning-tally",
+        "oathknot-spool",
+        "shinobu",
+        "threshold-mask-fragment",
+        "veyra-kegare",
+        "whisper-mortar",
+        "dolly"
+      ],
+      "hostedPetIds": [],
+      "petCount": 16,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 26,
+        "installCount": 891
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/category-mystical-gothic"
+      }
+    },
+    {
+      "id": "franchise-graycraft",
+      "title": "GRAYCRAFT",
+      "description": "8 community fan submissions inspired by GRAYCRAFT. Made by Petdex creators.",
+      "kind": "franchise",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 329,
+      "coverPetId": "aegis-graycraft6",
+      "petIds": [
+        "aegis-graycraft6",
+        "buster",
+        "golem-graycraft4",
+        "graycraft4",
+        "graycraft5",
+        "graycraft6",
+        "graycraft7",
+        "midas",
+        "storm2-graycraft4",
+        "zyra-graycraft4",
+        "magnum-graycraft3"
+      ],
+      "hostedPetIds": [],
+      "petCount": 11,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 11,
+        "installCount": 636
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/franchise-graycraft"
+      }
+    },
+    {
+      "id": "graycraft",
+      "title": "GRAYCRAFT",
+      "description": "Original mech IP by Kevin Wu: armored chibi pilots from the GRAYCRAFT series. Featured Creator Spotlight #1.",
+      "kind": "curated",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 195,
+      "coverPetId": "graycraft4",
+      "petIds": [
+        "graycraft4",
+        "graycraft5",
+        "graycraft6",
+        "graycraft7",
+        "ding-ding"
+      ],
+      "hostedPetIds": [],
+      "petCount": 5,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 5,
+        "installCount": 380
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/graycraft"
+      }
+    },
+    {
+      "id": "franchise-harry-potter",
+      "title": "Harry Potter",
+      "description": "4 community fan submissions inspired by Harry Potter. Made by Petdex creators.",
+      "kind": "franchise",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 174,
+      "coverPetId": "dobby",
+      "petIds": [
+        "dobby",
+        "dobby-2",
+        "dobby-3",
+        "voldy"
+      ],
+      "hostedPetIds": [],
+      "petCount": 4,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 9,
+        "installCount": 330
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/franchise-harry-potter"
+      }
+    },
+    {
+      "id": "hello-kitty-universe",
+      "title": "Hello Kitty Universe",
+      "description": "Chibi cats with bows, ribbons, and pastel hearts. The sweetest corner of the Pokédex — kawaii kittens and Sanrio-coded companions.",
+      "kind": "curated",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 470.5,
+      "coverPetId": "mochi",
+      "petIds": [
+        "tenniskitty",
+        "bikinikitty",
+        "ribbon",
+        "lumi-lock",
+        "yier-2",
+        "mochi",
+        "kitty1",
+        "hatch-pet",
+        "tilly",
+        "happy-cat"
+      ],
+      "hostedPetIds": [
+        "mochi",
+        "tilly",
+        "happy-cat"
+      ],
+      "petCount": 10,
+      "hostedPetCount": 3,
+      "metrics": {
+        "likeCount": 11,
+        "installCount": 919
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/hello-kitty-universe"
+      }
+    },
+    {
+      "id": "category-heroic",
+      "title": "Heroic",
+      "description": "151 heroic from across the Petdex catalog.",
+      "kind": "category",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 545.5,
+      "coverPetId": "blau",
+      "petIds": [
+        "blau",
+        "codex-judicator",
+        "kendrick-superbowl",
+        "lewis",
+        "pedro",
+        "popeye",
+        "president",
+        "r9",
+        "rocky-3",
+        "schumi",
+        "vault-boy"
+      ],
+      "hostedPetIds": [],
+      "petCount": 11,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 12,
+        "installCount": 1067
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/category-heroic"
+      }
+    },
+    {
+      "id": "franchise-honkai-star-rail",
+      "title": "Honkai: Star Rail",
+      "description": "4 community fan submissions inspired by Honkai: Star Rail. Made by Petdex creators.",
+      "kind": "franchise",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 202.5,
+      "coverPetId": "silver-wolf-lv999",
+      "petIds": [
+        "silver-wolf-lv999",
+        "firefly-2",
+        "jingliu",
+        "maid-theresa"
+      ],
+      "hostedPetIds": [],
+      "petCount": 4,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 18,
+        "installCount": 369
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/franchise-honkai-star-rail"
+      }
+    },
+    {
+      "id": "franchise-honor-of-kings",
+      "title": "Honor of Kings",
+      "description": "4 community fan submissions inspired by Honor of Kings. Made by Petdex creators.",
+      "kind": "franchise",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 124.5,
+      "coverPetId": "gameboy",
+      "petIds": [
+        "gameboy",
+        "guanyu",
+        "aoyin",
+        "aileen",
+        "libai"
+      ],
+      "hostedPetIds": [],
+      "petCount": 5,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 5,
+        "installCount": 239
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/franchise-honor-of-kings"
+      }
+    },
+    {
+      "id": "hunter-x-hunter",
+      "title": "Hunter x Hunter",
+      "description": "Heavens Arena to Chimera Ant: Gon, Killua, Hisoka, Netero. Nen-powered chibi companions from Yoshihiro Togashi's universe.",
+      "kind": "curated",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 172.5,
+      "coverPetId": "killua",
+      "petIds": [
+        "killua",
+        "gon",
+        "hisoka",
+        "netero",
+        "killu"
+      ],
+      "hostedPetIds": [
+        "killua",
+        "gon"
+      ],
+      "petCount": 5,
+      "hostedPetCount": 2,
+      "metrics": {
+        "likeCount": 12,
+        "installCount": 321
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/hunter-x-hunter"
+      }
+    },
+    {
+      "id": "franchise-invincible",
+      "title": "Invincible",
+      "description": "6 community fan submissions inspired by Invincible. Made by Petdex creators.",
+      "kind": "franchise",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 208,
+      "coverPetId": "battle-beast",
+      "petIds": [
+        "battle-beast",
+        "invincible",
+        "invincible-mark",
+        "invincible-mark-2",
+        "omni-man",
+        "thragg"
+      ],
+      "hostedPetIds": [],
+      "petCount": 6,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 8,
+        "installCount": 400
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/franchise-invincible"
+      }
+    },
+    {
+      "id": "franchise-jojos-bizarre-adventure",
+      "title": "JoJo's Bizarre Adventure",
+      "description": "10 community fan submissions inspired by JoJo's Bizarre Adventure. Made by Petdex creators.",
+      "kind": "franchise",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 566.5,
+      "coverPetId": "dio",
+      "petIds": [
+        "dio",
+        "gappy",
+        "jonathan",
+        "jolyne",
+        "johnny-joestar",
+        "giorno",
+        "joseph",
+        "josuke4",
+        "jodio",
+        "jotaro"
+      ],
+      "hostedPetIds": [],
+      "petCount": 10,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 21,
+        "installCount": 1091
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/franchise-jojos-bizarre-adventure"
+      }
+    },
+    {
+      "id": "franchise-journey-to-the-west",
+      "title": "Journey to the West",
+      "description": "4 community fan submissions inspired by Journey to the West. Made by Petdex creators.",
+      "kind": "franchise",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 108.5,
+      "coverPetId": "tianmingren",
+      "petIds": [
+        "tianmingren",
+        "wukong",
+        "wukong-2",
+        "xiyou-tangseng"
+      ],
+      "hostedPetIds": [],
+      "petCount": 4,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 5,
+        "installCount": 207
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/franchise-journey-to-the-west"
+      }
+    },
+    {
+      "id": "franchise-jujutsu-kaisen",
+      "title": "Jujutsu Kaisen",
+      "description": "4 community fan submissions inspired by Jujutsu Kaisen. Made by Petdex creators.",
+      "kind": "franchise",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 413.5,
+      "coverPetId": "gojo",
+      "petIds": [
+        "fushiguro-toji",
+        "gojo",
+        "gojo-satoru",
+        "sukuna",
+        "hex-king"
+      ],
+      "hostedPetIds": [
+        "gojo",
+        "sukuna"
+      ],
+      "petCount": 5,
+      "hostedPetCount": 2,
+      "metrics": {
+        "likeCount": 18,
+        "installCount": 791
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/franchise-jujutsu-kaisen"
+      }
+    },
+    {
+      "id": "franchise-kamen-rider",
+      "title": "Kamen Rider",
+      "description": "5 community fan submissions inspired by Kamen Rider. Made by Petdex creators.",
+      "kind": "franchise",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 163,
+      "coverPetId": "02",
+      "petIds": [
+        "02",
+        "kuuga-black-rider-custom",
+        "kuuga-rider",
+        "exdream",
+        "zeztz-booster"
+      ],
+      "hostedPetIds": [],
+      "petCount": 5,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 13,
+        "installCount": 300
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/franchise-kamen-rider"
+      }
+    },
+    {
+      "id": "franchise-kanye-west",
+      "title": "Kanye West",
+      "description": "4 community fan submissions inspired by Kanye West. Made by Petdex creators.",
+      "kind": "franchise",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 117,
+      "coverPetId": "donda-bear",
+      "petIds": [
+        "donda-bear",
+        "dropout-bear",
+        "graduation-bear",
+        "tlop-bear"
+      ],
+      "hostedPetIds": [],
+      "petCount": 4,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 2,
+        "installCount": 230
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/franchise-kanye-west"
+      }
+    },
+    {
+      "id": "category-kawaii",
+      "title": "Kawaii",
+      "description": "225 kawaii from across the Petdex catalog.",
+      "kind": "category",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 644.5,
+      "coverPetId": "amis",
+      "petIds": [
+        "amis",
+        "baby-milo",
+        "custard",
+        "defecty",
+        "feibi-2",
+        "grace-ashcroft-blue-variant",
+        "kagup",
+        "luma",
+        "mini-muse-realistic",
+        "sakura-circuit",
+        "umaru",
+        "wifejack",
+        "inori",
+        "doro-tot",
+        "narcibear",
+        "tenniskitty",
+        "bikinikitty",
+        "aerith-2",
+        "ryo-yamada-bass",
+        "bochi-guitar"
+      ],
+      "hostedPetIds": [],
+      "petCount": 20,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 27,
+        "installCount": 1235
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/category-kawaii"
+      }
+    },
+    {
+      "id": "category-kawaii-cat",
+      "title": "Kawaii · Cat",
+      "description": "18 cat kawaii from across the Petdex catalog.",
+      "kind": "category-sub",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 641,
+      "coverPetId": "mochi",
+      "petIds": [
+        "aoi",
+        "azusa",
+        "cream-cat",
+        "maodie-2",
+        "mochi",
+        "mochi-3",
+        "nuko-7fc6028b",
+        "nukoevi-9fe3bbdf",
+        "nyako-shigure-2",
+        "pupu-2",
+        "shiyi",
+        "sillycat",
+        "xingtong-2",
+        "yier-2",
+        "dio-2",
+        "tenniskitty"
+      ],
+      "hostedPetIds": [
+        "mochi"
+      ],
+      "petCount": 16,
+      "hostedPetCount": 1,
+      "metrics": {
+        "likeCount": 23,
+        "installCount": 1236
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/category-kawaii-cat"
+      }
+    },
+    {
+      "id": "category-playful-kawaii",
+      "title": "Kawaii Playful",
+      "description": "99 kawaii playful from across the Petdex catalog.",
+      "kind": "category-sub",
+      "featured": true,
+      "hosted": true,
+      "loveScore": 2953,
+      "coverPetId": "a-b",
+      "petIds": [
+        "a-b",
+        "anon-2",
+        "anya-2",
+        "bluebow",
+        "boolet",
+        "bunbun",
+        "cicada",
+        "cloudy",
+        "consento-kun",
+        "ddo-zvzo-2",
+        "denissexy-itier",
+        "doro-tot",
+        "feibi",
+        "gloopie",
+        "grin",
+        "gugugaga",
+        "gugugaga-6",
+        "hanami-saki",
+        "hedgehodge",
+        "huangdou",
+        "illya",
+        "inari",
+        "jubao",
+        "kitmar",
+        "knotty",
+        "koulen",
+        "kuri-3",
+        "lian",
+        "longpaopao",
+        "lumi-lock",
+        "maomao",
+        "mayuyu",
+        "mimi-3",
+        "nova-byte",
+        "piney",
+        "pipey",
+        "pudding",
+        "ribbon-soft",
+        "scoop",
+        "starshade",
+        "strawwy",
+        "taffy",
+        "takki",
+        "taolulu",
+        "yuanzi",
+        "yuanzi-v1",
+        "zmjjkk",
+        "tenniskitty",
+        "bikinikitty",
+        "loopy",
+        "ryo-yamada-bass",
+        "bochi-guitar"
+      ],
+      "hostedPetIds": [
+        "a-b",
+        "anon-2",
+        "anya-2",
+        "boolet",
+        "cloudy",
+        "ddo-zvzo-2",
+        "denissexy-itier",
+        "feibi",
+        "gloopie",
+        "gugugaga",
+        "gugugaga-6",
+        "huangdou",
+        "illya",
+        "inari",
+        "kitmar",
+        "kuri-3",
+        "longpaopao",
+        "mimi-3",
+        "piney",
+        "pipey",
+        "pudding",
+        "scoop",
+        "strawwy",
+        "taffy",
+        "taolulu"
+      ],
+      "petCount": 52,
+      "hostedPetCount": 25,
+      "metrics": {
+        "likeCount": 92,
+        "installCount": 5722
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/category-playful-kawaii"
+      }
+    },
+    {
+      "id": "franchise-league-of-legends",
+      "title": "League of Legends",
+      "description": "15 community fan submissions inspired by League of Legends. Made by Petdex creators.",
+      "kind": "franchise",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 1077.5,
+      "coverPetId": "aurelion-sol",
+      "petIds": [
+        "aurelion-sol",
+        "cat-in-the-box-shaco",
+        "snow-plum-lillia",
+        "aurelion-sol-2",
+        "bee-teemo",
+        "jinx",
+        "feizi-green",
+        "pearl-idol",
+        "mecha-darkin",
+        "jinx-2",
+        "kasha",
+        "nunu-willump",
+        "slay-belle-katarina",
+        "tide-muse",
+        "zed",
+        "vi",
+        "jinx-arcane2",
+        "rengar",
+        "viego"
+      ],
+      "hostedPetIds": [],
+      "petCount": 19,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 31,
+        "installCount": 2093
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/franchise-league-of-legends"
+      }
+    },
+    {
+      "id": "franchise-machinarium",
+      "title": "Machinarium",
+      "description": "5 community fan submissions inspired by Machinarium. Made by Petdex creators.",
+      "kind": "franchise",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 105.5,
+      "coverPetId": "machi-owl",
+      "petIds": [
+        "machi-owl",
+        "fat-robot",
+        "josef-bot",
+        "smoking-robot",
+        "the-drummer"
+      ],
+      "hostedPetIds": [],
+      "petCount": 5,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 4,
+        "installCount": 203
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/franchise-machinarium"
+      }
+    },
+    {
+      "id": "meme-lords",
+      "title": "Meme Lords",
+      "description": "Pepe, Wojak, Doodlebob, and the rest of the timeline turned into pets.",
+      "kind": "curated",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 894,
+      "coverPetId": "oo-ee-a-e-a-cat",
+      "petIds": [
+        "pepe",
+        "apupepe",
+        "wojak",
+        "batmeme",
+        "doodlebob",
+        "oo-ee-a-e-a-cat",
+        "daodun",
+        "daodun-dog",
+        "kun",
+        "crow"
+      ],
+      "hostedPetIds": [
+        "oo-ee-a-e-a-cat"
+      ],
+      "petCount": 10,
+      "hostedPetCount": 1,
+      "metrics": {
+        "likeCount": 48,
+        "installCount": 1692
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/meme-lords"
+      }
+    },
+    {
+      "id": "franchise-microsoft-office",
+      "title": "Microsoft Office",
+      "description": "6 community fan submissions inspired by Microsoft Office. Made by Petdex creators.",
+      "kind": "franchise",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 316,
+      "coverPetId": "clippy",
+      "petIds": [
+        "clippy",
+        "clippy-3",
+        "clippy-4",
+        "clippy-6",
+        "cool-clippy",
+        "paperclip"
+      ],
+      "hostedPetIds": [],
+      "petCount": 6,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 8,
+        "installCount": 616
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/franchise-microsoft-office"
+      }
+    },
+    {
+      "id": "franchise-minecraft",
+      "title": "Minecraft",
+      "description": "4 community fan submissions inspired by Minecraft. Made by Petdex creators.",
+      "kind": "franchise",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 134,
+      "coverPetId": "steve-3",
+      "petIds": [
+        "steve-3",
+        "steve-4",
+        "steve-2",
+        "minecraft-steve"
+      ],
+      "hostedPetIds": [],
+      "petCount": 4,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 5,
+        "installCount": 258
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/franchise-minecraft"
+      }
+    },
+    {
+      "id": "category-mystical-mage",
+      "title": "Mystical · Mage",
+      "description": "32 mage mystical from across the Petdex catalog.",
+      "kind": "category-sub",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 527.5,
+      "coverPetId": "academicasi",
+      "petIds": [
+        "academicasi",
+        "arcveil",
+        "cleria",
+        "codie",
+        "druidika",
+        "heita",
+        "mambo",
+        "mambo-2",
+        "miraculix",
+        "noctlet",
+        "prism",
+        "solanum",
+        "umbral",
+        "zambicho",
+        "marcille-dungeon-meshi"
+      ],
+      "hostedPetIds": [],
+      "petCount": 15,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 27,
+        "installCount": 1001
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/category-mystical-mage"
+      }
+    },
+    {
+      "id": "category-heroic-mystical",
+      "title": "Mystical Heroic",
+      "description": "16 mystical heroic from across the Petdex catalog.",
+      "kind": "category-sub",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 341.5,
+      "coverPetId": "izanagi",
+      "petIds": [
+        "izanagi",
+        "king-solomon",
+        "kitsune",
+        "krishna",
+        "owlbear-cub",
+        "phoenix-default",
+        "shiva",
+        "skybound-hero",
+        "yangjian",
+        "yaoyu",
+        "sephiroth",
+        "cloud-2"
+      ],
+      "hostedPetIds": [],
+      "petCount": 12,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 11,
+        "installCount": 661
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/category-heroic-mystical"
+      }
+    },
+    {
+      "id": "category-kawaii-mystical",
+      "title": "Mystical Kawaii",
+      "description": "17 mystical kawaii from across the Petdex catalog.",
+      "kind": "category-sub",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 440,
+      "coverPetId": "aurora",
+      "petIds": [
+        "aurora",
+        "crimson-blossom",
+        "marie",
+        "nene",
+        "sophie",
+        "tian-long",
+        "xiaoyuan-2",
+        "xilian",
+        "yachiyo",
+        "yinyue-yaohu",
+        "yuki"
+      ],
+      "hostedPetIds": [],
+      "petCount": 11,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 30,
+        "installCount": 820
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/category-kawaii-mystical"
+      }
+    },
+    {
+      "id": "franchise-nailong",
+      "title": "NaiLong",
+      "description": "2 community fan submissions inspired by NaiLong. Made by Petdex creators.",
+      "kind": "franchise",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 497.5,
+      "coverPetId": "anon-nailong",
+      "petIds": [
+        "anon-nailong",
+        "little-nailong",
+        "nailong-3",
+        "nai-long",
+        "naifrog-2-0",
+        "nailong",
+        "nailong-2",
+        "nailong-boat"
+      ],
+      "hostedPetIds": [],
+      "petCount": 8,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 28,
+        "installCount": 939
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/franchise-nailong"
+      }
+    },
+    {
+      "id": "franchise-naruto",
+      "title": "Naruto",
+      "description": "9 community fan submissions inspired by Naruto. Made by Petdex creators.",
+      "kind": "franchise",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 747.5,
+      "coverPetId": "itachi",
+      "petIds": [
+        "madara",
+        "sasuke-uchiha",
+        "itachi",
+        "obito",
+        "leafspark",
+        "garra",
+        "liudao-ban",
+        "naruto",
+        "painling-2"
+      ],
+      "hostedPetIds": [
+        "itachi",
+        "naruto"
+      ],
+      "petCount": 9,
+      "hostedPetCount": 2,
+      "metrics": {
+        "likeCount": 41,
+        "installCount": 1413
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/franchise-naruto"
+      }
+    },
+    {
+      "id": "franchise-neon-genesis-evangelion",
+      "title": "Neon Genesis Evangelion",
+      "description": "5 community fan submissions inspired by Neon Genesis Evangelion. Made by Petdex creators.",
+      "kind": "franchise",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 167.5,
+      "coverPetId": "asuka",
+      "petIds": [
+        "asuka",
+        "unit-02",
+        "asuka-eva",
+        "eva01",
+        "unit-01"
+      ],
+      "hostedPetIds": [],
+      "petCount": 5,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 6,
+        "installCount": 323
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/franchise-neon-genesis-evangelion"
+      }
+    },
+    {
+      "id": "franchise-one-piece",
+      "title": "One Piece",
+      "description": "10 community fan submissions inspired by One Piece. Made by Petdex creators.",
+      "kind": "franchise",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 1024,
+      "coverPetId": "luffy",
+      "petIds": [
+        "ace",
+        "chopper",
+        "chopper-2",
+        "luffy",
+        "luffy-2",
+        "nika",
+        "robin",
+        "sabo",
+        "smoke-kick",
+        "zoro",
+        "luffy-gear-5-chibi"
+      ],
+      "hostedPetIds": [
+        "luffy",
+        "luffy-2",
+        "sabo",
+        "zoro"
+      ],
+      "petCount": 11,
+      "hostedPetCount": 4,
+      "metrics": {
+        "likeCount": 58,
+        "installCount": 1932
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/franchise-one-piece"
+      }
+    },
+    {
+      "id": "category-pixel-art",
+      "title": "Pixel Art",
+      "description": "30 pixel art from across the Petdex catalog.",
+      "kind": "category-sub",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 1372,
+      "coverPetId": "bitboy",
+      "petIds": [
+        "bitboy",
+        "chaossprite-default",
+        "clawd-3",
+        "codax",
+        "code-default",
+        "dolphin-default",
+        "dragon-default",
+        "guga-guga",
+        "harup",
+        "jj-duck",
+        "kirby",
+        "monoblossom-hands",
+        "mosaic-invader",
+        "mr-game-and-watch",
+        "npc",
+        "ox-default",
+        "pet-2",
+        "qinyiv3",
+        "steven",
+        "tash",
+        "thesecondcoming",
+        "thorny-daily-v1",
+        "waley",
+        "white-zuccitchi",
+        "yier-gif",
+        "bikinikitty"
+      ],
+      "hostedPetIds": [],
+      "petCount": 26,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 35,
+        "installCount": 2674
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/category-pixel-art"
+      }
+    },
+    {
+      "id": "category-playful",
+      "title": "Playful",
+      "description": "317 playful from across the Petdex catalog.",
+      "kind": "category",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 807.5,
+      "coverPetId": "cosmo",
+      "petIds": [
+        "bolt",
+        "casey-cassette",
+        "charmander",
+        "cosmo",
+        "decky",
+        "feynman",
+        "frankie",
+        "green-monster",
+        "gt3rs",
+        "gym-ajussi",
+        "hoops",
+        "kim",
+        "limit-lump",
+        "miss-minute",
+        "summer",
+        "tennis-ball",
+        "nukie"
+      ],
+      "hostedPetIds": [
+        "cosmo"
+      ],
+      "petCount": 17,
+      "hostedPetCount": 1,
+      "metrics": {
+        "likeCount": 28,
+        "installCount": 1559
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/category-playful"
+      }
+    },
+    {
+      "id": "category-playful-bird",
+      "title": "Playful · Bird",
+      "description": "26 bird playful from across the Petdex catalog.",
+      "kind": "category-sub",
+      "featured": true,
+      "hosted": true,
+      "loveScore": 1972.5,
+      "coverPetId": "bulby",
+      "petIds": [
+        "bulby",
+        "buya",
+        "canary",
+        "captain-quack",
+        "deployer-2",
+        "gugugaga-2",
+        "gugugaga-3",
+        "gugugaga-4",
+        "gugugaga-5",
+        "gugugaga-7",
+        "huskguin",
+        "kiwi",
+        "kwehlet",
+        "pelican-pedal",
+        "pengu",
+        "pingu",
+        "qq-penguin",
+        "swag",
+        "taina-parrot",
+        "theveller",
+        "tomorin",
+        "yajiji-blue-final",
+        "qiaowei"
+      ],
+      "hostedPetIds": [
+        "bulby",
+        "buya",
+        "canary",
+        "deployer-2",
+        "gugugaga-2",
+        "gugugaga-3",
+        "gugugaga-4",
+        "gugugaga-5",
+        "gugugaga-7",
+        "huskguin",
+        "kiwi",
+        "kwehlet",
+        "pingu",
+        "qq-penguin",
+        "swag",
+        "theveller",
+        "yajiji-blue-final"
+      ],
+      "petCount": 23,
+      "hostedPetCount": 17,
+      "metrics": {
+        "likeCount": 62,
+        "installCount": 3821
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/category-playful-bird"
+      }
+    },
+    {
+      "id": "category-playful-cat",
+      "title": "Playful · Cat",
+      "description": "33 cat playful from across the Petdex catalog.",
+      "kind": "category-sub",
+      "featured": true,
+      "hosted": true,
+      "loveScore": 2007,
+      "coverPetId": "acetafy",
+      "petIds": [
+        "acetafy",
+        "aoxiaotiger",
+        "corsair-cat",
+        "da-zhuang-2",
+        "daimao",
+        "doraemon",
+        "garfield",
+        "gulu",
+        "happy-cat",
+        "harry-poptart",
+        "hatch-pet",
+        "ice-cream-cat",
+        "kit-t",
+        "maodie",
+        "mossy-2",
+        "oo-ee-a-e-a-cat",
+        "qm-mmm",
+        "simba",
+        "tabby-fishcat",
+        "twinklepaws",
+        "whip",
+        "xiaobao",
+        "xiaohu"
+      ],
+      "hostedPetIds": [
+        "acetafy",
+        "aoxiaotiger",
+        "da-zhuang-2",
+        "daimao",
+        "doraemon",
+        "happy-cat",
+        "harry-poptart",
+        "kit-t",
+        "maodie",
+        "oo-ee-a-e-a-cat",
+        "whip",
+        "xiaobao"
+      ],
+      "petCount": 23,
+      "hostedPetCount": 12,
+      "metrics": {
+        "likeCount": 53,
+        "installCount": 3908
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/category-playful-cat"
+      }
+    },
+    {
+      "id": "category-playful-developer",
+      "title": "Playful · Developer",
+      "description": "21 developer playful from across the Petdex catalog.",
+      "kind": "category-sub",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 586,
+      "coverPetId": "nukey",
+      "petIds": [
+        "aka-shiba",
+        "ashu",
+        "bankr",
+        "baobao-coder",
+        "crab-buddy",
+        "diff-dino",
+        "erdu",
+        "fleetsnowfluff",
+        "gopher",
+        "littlei-2",
+        "maizie",
+        "nukey",
+        "pixel-coder",
+        "shiba-2",
+        "shtam",
+        "syntax-drake",
+        "wixie",
+        "shadcn"
+      ],
+      "hostedPetIds": [
+        "nukey"
+      ],
+      "petCount": 18,
+      "hostedPetCount": 1,
+      "metrics": {
+        "likeCount": 24,
+        "installCount": 1124
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/category-playful-developer"
+      }
+    },
+    {
+      "id": "category-playful-dog",
+      "title": "Playful · Dog",
+      "description": "33 dog playful from across the Petdex catalog.",
+      "kind": "category-sub",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 994.5,
+      "coverPetId": "chedarini",
+      "petIds": [
+        "abao",
+        "chedarini",
+        "corgi-cool",
+        "daisy",
+        "lando-2",
+        "lemon",
+        "luna",
+        "maltese",
+        "maple",
+        "milo",
+        "misty",
+        "nemo-corgi",
+        "panghu",
+        "peach",
+        "purplewolf",
+        "qianqian",
+        "ramzes",
+        "rio",
+        "sadaharu",
+        "samo",
+        "stout-corgi",
+        "tofu",
+        "wavy",
+        "wif",
+        "yuanbao",
+        "little-mao-puppy"
+      ],
+      "hostedPetIds": [
+        "chedarini"
+      ],
+      "petCount": 26,
+      "hostedPetCount": 1,
+      "metrics": {
+        "likeCount": 45,
+        "installCount": 1899
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/category-playful-dog"
+      }
+    },
+    {
+      "id": "franchise-pokemon",
+      "title": "Pokemon",
+      "description": "5 community fan submissions inspired by Pokemon. Made by Petdex creators.",
+      "kind": "franchise",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 1244,
+      "coverPetId": "giratina",
+      "petIds": [
+        "giratina",
+        "goose-default",
+        "kabi",
+        "gardevoir",
+        "kaka-2",
+        "capvolt",
+        "chimchar"
+      ],
+      "hostedPetIds": [],
+      "petCount": 7,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 40,
+        "installCount": 2408
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/franchise-pokemon"
+      }
+    },
+    {
+      "id": "franchise-re-zero",
+      "title": "Re:Zero",
+      "description": "9 community fan submissions inspired by Re:Zero. Made by Petdex creators.",
+      "kind": "franchise",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 442.5,
+      "coverPetId": "rem-xl",
+      "petIds": [
+        "rem-xl",
+        "emilia-2",
+        "rem-3",
+        "ram",
+        "rem",
+        "rem-4",
+        "shaula",
+        "rem-2",
+        "blue-maid"
+      ],
+      "hostedPetIds": [],
+      "petCount": 9,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 34,
+        "installCount": 817
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/franchise-re-zero"
+      }
+    },
+    {
+      "id": "franchise-real-people",
+      "title": "Real People",
+      "description": "9 community fan submissions inspired by Real People. Made by Petdex creators.",
+      "kind": "franchise",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 158.5,
+      "coverPetId": "will",
+      "petIds": [
+        "will",
+        "wiz-khalifa",
+        "miemie",
+        "jiawei",
+        "giannis-pet2-0",
+        "xiaoyou",
+        "xiaohuang"
+      ],
+      "hostedPetIds": [],
+      "petCount": 7,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 7,
+        "installCount": 303
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/franchise-real-people"
+      }
+    },
+    {
+      "id": "robots-and-mechs",
+      "title": "Robots & Mechs",
+      "description": "Steel companions. From WALL-E to Gundam to GRAYCRAFT: the synthetic side of the Pokédex.",
+      "kind": "curated",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 1309.5,
+      "coverPetId": "wall-e",
+      "petIds": [
+        "wall-e",
+        "wall-e-baby",
+        "wall-e-2",
+        "eve",
+        "rx-78-2-gundam",
+        "graycraft4",
+        "graycraft5",
+        "graycraft6",
+        "graycraft7",
+        "robocop",
+        "bumblebee",
+        "bolt",
+        "clank",
+        "bt-buddy",
+        "nova-byte",
+        "fangbyte",
+        "mi-mo",
+        "tachi",
+        "coladia",
+        "shadowcore-exo",
+        "nemesis",
+        "elyndex"
+      ],
+      "hostedPetIds": [],
+      "petCount": 22,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 45,
+        "installCount": 2529
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/robots-and-mechs"
+      }
+    },
+    {
+      "id": "franchise-rock-kingdom-luoke-wangguo",
+      "title": "Rock Kingdom (Luoke Wangguo)",
+      "description": "6 community fan submissions inspired by Rock Kingdom (Luoke Wangguo). Made by Petdex creators.",
+      "kind": "franchise",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 598,
+      "coverPetId": "dimo",
+      "petIds": [
+        "dimo",
+        "dimo-2",
+        "demon-wolf",
+        "shiny-daermaodou",
+        "miaomiao-codex",
+        "pink-star"
+      ],
+      "hostedPetIds": [],
+      "petCount": 6,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 26,
+        "installCount": 1144
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/franchise-rock-kingdom-luoke-wangguo"
+      }
+    },
+    {
+      "id": "franchise-sanrio",
+      "title": "Sanrio",
+      "description": "5 community fan submissions inspired by Sanrio. Made by Petdex creators.",
+      "kind": "franchise",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 255.5,
+      "coverPetId": "kitty1",
+      "petIds": [
+        "kitty1",
+        "cinnamonroll",
+        "ribbon",
+        "xiaoguai",
+        "kuromi"
+      ],
+      "hostedPetIds": [],
+      "petCount": 5,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 15,
+        "installCount": 481
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/franchise-sanrio"
+      }
+    },
+    {
+      "id": "scientific-minds",
+      "title": "Scientific Minds",
+      "description": "Great thinkers as tiny pets: Einstein, Ada Lovelace, Feynman, Shannon. Curated set by @daviddao.",
+      "kind": "curated",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 466,
+      "coverPetId": "einstein",
+      "petIds": [
+        "einstein",
+        "ada-lovelace",
+        "feynman",
+        "shannon",
+        "humboldt",
+        "ostrom",
+        "buddhist",
+        "juergen-habermas"
+      ],
+      "hostedPetIds": [],
+      "petCount": 8,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 27,
+        "installCount": 878
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/scientific-minds"
+      }
+    },
+    {
+      "id": "category-sea-creature",
+      "title": "Sea Creatures",
+      "description": "28 sea creatures from across the Petdex catalog.",
+      "kind": "category-sub",
+      "featured": true,
+      "hosted": true,
+      "loveScore": 2811,
+      "coverPetId": "aqua-wisp",
+      "petIds": [
+        "aqua-wisp",
+        "axobotl-2",
+        "boba",
+        "chompers",
+        "claude-crab",
+        "clawdex",
+        "hatch-pet-crab-companion",
+        "kyle-kun",
+        "otto",
+        "piko",
+        "sealos",
+        "tachi",
+        "taygedo",
+        "wave-delegate",
+        "whaledou"
+      ],
+      "hostedPetIds": [
+        "aqua-wisp",
+        "boba",
+        "chompers",
+        "claude-crab",
+        "clawdex",
+        "kyle-kun",
+        "otto"
+      ],
+      "petCount": 15,
+      "hostedPetCount": 7,
+      "metrics": {
+        "likeCount": 35,
+        "installCount": 5552
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/category-sea-creature"
+      }
+    },
+    {
+      "id": "franchise-seer",
+      "title": "Seer",
+      "description": "4 community fan submissions inspired by Seer. Made by Petdex creators.",
+      "kind": "franchise",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 138,
+      "coverPetId": "pony",
+      "petIds": [
+        "pony",
+        "hamorete",
+        "ray",
+        "iou"
+      ],
+      "hostedPetIds": [],
+      "petCount": 4,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 9,
+        "installCount": 258
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/franchise-seer"
+      }
+    },
+    {
+      "id": "franchise-south-park",
+      "title": "South Park",
+      "description": "7 community fan submissions inspired by South Park. Made by Petdex creators.",
+      "kind": "franchise",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 209,
+      "coverPetId": "cartman",
+      "petIds": [
+        "cartman",
+        "south-park-kyle",
+        "south-park-kenny",
+        "south-park-stan",
+        "south-park-butters",
+        "south-park-jimmy",
+        "south-park-tolkien"
+      ],
+      "hostedPetIds": [],
+      "petCount": 7,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 7,
+        "installCount": 404
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/franchise-south-park"
+      }
+    },
+    {
+      "id": "franchise-steins-gate",
+      "title": "Steins;Gate",
+      "description": "4 community fan submissions inspired by Steins;Gate. Made by Petdex creators.",
+      "kind": "franchise",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 265.5,
+      "coverPetId": "kurisu-2",
+      "petIds": [
+        "kurisu-2",
+        "kurisu",
+        "makisekurisu",
+        "okabe"
+      ],
+      "hostedPetIds": [],
+      "petCount": 4,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 15,
+        "installCount": 501
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/franchise-steins-gate"
+      }
+    },
+    {
+      "id": "franchise-that-time-i-got-reincarnated-as-a-slime",
+      "title": "That Time I Got Reincarnated as a Slime",
+      "description": "2 community fan submissions inspired by That Time I Got Reincarnated as a Slime. Made by Petdex creators.",
+      "kind": "franchise",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 212.5,
+      "coverPetId": "rimuru-2",
+      "petIds": [
+        "rimuru-2",
+        "rimuru-3",
+        "rimuru-flying",
+        "lumi-3"
+      ],
+      "hostedPetIds": [],
+      "petCount": 4,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 14,
+        "installCount": 397
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/franchise-that-time-i-got-reincarnated-as-a-slime"
+      }
+    },
+    {
+      "id": "franchise-valorant",
+      "title": "Valorant",
+      "description": "7 community fan submissions inspired by Valorant. Made by Petdex creators.",
+      "kind": "franchise",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 278,
+      "coverPetId": "sage",
+      "petIds": [
+        "sage",
+        "raze-mini",
+        "omen-cat",
+        "sage-2",
+        "sage-3",
+        "tiny-omen-v2",
+        "reyna",
+        "jett",
+        "omen-cat-2",
+        "omen-kitty-v3"
+      ],
+      "hostedPetIds": [],
+      "petCount": 10,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 10,
+        "installCount": 536
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/franchise-valorant"
+      }
+    },
+    {
+      "id": "franchise-wall-e",
+      "title": "WALL-E",
+      "description": "5 community fan submissions inspired by WALL-E. Made by Petdex creators.",
+      "kind": "franchise",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 689.5,
+      "coverPetId": "eve",
+      "petIds": [
+        "eve",
+        "wall-e",
+        "wall-e-2",
+        "wall-e-3",
+        "wall-e-baby"
+      ],
+      "hostedPetIds": [],
+      "petCount": 5,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 30,
+        "installCount": 1319
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/franchise-wall-e"
+      }
+    },
+    {
+      "id": "category-heroic-warrior",
+      "title": "Warrior Heroic",
+      "description": "73 warrior heroic from across the Petdex catalog.",
+      "kind": "category-sub",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 1060,
+      "coverPetId": "alexander",
+      "petIds": [
+        "alexander",
+        "arthur-mergeon",
+        "asterix",
+        "blade",
+        "bloodseeker",
+        "chen-pingan",
+        "diamondhead",
+        "gutsy",
+        "homie",
+        "honglang",
+        "inu",
+        "kenshin",
+        "mog",
+        "mongol-command",
+        "one-punch-pet",
+        "patton",
+        "pimple",
+        "slayer-2",
+        "slayer-3",
+        "sora",
+        "spetz",
+        "thorfinn",
+        "thorny-shadow-v1",
+        "tiny-ichigo",
+        "valeria",
+        "weilong",
+        "weliwel",
+        "wukong-3",
+        "en-mask",
+        "kaiman",
+        "melina"
+      ],
+      "hostedPetIds": [],
+      "petCount": 31,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 27,
+        "installCount": 2066
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/category-heroic-warrior"
+      }
+    },
+    {
+      "id": "category-kawaii-wholesome",
+      "title": "Wholesome Kawaii",
+      "description": "50 wholesome kawaii from across the Petdex catalog.",
+      "kind": "category-sub",
+      "featured": true,
+      "hosted": true,
+      "loveScore": 2059.5,
+      "coverPetId": "baobao-2",
+      "petIds": [
+        "baobao-2",
+        "boba-2",
+        "bubu-2",
+        "bubu-3",
+        "doubao-2",
+        "ema",
+        "finderguy",
+        "guga",
+        "heimeiqiu",
+        "hirose",
+        "jiyi",
+        "kibshi",
+        "kupobyte",
+        "laurie",
+        "mirakyux",
+        "mochi-bear",
+        "momo",
+        "pan-chan",
+        "pumpkin",
+        "qgirl",
+        "ribbon-2",
+        "tenshi-kaiwai-2",
+        "xiaobai-2",
+        "xiwei",
+        "yuigahama-yui",
+        "yuiju",
+        "yuzu",
+        "zhoukeke",
+        "tenniskitty",
+        "luma",
+        "shellpop-snail"
+      ],
+      "hostedPetIds": [
+        "baobao-2",
+        "boba-2",
+        "bubu-2",
+        "bubu-3",
+        "doubao-2",
+        "ema",
+        "finderguy",
+        "guga",
+        "heimeiqiu",
+        "jiyi",
+        "kibshi",
+        "kupobyte",
+        "mochi-bear",
+        "pumpkin",
+        "tenshi-kaiwai-2",
+        "xiwei"
+      ],
+      "petCount": 31,
+      "hostedPetCount": 16,
+      "metrics": {
+        "likeCount": 75,
+        "installCount": 3969
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/category-kawaii-wholesome"
+      }
+    },
+    {
+      "id": "wizards-and-mages",
+      "title": "Wizards & Mages",
+      "description": "Spellcasters and arcane scholars. Pointy hats, glowing orbs, robes that swish.",
+      "kind": "curated",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 1571.5,
+      "coverPetId": "frieren-3",
+      "petIds": [
+        "frieren-3",
+        "frieren-4",
+        "white-mage",
+        "violet-mage",
+        "vivi",
+        "kiki",
+        "elaina-2",
+        "noctlet",
+        "prism",
+        "academicasi",
+        "ruri",
+        "ruri-2",
+        "umbral",
+        "lampy",
+        "shmutzy",
+        "monica",
+        "gojo"
+      ],
+      "hostedPetIds": [
+        "frieren-3",
+        "frieren-4",
+        "gojo"
+      ],
+      "petCount": 17,
+      "hostedPetCount": 3,
+      "metrics": {
+        "likeCount": 66,
+        "installCount": 3011
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/wizards-and-mages"
+      }
+    },
+    {
+      "id": "franchise-wuthering-waves",
+      "title": "Wuthering Waves",
+      "description": "10 community fan submissions inspired by Wuthering Waves. Made by Petdex creators.",
+      "kind": "franchise",
+      "featured": true,
+      "hosted": false,
+      "loveScore": 747,
+      "coverPetId": "aemeath",
+      "petIds": [
+        "aemeath",
+        "phrolova",
+        "denia-3",
+        "aemeath-2",
+        "aimis-child",
+        "yuno-pet",
+        "feixue-pet",
+        "aimisi-2",
+        "aimisi",
+        "phoebibi"
+      ],
+      "hostedPetIds": [],
+      "petCount": 10,
+      "hostedPetCount": 0,
+      "metrics": {
+        "likeCount": 40,
+        "installCount": 1414
+      },
+      "source": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/collections/franchise-wuthering-waves"
+      }
+    }
+  ]
+}

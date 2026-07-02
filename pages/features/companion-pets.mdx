@@ -1,0 +1,103 @@
+---
+title: "Companion Pets"
+description: "Curated Codex companion pet collections published as static JSON for RealTimeX clients."
+---
+
+# Companion Pets
+
+RealTimeX companion pets are published as static JSON and asset packs on docs.realtimex.ai. Clients can refresh the catalog without waiting for a desktop release.
+
+## Machine-readable artifacts
+
+| Artifact | Path | Public URL |
+|----------|------|------------|
+| Collections index | `/data/companion-collections.v1.json` | `https://docs.realtimex.ai/data/companion-collections.v1.json` |
+| Pets index | `/data/companion-pets.v1.json` | `https://docs.realtimex.ai/data/companion-pets.v1.json` |
+| Curation source | `/data/companion-curated.v1.json` | `https://docs.realtimex.ai/data/companion-curated.v1.json` |
+
+## Asset packs
+
+Each hosted pet lives under `/companion/{id}/`:
+
+- `pet.json` — pet manifest consumed by the Codex companion runtime
+- `spritesheet.webp` — 1536×1872 animation spritesheet
+
+Example:
+
+- `https://docs.realtimex.ai/companion/jolyne/pet.json`
+- `https://docs.realtimex.ai/companion/jolyne/spritesheet.webp`
+
+## Client flow
+
+1. Fetch `companion-collections.v1.json` to populate collection pickers.
+2. Fetch `companion-pets.v1.json` to resolve pet metadata and asset URLs.
+3. Download `pet.json` and `spritesheet.webp` from the resolved `assets` URLs.
+
+## Curation model
+
+This registry mirrors **all 101 Petdex featured collections** in the catalog, but only **self-hosts assets for the top 10 most-loved collections** (deduped, capped at 150 pets) to keep the GitHub repo size manageable.
+
+Scoring:
+
+- Collection rank: `sum(likeCount) + 0.5 × sum(installCount)` across member pets
+- Hosted pet cap: top 150 unique pets by the same formula within those 10 collections
+
+To refresh from upstream:
+
+1. Run `yarn import:petdex-collections` to rebuild `companion-curated.v1.json` from Petdex.
+2. Run `yarn sync:companions --prune` to sync hosted assets and remove unhosted packs.
+
+Or run both in one step:
+
+```bash
+yarn sync:companions:all
+```
+
+Useful flags:
+
+- `yarn sync:companions -- --registry-only` — rebuild JSON indexes without downloading spritesheets
+- `yarn sync:companions -- --offline` — regenerate indexes from pets already present under `public/companion/`
+- `yarn sync:companions -- --force` — re-download assets even when local packs already exist
+- `yarn sync:companions -- --prune` — delete pet packs not in the hosted set
+
+Environment overrides for import:
+
+- `PETDEX_HOSTED_COLLECTIONS=10`
+- `PETDEX_MAX_HOSTED_PETS=150`
+
+Each hosted entry includes attribution back to the original Petdex page. Non-hosted collections remain in the catalog with Petdex links only.
+
+## Schema notes
+
+**Collection**
+
+- `id` — stable slug used in URLs and lookups
+- `petIds` — ordered list of hosted pet IDs in this collection
+- `coverPetId` — pet used for collection cover art in UI
+- `source.url` — upstream Petdex collection page when applicable
+
+**Pet**
+
+- `assets.petJson` / `assets.spritesheet` — absolute URLs on docs.realtimex.ai
+- `attribution` — credit for the original Petdex creator when available
+
+## Client resolution
+
+The RealtimeX client decides where to load assets using two indexes:
+
+1. **`companion-pets.v1.json`** — authoritative list of self-hosted pets (~150). If a pet ID appears here, download from `assets.petJson` and `assets.spritesheet` on docs.realtimex.ai.
+2. **`companion-collections.v1.json`** — full catalog (101 collections). Each collection exposes:
+   - `petIds` — full membership for browse UI
+   - `hostedPetIds` — subset with docs-hosted assets (important when a hosted collection exceeds the global pet cap)
+   - `hosted: false` + `remoteAssets.petdexBase` — entire collection installs from Petdex
+
+**Algorithm**
+
+```text
+if petId in companion-pets.pets:
+  use docs.realtimex.ai/companion/{id}/...
+else:
+  resolve from Petdex manifest v2 (assetBase + spritesheet/petJson keys)
+```
+
+For collection grids, treat `collection.hostedPetIds.includes(petId)` as the per-pet hosted badge. Do not assume every pet in a hosted collection is self-hosted.

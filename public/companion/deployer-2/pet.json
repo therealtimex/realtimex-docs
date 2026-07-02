@@ -1,0 +1,6 @@
+{
+  "id": "deployer",
+  "displayName": "Deployer",
+  "description": "A tiny green deployer duck wearing a red cap, white float ring, sandals, and a unicorn float companion.",
+  "spritesheetPath": "spritesheet.webp"
+}

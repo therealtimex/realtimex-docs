@@ -1,0 +1,2880 @@
+{
+  "schemaVersion": 2,
+  "updatedAt": "2026-07-02",
+  "assetBase": "https://docs.realtimex.ai/companion",
+  "hosting": {
+    "strategy": "top-loved-collections",
+    "hostedCollectionCount": 10,
+    "maxHostedPets": 150,
+    "scoreFormula": "sum(likeCount) + 0.5 * sum(installCount)"
+  },
+  "total": 150,
+  "pets": [
+    {
+      "id": "boba",
+      "displayName": "Boba",
+      "description": "A tiny otter sipping bubble tea while keeping you company in Codex.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "crafter-originals",
+        "category-sea-creature"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/boba/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/boba/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/boba",
+        "name": "railly"
+      }
+    },
+    {
+      "id": "doraemon",
+      "displayName": "Doraemon",
+      "description": "A compact blue robot-cat Codex pet inspired by 哆啦A梦, simplified into a pixel-adjacent desktop mascot.",
+      "kind": "character",
+      "hosted": true,
+      "collectionIds": [
+        "cats-universe",
+        "category-playful-cat"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/doraemon/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/doraemon/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/doraemon",
+        "name": "korkyzer"
+      }
+    },
+    {
+      "id": "ddo-zvzo-2",
+      "displayName": "ddo-zvzo",
+      "description": "ZVZO 마스코트 봇. A compact purple DDO mascot with clean motion, expressions, and occasional sunglasses.",
+      "kind": "character",
+      "hosted": true,
+      "collectionIds": [
+        "category-playful-kawaii"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/ddo-zvzo-2/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/ddo-zvzo-2/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/ddo-zvzo-2",
+        "name": "준회 Junhoe Kim 김."
+      }
+    },
+    {
+      "id": "wangcai",
+      "displayName": "Wangcai",
+      "description": "A calm fluffy ragdoll cat with blue eyes, dark ears, and a gentle face.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-calm-cat"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/wangcai/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/wangcai/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/wangcai",
+        "name": "boxu-openai"
+      }
+    },
+    {
+      "id": "noir-webling",
+      "displayName": "Noir Webling",
+      "description": "A tiny monochrome spider detective in a fedora and trench coat, built for shadowy Codex investigations.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "crafter-originals"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/noir-webling/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/noir-webling/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/noir-webling",
+        "name": "railly"
+      }
+    },
+    {
+      "id": "baobao-2",
+      "displayName": "Baobao",
+      "description": "A compact panda-girl Codex companion with a round face, black-and-white palette, short dark hair, bamboo-leaf hair ornament, and a small hooded cape.",
+      "kind": "character",
+      "hosted": true,
+      "collectionIds": [
+        "category-kawaii-wholesome"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/baobao-2/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/baobao-2/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/baobao-2",
+        "name": "cn-wenyu"
+      }
+    },
+    {
+      "id": "luffy",
+      "displayName": "Luffy",
+      "description": "A tiny straw-hat pirate captain pet with a red vest, blue shorts, and cheerful rubbery energy.",
+      "kind": "character",
+      "hosted": true,
+      "collectionIds": [
+        "anime-heroes"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/luffy/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/luffy/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/luffy",
+        "name": "Oleg S."
+      }
+    },
+    {
+      "id": "deployer-2",
+      "displayName": "Deployer",
+      "description": "A tiny green deployer duck wearing a red cap, white float ring, sandals, and a unicorn float companion.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-playful-bird"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/deployer-2/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/deployer-2/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/deployer-2",
+        "name": "Mission S."
+      }
+    },
+    {
+      "id": "kiwi",
+      "displayName": "Kiwi",
+      "description": "A compact conure-style Codex pet with a whiter belly, green wings, blue accents, and a warm orange-red tail.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-playful-bird"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/kiwi/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/kiwi/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/kiwi",
+        "name": "智 左."
+      }
+    },
+    {
+      "id": "xiwei",
+      "displayName": "Xiwei",
+      "description": "A cute chibi digital pet inspired by Tian Xiwei's black long straight hair, airy bangs, and white lace-trim outfit.",
+      "kind": "character",
+      "hosted": true,
+      "collectionIds": [
+        "category-kawaii-wholesome"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/xiwei/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/xiwei/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/xiwei",
+        "name": "xxww0098"
+      }
+    },
+    {
+      "id": "nezuko",
+      "displayName": "Nezuko",
+      "description": "A cute Codex digital pet inspired by Nezuko Kamado.",
+      "kind": "character",
+      "hosted": true,
+      "collectionIds": [
+        "anime-heroes"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/nezuko/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/nezuko/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/nezuko",
+        "name": "sintaxx"
+      }
+    },
+    {
+      "id": "capy",
+      "displayName": "Capy",
+      "description": "An original emotionally stable capybara with a tiny orange on its head.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-exotic-animal"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/capy/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/capy/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/capy",
+        "name": "yjcys"
+      }
+    },
+    {
+      "id": "goku",
+      "displayName": "Goku",
+      "description": "A cute compact Codex pet based on a spiky-haired orange-gi martial arts hero.",
+      "kind": "character",
+      "hosted": true,
+      "collectionIds": [
+        "anime-heroes"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/goku/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/goku/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/goku",
+        "name": "shaomings"
+      }
+    },
+    {
+      "id": "theveller",
+      "displayName": "TheVeller",
+      "description": "A tiny white goose avatar companion holding a slice of toast.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-playful-bird"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/theveller/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/theveller/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/theveller",
+        "name": "theveller"
+      }
+    },
+    {
+      "id": "gojo",
+      "displayName": "Gojo",
+      "description": "A Codex digital pet inspired by Gojo Satoru, simplified as a white-haired chibi sorcerer with a black blindfold and high-collar black uniform.",
+      "kind": "character",
+      "hosted": true,
+      "collectionIds": [
+        "anime-heroes"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/gojo/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/gojo/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/gojo",
+        "name": "剑文 张."
+      }
+    },
+    {
+      "id": "gugugaga-2",
+      "displayName": "咕咕嘎嘎",
+      "description": "咕咕嘎嘎是一只会把口头禅挂在嘴边的小企鹅 Codex 宠物。.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-playful-bird"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/gugugaga-2/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/gugugaga-2/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/gugugaga-2",
+        "name": "c u."
+      }
+    },
+    {
+      "id": "duo",
+      "displayName": "Duo",
+      "description": "Learning companion with expressive chibi sprite poses.",
+      "kind": "character",
+      "hosted": true,
+      "collectionIds": [
+        "crafter-originals"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/duo/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/duo/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/duo",
+        "name": "railly"
+      }
+    },
+    {
+      "id": "itachi",
+      "displayName": "Itachi",
+      "description": "A tiny calm rogue ninja pet with dark hair, red eyes, and a black cloak with red cloud-like markings.",
+      "kind": "character",
+      "hosted": true,
+      "collectionIds": [
+        "anime-heroes"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/itachi/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/itachi/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/itachi",
+        "name": "Andreas T."
+      }
+    },
+    {
+      "id": "zoro",
+      "displayName": "Zoro",
+      "description": "A tiny chibi three-sword pirate swordsman pet with green hair, one closed scarred left eye, a handle-bitten mouth sword, and one purple left-hand sword.",
+      "kind": "character",
+      "hosted": true,
+      "collectionIds": [
+        "anime-heroes"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/zoro/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/zoro/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/zoro",
+        "name": "pacient"
+      }
+    },
+    {
+      "id": "claude-crab",
+      "displayName": "Claude Crab",
+      "description": "A tiny orange blocky Claude Code mascot pet with black square eyes and four little legs.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-sea-creature"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/claude-crab/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/claude-crab/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/claude-crab",
+        "name": "Dery F."
+      }
+    },
+    {
+      "id": "goku-blue",
+      "displayName": "Goku Blue",
+      "description": "A Super Saiyan Blue Goku-inspired Codex companion with combat-ready martial stances and ki-driven movement.",
+      "kind": "character",
+      "hosted": true,
+      "collectionIds": [
+        "anime-heroes"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/goku-blue/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/goku-blue/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/goku-blue",
+        "name": "MaverickLh1"
+      }
+    },
+    {
+      "id": "mallow",
+      "displayName": "Mallow",
+      "description": "A Codex digital pet based on the user cat: plush gray-and-white bicolor cat with gold eyes, pink nose, white bib and paws, gray mask, fluffy belly, and serious expression.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "cats-universe"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/mallow/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/mallow/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/mallow",
+        "name": "Aidil"
+      }
+    },
+    {
+      "id": "naruto",
+      "displayName": "Naruto",
+      "description": "A restless chibi Shippuden shinobi pet with blond spikes, whisker marks, orange-black outfit, and stubborn never-give-up energy.",
+      "kind": "character",
+      "hosted": true,
+      "collectionIds": [
+        "anime-heroes"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/naruto/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/naruto/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/naruto",
+        "name": "Narek-Khachikyan"
+      }
+    },
+    {
+      "id": "jiyi",
+      "displayName": "吉伊",
+      "description": "A round white chibi bear with dark chocolate outlines, pink cheeks, tiny limbs, curled ears, and a small pink bear pouch.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-kawaii-wholesome"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/jiyi/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/jiyi/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/jiyi",
+        "name": "tukauilh"
+      }
+    },
+    {
+      "id": "lulu-capybara",
+      "displayName": "噜噜",
+      "description": "一个 Codex 小宠物版水豚噜噜：黄色圆润身体，橙色大鼻口和脸颊，头顶橙色小果帽与一根绿色嫩芽，短耳，短手短脚，睁大的圆眼，表情可爱治愈。.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-exotic-animal"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/lulu-capybara/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/lulu-capybara/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/lulu-capybara",
+        "name": "HMY"
+      }
+    },
+    {
+      "id": "anya-2",
+      "displayName": "阿尼亚",
+      "description": "A Codex-style digital pet version of Anya Forger from SPY x FAMILY.",
+      "kind": "character",
+      "hosted": true,
+      "collectionIds": [
+        "category-playful-kawaii"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/anya-2/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/anya-2/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/anya-2",
+        "name": "Thomas W."
+      }
+    },
+    {
+      "id": "capybaralulu",
+      "displayName": "CapybaraLuLu",
+      "description": "A cheerful round yellow capybara-like chibi pet with a large orange muzzle and a tiny fruit on its head.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-exotic-animal"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/capybaralulu/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/capybaralulu/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/capybaralulu",
+        "name": "ajchen01"
+      }
+    },
+    {
+      "id": "boxcat",
+      "displayName": "Boxcat",
+      "description": "A tiny cat tucked inside a cardboard box for cozy coding sessions.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "cats-universe",
+        "crafter-originals"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/boxcat/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/boxcat/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/boxcat",
+        "name": "railly"
+      }
+    },
+    {
+      "id": "frieren-3",
+      "displayName": "Frieren",
+      "description": "A tiny chibi ancient elf mage Codex pet with silver twin-tail hair, white-and-gold robes, sleepy calm expression, and a floating red-orb staff.",
+      "kind": "character",
+      "hosted": true,
+      "collectionIds": [
+        "anime-heroes"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/frieren-3/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/frieren-3/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/frieren-3",
+        "name": "Jazii A."
+      }
+    },
+    {
+      "id": "doubao-2",
+      "displayName": "豆包",
+      "description": "A friendly Codex pet inspired by the provided avatar: a chibi young woman with a side-parted dark bob, large brown eyes, a soft face, and a simple black top.",
+      "kind": "character",
+      "hosted": true,
+      "collectionIds": [
+        "category-kawaii-wholesome"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/doubao-2/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/doubao-2/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/doubao-2",
+        "name": "xigua d."
+      }
+    },
+    {
+      "id": "cache-capy",
+      "displayName": "Cache Capy",
+      "description": "A calm capybara carrying a tiny cache box for patient builds.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "crafter-originals",
+        "category-exotic-animal"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/cache-capy/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/cache-capy/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/cache-capy",
+        "name": "railly"
+      }
+    },
+    {
+      "id": "totoro",
+      "displayName": "Totoro",
+      "description": "A pointy-eared chinchilla digital pet inspired by the reference.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "anime-heroes",
+        "category-exotic-animal"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/totoro/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/totoro/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/totoro",
+        "name": "vincentngo"
+      }
+    },
+    {
+      "id": "nibble",
+      "displayName": "Nibble",
+      "description": "A compact Codex digital pet based on Nibble, a tiny expressive gray baby mouse.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-exotic-animal"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/nibble/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/nibble/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/nibble",
+        "name": "kekkobaiano2002-commits"
+      }
+    },
+    {
+      "id": "nyami",
+      "displayName": "Luma",
+      "description": "A tiny silver-lilac catgirl companion with amber eyes, cat ears, and a fluffy tail.",
+      "kind": "character",
+      "hosted": true,
+      "collectionIds": [
+        "cats-universe"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/nyami/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/nyami/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/nyami",
+        "name": "bigbigdreamer"
+      }
+    },
+    {
+      "id": "pingu",
+      "displayName": "Pingu",
+      "description": "Noot-Noot！",
+      "kind": "character",
+      "hosted": true,
+      "collectionIds": [
+        "category-playful-bird"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/pingu/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/pingu/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/pingu",
+        "name": "hemuling"
+      }
+    },
+    {
+      "id": "gugugaga",
+      "displayName": "咕咕嘎嘎",
+      "description": "A cheerful chibi girl in a black penguin suit with a simple silver collar pendant.",
+      "kind": "character",
+      "hosted": true,
+      "collectionIds": [
+        "category-playful-kawaii"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/gugugaga/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/gugugaga/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/gugugaga",
+        "name": "ych"
+      }
+    },
+    {
+      "id": "guga",
+      "displayName": "Guga",
+      "description": "咕咕嘎嘎小企鹅，穿着黑白企鹅装的圆润小伙伴。.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-kawaii-wholesome"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/guga/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/guga/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/guga",
+        "name": "zclouder"
+      }
+    },
+    {
+      "id": "calico",
+      "displayName": "Calico",
+      "description": "A compact chibi calico cat Codex pet with white body, black patches, orange patches, pink nose, and expressive ears.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "cats-universe"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/calico/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/calico/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/calico",
+        "name": "Serhat"
+      }
+    },
+    {
+      "id": "mochi",
+      "displayName": "Mochi",
+      "description": "A cute chibi cat companion for Codex.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "cats-universe"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/mochi/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/mochi/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/mochi",
+        "name": "Aoi"
+      }
+    },
+    {
+      "id": "sukuna",
+      "displayName": "Sukuna",
+      "description": "A compact chibi digital pet of early-series Sukuna possessing Yuji's body, with pink hair, black tattoos, and an idle pose on a throne of skulls.",
+      "kind": "character",
+      "hosted": true,
+      "collectionIds": [
+        "anime-heroes"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/sukuna/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/sukuna/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/sukuna",
+        "name": "andrew-girgis"
+      }
+    },
+    {
+      "id": "taffy",
+      "displayName": "Taffy",
+      "description": "A tiny pixel chibi aviator girl pet with pink hair, round brass goggles with heart lenses, and a waist charm matching the plush face from the second reference.",
+      "kind": "character",
+      "hosted": true,
+      "collectionIds": [
+        "category-playful-kawaii"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/taffy/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/taffy/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/taffy",
+        "name": "ABCOA"
+      }
+    },
+    {
+      "id": "frieren-4",
+      "displayName": "Frieren",
+      "description": "Uma pequena maga elfa inspirada na Frieren, calma e curiosa.",
+      "kind": "character",
+      "hosted": true,
+      "collectionIds": [
+        "anime-heroes"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/frieren-4/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/frieren-4/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/frieren-4",
+        "name": "Matheus R."
+      }
+    },
+    {
+      "id": "kyojuro-rengoku",
+      "displayName": "炼狱杏寿郎",
+      "description": "以鬼灭之刃炼狱杏寿郎为灵感的 Codex 数字宠物，保留火焰发型、披风火焰下摆、日轮刀轮廓与热血神态。",
+      "kind": "character",
+      "hosted": true,
+      "collectionIds": [
+        "anime-heroes"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/kyojuro-rengoku/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/kyojuro-rengoku/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/kyojuro-rengoku",
+        "name": "flevin02"
+      }
+    },
+    {
+      "id": "luffy-2",
+      "displayName": "Luffy",
+      "description": "A tiny chibi rubber pirate captain pet with a straw hat, red vest, blue shorts, sandals, and a cheerful brave grin.",
+      "kind": "character",
+      "hosted": true,
+      "collectionIds": [
+        "anime-heroes"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/luffy-2/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/luffy-2/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/luffy-2",
+        "name": "emantrigo"
+      }
+    },
+    {
+      "id": "kebo",
+      "displayName": "Kebo",
+      "description": "A tiny white koala fintech companion with purple accents, black shirt, and cheerful money check-in energy.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "crafter-originals",
+        "category-exotic-animal"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/kebo/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/kebo/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/kebo",
+        "name": "railly"
+      }
+    },
+    {
+      "id": "qq-penguin",
+      "displayName": "QQ Penguin",
+      "description": "A compact black-and-white chibi penguin companion with a red scarf, yellow beak and feet, simplified for Codex pet animations.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-playful-bird"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/qq-penguin/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/qq-penguin/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/qq-penguin",
+        "name": "liyupi"
+      }
+    },
+    {
+      "id": "gugugaga-5",
+      "displayName": "gugugaga",
+      "description": "A goofy chibi penguin-suit Codex pet with black hair, blue eyes, yellow beak and feet, a pink penguin outer suit, and a silver neck charm.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-playful-bird"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/gugugaga-5/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/gugugaga-5/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/gugugaga-5",
+        "name": "allicere"
+      }
+    },
+    {
+      "id": "finderguy",
+      "displayName": "Finder Guy",
+      "description": "A friendly and curious 3D toy mascot with a rounded head, tiny black dot eyes, simple expressive face, stubby limbs, and soft studio-photographic lighting.",
+      "kind": "character",
+      "hosted": true,
+      "collectionIds": [
+        "category-kawaii-wholesome"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/finderguy/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/finderguy/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/finderguy",
+        "name": "Pietro S."
+      }
+    },
+    {
+      "id": "piney",
+      "displayName": "Piney",
+      "description": "A cute round footless pineapple cartoon pet inspired by the provided reference.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-playful-kawaii"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/piney/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/piney/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/piney",
+        "name": "kuzeze"
+      }
+    },
+    {
+      "id": "bubu-3",
+      "displayName": "Bubu",
+      "description": "A limbless round orange carrot companion with green leaves, thick outlines, and gentle desktop-pet expressions.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-kawaii-wholesome"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/bubu-3/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/bubu-3/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/bubu-3",
+        "name": "je1zzz"
+      }
+    },
+    {
+      "id": "gugugaga-6",
+      "displayName": "GuGuGaGa",
+      "description": "A compact chibi penguin-hood companion with a paperclip charm, based on the provided three-view reference.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-playful-kawaii"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/gugugaga-6/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/gugugaga-6/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/gugugaga-6",
+        "name": "mr-bob666"
+      }
+    },
+    {
+      "id": "feibi",
+      "displayName": "feibi",
+      "description": "a lovely girl",
+      "kind": "character",
+      "hosted": true,
+      "collectionIds": [
+        "category-playful-kawaii"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/feibi/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/feibi/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/feibi",
+        "name": "Tamiki"
+      }
+    },
+    {
+      "id": "kitmar",
+      "displayName": "Marin-chan",
+      "description": "A cheerful, charming digital companion inspired by the Marin Kitagawa.",
+      "kind": "character",
+      "hosted": true,
+      "collectionIds": [
+        "category-playful-kawaii"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/kitmar/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/kitmar/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/kitmar",
+        "name": "Siritas D."
+      }
+    },
+    {
+      "id": "emma",
+      "displayName": "Emma",
+      "description": "A whiter cream tabby Siamese cat with cool gray-brown points and blue eyes for Codex.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-calm-cat",
+        "cats-universe"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/emma/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/emma/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/emma",
+        "name": "nachoestevo"
+      }
+    },
+    {
+      "id": "sabo",
+      "displayName": "Sabo",
+      "description": "A tiny chibi revolutionary gentleman pet with a top hat, goggles, blue coat, and occasional attached flame effects.",
+      "kind": "character",
+      "hosted": true,
+      "collectionIds": [
+        "anime-heroes"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/sabo/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/sabo/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/sabo",
+        "name": "leroks"
+      }
+    },
+    {
+      "id": "tilly",
+      "displayName": "Tilly",
+      "description": "Tilly is a fluffy long-haired calico kitty with a white chest ruff, pink nose, green-yellow eyes, and calm curious expression.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-calm-cat",
+        "cats-universe"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/tilly/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/tilly/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/tilly",
+        "name": "xigbclutchix"
+      }
+    },
+    {
+      "id": "maodie",
+      "displayName": "圆头耄耋",
+      "description": "一只圆头飞机耳、表情很不服的橘色 Codex 小猫。.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-playful-cat"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/maodie/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/maodie/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/maodie",
+        "name": "Zarad0X"
+      }
+    },
+    {
+      "id": "gugugaga-3",
+      "displayName": "GUGUGAGA",
+      "description": "A chibi penguin-suit desktop pet girl with black bob hair, blue-gray eyes, yellow beak hood, white belly, flippers, yellow feet, and a silver ring accessory.",
+      "kind": "character",
+      "hosted": true,
+      "collectionIds": [
+        "category-playful-bird"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/gugugaga-3/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/gugugaga-3/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/gugugaga-3",
+        "name": "shampook1"
+      }
+    },
+    {
+      "id": "torty",
+      "displayName": "Torty",
+      "description": "A bespectacled long-eared jerboa in a lab gown for Codex.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-exotic-animal"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/torty/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/torty/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/torty",
+        "name": "getadeo"
+      }
+    },
+    {
+      "id": "rocky",
+      "displayName": "Rocky",
+      "description": "A tiny faceless rocklike alien companion with carved stone plates and turquoise joints.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-exotic-animal"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/rocky/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/rocky/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/rocky",
+        "name": "sj-bs"
+      }
+    },
+    {
+      "id": "byte-bunny",
+      "displayName": "Byte Bunny",
+      "description": "A tiny rabbit holding a little keyboard key like a lucky charm.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "crafter-originals"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/byte-bunny/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/byte-bunny/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/byte-bunny",
+        "name": "railly"
+      }
+    },
+    {
+      "id": "acetafy",
+      "displayName": "acetafy",
+      "description": "A tiny pink cat-eared chibi companion with golden eyes and a white-and-navy outfit.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-playful-cat"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/acetafy/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/acetafy/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/acetafy",
+        "name": "Pigeon w."
+      }
+    },
+    {
+      "id": "heimeiqiu",
+      "displayName": "黑煤球",
+      "description": "黑煤球是圆圆黑黑的一团，头顶小红花，看起来像会默默陪在你旁边的小伙伴。写代码的时候它可以待机、跑动、打招呼、开心、委屈、等待、忙碌和 review，希望火星人看到会觉得亲切。",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-kawaii-wholesome"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/heimeiqiu/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/heimeiqiu/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/heimeiqiu",
+        "name": "Qi P."
+      }
+    },
+    {
+      "id": "miso",
+      "displayName": "Miso",
+      "description": "Miso, Brian’s blue-eyed white kitten companion with a pink nose and soft gray tabby cap markings.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "cats-universe"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/miso/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/miso/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/miso",
+        "name": "Brian C."
+      }
+    },
+    {
+      "id": "cosmo",
+      "displayName": "Crafternauta",
+      "description": "A tiny yellow astronaut companion with a black visor face and cheerful expression.",
+      "kind": "character",
+      "hosted": true,
+      "collectionIds": [
+        "crafter-originals"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/cosmo/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/cosmo/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/cosmo",
+        "name": "railly"
+      }
+    },
+    {
+      "id": "happy-cat",
+      "displayName": "Happy Cat",
+      "description": "A tiny Happy Happy Happy Cat digital pet based on the awkward bouncing mostly-white kitten behind glass.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "cats-universe",
+        "category-playful-cat"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/happy-cat/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/happy-cat/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/happy-cat",
+        "name": "1r1l2e6pkjj6vfgb69"
+      }
+    },
+    {
+      "id": "prompt-penguin",
+      "displayName": "Prompt Penguin",
+      "description": "A small penguin holding a folded prompt scroll.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "crafter-originals"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/prompt-penguin/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/prompt-penguin/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/prompt-penguin",
+        "name": "railly"
+      }
+    },
+    {
+      "id": "tenshi-kaiwai-2",
+      "displayName": "天使界隈",
+      "description": "銀髪と淡い青緑の服、小さな羽と輪っかを持つ、やさしく少し気まぐれな天使モチーフのカスタムペット。",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-kawaii-wholesome"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/tenshi-kaiwai-2/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/tenshi-kaiwai-2/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/tenshi-kaiwai-2",
+        "name": "seishinshigo"
+      }
+    },
+    {
+      "id": "silvercat-calm",
+      "displayName": "银渐层小猫",
+      "description": "安静陪你写代码的银渐层像素宠物，慵懒可爱，会跑会趴也会失落。",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-calm-cat"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/silvercat-calm/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/silvercat-calm/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/silvercat-calm",
+        "name": "立方体"
+      }
+    },
+    {
+      "id": "ema",
+      "displayName": "aima",
+      "description": "A gentle black-and-white flower schoolgirl companion with white hair and pink accents.",
+      "kind": "character",
+      "hosted": true,
+      "collectionIds": [
+        "category-kawaii-wholesome"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/ema/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/ema/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/ema",
+        "name": "cysteine c."
+      }
+    },
+    {
+      "id": "oo-ee-a-e-a-cat",
+      "displayName": "Oo Ee A E A Cat",
+      "description": "The Oo Ee A E A / psyop cat, a compact tabby meme cat for Codex.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-playful-cat"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/oo-ee-a-e-a-cat/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/oo-ee-a-e-a-cat/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/oo-ee-a-e-a-cat",
+        "name": "1r1l2e6pkjj6vfgb69"
+      }
+    },
+    {
+      "id": "buya",
+      "displayName": "不鸭",
+      "description": "不鸭, a calm silly white duck mascot with a rounded head, long neck, tiny dot eyes, thick black line art, and an orange beak.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-playful-bird"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/buya/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/buya/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/buya",
+        "name": "pwq309"
+      }
+    },
+    {
+      "id": "killua",
+      "displayName": "Killua",
+      "description": "A high-quality Killua Zoldyck Codex pet matching Gon, with Shadow Gait idle, assassin movement, Godspeed lightning, yo-yos, and bloodlust focus animations.",
+      "kind": "character",
+      "hosted": true,
+      "collectionIds": [
+        "anime-heroes"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/killua/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/killua/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/killua",
+        "name": "the406operation"
+      }
+    },
+    {
+      "id": "siam",
+      "displayName": "Siam",
+      "description": "A tiny Siamese cat companion with dark points and bright blue eyes.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-calm-cat",
+        "cats-universe"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/siam/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/siam/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/siam",
+        "name": "Jaden T."
+      }
+    },
+    {
+      "id": "nukey",
+      "displayName": "Nukey",
+      "description": "A tiny friendly microwave companion for snack-fueled builds.",
+      "kind": "object",
+      "hosted": true,
+      "collectionIds": [
+        "crafter-originals"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/nukey/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/nukey/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/nukey",
+        "name": "railly"
+      }
+    },
+    {
+      "id": "axobotl",
+      "displayName": "Axobotl",
+      "description": "A tiny blue axolotl Codex companion based on the provided reference image.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-exotic-animal"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/axobotl/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/axobotl/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/axobotl",
+        "name": "Joel E."
+      }
+    },
+    {
+      "id": "chonk",
+      "displayName": "Chonk",
+      "description": "A chubby little black cat with big round green eyes and a tiny pink nose.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "cats-universe"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/chonk/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/chonk/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/chonk",
+        "name": "Marcus F."
+      }
+    },
+    {
+      "id": "pixel-panda",
+      "displayName": "Pixel Panda",
+      "description": "A gentle panda holding a tiny pixel brush.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "crafter-originals"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/pixel-panda/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/pixel-panda/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/pixel-panda",
+        "name": "railly"
+      }
+    },
+    {
+      "id": "clawdex",
+      "displayName": "Clawdex",
+      "description": "A tiny red lobster companion in a dark Codex hoodie and sunglasses, carrying a laptop.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-sea-creature"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/clawdex/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/clawdex/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/clawdex",
+        "name": "seedofevil"
+      }
+    },
+    {
+      "id": "kit-t",
+      "displayName": "呆猫（KIT T）",
+      "description": "老大，我来帮你了喵！",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-playful-cat"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/kit-t/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/kit-t/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/kit-t",
+        "name": "phoenixxyc"
+      }
+    },
+    {
+      "id": "da-zhuang-2",
+      "displayName": "大壮",
+      "description": "A motion-rich Codex pet based on Q大壮 videos: round-faced silver shaded cat with low crouch, side-lying, push-paw, scratcher-loaf, short shuffle, sleepy supervising expressions.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-playful-cat"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/da-zhuang-2/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/da-zhuang-2/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/da-zhuang-2",
+        "name": "Kenneth"
+      }
+    },
+    {
+      "id": "inari",
+      "displayName": "Inari",
+      "description": "蓝白色狐形 Codex 桌宠，第三版。",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-playful-kawaii"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/inari/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/inari/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/inari",
+        "name": "Jethuit"
+      }
+    },
+    {
+      "id": "cash-cuy",
+      "displayName": "Cash Cuy",
+      "description": "A tiny magical guinea pig that brings money luck to your Codex workspace.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "crafter-originals",
+        "category-exotic-animal"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/cash-cuy/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/cash-cuy/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/cash-cuy",
+        "name": "railly"
+      }
+    },
+    {
+      "id": "gugugaga-4",
+      "displayName": "咕咕嘎嘎",
+      "description": "咕咕嘎嘎: a tiny chibi desktop pet in a black penguin hoodie with a yellow beak, white belly, blue X hair clip, short black hair, and bright eyes.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-playful-bird"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/gugugaga-4/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/gugugaga-4/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/gugugaga-4",
+        "name": "ruosu0909"
+      }
+    },
+    {
+      "id": "gugugaga-7",
+      "displayName": "咕咕嘎嘎",
+      "description": "A tiny chibi penguin companion in a penguin hoodie, with black bob hair, blue-gray eyes, yellow beak and feet, and a playful gu-gu-ga-ga personality.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-playful-bird"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/gugugaga-7/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/gugugaga-7/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/gugugaga-7",
+        "name": "ZhangYiLin"
+      }
+    },
+    {
+      "id": "socksy",
+      "displayName": "Socksy",
+      "description": "A tiny loyal sock elf with oversized ears and gentle green eyes.",
+      "kind": "character",
+      "hosted": true,
+      "collectionIds": [
+        "crafter-originals"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/socksy/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/socksy/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/socksy",
+        "name": "railly"
+      }
+    },
+    {
+      "id": "gon",
+      "displayName": "Gon",
+      "description": "A high-quality Gon Freecss Codex pet with Heavens Arena battle runs, handstand training, adult transformation, sleeping, Jajanken, and Gyo watching animations.",
+      "kind": "character",
+      "hosted": true,
+      "collectionIds": [
+        "anime-heroes"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/gon/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/gon/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/gon",
+        "name": "the406operation"
+      }
+    },
+    {
+      "id": "swag",
+      "displayName": "Swag",
+      "description": "A swaggy penguin with sunglasses.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-playful-bird"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/swag/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/swag/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/swag",
+        "name": "jsap7"
+      }
+    },
+    {
+      "id": "boolet",
+      "displayName": "Boolet",
+      "description": "A cute minimalist kawaii ghost pet holding a tiny round pumpkin friend.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-playful-kawaii"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/boolet/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/boolet/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/boolet",
+        "name": "Deeksha S."
+      }
+    },
+    {
+      "id": "anon-2",
+      "displayName": "anon",
+      "description": "A chibi pink-haired girl in a yellow dinosaur hoodie mascot suit.",
+      "kind": "character",
+      "hosted": true,
+      "collectionIds": [
+        "category-playful-kawaii"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/anon-2/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/anon-2/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/anon-2",
+        "name": "mahoshojohcg"
+      }
+    },
+    {
+      "id": "canary",
+      "displayName": "Canary",
+      "description": "A tiny yellow canary companion with a balanced oversized rounded head and small body.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "crafter-originals",
+        "category-playful-bird"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/canary/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/canary/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/canary",
+        "name": "railly"
+      }
+    },
+    {
+      "id": "marmalade",
+      "displayName": "Marmalade",
+      "description": "A cute orange cat companion with a cheerful expression.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "cats-universe"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/marmalade/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/marmalade/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/marmalade",
+        "name": "danielpvictorino"
+      }
+    },
+    {
+      "id": "boba-2",
+      "displayName": "Boba",
+      "description": "A tiny bubble tea cup mascot with tapioca pearls, straw, and cheerful face.",
+      "kind": "object",
+      "hosted": true,
+      "collectionIds": [
+        "category-kawaii-wholesome"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/boba-2/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/boba-2/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/boba-2",
+        "name": "Chun-Chao L."
+      }
+    },
+    {
+      "id": "daimao",
+      "displayName": "Daimao",
+      "description": "A tiny blue-hooded cat companion with a silly round face, inspired by the provided Monster Hunter Palico references.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-playful-cat"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/daimao/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/daimao/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/daimao",
+        "name": "gstarp"
+      }
+    },
+    {
+      "id": "harry-poptart",
+      "displayName": "Harry Poptart",
+      "description": "A tiny pastry-bodied rainbow cat with enormous thick round glasses, made for goofy focus energy.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "cats-universe",
+        "category-playful-cat"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/harry-poptart/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/harry-poptart/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/harry-poptart",
+        "name": "Travis F."
+      }
+    },
+    {
+      "id": "shrimpy",
+      "displayName": "Shrimpy",
+      "description": "Shrimpy, my sweet cuddly real-life companion, reimagined as a cozy Codex digital pet for gentle coding sessions.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "cats-universe"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/shrimpy/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/shrimpy/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/shrimpy",
+        "name": "aikusan"
+      }
+    },
+    {
+      "id": "yamcha",
+      "displayName": "Yamcha",
+      "description": "A compact pixel-art martial artist pet in an orange gi, idling calmly, running around, and powering up.",
+      "kind": "character",
+      "hosted": true,
+      "collectionIds": [
+        "anime-heroes"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/yamcha/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/yamcha/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/yamcha",
+        "name": "Addis E."
+      }
+    },
+    {
+      "id": "scoop",
+      "displayName": "Scoop",
+      "description": "A tiny ice cream cone digital pet with a cheerful face.",
+      "kind": "object",
+      "hosted": true,
+      "collectionIds": [
+        "crafter-originals",
+        "category-playful-kawaii"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/scoop/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/scoop/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/scoop",
+        "name": "railly"
+      }
+    },
+    {
+      "id": "run-dimo",
+      "displayName": "Dimo",
+      "description": "A small four-legged blue-and-white sprite companion with yellow markings, lively ears, and a star-tipped tail.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-exotic-animal"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/run-dimo/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/run-dimo/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/run-dimo",
+        "name": "nelson-wu2025"
+      }
+    },
+    {
+      "id": "kibshi",
+      "displayName": "KIBSHI",
+      "description": "KIBSHI is a tiny chibi shiba companion using the attached plush-like shiba face as its identity.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-kawaii-wholesome"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/kibshi/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/kibshi/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/kibshi",
+        "name": "Best S."
+      }
+    },
+    {
+      "id": "sima",
+      "displayName": "Sima",
+      "description": "This is my cat. He passed away, but I wish he could be here with me, even if only in this way.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "cats-universe"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/sima/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/sima/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/sima",
+        "name": "Костянтин Б."
+      }
+    },
+    {
+      "id": "strawwy",
+      "displayName": "strawwy",
+      "description": "A rounded strawberry-suit mascot with a cute face, glossy finish, and Codex pet proportions.",
+      "kind": "character",
+      "hosted": true,
+      "collectionIds": [
+        "category-playful-kawaii"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/strawwy/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/strawwy/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/strawwy",
+        "name": "zwu528303-wq"
+      }
+    },
+    {
+      "id": "illya",
+      "displayName": "Illya",
+      "description": "A tiny chibi magical girl inspired by Illya in a pink outfit with white-blonde hair, red eyes, cape, wand, and cheerful energy.",
+      "kind": "character",
+      "hosted": true,
+      "collectionIds": [
+        "category-playful-kawaii"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/illya/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/illya/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/illya",
+        "name": "alpha W."
+      }
+    },
+    {
+      "id": "a-b",
+      "displayName": "A-B",
+      "description": "A tiny cheerful pink fairy companion with purple puff hair, big blue eyes, a blue petal dress, translucent wings, and a small star wand.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-playful-kawaii"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/a-b/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/a-b/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/a-b",
+        "name": "Harley W."
+      }
+    },
+    {
+      "id": "ditta",
+      "displayName": "Ditta",
+      "description": "A quiet black cat companion with yellow eyes and white whiskers.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-calm-cat",
+        "cats-universe"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/ditta/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/ditta/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/ditta",
+        "name": "Asdrúbal C."
+      }
+    },
+    {
+      "id": "mochi-bear",
+      "displayName": "Mochi Bear",
+      "description": "A tiny white doodle bear desktop pet based on the provided reference image.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-kawaii-wholesome"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/mochi-bear/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/mochi-bear/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/mochi-bear",
+        "name": "旭 陈."
+      }
+    },
+    {
+      "id": "xiaobao",
+      "displayName": "小豹",
+      "description": "A compact chibi digital pet based on 小豹, a grey-brown Chinese tabby cat with leopard-like stripes and bright round eyes.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-playful-cat"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/xiaobao/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/xiaobao/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/xiaobao",
+        "name": "Ziva X."
+      }
+    },
+    {
+      "id": "kaka",
+      "displayName": "Kaka",
+      "description": "Kaka (卡卡) is a nostalgic golden lion companion inspired by the Rising AntiVirus (瑞星杀毒) mascot, remembered fondly by many people in China.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-exotic-animal"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/kaka/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/kaka/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/kaka",
+        "name": "chada"
+      }
+    },
+    {
+      "id": "kwehlet",
+      "displayName": "Kwehlet",
+      "description": "A tiny golden fantasy bird companion with a cheerful face, stout legs, and a fluffy crest.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-playful-bird"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/kwehlet/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/kwehlet/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/kwehlet",
+        "name": "Strictly O."
+      }
+    },
+    {
+      "id": "da-zhuang",
+      "displayName": "大壮",
+      "description": "A low, heavy, round-faced silver tabby Codex pet based on IMG_8007 and Q大壮 public life-state: lazy, sleepy-but-supervising, white-pawed, wide-cheeked, loaf-like.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-calm-cat"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/da-zhuang/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/da-zhuang/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/da-zhuang",
+        "name": "Kenneth"
+      }
+    },
+    {
+      "id": "jiro",
+      "displayName": "jiro",
+      "description": "A chibi armadillo lizard digital pet named jiro.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-exotic-animal"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/jiro/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/jiro/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/jiro",
+        "name": "communistjp"
+      }
+    },
+    {
+      "id": "longpaopao",
+      "displayName": "Longpaopao",
+      "description": "一个圆滚滚的白色龙泡泡数字宠物，保留参考图中的角、眼睛、额头斑点和表情。.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-playful-kawaii"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/longpaopao/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/longpaopao/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/longpaopao",
+        "name": "chntentes"
+      }
+    },
+    {
+      "id": "kupobyte",
+      "displayName": "kupoByte",
+      "description": "A miniature pixel-art Codex pet inspired by an FFXIV Moogle. Chibi-style round white body with no mouth; iconic features include closed squinting eyes, a soft pink nose, and cat-like whiskers. It sports a floating orange pom-pom on a wire-thin antenna and tiny dark bat wings",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-kawaii-wholesome"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/kupobyte/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/kupobyte/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/kupobyte",
+        "name": "Chris W."
+      }
+    },
+    {
+      "id": "pumpkin",
+      "displayName": "pumpkin",
+      "description": "A cheerful cartoon chibi pet named Pumpkin inspired by a blonde lighthearted girl in a flowing sky-blue dress.",
+      "kind": "character",
+      "hosted": true,
+      "collectionIds": [
+        "category-kawaii-wholesome"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/pumpkin/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/pumpkin/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/pumpkin",
+        "name": "yuedye"
+      }
+    },
+    {
+      "id": "chompers",
+      "displayName": "Chompers",
+      "description": "A chunky Steller sea lion inspired by Chonkers, the famous giant sea lion at San Francisco's Pier 39.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-sea-creature"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/chompers/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/chompers/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/chompers",
+        "name": "James D."
+      }
+    },
+    {
+      "id": "awawa-hyrax-2",
+      "displayName": "Awawa Hyrax",
+      "description": "A compact, strange little rock hyrax digital pet with beady eyes, a blunt dark nose, tiny tusks, wiry whiskers, and an awkward AWAWA expression.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-exotic-animal"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/awawa-hyrax-2/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/awawa-hyrax-2/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/awawa-hyrax-2",
+        "name": "Nicolas C."
+      }
+    },
+    {
+      "id": "bulby",
+      "displayName": "Bulby",
+      "description": "A tiny red-whiskered bulbul companion with a proud crest and warm fluffy body.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-playful-bird"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/bulby/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/bulby/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/bulby",
+        "name": "noiseorigin"
+      }
+    },
+    {
+      "id": "kuri-3",
+      "displayName": "Kuri",
+      "description": "An original cheeky fox-eared companion pet in a light blue sailor uniform.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-playful-kawaii"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/kuri-3/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/kuri-3/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/kuri-3",
+        "name": "梦璠 齐."
+      }
+    },
+    {
+      "id": "nightcap",
+      "displayName": "Nightcap",
+      "description": "A tiny grumpy sleepy cave-bat guardian in cozy moon-and-star pajamas with a blanket shawl and fuzzy slippers.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-exotic-animal"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/nightcap/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/nightcap/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/nightcap",
+        "name": "narek-khachikyan"
+      }
+    },
+    {
+      "id": "pudding",
+      "displayName": "Pudding",
+      "description": "A cheerful yellow-orange chubby baby monster desk pet with big glossy eyes, an open happy mouth, a white round belly, tiny arms and feet, and a small tail.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-playful-kawaii"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/pudding/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/pudding/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/pudding",
+        "name": "Jiahao C."
+      }
+    },
+    {
+      "id": "chedarini",
+      "displayName": "Chedarini",
+      "description": "A tiny tan chihuahua with huge glossy eyes, a pink nose, folded ears, and a slightly derpy suspicious expression.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "crafter-originals"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/chedarini/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/chedarini/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/chedarini",
+        "name": "railly"
+      }
+    },
+    {
+      "id": "kyle-kun",
+      "displayName": "カイルくん",
+      "description": "A cheerful tiny dolphin Codex pet named カイルくん.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-sea-creature"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/kyle-kun/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/kyle-kun/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/kyle-kun",
+        "name": "成美 如."
+      }
+    },
+    {
+      "id": "aqua-wisp",
+      "displayName": "Aqua Wisp",
+      "description": "A tiny teal blocky helper spirit with fin wings and a gentle curious face.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-sea-creature"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/aqua-wisp/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/aqua-wisp/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/aqua-wisp",
+        "name": "denghaowen59"
+      }
+    },
+    {
+      "id": "catalright",
+      "displayName": "CatAlright",
+      "description": "A cute original calm cat mascot inspired by the feeling of staying composed while things are chaotic.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-calm-cat"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/catalright/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/catalright/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/catalright",
+        "name": "Efrain R."
+      }
+    },
+    {
+      "id": "otto",
+      "displayName": "Otto",
+      "description": "A compact sea otter Codex pet with pale shaggy face fur, dark wet body, and clasped paws.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-sea-creature"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/otto/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/otto/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/otto",
+        "name": "judyclaude"
+      }
+    },
+    {
+      "id": "aoxiaotiger",
+      "displayName": "Aoxiao Tiger",
+      "description": "A lively orange tiger pet modified from 嗷小虎 drawn by murongaoao.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-playful-cat"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/aoxiaotiger/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/aoxiaotiger/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/aoxiaotiger",
+        "name": "虤䬕 林."
+      }
+    },
+    {
+      "id": "foxat",
+      "displayName": "Foxat",
+      "description": "A calm cosmic research assistant with fox, cat, and robot traits.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "cats-universe"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/foxat/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/foxat/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/foxat",
+        "name": "Kuzjaaaa"
+      }
+    },
+    {
+      "id": "pixel-skater",
+      "displayName": "Pixel Skater",
+      "description": "Pixel is a relaxed British shorthair mackerel tabby who lounges on a skateboard.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-calm-cat"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/pixel-skater/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/pixel-skater/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/pixel-skater",
+        "name": "ipanasenko"
+      }
+    },
+    {
+      "id": "bubu-2",
+      "displayName": "bubu",
+      "description": "A tiny brown bear digital pet inspired by the supplied bubu reference images.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-kawaii-wholesome"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/bubu-2/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/bubu-2/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/bubu-2",
+        "name": "jerryOnlyZRJ"
+      }
+    },
+    {
+      "id": "figaro-2",
+      "displayName": "Figaro",
+      "description": "Figaro is a compact domestic black shorthair cat with green-yellow eyes, pointed ears, white whiskers, and glossy black fur.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-calm-cat",
+        "cats-universe"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/figaro-2/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/figaro-2/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/figaro-2",
+        "name": "andrew-girgis"
+      }
+    },
+    {
+      "id": "lulu-2",
+      "displayName": "Lulu",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-calm-cat"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/lulu-2/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/lulu-2/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/lulu-2",
+        "name": "camellia-lucky"
+      }
+    },
+    {
+      "id": "denissexy-itier",
+      "displayName": "Denissexy ITier",
+      "description": "A cheerful aqua-and-cream pixel robot pet with a green face screen, rosy cheeks, and a red antenna light.",
+      "kind": "object",
+      "hosted": true,
+      "collectionIds": [
+        "category-playful-kawaii"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/denissexy-itier/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/denissexy-itier/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/denissexy-itier",
+        "name": "railly"
+      }
+    },
+    {
+      "id": "mimi-3",
+      "displayName": "Mimi",
+      "description": "迷迷？迷迷！",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-playful-kawaii"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/mimi-3/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/mimi-3/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/mimi-3",
+        "name": "kongshuilinhua"
+      }
+    },
+    {
+      "id": "octohack",
+      "displayName": "OctoHack",
+      "description": "A tiny Octocat-inspired chibi digital pet with a black cat head, cream face, whiskers, tentacle limbs, and a blue-dotted tentacle tail.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "crafter-originals"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/octohack/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/octohack/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/octohack",
+        "name": "railly"
+      }
+    },
+    {
+      "id": "siamese",
+      "displayName": "Siamese",
+      "description": "A tiny pixel Siamese kitten with huge glossy blue eyes, cream fur, dark chocolate points, and a curled tail.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-calm-cat"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/siamese/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/siamese/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/siamese",
+        "name": "tajy l."
+      }
+    },
+    {
+      "id": "whip",
+      "displayName": "Whip",
+      "description": "An orange cat in a tiny cowboy outfit holding a coiled whip.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "cats-universe",
+        "category-playful-cat"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/whip/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/whip/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/whip",
+        "name": "Deeksha73"
+      }
+    },
+    {
+      "id": "cloudy",
+      "displayName": "Cloudy Panda",
+      "description": "A cute female panda digital pet who lives on a puffy cloud platform, with expressive happy, sad, and annoyed moods.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-playful-kawaii"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/cloudy/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/cloudy/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/cloudy",
+        "name": "m9gliquid"
+      }
+    },
+    {
+      "id": "galatasaray-lion",
+      "displayName": "Galatasaray Lion",
+      "description": "A playful Galatasaray-inspired lion cub companion with warm yellow fur, a golden-orange mane, expressive eyes, and a sporty red-and-yellow scarf.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-exotic-animal"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/galatasaray-lion/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/galatasaray-lion/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/galatasaray-lion",
+        "name": "ahmetanilsen"
+      }
+    },
+    {
+      "id": "huskguin",
+      "displayName": "Huskguin",
+      "description": "A cute digital pet with a husky head, penguin body, and bow tie.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-playful-bird"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/huskguin/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/huskguin/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/huskguin",
+        "name": "wangyz1999"
+      }
+    },
+    {
+      "id": "jumbo",
+      "displayName": "Jumbo",
+      "description": "A cute funny elephant digital pet holding a laptop",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-exotic-animal"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/jumbo/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/jumbo/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/jumbo",
+        "name": "treepo1"
+      }
+    },
+    {
+      "id": "pipey",
+      "displayName": "Pipey",
+      "description": "A cheerful flute-shaped pet with a leafy green hat, red plume, big eyes, and green limbs.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-playful-kawaii"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/pipey/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/pipey/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/pipey",
+        "name": "joseph"
+      }
+    },
+    {
+      "id": "yajiji-blue-final",
+      "displayName": "鸭吉吉（起来鸭）",
+      "description": "A blue Duck Jiji digital pet for the Codex desktop app, with two-pronged bangs, attached drool, and even purple cheek blush.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-playful-bird"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/yajiji-blue-final/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/yajiji-blue-final/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/yajiji-blue-final",
+        "name": "wangpf1129"
+      }
+    },
+    {
+      "id": "bantik",
+      "displayName": "Бантик",
+      "description": "A calm sleepy orange tabby Codex digital pet with blue eyes, a white chest, white paws, and a pink freckled nose.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-calm-cat"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/bantik/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/bantik/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/bantik",
+        "name": "zergzorg"
+      }
+    },
+    {
+      "id": "gloopie",
+      "displayName": "Gloopie",
+      "description": "Gloopie is a friendly red octopus-headed pixel pet in a purple hoodie, blue pants, and sandals.",
+      "kind": "character",
+      "hosted": true,
+      "collectionIds": [
+        "category-playful-kawaii"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/gloopie/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/gloopie/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/gloopie",
+        "name": "Justin Y."
+      }
+    },
+    {
+      "id": "cappy",
+      "displayName": "Cappy",
+      "description": "A cute coffee-loving capybara companion for calm focus sessions.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-exotic-animal"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/cappy/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/cappy/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/cappy",
+        "name": "davidrichard1111"
+      }
+    },
+    {
+      "id": "huangdou",
+      "displayName": "Huangdou",
+      "description": "黄豆：一个圆润亮黄色、巨大黑眼睛和大笑嘴的 Codex 数字宠物。",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-playful-kawaii"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/huangdou/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/huangdou/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/huangdou",
+        "name": "chntentes"
+      }
+    },
+    {
+      "id": "mochi-5",
+      "displayName": "Mochi",
+      "description": "A clingy, gentle, caring little tiger companion.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-exotic-animal"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/mochi-5/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/mochi-5/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/mochi-5",
+        "name": "哲 杨."
+      }
+    },
+    {
+      "id": "peanut",
+      "displayName": "Peanut",
+      "description": "A tiny baby elephant with soft gray ears and a cheerful, curious face.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-exotic-animal"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/peanut/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/peanut/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/peanut",
+        "name": "adamholter"
+      }
+    },
+    {
+      "id": "taolulu",
+      "displayName": "TaoLuLu",
+      "description": "A cheerful round orange chibi pet with a blue scarf.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "category-playful-kawaii"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/taolulu/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/taolulu/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/taolulu",
+        "name": "ajchen01"
+      }
+    },
+    {
+      "id": "eagle",
+      "displayName": "Eagle",
+      "description": "A tiny eagle Codex pet with a proud head, compact wings, and sharp readable silhouette.",
+      "kind": "creature",
+      "hosted": true,
+      "collectionIds": [
+        "crafter-originals"
+      ],
+      "assets": {
+        "petJson": "https://docs.realtimex.ai/companion/eagle/pet.json",
+        "spritesheet": "https://docs.realtimex.ai/companion/eagle/spritesheet.webp"
+      },
+      "attribution": {
+        "provider": "petdex",
+        "url": "https://petdex.dev/pets/eagle",
+        "name": "railly"
+      }
+    }
+  ]
+}
