@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-06-10",
+  "updatedAt": "2026-07-03",
   "runtimeOptions": {
     "claude.effort.fable5-opus48-opus47": {
       "id": "effort",
@@ -20,6 +20,18 @@
       "category": "reasoning",
       "type": "select",
       "default": "xhigh",
+      "values": ["low", "medium", "high", "xhigh", "max"],
+      "launch": {
+        "kind": "flag-value",
+        "flag": "--effort"
+      }
+    },
+    "claude.effort.sonnet5": {
+      "id": "effort",
+      "label": "Effort",
+      "category": "reasoning",
+      "type": "select",
+      "default": "high",
       "values": ["low", "medium", "high", "xhigh", "max"],
       "launch": {
         "kind": "flag-value",
@@ -177,6 +189,14 @@
           "default": true,
           "metadata": { "contextWindow": "1M" },
           "runtimeOptionRefs": ["claude.effort.fable5-opus48-opus47"]
+        },
+        {
+          "id": "claude-sonnet-5",
+          "label": "Claude Sonnet 5",
+          "description": "Best combination of speed and intelligence in the current Claude lineup. Fast, cost-efficient upgrade over Sonnet 4.6 for everyday coding, agentic tasks, and knowledge work. Supports adaptive thinking with high default effort and xhigh/max for harder workloads. 1M token context.",
+          "badges": ["balanced", "fast"],
+          "metadata": { "contextWindow": "1M" },
+          "runtimeOptionRefs": ["claude.effort.sonnet5"]
         },
         {
           "id": "claude-opus-4-7",
