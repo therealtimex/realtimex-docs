@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "next dev --port 3333",
     "img": "node scripts/compress-images.mjs",
+    "sync:realtimex-lite": "node scripts/generate-realtimex-lite.mjs",
+    "test:realtimex-lite": "node scripts/test-realtimex-lite.mjs",
     "sync:companions": "node scripts/sync-companion-registry.mjs",
     "import:petdex-collections": "node scripts/import-petdex-collections.mjs",
     "sync:companions:all": "node scripts/import-petdex-collections.mjs && node scripts/sync-companion-registry.mjs --prune",
