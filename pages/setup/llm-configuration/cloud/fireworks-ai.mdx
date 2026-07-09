@@ -1,0 +1,38 @@
+---
+title: "Fireworks AI"
+description: "Use Fireworks-hosted model families in RealTimeX with an API key and grouped model selection."
+---
+
+import { Callout } from "nextra/components";
+
+# Fireworks AI
+
+`Fireworks AI` lets RealTimeX connect to Fireworks-hosted LLMs through a standard provider integration.
+
+Open it from `Settings > AI Providers > LLM`, then choose `Fireworks AI`.
+
+## What you need
+
+Before RealTimeX can use Fireworks AI:
+
+- you need a valid Fireworks API key
+- the RealTimeX instance must be able to reach the Fireworks service
+
+## Current setup flow
+
+1. Open `Settings > AI Providers > LLM`.
+2. Choose `Fireworks AI`.
+3. Paste your Fireworks API key.
+4. Select the model you want to use from the grouped catalog.
+5. Save the provider settings.
+6. Test a normal chat.
+
+<Callout type="info" emoji="💡">
+  The current UI groups Fireworks models by organization so large provider catalogs stay easier to browse.
+</Callout>
+
+## Troubleshooting
+
+### The model list looks empty
+
+If the catalog does not populate, verify the API key and reopen the provider selector after saving.

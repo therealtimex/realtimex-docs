@@ -1,0 +1,33 @@
+---
+title: "Moonshot AI"
+description: "Connect Moonshot AI to RealTimeX with an API key and choose from the provider's hosted model catalog."
+---
+
+import { Callout } from "nextra/components";
+
+# Moonshot AI
+
+`Moonshot AI` lets RealTimeX use Moonshot-hosted language models through a provider-native API integration.
+
+Open it from `Settings > AI Providers > LLM`, then choose `Moonshot AI`.
+
+## What you need
+
+Before RealTimeX can use Moonshot AI:
+
+- you need a valid Moonshot API key
+- the RealTimeX instance must be able to reach `https://api.moonshot.ai/v1`
+
+## Current setup flow
+
+1. Open `Settings > AI Providers > LLM`.
+2. Choose `Moonshot AI`.
+3. Paste your API key.
+4. Wait for the model list to load.
+5. Select the model you want to use.
+6. Save the provider settings.
+7. Test a normal chat.
+
+<Callout type="info" emoji="💡">
+  The current build loads Moonshot models dynamically after a usable API key is present.
+</Callout>

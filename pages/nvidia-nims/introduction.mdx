@@ -5,20 +5,15 @@ description: "Learn about how to use NVIDIA NIM on your RTX GPU to speed up loca
 
 import { Callout } from "nextra/components";
 
-<Callout type="warning">
-  NVIDIA NIM is currently in **beta** and is only available on Windows 11 on **RealTimeX Desktop v.1.0.4** and above.
-
-  You can download the latest version of RealTimeX Desktop (v.1.0.4+) [here](https://realtimex.ai/).
+<Callout type="info">
+  NVIDIA NIM is a Windows 11 desktop feature. Availability depends on your GPU, drivers, WSL readiness, and the current RealTimeX release channel, so check the [system requirements](/nvidia-nims/system-requirements) before planning around it.
 </Callout>
 
 # What is NVIDIA NIM?
 
-NVIDIA NIM (aka: Nvidia Inference Microservices) is a software technology, which packages optimized inference engines, industry-standard APIs and support for AI models into containers for easy deployment.
+NVIDIA NIM (NVIDIA Inference Microservices) is a software stack that packages optimized inference engines, industry-standard APIs, and model support into containers for local deployment.
 
-All of this runs via WSL2 on Windows and makes it easy to deploy and run LLM models locally at the fastest speeds possible on RTX AI PC's. RealTimeX features a bespoke integration in the RealTimeX Desktop client that makese
-installation, setup, and usage of NIM a breeze.
-
-NVIDIA NIM is currently in **beta** and is only available on Windows 11 on **RealTimeX Desktop**.
+This runs through WSL2 on Windows and makes it easier to deploy and run local LLM models on RTX AI PCs. RealTimeX includes a desktop integration that simplifies installation, setup, and ongoing use of supported NIM runtimes.
 
 ## Privacy
 
@@ -29,7 +24,7 @@ NVIDIA NIM on RTX is __not to be confused__ with NVIDIA's cloud-based NIM offeri
 
 ## How does it work?
 
-A NIM is a single model + software stack, packaged into a container designed and maintained by NVIDIA. It is specificially designed to be run on NVIDIA RTX GPUs.
+A NIM is a single model plus software stack packaged into a container designed and maintained by NVIDIA. It is specifically designed to run on NVIDIA RTX GPUs.
 In RealTimeX, we use NIM to run the LLM models for chat, agents, and all other tasks that require inference.
 
 See the [NVIDIA NIM system requirements](/nvidia-nims/system-requirements) for the full list of requirements to run NIM models on your system.
@@ -40,7 +35,7 @@ RealTimeX supports all of the models that are available in the NIM containers. Y
 
 ## How do I install it?
 
-RealTimeX will present you with a simple to use UI to install and manage NIM containers if you select the `NVIDIA NIM` LLM provider and are on a compatible operating system.
+If your machine is compatible and the provider is available in your build, RealTimeX will present a UI to install and manage NIM containers when you select the `NVIDIA NIM` LLM provider.
 
 Once the official NIM installer has finished, you will be able to use NVIDIA NIM models in RealTimeX.
 

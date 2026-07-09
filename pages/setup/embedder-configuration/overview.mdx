@@ -1,33 +1,62 @@
 ---
 title: "Overview"
-description: "Embedding models are specific types of models that turn text into vectors, which can be stored and searched in a vector database - which is the foundation of RAG."
+description: "Choose the system embedding provider, connect local or cloud embedders, and find provider-specific setup guides."
 ---
 
 import { FeatureCard } from "@/components/FeatureCard";
 import { Callout } from "nextra/components";
 
-# Embedder Configuration
+# Embedder Setup
 
-Embedding models are specific types of models that turn text into vectors, which can be stored and searched in a vector database—the foundation of Retrieval Augmented Generation (RAG).
+This section explains how to connect embedding providers in RealTimeX.
+
+Use it when you need to:
+
+- choose the default system embedder
+- connect a cloud or local embedding backend
+- select the default embedding model for that provider
+- find the provider-specific setup page for the backend you want to use
+
+Open the main selector from `Settings > AI Providers > Embedder`.
 
 <Callout type="info" emoji="💡">
-  **Tip:** Embedding models are set system-wide and cannot be configured per workspace like LLMs can.
+  Use [Embedding Models](/features/embedding-models) when you want the behavior guide for retrieval impact, vectorization strategy, and re-embedding consequences. This section is for connection and setup.
 </Callout>
 
-## Supported Embedding Model Providers
+## What this setting controls
+
+The `Embedder` page is the instance-wide source of truth for how RealTimeX vectorizes documents and workspace content.
+
+From that page, you configure:
+
+- the system embedding provider
+- provider credentials, endpoints, or base URLs
+- the default embedding model used by that provider
+- chunk-length limits exposed by some providers
+- plugin-provided embedding providers when plugins register them
+
+Embedding settings are system-wide. Unlike LLMs, they are not normally overridden per workspace.
+
+## Common setup flow
+
+Most embedding providers follow the same setup pattern:
+
+1. Open `Settings > AI Providers > Embedder`.
+2. Select the provider you want to use.
+3. Enter the required connection details.
+4. Choose the embedding model, or type the model name when the provider expects manual entry.
+5. Save the configuration.
+6. Re-embed content when changing away from an existing provider or model.
+
+Depending on the provider, RealTimeX may load the model list only after you enter a valid API key, endpoint, or base URL.
+
+## Important warning before switching
 
 <Callout type="warning" emoji="⚠️">
-  **HEADS UP!**
-  <br/>
-  Once you select your embedding model provider and begin uploading and embedding documents it is best to not change it.
-  <br/><br/>
-  While you *can* change embedders, doing so means you must delete your uploaded documents and re-embed them with the new provider.
+  Changing the embedding provider or embedding model after documents are already embedded is disruptive. RealTimeX may require you to clear and re-embed stored content so retrieval stays consistent.
 </Callout>
 
-RealTimeX supports many embedding model providers out of the box, often with zero configuration.  
-You can change your embedding provider and model at any time—but doing so can result in broken queries and will require you to re-embed all uploaded/stored documents.
-
-### Local Embedding Model Providers
+## Local setup guides
 
 <div style={{
   display: "grid",
@@ -99,9 +128,12 @@ You can change your embedding provider and model at any time—but doing so can 
     />
     <div>Flexible, open-source backend for local embedding inference.</div>
   </FeatureCard>
+  <FeatureCard title="llama.cpp" href="local/llamacpp">
+    <div>Use a running llama.cpp server and one of its loaded embedding models.</div>
+  </FeatureCard>
 </div>
 
-### Cloud Embedding Model Providers
+## Cloud setup guides
 
 <div style={{
   display: "grid",
@@ -158,3 +190,26 @@ You can change your embedding provider and model at any time—but doing so can 
     <div>Advanced multilingual and domain-specific embeddings.</div>
   </FeatureCard>
 </div>
+
+## Additional providers you may also see in the app
+
+The current in-app selector can include additional providers that do not all have dedicated setup guides in this section yet, including:
+
+- `Gemini`
+- `Voyage AI`
+- `Mistral AI`
+- `LiteLLM`
+- `Generic OpenAI`
+
+Those still follow the same core pattern:
+
+- choose the provider
+- enter the required API key or endpoint
+- select or enter a model
+- save and re-embed when appropriate
+
+## Related guides
+
+- [Embedding Models](/features/embedding-models)
+- [Text Splitting & Chunking](/text-splitting-chunking)
+- [Vector Databases](/features/vector-databases)

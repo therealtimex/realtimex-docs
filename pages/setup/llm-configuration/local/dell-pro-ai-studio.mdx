@@ -1,0 +1,36 @@
+---
+title: "Dell Pro AI Studio"
+description: "Connect RealTimeX to Dell Pro AI Studio, choose a loaded text model, and tune the token context window."
+---
+
+import { Callout } from "nextra/components";
+
+# Dell Pro AI Studio
+
+`Dell Pro AI Studio` lets RealTimeX connect to a Dell Pro AI Studio endpoint and choose from the text-to-text models that endpoint currently exposes.
+
+Open it from `Settings > AI Providers > LLM`, then choose `Dell Pro AI Studio`.
+
+## What you configure
+
+The current page exposes:
+
+- a model selector
+- a token context window
+- an advanced base URL field with endpoint auto-detection
+
+## Current setup flow
+
+1. Start the Dell Pro AI Studio service you want to use.
+2. Open `Settings > AI Providers > LLM`.
+3. Choose `Dell Pro AI Studio`.
+4. Use auto-detect or enter the base URL manually, commonly `http://localhost:8553/v1`.
+5. Wait for the model list to load.
+6. Select the text model you want to use.
+7. Set the token context window RealTimeX should assume.
+8. Save the provider settings.
+9. Test a normal chat.
+
+<Callout type="info" emoji="💡">
+  The current RealTimeX integration lists the text-to-text models exposed by Dell Pro AI Studio and filters out models that are not meant for standard text generation.
+</Callout>

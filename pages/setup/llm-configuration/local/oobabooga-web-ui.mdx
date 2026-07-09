@@ -1,0 +1,38 @@
+---
+title: "Oobabooga Web UI"
+description: "Connect RealTimeX to a Text Generation Web UI endpoint served by Oobabooga and tune token-window behavior."
+---
+
+import { Callout } from "nextra/components";
+
+# Oobabooga Web UI
+
+`Oobabooga Web UI` in RealTimeX maps to a `Text Generation Web UI` endpoint.
+
+Open it from `Settings > AI Providers > LLM`, then choose `Oobabooga Web UI` or `Text Generation Web UI`, depending on the current build label.
+
+## What you configure
+
+The current page exposes:
+
+- a base URL
+- a token context window
+- an optional API key
+
+Unlike some other local providers, this page does not expose a separate model dropdown. RealTimeX points at the model your Web UI endpoint is already serving.
+
+## Current setup flow
+
+1. Start your Oobabooga or Text Generation Web UI server.
+2. Confirm the API endpoint is reachable from the RealTimeX instance.
+3. Open `Settings > AI Providers > LLM`.
+4. Choose `Oobabooga Web UI`.
+5. Enter the base URL for the server.
+6. Set the token context window RealTimeX should assume.
+7. Add the API key only if your endpoint requires one.
+8. Save the provider settings.
+9. Test a normal chat.
+
+<Callout type="info" emoji="💡">
+  Use this provider when the model is already chosen by the upstream Web UI server and you only need RealTimeX to talk to that endpoint.
+</Callout>

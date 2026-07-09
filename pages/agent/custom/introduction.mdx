@@ -3,7 +3,7 @@ title: "Introduction to custom agent skills"
 description: "How to create custom agent skills"
 ---
 
-import { Cards, Callout } from "nextra/components";
+import { Callout } from "nextra/components";
 import Image from "next/image";
 
 <Callout type="error" emoji="⚠️">
@@ -17,16 +17,16 @@ Always make sure to test your skills thoroughly before using them in a productio
 
 # Introduction to custom agent skills
 
-RealTimeX allows you to create custom agent skills that can be used to extend the capabilities of your `@agent` invocations. These skills can be anything you want from a simple API call to even operating-system invocations.
+RealTimeX allows you to create custom agent skills that extend the capabilities of your `@agent` invocations with local code. These skills can be anything from a simple API call to an operating-system task, depending on how your RealTimeX environment is configured.
 
-The sky is the limit! Depending on how you run RealTimeX, you can create custom agent skills that can run extra processes like running a local Python script or, on Desktop, even operating-system invocations.
+Depending on how you run RealTimeX, a custom skill can launch extra processes, call local scripts, or integrate with systems that are not covered by the default tool surface.
 
 If it can be done in NodeJS, it can likely be done in RealTimeX.
 
 ## The current state of custom agent skills
 
 <Callout type="info" emoji="️💡">
- Custom agent skills are newly supported in RealTimeX and may have some bugs, quirks, missing features, unsupported features, etc.
+ Custom agent skills are an advanced feature. The contract is stricter than normal prompt, flow, or workspace-skill customization, so expect to validate the manifest, handler shape, and runtime behavior carefully before using a skill broadly.
 
 Please report any feature requests or bugs you find to the [GitHub repository](https://github.com/therealtimex/RealTimeX).
 
@@ -40,17 +40,17 @@ Please report any feature requests or bugs you find to the [GitHub repository](h
 
 ## Availability
 
-Custom agent skills are available in the Docker image since [commit `d1103e`](https://github.com/therealtimex/RealTimeX/commit/d1103e2b71ae5550fa33d7d74be5fe3e35e6b1b1) or [release v1.2.2](https://github.com/therealtimex/RealTimeX/releases/tag/v1.2.2).
+Custom agent skills are available only in RealTimeX environments that support local filesystem-backed agent skill loading.
 
-Custom agent skills are available in RealTimeX Desktop version **1.6.5 and later.**
+If your current deployment does not expose an `Agent Skills` surface or a local skill directory, use plugins, flows, or workspace agent skills instead.
 
-Custom agent skills are **not** available in the RealTimeX Cloud offering.
+Cloud-only or tightly managed deployments may support agents without exposing direct custom skill loading.
 
 ## View loaded custom agent skills
 
-You can view the loaded custom agent skills by opening the `Agent Skills` tab in the settings of RealTimeX.
+You can view the loaded custom agent skills by opening the `Agent Skills` area in the RealTimeX settings.
 
-Any valid custom agent skills loaded into RealTimeX will be displayed here.
+Any valid custom agent skills loaded into RealTimeX will be displayed there. If that area is not present in your current build or deployment, custom agent skill loading is not available in that environment.
 
 See [where to place your custom agent skills](./developer-guide.mdx#where-to-place-your-custom-agent-skill-code) for more information.
 

@@ -1,13 +1,13 @@
 ---
 title: "CLI Agent Sessions (ACP)"
-description: "Use CLI-based AI agents (Claude, Cursor, Gemini, Qwen, etc.) through the SDK"
+description: "Use CLI-based AI agents such as Claude, Cursor, Gemini, Grok, and Qwen through the SDK"
 ---
 
 import { Callout, Tabs, Steps } from 'nextra/components'
 
 # CLI Agent Sessions (ACP)
 
-The ACP Agent module lets your Local App create interactive sessions with CLI-based AI agents like Claude Code, Cursor Agent, Gemini CLI, Qwen, and others. Agents run as persistent processes that can read files, write code, execute commands, and interact with tools.
+The ACP Agent module lets your Local App create interactive sessions with CLI-based AI agents such as Claude Code, Cursor Agent, Gemini CLI, Grok CLI, Qwen CLI, and others. Agents run as persistent processes that can read files, write code, execute commands, and interact with tools.
 
 <Callout type="warning">
 `Antigravity CLI` is currently terminal-only in RealTimeX. It may appear in runtime discovery, but it is not ACP-launchable through `createSession()` and should be launched from the terminal runtime path instead.
@@ -15,6 +15,10 @@ The ACP Agent module lets your Local App create interactive sessions with CLI-ba
 
 <Callout type="info">
 `Cursor Agent` is ACP-launchable through the synthetic provider id `acpx-cursor`. Its terminal route resolves the `agent` command first, can fall back to `cursor-agent`, and can be overridden with `CURSOR_CLI_PATH`.
+</Callout>
+
+<Callout type="info">
+The exact ACP-launchable catalog changes as RealTimeX adds providers and as CLIs are installed on the host. Always call `listAgents()` instead of hard-coding a fixed provider list.
 </Callout>
 
 ```mermaid
@@ -80,7 +84,7 @@ The `acp.agent` permission is required. This is separate from `agent.chat` becau
     const agents = await sdk.acpAgent.listAgents();
     const installed = agents.filter(a => a.installed && a.supported !== false);
     console.log(installed.map(a => `${a.id} (${a.label})`));
-    // ["claude (Claude Code)", "gemini (Gemini CLI)", "qwen (Qwen CLI)", "acpx-cursor (Cursor Agent)"]
+    // ["claude (Claude Code)", "gemini (Gemini CLI)", "grok-cli (Grok CLI)", "qwen (Qwen CLI)", "acpx-cursor (Cursor Agent)"]
     ```
   </Tabs.Tab>
   <Tabs.Tab>
@@ -98,7 +102,7 @@ A session spawns the CLI agent process. The process stays running for all subseq
 
 Use an ACP-launchable agent id here. If discovery returns an agent with `supported: false` or `terminalOnly: true`, do not pass that agent to `createSession()`.
 
-For example, Cursor sessions use `agent_id: 'acpx-cursor'` from discovery instead of a plain `cursor` id.
+For example, Grok sessions use the discovered `grok-cli` id when that provider is installed, while Cursor sessions use `agent_id: 'acpx-cursor'` instead of a plain `cursor` id.
 
 <Tabs items={['TypeScript', 'Python']}>
   <Tabs.Tab>

@@ -23,6 +23,8 @@ Plugins can add one or more of the following:
 - new AI capabilities for agents
 - new image generation providers
 - configurable runtime policies
+- workspace-provision templates or prebuilt workspaces
+- editor-backed configuration helpers for more complex setup
 - reusable integration logic that appears elsewhere in the product
 
 Some plugins are visible because they add a new provider or a new settings workflow. Others work more quietly by extending what agents can do in the background.
@@ -53,11 +55,18 @@ Installed plugins are added to your instance later, usually from a `.zip` packag
 - Learn which plugins ship with RealTimeX on [Built-In Plugins](/plugins/built-in-plugins)
 - Use browser-backed agent workflows on [Agent Browser](/plugins/agent-browser)
 - Understand platform-aware agent control on [RealtimeX Moderator](/plugins/realtimex-moderator)
+- Understand skill-discovery behavior on [Find Skills](/plugins/find-skills)
 - Understand note retrieval and wiki behavior on [Notes, Wiki & Memory Plugins](/plugins/note-and-knowledge-plugins)
+- Configure business-operations channels on [RealtimeX BizOps](/plugins/realtimex-bizops)
 - Install or remove plugins on [Install & Manage Plugins](/plugins/manage-plugins)
 - Understand plugin forms and LLM slots on [Configure Plugin Settings](/plugins/configure-plugin-settings)
 - Set up provider ordering on [Image Generation Plugins](/plugins/image-generation-plugins)
 - Configure permission policies on [Runtime Auto-Approve](/plugins/runtime-auto-approve)
+- Understand skill-authoring workflows on [Skill Creator](/plugins/skill-creator)
+- Understand plugin-authoring workflows on [RealtimeX Plugin Developer](/plugins/realtimex-plugin-developer)
+- Understand terminal governance surfaces on [Terminal Governance](/plugins/terminal-governance) and [RealtimeX AI Gateway](/plugins/realtimex-aigateway)
+- Configure public workspace, embed, and artifact URLs on [RealtimeX Public Exposure](/plugins/realtimex-public-exposure)
+- Configure multi-agent role topology on [RealtimeX Loops](/plugins/realtimex-loops)
 - Fix common problems on [Troubleshooting](/plugins/troubleshooting)
 
 ## How plugins appear in the UI
@@ -68,13 +77,18 @@ Each plugin card can show some combination of:
 - description
 - author
 - a `Built-in` badge
+- a `Workspace provision` badge
 - `Enable` or `Disable`
 - `Configure`
 - `Reload`
+- `Deploy` or `Redeploy`
+- `New instance`
 - `Publish`
 - `Uninstall`
 
 If a plugin does not expose configurable settings, the `Configure` action will not appear.
+
+Workspace-provision plugins can also skip the normal enable or reload flow and instead focus on deployment actions that create or update workspaces from plugin-defined templates.
 
 ## Important behavior to remember
 

@@ -36,6 +36,11 @@ Each plugin card shows the operational information you need first.
 
 Some plugins also show error text directly on the card when something failed during load or runtime.
 
+Some plugins also show capability badges, including:
+
+- `Built-in`
+- `Workspace provision`
+
 ## Available actions
 
 ### Enable / Disable
@@ -72,6 +77,29 @@ Some non-built-in plugins show a `Publish` action.
 
 This is used for marketplace publishing workflows. Built-in plugins do not show this action.
 
+### Deploy / Redeploy
+
+Some plugins provision one or more RealTimeX workspaces directly.
+
+- `Deploy` creates the plugin-defined workspace content the first time.
+- `Redeploy` applies the provisioning flow again after the workspace-provision source has already been deployed once.
+
+These actions appear on plugins with workspace-provision capability.
+
+### New Instance
+
+Some workspace-provision plugins expose reusable templates instead of a single static workspace package.
+
+Use `New instance` when you want RealTimeX to create a fresh workspace from one of those templates.
+
+The modal can ask you to:
+
+- choose a template
+- fill in required instance fields
+- confirm deployment
+
+Each deployment creates an independent workspace instance.
+
 ### Uninstall
 
 Installed plugins can be removed from the instance.
@@ -88,6 +116,7 @@ Built-in plugins are managed from the same page.
 - They may already be enabled when RealTimeX starts.
 - They can often be disabled if you do not want them active.
 - They cannot be uninstalled.
+- Some may expose deploy or instance actions if they provision workspace content.
 
 See [Built-In Plugins](/plugins/built-in-plugins) for the shipped set and what each one does.
 
@@ -99,8 +128,26 @@ When you add a new plugin, use this order:
 2. Enable the plugin.
 3. Open `Configure` if it requires setup.
 4. Save the configuration.
-5. Reload the plugin.
-6. Test the RealTimeX feature that depends on it.
+5. Use `Deploy`, `Redeploy`, or `New instance` if the plugin provisions workspace content.
+6. Reload the plugin when the plugin uses runtime code rather than pure provisioning.
+7. Test the RealTimeX feature that depends on it.
+
+## Workspace-provision plugins
+
+Plugins with a `Workspace provision` badge are a special case.
+
+They can ship:
+
+- one or more static workspaces
+- one or more reusable workspace templates
+
+That changes the lifecycle slightly:
+
+- `Deploy` or `Redeploy` manages static provisioned content
+- `New instance` creates a new workspace from a template
+- the plugin may not show a normal enable or reload flow in the same way as a pure runtime plugin
+
+If your goal is to create end-user workspaces from a plugin source, focus on the provision actions first rather than treating it like a normal background runtime extension.
 
 ## Notes for shared instances
 

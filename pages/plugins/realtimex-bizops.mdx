@@ -1,0 +1,121 @@
+---
+title: RealtimeX BizOps
+description: Configure the built-in RealtimeX BizOps plugin for email, iMessage, WhatsApp CLI, CRM storage, and workflow-runtime operations.
+---
+
+# RealtimeX BizOps
+
+`RealtimeX BizOps` is a built-in plugin that is enabled by default.
+
+It adds a configurable business-operations layer for agent-managed email, iMessage and SMS workflows, operator-side WhatsApp CLI flows, Google Workspace-backed CRM storage, and reusable workflow templates.
+
+## Important default behavior
+
+The plugin itself is enabled by default, but the operational channels inside it are not automatically ready just because the plugin is loaded.
+
+In current builds, you still configure the channels you actually want to use.
+
+## Where to configure it
+
+1. Open `Settings > Plugins`.
+2. Find `RealtimeX BizOps`.
+3. Click `Configure`.
+
+The current settings UI is tabbed. The main areas are:
+
+- `Onboarding`
+- `Email`
+- `iMessage`
+- `WhatsApp CLI`
+- `Workflow Runtime`
+- `CRM & Storage`
+
+## What each area does
+
+### Onboarding
+
+This is the safest starting point.
+
+It explains the required local CLIs, shows readiness state, and exposes helper actions such as `CLI Doctor` and editor shortcuts for the real config files.
+
+### Email
+
+The email channel is built around `Himalaya`.
+
+Use this area to:
+
+- enable or disable the BizOps email channel
+- point RealTimeX at the shared Himalaya TOML config
+- manage approved email workflow templates
+- choose preferred workflow defaults
+
+### iMessage
+
+The iMessage and SMS channel is built around `imsg`.
+
+Use it to configure:
+
+- whether the channel is enabled
+- default outbound service behavior
+- watched participants
+- follow-up rules and escalation categories
+- approved workflow templates
+
+### WhatsApp CLI
+
+This area is for operator-side WhatsApp workflows through `wacli`.
+
+Use it to manage:
+
+- whether WhatsApp CLI workflows are enabled
+- the local executable, account, and store path
+- preferred or monitored recipients
+- send guardrails
+- approved workflow templates
+
+### Workflow Runtime
+
+This section holds shared cross-channel workflow templates and defaults.
+
+Use it when you want repeatable BizOps workflows that are not tied to only one channel.
+
+### CRM & Storage
+
+This area is for Google Drive, Sheets, and related CRM storage through `gog`.
+
+Use it to manage named CRM profiles and the storage assets those workflows depend on.
+
+## Local dependencies
+
+The current plugin expects local tools that match the channels you enable:
+
+- `Himalaya` for email
+- `imsg` for iMessage and SMS
+- `wacli` for operator-side WhatsApp CLI
+- `gog` for CRM and Google Workspace storage flows
+
+If you do not use a channel, leave that channel disabled instead of half-configuring it.
+
+## Good rollout order
+
+1. Start in `Onboarding`.
+2. Verify the required local CLI for the channel you want.
+3. Enable only one channel at first.
+4. Save the config.
+5. Reload the plugin.
+6. Test the actual BizOps workflow that depends on that channel.
+
+## Troubleshooting
+
+- If a BizOps channel is not usable, check that both the plugin and the specific channel are enabled.
+- If the config looks correct but the workflow still fails, reload the plugin.
+- If a CLI-backed channel is not ready, use the onboarding readiness checks before editing random settings.
+- If a file-backed config was changed outside the app, reload the plugin so it re-reads the current state.
+
+## Related guides
+
+- [Built-In Plugins](/plugins/built-in-plugins)
+- [Install & Manage Plugins](/plugins/manage-plugins)
+- [Configure Plugin Settings](/plugins/configure-plugin-settings)
+- [Troubleshooting](/plugins/troubleshooting)
+

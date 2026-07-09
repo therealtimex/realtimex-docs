@@ -53,6 +53,56 @@ const SOURCE_DOCS = Object.freeze([
     sourcePath: "pages/agent-authentication.mdx",
   },
   {
+    id: "plugins-overview",
+    sitePath: "/plugins",
+    sourcePath: "pages/plugins/index.mdx",
+  },
+  {
+    id: "built-in-plugins",
+    sitePath: "/plugins/built-in-plugins",
+    sourcePath: "pages/plugins/built-in-plugins.mdx",
+  },
+  {
+    id: "manage-plugins",
+    sitePath: "/plugins/manage-plugins",
+    sourcePath: "pages/plugins/manage-plugins.mdx",
+  },
+  {
+    id: "configure-plugin-settings",
+    sitePath: "/plugins/configure-plugin-settings",
+    sourcePath: "pages/plugins/configure-plugin-settings.mdx",
+  },
+  {
+    id: "realtimex-bizops",
+    sitePath: "/plugins/realtimex-bizops",
+    sourcePath: "pages/plugins/realtimex-bizops.mdx",
+  },
+  {
+    id: "runtime-auto-approve",
+    sitePath: "/plugins/runtime-auto-approve",
+    sourcePath: "pages/plugins/runtime-auto-approve.mdx",
+  },
+  {
+    id: "terminal-governance",
+    sitePath: "/plugins/terminal-governance",
+    sourcePath: "pages/plugins/terminal-governance.mdx",
+  },
+  {
+    id: "realtimex-aigateway",
+    sitePath: "/plugins/realtimex-aigateway",
+    sourcePath: "pages/plugins/realtimex-aigateway.mdx",
+  },
+  {
+    id: "realtimex-public-exposure",
+    sitePath: "/plugins/realtimex-public-exposure",
+    sourcePath: "pages/plugins/realtimex-public-exposure.mdx",
+  },
+  {
+    id: "realtimex-loops",
+    sitePath: "/plugins/realtimex-loops",
+    sourcePath: "pages/plugins/realtimex-loops.mdx",
+  },
+  {
     id: "local-apps-user-guide",
     title: "Local Apps User Guide",
     sitePath: "/local-apps/user-guide",
@@ -147,7 +197,7 @@ export function buildRealtimeXLite({
     readFirst:
       "Read this guide before answering foundational RealTimeX questions or deciding whether to explain first versus act.",
     summary:
-      "RealTimeX is a workspace-based AI product for chat, agents, runtime control, personality files, working directories, channels, goals, and background automation. Ambient Agent is RealTimeX's built-in companion for explaining the product and operating supported RealTimeX setup and control flows on the user's behalf.",
+      "RealTimeX is a workspace-based AI product for chat, agents, plugin-backed capabilities, runtime control, governed terminal-agent flows, public exposure, personality files, working directories, channels, goals, and background automation. Ambient Agent is RealTimeX's built-in companion for explaining the product and operating supported RealTimeX setup and control flows on the user's behalf.",
     ambientAgentMission: [
       "Help the user understand and use RealTimeX.",
       "Explain the relevant RealTimeX concept before acting when the user asks what something is, how it works, or which surface to use.",
@@ -210,6 +260,26 @@ export function buildRealtimeXLite({
         meaning:
           "The RealTimeX control surface for provider API keys that should be injected into launched agent runtimes automatically.",
       },
+      {
+        term: "Plugin",
+        meaning:
+          "A RealTimeX extension that can add providers, agent skills, runtime behavior, governance, workflow integrations, or admin-facing configuration.",
+      },
+      {
+        term: "Built-in plugin",
+        meaning:
+          "A plugin that ships with RealTimeX itself. It can usually be enabled, disabled, configured, or reloaded from Settings > Plugins, but it cannot be uninstalled from the UI.",
+      },
+      {
+        term: "Terminal governance",
+        meaning:
+          "The governed terminal-agent layer that reports dashboard status, governance capability, analytics, and sometimes launch context or local proxy behavior through the Terminal Agents surfaces.",
+      },
+      {
+        term: "Public exposure",
+        meaning:
+          "The generated public workspace-share, embed, and artifact URL layer controlled by the RealtimeX Public Exposure plugin.",
+      },
     ],
     mainSurfaces: [
       {
@@ -241,6 +311,16 @@ export function buildRealtimeXLite({
         surface: "Settings > Agents > Agent Authentication",
         purpose:
           "Store provider API keys that RealTimeX injects into launched agent runtimes automatically.",
+      },
+      {
+        surface: "Settings > Plugins",
+        purpose:
+          "Enable, disable, configure, reload, and inspect built-in or installed plugins that extend RealTimeX behavior.",
+      },
+      {
+        surface: "Settings > Terminal Agents",
+        purpose:
+          "Inspect governed terminal-agent catalog status, analytics, and local proxy behavior while using plugin-backed governance data when available.",
       },
       {
         surface: "Settings > Agents > Ambient Agent",
@@ -333,6 +413,42 @@ export function buildRealtimeXLite({
         optionalInputs: ["timezone", "active hours", "task blocks", "calendar routine"],
         rule:
           "If the user is unsure whether they need Ambient Agent settings or the Goals & Ambient Dashboard, explain the difference before editing.",
+      },
+      {
+        operation: "Enable or disable a built-in plugin",
+        explain:
+          "Built-in plugins ship with RealTimeX and are managed from Settings > Plugins.",
+        requiredInputs: ["plugin name", "desired enabled or disabled state"],
+        optionalInputs: ["whether configuration should happen now"],
+        rule:
+          "If the user asks what the plugin does, explain the plugin first. If they clearly ask to enable or disable a named plugin, act.",
+      },
+      {
+        operation: "Configure plugin settings",
+        explain:
+          "Plugin configuration stores provider keys, policy rules, workflow files, local paths, or runtime settings for one plugin.",
+        requiredInputs: ["plugin name"],
+        optionalInputs: ["setting values", "whether to reload after saving"],
+        rule:
+          "If the plugin changes security posture, external connectivity, or generated public URLs, explain the effect before saving new values.",
+      },
+      {
+        operation: "Set up terminal governance",
+        explain:
+          "Terminal Governance and RealtimeX AI Gateway back the governed terminal-agent dashboard, launch context, and local proxy behavior.",
+        requiredInputs: ["target plugin or terminal-agent scope"],
+        optionalInputs: ["proxy host", "proxy port", "default execution provider"],
+        rule:
+          "Use Settings > Terminal Agents for inspection and Settings > Plugins for the backing plugin configuration. Explain the relationship between Terminal Governance and RealtimeX AI Gateway before changing governed runtime settings when the user seems unsure.",
+      },
+      {
+        operation: "Configure public exposure",
+        explain:
+          "RealtimeX Public Exposure controls generated workspace-share, embed, and artifact URLs.",
+        requiredInputs: ["which public route should be enabled or disabled"],
+        optionalInputs: ["whether to request a fresh URL", "prefer familiar app id"],
+        rule:
+          "If the user asks why a workspace share or artifact URL is unavailable, explain the Public Exposure plugin first. If they clearly request a route change, act.",
       },
       {
         operation: "Track durable work as a goal",

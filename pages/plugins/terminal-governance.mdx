@@ -1,0 +1,61 @@
+---
+title: Terminal Governance
+description: Understand the built-in Terminal Governance plugin that backs the Terminal Agents dashboard contract in RealTimeX.
+---
+
+# Terminal Governance
+
+`Terminal Governance` is a built-in plugin that is enabled by default.
+
+It provides the plugin-backed dashboard contract used by the `Terminal Agents` settings surface in RealTimeX.
+
+## What it adds
+
+In current builds, this plugin is responsible for the contract behind:
+
+- terminal-agent catalog data
+- governance capability reporting
+- analytics and historical summaries
+- local-proxy status reporting
+
+## Where you see it
+
+The main user-facing surface is the `Terminal Agents` page.
+
+RealTimeX renders the page, but the plugin provides the dashboard data contract behind it.
+
+## Configuration
+
+`Terminal Governance` does not expose a separate settings form in the current manifest.
+
+For most users, the correct action is to leave it enabled.
+
+## Relationship to RealtimeX AI Gateway
+
+`Terminal Governance` is not the same thing as `RealtimeX AI Gateway`.
+
+- `Terminal Governance` provides the dashboard contract.
+- `RealtimeX AI Gateway` is the fuller governed runtime when that plugin is enabled and loaded.
+
+If `RealtimeX AI Gateway` is active, the `Terminal Agents` page may show the gateway plugin as the live backend because it exposes the richer governed launch context and local-proxy behavior.
+
+## What happens if you disable it
+
+If you disable `Terminal Governance`, the `Terminal Agents` experience can lose plugin-backed dashboard status and may fall back to host-only data or no contract-backed governance view at all.
+
+## Troubleshooting
+
+If the `Terminal Agents` page looks incomplete:
+
+1. Open `Settings > Plugins`.
+2. Confirm `Terminal Governance` is enabled.
+3. Reload the plugin.
+4. If you expect governed runtime features, also review [RealtimeX AI Gateway](/plugins/realtimex-aigateway).
+
+## Related guides
+
+- [Built-In Plugins](/plugins/built-in-plugins)
+- [RealtimeX AI Gateway](/plugins/realtimex-aigateway)
+- [Install & Manage Plugins](/plugins/manage-plugins)
+- [Agentic CLIs](/agentic-clis)
+

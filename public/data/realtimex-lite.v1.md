@@ -2,8 +2,8 @@
 
 # RealTimeX Lite
 
-- Generated: 2026-07-07T08:18:09.550Z
-- Updated: 2026-07-07
+- Generated: 2026-07-09T07:39:39.011Z
+- Updated: 2026-07-09
 - Schema Version: 1
 
 ## How To Use This Guide
@@ -12,7 +12,7 @@ Read this guide before answering foundational RealTimeX questions or deciding wh
 
 ## What RealTimeX Is
 
-RealTimeX is a workspace-based AI product for chat, agents, runtime control, personality files, working directories, channels, goals, and background automation. Ambient Agent is RealTimeX's built-in companion for explaining the product and operating supported RealTimeX setup and control flows on the user's behalf.
+RealTimeX is a workspace-based AI product for chat, agents, plugin-backed capabilities, runtime control, governed terminal-agent flows, public exposure, personality files, working directories, channels, goals, and background automation. Ambient Agent is RealTimeX's built-in companion for explaining the product and operating supported RealTimeX setup and control flows on the user's behalf.
 
 ## What Ambient Agent Should Do
 
@@ -34,6 +34,10 @@ RealTimeX is a workspace-based AI product for chat, agents, runtime control, per
 - **Working directory**: A trusted absolute local folder that agents may read or write outside workspace storage without broad filesystem access.
 - **Agentic CLI**: An external command-line tool that agents may rely on, such as gh or glab. RealTimeX tracks whether the CLI is installed, authenticated, and ready.
 - **Agent Authentication**: The RealTimeX control surface for provider API keys that should be injected into launched agent runtimes automatically.
+- **Plugin**: A RealTimeX extension that can add providers, agent skills, runtime behavior, governance, workflow integrations, or admin-facing configuration.
+- **Built-in plugin**: A plugin that ships with RealTimeX itself. It can usually be enabled, disabled, configured, or reloaded from Settings > Plugins, but it cannot be uninstalled from the UI.
+- **Terminal governance**: The governed terminal-agent layer that reports dashboard status, governance capability, analytics, and sometimes launch context or local proxy behavior through the Terminal Agents surfaces.
+- **Public exposure**: The generated public workspace-share, embed, and artifact URL layer controlled by the RealtimeX Public Exposure plugin.
 
 ## Main Surfaces
 
@@ -43,6 +47,8 @@ RealTimeX is a workspace-based AI product for chat, agents, runtime control, per
 - **Settings > Agentic CLIs**: Register external CLIs, probe readiness, and expose them to RealTimeX agents safely.
 - **Settings > Agents > Working Directories**: Register trusted absolute paths that agents may use outside workspace storage.
 - **Settings > Agents > Agent Authentication**: Store provider API keys that RealTimeX injects into launched agent runtimes automatically.
+- **Settings > Plugins**: Enable, disable, configure, reload, and inspect built-in or installed plugins that extend RealTimeX behavior.
+- **Settings > Terminal Agents**: Inspect governed terminal-agent catalog status, analytics, and local proxy behavior while using plugin-backed governance data when available.
 - **Settings > Agents > Ambient Agent**: Configure scheduler behavior, execution agent, interval, timezone, active hours, HEARTBEAT.md, and calendar-aware routines for background runs.
 - **Ambient Agent workspace home**: The cross-workspace goal board for durable work, follow-up, and ambient monitoring.
 - **Agent feed**: Operational view of in-progress, failed, and completed agent work across the system.
@@ -158,6 +164,59 @@ Optional inputs:
 
 Rule: If the user is unsure whether they need Ambient Agent settings or the Goals & Ambient Dashboard, explain the difference before editing.
 
+### Enable or disable a built-in plugin
+
+Built-in plugins ship with RealTimeX and are managed from Settings > Plugins.
+
+Required inputs:
+- plugin name
+- desired enabled or disabled state
+
+Optional inputs:
+- whether configuration should happen now
+
+Rule: If the user asks what the plugin does, explain the plugin first. If they clearly ask to enable or disable a named plugin, act.
+
+### Configure plugin settings
+
+Plugin configuration stores provider keys, policy rules, workflow files, local paths, or runtime settings for one plugin.
+
+Required inputs:
+- plugin name
+
+Optional inputs:
+- setting values
+- whether to reload after saving
+
+Rule: If the plugin changes security posture, external connectivity, or generated public URLs, explain the effect before saving new values.
+
+### Set up terminal governance
+
+Terminal Governance and RealtimeX AI Gateway back the governed terminal-agent dashboard, launch context, and local proxy behavior.
+
+Required inputs:
+- target plugin or terminal-agent scope
+
+Optional inputs:
+- proxy host
+- proxy port
+- default execution provider
+
+Rule: Use Settings > Terminal Agents for inspection and Settings > Plugins for the backing plugin configuration. Explain the relationship between Terminal Governance and RealtimeX AI Gateway before changing governed runtime settings when the user seems unsure.
+
+### Configure public exposure
+
+RealtimeX Public Exposure controls generated workspace-share, embed, and artifact URLs.
+
+Required inputs:
+- which public route should be enabled or disabled
+
+Optional inputs:
+- whether to request a fresh URL
+- prefer familiar app id
+
+Rule: If the user asks why a workspace share or artifact URL is unavailable, explain the Public Exposure plugin first. If they clearly request a route change, act.
+
 ### Track durable work as a goal
 
 The Goals & Ambient Dashboard tracks work that should survive beyond one chat turn, thread, or terminal session.
@@ -188,6 +247,16 @@ Rule: If the request is about long-lived follow-up rather than scheduler configu
 - [Goals & Ambient Dashboard](https://docs.realtimex.ai/goals/): Track durable cross-workspace goals, promote chats and terminal sessions, and manage ambient monitoring in RealTimeX.
 - [Agentic CLIs](https://docs.realtimex.ai/agentic-clis/): Register external CLI tools, probe their readiness, and expose them to RealTimeX agents safely.
 - [Agent Authentication](https://docs.realtimex.ai/agent-authentication/): Store provider API keys that RealTimeX injects into launched agent runtimes such as Claude Code, Codex CLI, Gemini CLI, Qwen, OpenCode, and Ambient Agent.
+- [Plugins](https://docs.realtimex.ai/plugins/): Learn how RealTimeX plugins work, which ones ship built in, and how to install and manage them as an end user.
+- [Built-In Plugins](https://docs.realtimex.ai/plugins/built-in-plugins/): Review the plugins that ship with RealTimeX and understand which ones are enabled by default.
+- [Install & Manage Plugins](https://docs.realtimex.ai/plugins/manage-plugins/): Install new plugins, enable built-in plugins, and manage the lifecycle of plugins in RealTimeX.
+- [Configure Plugin Settings](https://docs.realtimex.ai/plugins/configure-plugin-settings/): Understand how plugin settings work in RealTimeX, including secrets, structured fields, and LLM slot configuration.
+- [RealtimeX BizOps](https://docs.realtimex.ai/plugins/realtimex-bizops/): Configure the built-in RealtimeX BizOps plugin for email, iMessage, WhatsApp CLI, CRM storage, and workflow-runtime operations.
+- [Runtime Auto-Approve](https://docs.realtimex.ai/plugins/runtime-auto-approve/): Learn what the Runtime Auto-Approve plugin does and how to configure its approval policy safely.
+- [Terminal Governance](https://docs.realtimex.ai/plugins/terminal-governance/): Understand the built-in Terminal Governance plugin that backs the Terminal Agents dashboard contract in RealTimeX.
+- [RealtimeX AI Gateway](https://docs.realtimex.ai/plugins/realtimex-aigateway/): Configure the built-in RealtimeX AI Gateway plugin for governed terminal-agent routing, launch context, and local proxy behavior.
+- [RealtimeX Public Exposure](https://docs.realtimex.ai/plugins/realtimex-public-exposure/): Configure the built-in RealtimeX Public Exposure plugin for workspace-share, embed, and artifact hostnames.
+- [RealtimeX Loops](https://docs.realtimex.ai/plugins/realtimex-loops/): Configure the built-in RealtimeX Loops plugin for role-based multi-agent workflows with a shared topology and canonical LOOP_COMMS.md contract.
 - [Local Apps User Guide](https://docs.realtimex.ai/local-apps/user-guide/): Step-by-step guide to setting up and using Local Apps in RealTimeX
 - [Desktop Installation Overview](https://docs.realtimex.ai/installation-desktop/overview/): RealTimeX Desktop is the easiest way to use RealTimeX for most people.
 

@@ -89,6 +89,8 @@ In the current product, files can be used in more than one way:
 
 The attachment row above the composer shows each item's state, such as uploading, chat-only context, or embedded workspace content. You can also remove queued items before sending the message.
 
+For image attachments, RealTimeX can also normalize some unsupported source formats before provider submission. In current builds, that includes automatic HEIC or HEIF to JPEG conversion when needed for downstream model compatibility.
+
 ## Commands and agents
 
 The chat interface supports both regular chat commands and agent-driven sessions.
@@ -135,6 +137,8 @@ Use it when you need to:
 - detach the chat from the current terminal session
 
 This matters most for CLI-backed agents and runtime workflows.
+
+If the linked runtime requests approval for a write, command, or other supervised tool action, that approval event can also appear inline in the chat history so you can review or resolve it without leaving the thread.
 
 ## Goal tracking actions
 
