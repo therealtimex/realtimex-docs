@@ -1,0 +1,52 @@
+---
+title: RealtimeX Plugin Developer
+description: Understand the built-in RealtimeX Plugin Developer plugin that helps agents create, validate, deploy, and configure plugins.
+---
+
+# RealtimeX Plugin Developer
+
+`RealtimeX Plugin Developer` is a built-in plugin that is enabled by default.
+
+It gives agents a structured plugin-authoring workflow for creating, updating, validating, deploying, and configuring RealTimeX plugins.
+
+## What it adds
+
+- guidance for plugin SDK and manifest conventions
+- help with hooks, API routes, providers, context engines, and plugin skills
+- deployment and configuration assistance for plugin-development workflows
+- support for workspace-provisioning style plugin work
+
+## Where it matters
+
+This plugin matters when you ask an agent to:
+
+- build a new plugin
+- modify an existing plugin
+- validate a plugin manifest
+- deploy or configure a plugin during development
+
+It is not required for ordinary day-to-day use of already installed plugins, but it is valuable whenever plugin-authoring work is in scope.
+
+## Configuration
+
+`RealtimeX Plugin Developer` does not expose a separate settings form in current builds.
+
+For plugin-development workflows, the right default is usually to keep it enabled.
+
+## What happens if you disable it
+
+If you disable this plugin, agents lose the built-in workflow that understands RealTimeX plugin conventions and deployment patterns.
+
+Normal plugin management from `Settings > Plugins` can still exist, but plugin-authoring help becomes less direct.
+
+## Troubleshooting
+
+- If plugin-development help seems unavailable, confirm `RealtimeX Plugin Developer` is enabled.
+- Reload the plugin if you have changed plugin infrastructure and want the agent workflow refreshed.
+
+## Related guides
+
+- [Built-In Plugins](/plugins/built-in-plugins)
+- [Install & Manage Plugins](/plugins/manage-plugins)
+- [Configure Plugin Settings](/plugins/configure-plugin-settings)
+

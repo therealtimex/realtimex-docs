@@ -17,14 +17,38 @@
   "realtimex-moderator": {
     "title": "RealtimeX Moderator"
   },
+  "find-skills": {
+    "title": "Find Skills"
+  },
   "note-and-knowledge-plugins": {
     "title": "Notes, Wiki & Memory Plugins"
+  },
+  "realtimex-bizops": {
+    "title": "RealtimeX BizOps"
   },
   "image-generation-plugins": {
     "title": "Image Generation Plugins"
   },
   "runtime-auto-approve": {
     "title": "Runtime Auto-Approve"
+  },
+  "skill-creator": {
+    "title": "Skill Creator"
+  },
+  "realtimex-plugin-developer": {
+    "title": "RealtimeX Plugin Developer"
+  },
+  "terminal-governance": {
+    "title": "Terminal Governance"
+  },
+  "realtimex-aigateway": {
+    "title": "RealtimeX AI Gateway"
+  },
+  "realtimex-public-exposure": {
+    "title": "RealtimeX Public Exposure"
+  },
+  "realtimex-loops": {
+    "title": "RealtimeX Loops"
   },
   "troubleshooting": {
     "title": "Troubleshooting"

@@ -1,0 +1,79 @@
+---
+title: RealtimeX Loops
+description: Configure the built-in RealtimeX Loops plugin for role-based multi-agent workflows with a shared topology and canonical LOOP_COMMS.md contract.
+---
+
+# RealtimeX Loops
+
+`RealtimeX Loops` is a built-in plugin that is disabled by default.
+
+It adds a lightweight multi-agent loop system built around:
+
+- one canonical `LOOP_COMMS.md`
+- one shared topology
+- on-demand role threads
+- role-specific workspaces provisioned from the configured topology
+
+## Where to configure it
+
+1. Open `Settings > Plugins`.
+2. Enable `RealtimeX Loops`.
+3. Click `Configure`.
+
+The current settings surface is centered on one main file: `Loop Topology File`.
+
+## What the topology controls
+
+The topology defines the default loop structure, including:
+
+- which roles are active
+- which workspace slug each role uses
+- which doctrine template each role starts from
+- the shared context anchor role
+- the workflow states and transitions used by the loop
+
+## Current setup flow
+
+1. Enable the plugin.
+2. Open `Configure`.
+3. Choose a starting template for the topology editor.
+4. Use `AI Edit` or direct file editing to shape the topology.
+5. Save and deploy the topology.
+6. Reload the plugin if needed.
+7. Start or resume the actual loop workflow through an agent flow that uses RealtimeX Loops.
+
+## Important behavior
+
+Configuring `RealtimeX Loops` sets the default topology only.
+
+It does not mean a loop is already running.
+
+The running loop workflow starts later when an agent uses the loop skill for a real task with named roles or an approval route.
+
+## What happens on deploy
+
+When the topology is deployed successfully, the plugin can:
+
+- save the topology file
+- reload the loop runtime
+- provision missing role workspaces for the active roles
+
+## Good practices
+
+- keep role keys stable
+- avoid mapping multiple active roles to the same workspace slug
+- keep the workflow state machine simple unless you truly need more complexity
+- replace stale coding-template carryover when building a non-coding loop
+
+## Troubleshooting
+
+- If loop startup complains that runtime status is missing, reload the plugin before trying to start the loop again.
+- If a role is reported as inactive, re-check the topology and make sure that role is enabled.
+- If topology deployment fails, inspect role slugs, state mappings, and JSON validity first.
+
+## Related guides
+
+- [Built-In Plugins](/plugins/built-in-plugins)
+- [Install & Manage Plugins](/plugins/manage-plugins)
+- [Configure Plugin Settings](/plugins/configure-plugin-settings)
+

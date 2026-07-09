@@ -22,27 +22,42 @@ These plugins are part of the product, but they still use the same plugin manage
 | --- | --- | --- | --- |
 | `Agent Browser` | Yes | Browser automation skill for agents | [Agent Browser](/plugins/agent-browser) |
 | `RealtimeX Moderator` | Yes | SDK-backed control of RealTimeX platform features | [RealtimeX Moderator](/plugins/realtimex-moderator) |
+| `Find Skills` | Yes | Skill discovery and installation guidance for specialized agent capabilities | [Find Skills](/plugins/find-skills) |
 | `QMD` | Yes | Markdown knowledge and notes search skill | [Notes, Wiki & Memory Plugins](/plugins/note-and-knowledge-plugins) |
 | `RealtimeX Personal Notes` | Yes | Agent access to personal notes context | [Notes, Wiki & Memory Plugins](/plugins/note-and-knowledge-plugins) |
 | `RealtimeX Workspace Memories` | Yes | Agent access to workspace memory files | [Notes, Wiki & Memory Plugins](/plugins/note-and-knowledge-plugins) |
 | `RealtimeX LLM Wiki` | Yes | Agent support for wiki-style knowledge projects | [Notes, Wiki & Memory Plugins](/plugins/note-and-knowledge-plugins) |
-| `Runtime Auto-Approve` | No | Auto-approve or deny agent permission requests using policy rules | [Runtime Auto-Approve](/plugins/runtime-auto-approve) |
+| `Runtime Auto-Approve` | Yes | Auto-approve or deny ACP and supervised terminal permissions using policy rules | [Runtime Auto-Approve](/plugins/runtime-auto-approve) |
+| `RealtimeX BizOps` | Yes | Configurable business-operations workflows for email, iMessage, WhatsApp CLI, CRM, and workflow runtime | [RealtimeX BizOps](/plugins/realtimex-bizops) |
+| `Skill Creator` | Yes | Skill-authoring, evaluation, and benchmarking workflows | [Skill Creator](/plugins/skill-creator) |
+| `RealtimeX Plugin Developer` | Yes | Plugin-authoring, validation, deployment, and configuration workflows | [RealtimeX Plugin Developer](/plugins/realtimex-plugin-developer) |
+| `Terminal Governance` | Yes | Terminal Agents dashboard contract for catalog, analytics, and local-proxy status | [Terminal Governance](/plugins/terminal-governance) |
+| `RealtimeX AI Gateway` | No | Governed terminal-agent runtime with launch context and local proxy support | [RealtimeX AI Gateway](/plugins/realtimex-aigateway) |
+| `RealtimeX Public Exposure` | No | Generated public workspace-share, embed, and artifact hostnames | [RealtimeX Public Exposure](/plugins/realtimex-public-exposure) |
+| `RealtimeX Loops` | No | Role-based multi-agent loops with shared topology and canonical LOOP_COMMS.md routing | [RealtimeX Loops](/plugins/realtimex-loops) |
 | `OpenAI Image Generation` | No | OpenAI-based image generation provider | [Image Generation Plugins](/plugins/image-generation-plugins) |
 | `Google Gemini Image Generation` | No | Gemini-based image generation provider | [Image Generation Plugins](/plugins/image-generation-plugins) |
 | `FAL Flux Image Generation` | No | FAL-based image generation provider | [Image Generation Plugins](/plugins/image-generation-plugins) |
 | `MiniMax Image Generation` | No | MiniMax image generation provider | [Image Generation Plugins](/plugins/image-generation-plugins) |
 
-## Detailed guides for the most user-visible built-ins
+## Detailed guides
 
 - Use [Agent Browser](/plugins/agent-browser) when you need browser sessions, authenticated browsing, screenshots, or web automation.
 - Use [RealtimeX Moderator](/plugins/realtimex-moderator) when you want to understand how advanced agents interact with RealTimeX workspaces, threads, sessions, credentials, and browser coordination.
+- Use [Find Skills](/plugins/find-skills) when you want agents to discover installable skills for specialized tasks.
 - Use [Notes, Wiki & Memory Plugins](/plugins/note-and-knowledge-plugins) when you want to understand how QMD, Personal Notes, LLM Wiki, and Workspace Memories work together.
+- Use [RealtimeX BizOps](/plugins/realtimex-bizops) when you need email, iMessage, WhatsApp CLI, CRM, or cross-channel BizOps workflows.
 - Use [Image Generation Plugins](/plugins/image-generation-plugins) when you need provider setup, ordering, or fallback behavior.
-- Use [Runtime Auto-Approve](/plugins/runtime-auto-approve) when you are intentionally changing approval policy behavior.
+- Use [Runtime Auto-Approve](/plugins/runtime-auto-approve) when you need to inspect or change approval policy behavior.
+- Use [Skill Creator](/plugins/skill-creator) when you want agents to create, evaluate, or refine reusable skills.
+- Use [RealtimeX Plugin Developer](/plugins/realtimex-plugin-developer) when plugin-authoring or plugin-deployment workflows are in scope.
+- Use [Terminal Governance](/plugins/terminal-governance) and [RealtimeX AI Gateway](/plugins/realtimex-aigateway) when terminal-agent governance, launch context, or local proxy behavior matters.
+- Use [RealtimeX Public Exposure](/plugins/realtimex-public-exposure) when you need generated public hostnames for workspace share, embed, or artifact delivery.
+- Use [RealtimeX Loops](/plugins/realtimex-loops) when you need role-based multi-agent loop workflows.
 
-## Default-enabled built-ins
+## Default-enabled built-ins that mostly work in the background
 
-Most default-enabled built-ins add background capability to agents rather than creating a completely separate page.
+Many default-enabled built-ins add background capability to agents rather than exposing a large standalone settings surface.
 
 ### Agent Browser
 
@@ -52,17 +67,45 @@ Enabled by default. Pairs with the desktop [Browser Tool](/features/browser-tool
 
 Enabled by default. Gives advanced agent workflows direct access to RealTimeX platform features such as workspaces, threads, activities, tools, and related state.
 
+### Find Skills, Skill Creator, and RealtimeX Plugin Developer
+
+Enabled by default. These plugins help agents discover new skills, improve skill workflows, and handle plugin-authoring tasks without requiring ordinary end users to configure a separate screen first.
+
 ### QMD, Personal Notes, Workspace Memories, and RealtimeX LLM Wiki
 
 Enabled by default. Together these plugins power note retrieval, structured wiki workflows, and background memory recall across notes and working directories.
 
-## Built-in plugins that usually need intentional setup
+### Terminal Governance
+
+Enabled by default. It provides the dashboard contract behind the `Terminal Agents` page so RealTimeX can render plugin-backed catalog and governance status.
+
+## Default-enabled built-ins that still need careful configuration
 
 ### Runtime Auto-Approve
 
-This plugin is disabled by default because it changes how permission approvals are handled for ACP and supervised terminal workflows.
+This plugin now ships enabled by default, but that does not mean every action is automatically trusted.
 
-Only enable it when you explicitly want policy-based auto-approval behavior.
+It is still a security-sensitive policy layer for ACP and supervised terminal workflows, so review its rules before assuming the defaults match your risk tolerance.
+
+### RealtimeX BizOps
+
+This plugin ships enabled by default, but the operational channels inside it still need intentional setup.
+
+Treat it as an admin-facing integration surface, not something that is automatically ready for email, iMessage, WhatsApp CLI, or CRM workflows on first launch.
+
+## Disabled-by-default built-ins you opt into
+
+### RealtimeX AI Gateway
+
+This plugin is opt-in because it introduces governed terminal-agent routing, local proxy behavior, and additional runtime listeners.
+
+### RealtimeX Public Exposure
+
+This plugin is opt-in because it controls generated public workspace-share, embed, and artifact routes for the app.
+
+### RealtimeX Loops
+
+This plugin is opt-in because it provisions a role-based multi-agent loop workflow that needs explicit topology choices.
 
 ### Image generation built-ins
 
@@ -74,4 +117,6 @@ See [Image Generation Plugins](/plugins/image-generation-plugins) for setup.
 
 - Keep the default-enabled skill plugins on unless you have a specific reason to reduce available agent capabilities.
 - Treat `Runtime Auto-Approve` as a security-sensitive plugin, not a convenience toggle.
+- Configure `RealtimeX BizOps` channel by channel instead of enabling everything at once.
+- Enable `RealtimeX AI Gateway`, `RealtimeX Public Exposure`, and `RealtimeX Loops` only when the related workflow is actually needed.
 - Enable only the image generation providers you actually plan to configure and use.

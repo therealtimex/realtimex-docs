@@ -7,11 +7,11 @@ description: Learn what the Runtime Auto-Approve plugin does and how to configur
 
 `Runtime Auto-Approve` is a built-in plugin that can automatically approve or deny some ACP agent permissions and supervised terminal permissions based on rules you configure.
 
-It is disabled by default for a reason: it changes the safety boundary around agent actions.
+It is enabled by default in current builds, but it still changes the safety boundary around agent actions and should be reviewed intentionally.
 
 ## When to use it
 
-Enable this plugin only when you want to reduce manual approval friction for well-understood agent workflows.
+Use this plugin when you want to inspect or tune how RealTimeX auto-approves or denies well-understood agent workflows.
 
 Good examples:
 
@@ -26,8 +26,10 @@ Not a good example:
 ## Where to configure it
 
 1. Open `Settings > Plugins`.
-2. Enable `Runtime Auto-Approve`.
+2. Find `Runtime Auto-Approve`.
 3. Click `Configure`.
+
+If you previously disabled it, re-enable it first.
 
 ## Main configuration areas
 

@@ -1,0 +1,82 @@
+---
+title: RealtimeX AI Gateway
+description: Configure the built-in RealtimeX AI Gateway plugin for governed terminal-agent routing, launch context, and local proxy behavior.
+---
+
+# RealtimeX AI Gateway
+
+`RealtimeX AI Gateway` is a built-in plugin that is disabled by default.
+
+It is the fuller governed-terminal runtime in current RealTimeX builds. When enabled and loaded, it can expose:
+
+- governed terminal-agent launch context
+- the local proxy used by compatible terminal agents
+- plugin-backed catalog, analytics, and local-proxy status for the terminal governance dashboard
+
+## Where to configure it
+
+1. Open `Settings > Plugins`.
+2. Enable `RealtimeX AI Gateway`.
+3. Click `Configure`.
+
+## Current settings
+
+The current configuration form exposes:
+
+- `Auto-start Gateway`
+- `Enable Local Proxy`
+- `Local Proxy Host`
+- `Local Proxy Port`
+- `Gateway Host`
+- `Gateway Port`
+- `Default Execution Provider`
+- `Default Execution Base URL`
+
+## What the local proxy does
+
+When the local proxy is enabled, compatible terminal agents can route governed traffic through the builtin gateway instead of talking directly to an upstream provider.
+
+That is why the host and port settings matter: they define where the governed proxy and internal gateway listeners bind.
+
+## Where you see it in the app
+
+The main user-facing surface is the `Terminal Agents` settings page.
+
+When the gateway is loaded successfully, RealTimeX can use it to render:
+
+- supported terminal-agent catalog data
+- governance support state per agent
+- plugin-backed analytics
+- local-proxy status and activity
+
+## Relationship to Terminal Governance
+
+`Terminal Governance` and `RealtimeX AI Gateway` are related but not identical.
+
+`Terminal Governance` provides the dashboard contract for the `Terminal Agents` page. `RealtimeX AI Gateway` is the more feature-complete governed runtime because it also exposes launch context and local proxy behavior.
+
+In practice, if `RealtimeX AI Gateway` is enabled and loaded, the terminal-agent surfaces may show that plugin as the active governance backend.
+
+## Good rollout order
+
+1. Enable the plugin.
+2. Keep the default host and port values unless you have a real conflict.
+3. Confirm whether you want the local proxy on.
+4. Save the config.
+5. Reload the plugin.
+6. Review the `Terminal Agents` dashboard.
+
+## Troubleshooting
+
+- If the plugin fails to load, check whether the chosen host or port conflicts with another local service.
+- If governed traffic is expected but not showing up, confirm `Enable Local Proxy` is on and the plugin is loaded.
+- If the `Terminal Agents` page falls back to host-only data, reload the plugin and re-check the plugin card state.
+
+## Related guides
+
+- [Built-In Plugins](/plugins/built-in-plugins)
+- [Terminal Governance](/plugins/terminal-governance)
+- [Install & Manage Plugins](/plugins/manage-plugins)
+- [Configure Plugin Settings](/plugins/configure-plugin-settings)
+- [Agentic CLIs](/agentic-clis)
+

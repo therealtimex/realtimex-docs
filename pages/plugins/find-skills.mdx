@@ -1,0 +1,53 @@
+---
+title: Find Skills
+description: Understand the built-in Find Skills plugin that helps agents discover and install skills for specialized tasks.
+---
+
+# Find Skills
+
+`Find Skills` is a built-in plugin that is enabled by default.
+
+It helps agents discover and install reusable skills when a user asks for a capability that is not already obvious from the current toolset.
+
+## What it adds
+
+- skill discovery across the broader agent-skill ecosystem
+- installation guidance when a user wants to extend an agent
+- a structured path for requests like `find a skill for X` or `is there a skill that can do Y`
+
+## Where it matters
+
+You usually do not open a dedicated `Find Skills` screen.
+
+Instead, this plugin matters when an agent is trying to answer requests such as:
+
+- how to add a new capability
+- which skill already exists for a niche workflow
+- whether a specialized workflow should be solved by installing a skill instead of writing everything from scratch
+
+## Configuration
+
+`Find Skills` does not expose a separate settings form in current builds.
+
+For most users, the right action is simply to leave it enabled.
+
+## What happens if you disable it
+
+If you disable `Find Skills`, agents lose the built-in workflow that helps them suggest or install specialized skills on demand.
+
+Manual skill installation can still exist outside this plugin, but the discovery path becomes less direct.
+
+## Troubleshooting
+
+If an agent no longer suggests skill-based extensions when it should:
+
+1. Open `Settings > Plugins`.
+2. Confirm `Find Skills` is enabled.
+3. Reload the plugin.
+4. Re-try the request that should have triggered skill discovery.
+
+## Related guides
+
+- [Built-In Plugins](/plugins/built-in-plugins)
+- [Install & Manage Plugins](/plugins/manage-plugins)
+
