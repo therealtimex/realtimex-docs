@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-09T07:39:39.011Z",
+  "generatedAt": "2026-07-09T08:23:58.682Z",
   "updatedAt": "2026-07-09",
   "title": "RealTimeX Lite",
   "audience": "Ambient Agent and other RealTimeX control agents",
@@ -10,7 +10,7 @@
     "markdownPath": "public/data/realtimex-lite.v1.md"
   },
   "readFirst": "Read this guide before answering foundational RealTimeX questions or deciding whether to explain first versus act.",
-  "summary": "RealTimeX is a workspace-based AI product for chat, agents, plugin-backed capabilities, runtime control, governed terminal-agent flows, public exposure, personality files, working directories, channels, goals, and background automation. Ambient Agent is RealTimeX's built-in companion for explaining the product and operating supported RealTimeX setup and control flows on the user's behalf.",
+  "summary": "RealTimeX is an AI work operating system for teams that need more than chat. It brings together workspace chat, retrieval, meetings, plugin-backed capabilities, multiple CLI agent runtimes, runtime control, governed terminal-agent flows, local apps, public exposure, channels, goals, and background automation. It also supports desktop-first, cloud, and hybrid rollout paths so teams can start with one operator or workflow and expand without changing products. Ambient Agent is RealTimeX's built-in companion for explaining the product and operating supported RealTimeX setup and control flows on the user's behalf.",
   "ambientAgentMission": [
     "Help the user understand and use RealTimeX.",
     "Explain the relevant RealTimeX concept before acting when the user asks what something is, how it works, or which surface to use.",
@@ -18,6 +18,10 @@
     "Keep the user in the right surface: settings for configuration, workspace home for goal tracking, and chat for interactive work."
   ],
   "coreConcepts": [
+    {
+      "term": "AI work operating system",
+      "meaning": "The buyer-facing RealTimeX thesis: one product that connects context, execution, governance, and deployment choice instead of splitting them across separate chat, automation, meeting, and runtime tools."
+    },
     {
       "term": "Workspace",
       "meaning": "The main collaboration container in RealTimeX. A workspace holds chats, documents, agent behavior, integrations, and member access for one team or use case."
@@ -77,6 +81,10 @@
     {
       "term": "Public exposure",
       "meaning": "The generated public workspace-share, embed, and artifact URL layer controlled by the RealtimeX Public Exposure plugin."
+    },
+    {
+      "term": "Deployment path",
+      "meaning": "The way a team adopts RealTimeX: Desktop-first for fast operator-led pilots, Cloud for shared collaboration and centralized administration, or Hybrid when some execution or models should stay local."
     }
   ],
   "mainSurfaces": [
@@ -299,9 +307,23 @@
     {
       "id": "introduction",
       "title": "What is RealTimeX",
-      "description": "RealTimeX makes advanced AI easy. Instantly use RAG, AI agents, and more—no coding or tech headaches required.",
+      "description": "RealTimeX is the AI work operating system for teams that need more than chat.",
       "sitePath": "/introduction",
       "docsUrl": "https://docs.realtimex.ai/introduction/"
+    },
+    {
+      "id": "why-realtimex",
+      "title": "Why RealTimeX",
+      "description": "Why teams choose RealTimeX when they need AI that can stay connected to real work.",
+      "sitePath": "/why-realtimex",
+      "docsUrl": "https://docs.realtimex.ai/why-realtimex/"
+    },
+    {
+      "id": "for-businesses",
+      "title": "RealTimeX for Businesses",
+      "description": "Where RealTimeX fits for business teams, operational workflows, and AI rollout programs.",
+      "sitePath": "/for-businesses",
+      "docsUrl": "https://docs.realtimex.ai/for-businesses/"
     },
     {
       "id": "workspaces",
@@ -432,9 +454,16 @@
     {
       "id": "desktop-installation-overview",
       "title": "Desktop Installation Overview",
-      "description": "RealTimeX Desktop is the easiest way to use RealTimeX for most people.",
+      "description": "RealTimeX Desktop is the fastest way to prove RealTimeX in a real workflow.",
       "sitePath": "/installation-desktop/overview",
       "docsUrl": "https://docs.realtimex.ai/installation-desktop/overview/"
+    },
+    {
+      "id": "cloud-overview",
+      "title": "RealTimeX Cloud",
+      "description": "Private managed RealTimeX for shared workspaces, centralized operations, and multi-user rollout.",
+      "sitePath": "/cloud/overview",
+      "docsUrl": "https://docs.realtimex.ai/cloud/overview/"
     }
   ]
 }

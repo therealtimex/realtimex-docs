@@ -2,7 +2,7 @@
 
 # RealTimeX Lite
 
-- Generated: 2026-07-09T07:39:39.011Z
+- Generated: 2026-07-09T08:23:58.682Z
 - Updated: 2026-07-09
 - Schema Version: 1
 
@@ -12,7 +12,7 @@ Read this guide before answering foundational RealTimeX questions or deciding wh
 
 ## What RealTimeX Is
 
-RealTimeX is a workspace-based AI product for chat, agents, plugin-backed capabilities, runtime control, governed terminal-agent flows, public exposure, personality files, working directories, channels, goals, and background automation. Ambient Agent is RealTimeX's built-in companion for explaining the product and operating supported RealTimeX setup and control flows on the user's behalf.
+RealTimeX is an AI work operating system for teams that need more than chat. It brings together workspace chat, retrieval, meetings, plugin-backed capabilities, multiple CLI agent runtimes, runtime control, governed terminal-agent flows, local apps, public exposure, channels, goals, and background automation. It also supports desktop-first, cloud, and hybrid rollout paths so teams can start with one operator or workflow and expand without changing products. Ambient Agent is RealTimeX's built-in companion for explaining the product and operating supported RealTimeX setup and control flows on the user's behalf.
 
 ## What Ambient Agent Should Do
 
@@ -23,6 +23,7 @@ RealTimeX is a workspace-based AI product for chat, agents, plugin-backed capabi
 
 ## Core Concepts
 
+- **AI work operating system**: The buyer-facing RealTimeX thesis: one product that connects context, execution, governance, and deployment choice instead of splitting them across separate chat, automation, meeting, and runtime tools.
 - **Workspace**: The main collaboration container in RealTimeX. A workspace holds chats, documents, agent behavior, integrations, and member access for one team or use case.
 - **Thread**: A conversation inside one workspace. Users and agents can continue work in the same thread instead of mixing everything into one long workspace chat.
 - **Ambient Agent**: The scheduled background agent runner in RealTimeX. It wakes on a schedule, reads HEARTBEAT.md, and decides whether anything needs action.
@@ -38,6 +39,7 @@ RealTimeX is a workspace-based AI product for chat, agents, plugin-backed capabi
 - **Built-in plugin**: A plugin that ships with RealTimeX itself. It can usually be enabled, disabled, configured, or reloaded from Settings > Plugins, but it cannot be uninstalled from the UI.
 - **Terminal governance**: The governed terminal-agent layer that reports dashboard status, governance capability, analytics, and sometimes launch context or local proxy behavior through the Terminal Agents surfaces.
 - **Public exposure**: The generated public workspace-share, embed, and artifact URL layer controlled by the RealtimeX Public Exposure plugin.
+- **Deployment path**: The way a team adopts RealTimeX: Desktop-first for fast operator-led pilots, Cloud for shared collaboration and centralized administration, or Hybrid when some execution or models should stay local.
 
 ## Main Surfaces
 
@@ -239,7 +241,9 @@ Rule: If the request is about long-lived follow-up rather than scheduler configu
 
 ## Source Pages
 
-- [What is RealTimeX](https://docs.realtimex.ai/introduction/): RealTimeX makes advanced AI easy. Instantly use RAG, AI agents, and more—no coding or tech headaches required.
+- [What is RealTimeX](https://docs.realtimex.ai/introduction/): RealTimeX is the AI work operating system for teams that need more than chat.
+- [Why RealTimeX](https://docs.realtimex.ai/why-realtimex/): Why teams choose RealTimeX when they need AI that can stay connected to real work.
+- [RealTimeX for Businesses](https://docs.realtimex.ai/for-businesses/): Where RealTimeX fits for business teams, operational workflows, and AI rollout programs.
 - [Workspaces](https://docs.realtimex.ai/workspaces/): Create instance workspaces, open them quickly, and manage who belongs to each one.
 - [Personality](https://docs.realtimex.ai/personality/): Manage file-based agent identity, instructions, and memory at the shared or workspace level in RealTimeX.
 - [Agent Runtime](https://docs.realtimex.ai/agent-runtime/): Manage the CLIs, folders, schedules, and runtime visibility that power RealTimeX agents.
@@ -258,5 +262,6 @@ Rule: If the request is about long-lived follow-up rather than scheduler configu
 - [RealtimeX Public Exposure](https://docs.realtimex.ai/plugins/realtimex-public-exposure/): Configure the built-in RealtimeX Public Exposure plugin for workspace-share, embed, and artifact hostnames.
 - [RealtimeX Loops](https://docs.realtimex.ai/plugins/realtimex-loops/): Configure the built-in RealtimeX Loops plugin for role-based multi-agent workflows with a shared topology and canonical LOOP_COMMS.md contract.
 - [Local Apps User Guide](https://docs.realtimex.ai/local-apps/user-guide/): Step-by-step guide to setting up and using Local Apps in RealTimeX
-- [Desktop Installation Overview](https://docs.realtimex.ai/installation-desktop/overview/): RealTimeX Desktop is the easiest way to use RealTimeX for most people.
+- [Desktop Installation Overview](https://docs.realtimex.ai/installation-desktop/overview/): RealTimeX Desktop is the fastest way to prove RealTimeX in a real workflow.
+- [RealTimeX Cloud](https://docs.realtimex.ai/cloud/overview/): Private managed RealTimeX for shared workspaces, centralized operations, and multi-user rollout.
 
