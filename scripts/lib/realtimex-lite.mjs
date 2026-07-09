@@ -18,6 +18,16 @@ const SOURCE_DOCS = Object.freeze([
     sourcePath: "pages/introduction.mdx",
   },
   {
+    id: "why-realtimex",
+    sitePath: "/why-realtimex",
+    sourcePath: "pages/why-realtimex.mdx",
+  },
+  {
+    id: "for-businesses",
+    sitePath: "/for-businesses",
+    sourcePath: "pages/for-businesses.mdx",
+  },
+  {
     id: "workspaces",
     sitePath: "/workspaces",
     sourcePath: "pages/workspaces.mdx",
@@ -113,6 +123,11 @@ const SOURCE_DOCS = Object.freeze([
     sitePath: "/installation-desktop/overview",
     sourcePath: "pages/installation-desktop/overview.mdx",
   },
+  {
+    id: "cloud-overview",
+    sitePath: "/cloud/overview",
+    sourcePath: "pages/cloud/overview.mdx",
+  },
 ]);
 
 function normalizeText(value = "") {
@@ -197,7 +212,7 @@ export function buildRealtimeXLite({
     readFirst:
       "Read this guide before answering foundational RealTimeX questions or deciding whether to explain first versus act.",
     summary:
-      "RealTimeX is a workspace-based AI product for chat, agents, plugin-backed capabilities, runtime control, governed terminal-agent flows, public exposure, personality files, working directories, channels, goals, and background automation. Ambient Agent is RealTimeX's built-in companion for explaining the product and operating supported RealTimeX setup and control flows on the user's behalf.",
+      "RealTimeX is an AI work operating system for teams that need more than chat. It brings together workspace chat, retrieval, meetings, plugin-backed capabilities, multiple CLI agent runtimes, runtime control, governed terminal-agent flows, local apps, public exposure, channels, goals, and background automation. It also supports desktop-first, cloud, and hybrid rollout paths so teams can start with one operator or workflow and expand without changing products. Ambient Agent is RealTimeX's built-in companion for explaining the product and operating supported RealTimeX setup and control flows on the user's behalf.",
     ambientAgentMission: [
       "Help the user understand and use RealTimeX.",
       "Explain the relevant RealTimeX concept before acting when the user asks what something is, how it works, or which surface to use.",
@@ -205,6 +220,11 @@ export function buildRealtimeXLite({
       "Keep the user in the right surface: settings for configuration, workspace home for goal tracking, and chat for interactive work.",
     ],
     coreConcepts: [
+      {
+        term: "AI work operating system",
+        meaning:
+          "The buyer-facing RealTimeX thesis: one product that connects context, execution, governance, and deployment choice instead of splitting them across separate chat, automation, meeting, and runtime tools.",
+      },
       {
         term: "Workspace",
         meaning:
@@ -279,6 +299,11 @@ export function buildRealtimeXLite({
         term: "Public exposure",
         meaning:
           "The generated public workspace-share, embed, and artifact URL layer controlled by the RealtimeX Public Exposure plugin.",
+      },
+      {
+        term: "Deployment path",
+        meaning:
+          "The way a team adopts RealTimeX: Desktop-first for fast operator-led pilots, Cloud for shared collaboration and centralized administration, or Hybrid when some execution or models should stay local.",
       },
     ],
     mainSurfaces: [

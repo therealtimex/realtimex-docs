@@ -30,6 +30,10 @@ function main() {
     Array.isArray(docs.sourceDocs) && docs.sourceDocs.length >= 8,
     "sourceDocs must be populated",
   );
+  assert(
+    docs.summary.includes("AI work operating system"),
+    "summary must include the buyer-facing positioning",
+  );
 
   for (const sourceDoc of docs.sourceDocs) {
     assert(sourceDoc.id, "each sourceDoc must have an id");
@@ -40,6 +44,11 @@ function main() {
       `sourceDoc ${sourceDoc.id} missing docsUrl`,
     );
   }
+
+  const sourceDocIds = new Set(docs.sourceDocs.map((sourceDoc) => sourceDoc.id));
+  assert(sourceDocIds.has("why-realtimex"), "sourceDocs missing why-realtimex");
+  assert(sourceDocIds.has("for-businesses"), "sourceDocs missing for-businesses");
+  assert(sourceDocIds.has("cloud-overview"), "sourceDocs missing cloud-overview");
 
   const expectedMarkdown = `${renderRealtimeXLiteMarkdown(docs)}\n`;
   assert(markdown === expectedMarkdown, "markdown output is not derived from JSON output");
