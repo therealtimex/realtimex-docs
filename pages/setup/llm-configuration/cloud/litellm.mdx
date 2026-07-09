@@ -1,0 +1,43 @@
+---
+title: "LiteLLM"
+description: "Connect RealTimeX to a LiteLLM proxy, choose a routed model, and set the token context window for that gateway."
+---
+
+import { Callout } from "nextra/components";
+
+# LiteLLM
+
+`LiteLLM` lets RealTimeX use an OpenAI-compatible gateway that can fan out to many upstream providers behind one endpoint.
+
+Open it from `Settings > AI Providers > LLM`, then choose `LiteLLM`.
+
+## What you configure
+
+The current LiteLLM page exposes:
+
+- `Base URL`
+- `Chat model selection`
+- `Token context window`
+- an optional API key
+
+## Current setup flow
+
+1. Open `Settings > AI Providers > LLM`.
+2. Choose `LiteLLM`.
+3. Enter the LiteLLM base URL.
+4. Add the API key if your LiteLLM gateway requires one.
+5. Wait for the model list to load.
+6. Select the routed model you want RealTimeX to use.
+7. Set the token context window you want RealTimeX to assume.
+8. Save the provider settings.
+9. Test a normal chat.
+
+<Callout type="info" emoji="💡">
+  If discovery stays unavailable, make sure you are pointing RealTimeX at the OpenAI-compatible LiteLLM endpoint, commonly a `/v1` route exposed by the proxy.
+</Callout>
+
+## When to use LiteLLM
+
+- Use it when you want one gateway in front of multiple vendors.
+- Use it when you need centralized routing, budgets, or auth handling outside RealTimeX.
+- Use it when a team standardizes on OpenAI-compatible proxy layers.

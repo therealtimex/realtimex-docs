@@ -18,6 +18,7 @@ This page is mainly relevant for ACP-backed or CLI-backed agent runtimes such as
 - `Gemini CLI`
 - `Claude Code`
 - `Codex CLI`
+- `Grok CLI`
 - `Qwen CLI`
 - `OpenCode`
 - `RealTimeX Ambient Agent`
@@ -46,6 +47,7 @@ The current UI supports these provider profiles:
 - `Gemini CLI`: `GEMINI_API_KEY`
 - `Claude Code`: `ANTHROPIC_API_KEY`
 - `Codex CLI`: `OPENAI_API_KEY`
+- `Grok CLI`: `XAI_API_KEY`
 - `OpenCode`: `OPENAI_API_KEY` or `ANTHROPIC_API_KEY`
 - `Qwen CLI`: `QWEN_API_KEY`, `DASHSCOPE_API_KEY`, plus multiple OpenAI-compatible profiles and selected Anthropic, Gemini, and RealTimeX AI keys
 - `RealTimeX Ambient Agent`: the same broader provider set exposed for `Qwen CLI`
@@ -108,6 +110,10 @@ Use environment variables when your deployment already manages those keys outsid
 
 If the runtime exists but immediately reports missing provider auth, add or update the matching provider key here.
 
+### Grok CLI launches but reports missing xAI auth
+
+Store `XAI_API_KEY` under the `Grok CLI` profile, or authenticate Grok outside the app if that is the path your deployment prefers.
+
 ### Ambient Agent needs a provider key
 
 If your ambient runtime path depends on a provider-backed agent configuration, store the matching profile in `Agent Authentication` instead of assuming [Credentials](/credentials) will be used.
@@ -132,6 +138,8 @@ Check:
 That may be enough for [Agentic CLIs](/agentic-clis), but it does not replace `Agent Authentication` when the launched runtime expects an injected provider API key.
 
 For runtimes such as `Antigravity CLI` and `Cursor Agent`, manual CLI or IDE authentication is the intended path, so not appearing in `Agent Authentication` can be normal.
+
+For `Grok CLI`, either a stored `XAI_API_KEY` profile or a working external `grok login` state may satisfy the runtime, depending on how that runtime is being launched in your environment.
 
 ### I already stored the secret in Credentials
 

@@ -127,6 +127,15 @@ Plugins can register additional LLM providers. When that happens, they appear in
   <FeatureCard title="KoboldCPP" href="/setup/llm-configuration/local/kobaldcpp">
     <div>Use KoboldCPP for GGUF-based local model serving.</div>
   </FeatureCard>
+  <FeatureCard title="llama.cpp" href="/setup/llm-configuration/local/llamacpp">
+    <div>Connect to a running llama.cpp server and select one of its loaded models.</div>
+  </FeatureCard>
+  <FeatureCard title="Oobabooga Web UI" href="/setup/llm-configuration/local/oobabooga-web-ui">
+    <div>Point RealTimeX at a Text Generation Web UI endpoint served by Oobabooga.</div>
+  </FeatureCard>
+  <FeatureCard title="Dell Pro AI Studio" href="/setup/llm-configuration/local/dell-pro-ai-studio">
+    <div>Use a Dell Pro AI Studio endpoint and choose one of its loaded text models.</div>
+  </FeatureCard>
 </div>
 
 ## Cloud setup guides
@@ -152,6 +161,15 @@ Plugins can register additional LLM providers. When that happens, they appear in
   <FeatureCard title="Groq" href="/setup/llm-configuration/cloud/groq">
     <div>Connect Groq-hosted models for low-latency inference.</div>
   </FeatureCard>
+  <FeatureCard title="DeepSeek" href="/setup/llm-configuration/cloud/deepseek">
+    <div>Use DeepSeek chat and reasoning models through the hosted DeepSeek API.</div>
+  </FeatureCard>
+  <FeatureCard title="Fireworks AI" href="/setup/llm-configuration/cloud/fireworks-ai">
+    <div>Choose from Fireworks-hosted model families grouped by organization.</div>
+  </FeatureCard>
+  <FeatureCard title="xAI (Grok)" href="/setup/llm-configuration/cloud/xai">
+    <div>Use Grok models through xAI with a standard API key and dynamic model discovery.</div>
+  </FeatureCard>
   <FeatureCard title="Mistral AI" href="/setup/llm-configuration/cloud/mistral-ai">
     <div>Use Mistral-hosted models through the Mistral API.</div>
   </FeatureCard>
@@ -167,11 +185,26 @@ Plugins can register additional LLM providers. When that happens, they appear in
   <FeatureCard title="Perplexity AI" href="/setup/llm-configuration/cloud/perplexity-ai">
     <div>Connect hosted Perplexity models where that provider fits your workflow.</div>
   </FeatureCard>
+  <FeatureCard title="Novita AI" href="/setup/llm-configuration/cloud/novita-ai">
+    <div>Use Novita-hosted models and optional stream-timeout tuning.</div>
+  </FeatureCard>
+  <FeatureCard title="Moonshot AI" href="/setup/llm-configuration/cloud/moonshot-ai">
+    <div>Connect Moonshot-hosted models through a standard API key and model selector.</div>
+  </FeatureCard>
+  <FeatureCard title="PPIO" href="/setup/llm-configuration/cloud/ppio">
+    <div>Choose from PPIO-hosted models grouped by organization.</div>
+  </FeatureCard>
+  <FeatureCard title="APIpie" href="/setup/llm-configuration/cloud/apipie">
+    <div>Use the APIpie catalog through a single hosted API endpoint.</div>
+  </FeatureCard>
   <FeatureCard title="AWS Bedrock" href="/setup/llm-configuration/cloud/aws-bedrock">
     <div>Use foundation models through your AWS Bedrock account.</div>
   </FeatureCard>
   <FeatureCard title="Hugging Face" href="/setup/llm-configuration/cloud/hugging-face">
     <div>Point RealTimeX at a Hugging Face Inference Endpoint.</div>
+  </FeatureCard>
+  <FeatureCard title="NVIDIA NIM" href="/nvidia-nims/introduction">
+    <div>Use a hosted or managed NVIDIA NIM endpoint from the dedicated NIM workflow.</div>
   </FeatureCard>
 </div>
 
@@ -186,26 +219,16 @@ Plugins can register additional LLM providers. When that happens, they appear in
   <FeatureCard title="Generic OpenAI" href="/setup/llm-configuration/cloud/openai-generic">
     <div>Connect any OpenAI-compatible service through a custom endpoint and model configuration.</div>
   </FeatureCard>
+  <FeatureCard title="LiteLLM" href="/setup/llm-configuration/cloud/litellm">
+    <div>Route RealTimeX through a LiteLLM proxy and select models from its OpenAI-compatible gateway.</div>
+  </FeatureCard>
 </div>
 
-## Providers you may also see in the app
+## Other providers
 
-The current in-app selector can include additional built-in providers and runtimes that do not all have dedicated setup guides in this section yet, including:
+Plugins or future builds may still add more providers than this guide lists explicitly.
 
-- `DeepSeek`
-- `Fireworks AI`
-- `Novita AI`
-- `Moonshot AI`
-- `xAI`
-- `PPIO`
-- `NVIDIA NIM`
-- `LiteLLM`
-- `APIpie`
-- `llama.cpp`
-- `Oobabooga Web UI`
-- `Dell Pro AI Studio`
-
-Those still follow the same core pattern:
+When that happens, the setup pattern is usually still the same:
 
 - choose the provider
 - enter the required API key or endpoint

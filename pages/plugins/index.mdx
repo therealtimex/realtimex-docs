@@ -23,6 +23,8 @@ Plugins can add one or more of the following:
 - new AI capabilities for agents
 - new image generation providers
 - configurable runtime policies
+- workspace-provision templates or prebuilt workspaces
+- editor-backed configuration helpers for more complex setup
 - reusable integration logic that appears elsewhere in the product
 
 Some plugins are visible because they add a new provider or a new settings workflow. Others work more quietly by extending what agents can do in the background.
@@ -68,13 +70,18 @@ Each plugin card can show some combination of:
 - description
 - author
 - a `Built-in` badge
+- a `Workspace provision` badge
 - `Enable` or `Disable`
 - `Configure`
 - `Reload`
+- `Deploy` or `Redeploy`
+- `New instance`
 - `Publish`
 - `Uninstall`
 
 If a plugin does not expose configurable settings, the `Configure` action will not appear.
+
+Workspace-provision plugins can also skip the normal enable or reload flow and instead focus on deployment actions that create or update workspaces from plugin-defined templates.
 
 ## Important behavior to remember
 

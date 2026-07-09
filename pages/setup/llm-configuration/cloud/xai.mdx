@@ -1,0 +1,64 @@
+---
+title: "xAI (Grok)"
+description: "Connect xAI to RealTimeX, supply an API key, and choose a Grok model from the live account model list."
+---
+
+import { Callout } from "nextra/components";
+
+# xAI (Grok)
+
+`xAI (Grok)` lets RealTimeX use Grok-family hosted models through xAI's API.
+
+Open it from `Settings > AI Providers > LLM`, then choose `xAI (Grok)` or `xAI`, depending on the current build label.
+
+## What you need
+
+Before RealTimeX can use xAI:
+
+- you need a valid xAI API key
+- the RealTimeX instance must be able to reach the xAI API
+- you should know which Grok model family you want to use for chat
+
+<Callout type="info" emoji="💡">
+  The model list is loaded dynamically after you enter a valid API key, so the dropdown can reflect the models available to your account.
+</Callout>
+
+## Current setup flow
+
+1. Open `Settings > AI Providers > LLM`.
+2. Choose `xAI (Grok)`.
+3. Paste your xAI API key.
+4. Wait for the model list to load.
+5. Select the Grok model you want to use.
+6. Save the provider settings.
+7. Test a normal chat.
+
+## Model selection behavior
+
+The current xAI setup uses live model discovery.
+
+Important behavior:
+
+- the model dropdown stays unavailable until a usable API key is entered
+- if the key is valid, RealTimeX loads the available Grok models for that account
+- if the model list changes on the xAI side, reopening or refreshing the selector picks up the updated catalog
+
+## When to use xAI
+
+- Use `xAI (Grok)` when your team standardizes on Grok models.
+- Use it when you want hosted inference without managing a local runtime.
+- Use it when you want provider-native access rather than routing through a compatibility layer.
+
+## Troubleshooting
+
+### No models appear after entering the key
+
+Check that:
+
+- the API key is correct
+- the RealTimeX host can reach xAI
+- your xAI account has access to the model catalog you expect
+
+### I want to route Grok through another gateway
+
+If you do not want the vendor-native integration, use [OpenAI (generic)](/setup/llm-configuration/cloud/openai-generic) or another compatibility layer instead of the dedicated xAI provider.

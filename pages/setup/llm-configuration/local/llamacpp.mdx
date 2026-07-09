@@ -1,0 +1,73 @@
+---
+title: "llama.cpp"
+description: "Connect RealTimeX to a running llama.cpp server, choose the loaded model, and tune token limits for local inference."
+---
+
+import { Callout } from "nextra/components";
+
+# llama.cpp
+
+`llama.cpp` lets RealTimeX use a model served by an existing `llama.cpp` server instead of the managed `RealTimeX Local` runtime.
+
+Open it from `Settings > AI Providers > LLM`, then choose `llama.cpp`.
+
+## What you need
+
+Before RealTimeX can use llama.cpp:
+
+- the `llama.cpp` server must already be running
+- the server URL must be reachable from the RealTimeX instance
+- at least one model must already be loaded by the server
+
+<Callout type="info" emoji="💡">
+  The setup page can auto-detect common local endpoint addresses, but it still expects a real running server with a loaded model.
+</Callout>
+
+## Current setup flow
+
+1. Start your `llama.cpp` server.
+2. Load the model you want that server to expose.
+3. Open `Settings > AI Providers > LLM`.
+4. Choose `llama.cpp`.
+5. Enter or auto-detect the server URL, commonly `http://localhost:8080/v1`.
+6. Wait for the model list to load.
+7. Select the loaded model.
+8. Review or adjust `Max output tokens`.
+9. Save the provider settings.
+10. Test a normal chat.
+
+## Model and token behavior
+
+The current page reads available models dynamically from the server.
+
+Important behavior:
+
+- if the URL is missing or invalid, the model list stays unavailable
+- if the server is reachable but no model is loaded, there is nothing to select
+- when model metadata exposes a trained context window, RealTimeX can prefill the token limit field from that metadata
+
+## Endpoint and management notes
+
+The LLM selector is for connection and model choice, not full file management.
+
+Use [Local Models](/local-models) when you want to:
+
+- inspect the `llama.cpp` model inventory
+- review local `.gguf` files
+- trigger supported download or delete flows
+
+If your `llama.cpp` tab cannot expose file-management actions, check whether the runtime is using a resolvable absolute model path or `LLAMACPP_MODEL_DIR`.
+
+## Troubleshooting
+
+### The selector says it is waiting for a URL
+
+Enter the server URL first or use auto-detect.
+
+### The URL is correct but no models appear
+
+Make sure the `llama.cpp` server is already running with a model loaded.
+
+### I want a fully managed local runtime instead
+
+Use [RealTimeX Local](/setup/llm-configuration/local/built-in) when you want RealTimeX to manage the GGUF runtime and model lifecycle directly.

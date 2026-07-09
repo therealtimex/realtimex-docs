@@ -1,0 +1,43 @@
+---
+title: "DeepSeek"
+description: "Connect DeepSeek to RealTimeX, provide an API key, and choose a DeepSeek chat or reasoning model."
+---
+
+import { Callout } from "nextra/components";
+
+# DeepSeek
+
+`DeepSeek` lets RealTimeX use DeepSeek-hosted chat and reasoning models directly.
+
+Open it from `Settings > AI Providers > LLM`, then choose `DeepSeek`.
+
+## What you need
+
+Before RealTimeX can use DeepSeek:
+
+- you need a valid DeepSeek API key
+- the RealTimeX instance must be able to reach the DeepSeek API
+
+<Callout type="info" emoji="💡">
+  Current builds query the DeepSeek model API directly. If discovery fails, the app can still fall back to common defaults such as `deepseek-chat` and `deepseek-reasoner`.
+</Callout>
+
+## Current setup flow
+
+1. Open `Settings > AI Providers > LLM`.
+2. Choose `DeepSeek`.
+3. Paste your DeepSeek API key.
+4. Wait for the model list to load.
+5. Select the model you want to use.
+6. Save the provider settings.
+7. Test a normal chat.
+
+## Troubleshooting
+
+### No models appear
+
+Check that:
+
+- the API key is correct
+- the RealTimeX host can reach `https://api.deepseek.com/v1`
+- your account has access to the model family you expect

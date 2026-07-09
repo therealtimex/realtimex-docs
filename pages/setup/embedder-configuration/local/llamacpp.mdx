@@ -1,0 +1,67 @@
+---
+title: "llama.cpp Embedder"
+description: "Use a running llama.cpp server for embeddings, choose a loaded embedding model, and tune chunk-length behavior."
+---
+
+import { Callout } from "nextra/components";
+
+# llama.cpp Embedder
+
+`llama.cpp` can also act as the embedding backend in RealTimeX when the server exposes a loaded embedding-capable model.
+
+Open it from `Settings > AI Providers > Embedder`, then choose `llama.cpp`.
+
+## What you need
+
+Before RealTimeX can use llama.cpp for embeddings:
+
+- the `llama.cpp` server must already be running
+- the server URL must be reachable from the RealTimeX instance
+- an embedding-capable model must already be loaded by that server
+
+<Callout type="info" emoji="💡">
+  RealTimeX can auto-detect common local endpoint addresses, but it still needs a real running server to list the loaded model.
+</Callout>
+
+## Current setup flow
+
+1. Start your `llama.cpp` server.
+2. Load the embedding model you want to use.
+3. Open `Settings > AI Providers > Embedder`.
+4. Choose `llama.cpp`.
+5. Enter or auto-detect the server URL, commonly `http://localhost:8080/v1`.
+6. Wait for the loaded embedding model to appear.
+7. Select the model.
+8. Review `Maximum embedding chunk length`.
+9. Save the provider settings.
+10. Re-embed documents if you are switching from another provider or model.
+
+## Chunk length and model behavior
+
+The current page lets you choose both the loaded model and the maximum chunk length used during embedding.
+
+Important behavior:
+
+- the selector stays unavailable until a server URL is set
+- if the server is reachable but no embedding model is loaded, there is nothing to select
+- changing chunk length can change retrieval behavior because content may be segmented differently before vectorization
+
+## Model inventory and downloads
+
+Use [Local Models](/local-models) when you need the broader `llama.cpp` management surface for:
+
+- viewing local `.gguf` files
+- checking download state
+- using supported Hugging Face search and download flows
+
+If download features are unavailable, make sure your runtime uses an absolute model path or `LLAMACPP_MODEL_DIR`.
+
+## Troubleshooting
+
+### No model appears after setting the URL
+
+Make sure the `llama.cpp` server is already running with an embedding model loaded.
+
+### I want the simplest built-in embedding path
+
+Use [RealTimeX Default](/setup/embedder-configuration/local/built-in) when you want the managed built-in embedding engine instead of an external local server.

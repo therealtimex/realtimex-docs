@@ -39,7 +39,7 @@ For the full setup and troubleshooting guide, see [Agentic CLIs](/agentic-clis).
 
 ## Terminal CLI agents
 
-RealTimeX also supports interactive terminal agent runtimes such as `Antigravity CLI`, `Cursor Agent`, `Claude Code`, `Codex CLI`, `Gemini CLI`, `Qwen CLI`, and `OpenCode`.
+RealTimeX also supports interactive terminal agent runtimes such as `Antigravity CLI`, `Cursor Agent`, `Claude Code`, `Codex CLI`, `Gemini CLI`, `Grok CLI`, `Qwen CLI`, and `OpenCode`.
 
 One important implementation detail is that not every runtime uses the same launch path:
 
@@ -67,9 +67,38 @@ If Antigravity appears installed but cannot be launched from an ACP session, tha
 - Cursor uses its own authentication instead of an injected `Agent Authentication` API-key profile
 - ACPX-backed Cursor sessions currently use `approve-all`; interactive approval prompts are not forwarded through RealTimeX yet
 
+### Grok CLI notes
+
+`Grok CLI` is ACP-launchable in current RealTimeX builds.
+
+- RealTimeX discovers it through the `grok` or `grok-cli` handles
+- authentication can come from `grok login` or an injected `XAI_API_KEY` profile
+- model discovery follows the Grok CLI runtime's current available model list
+- permission handling uses the standard supervised ACP flow rather than the ACPX-only `approve-all` path
+
+### Supervised approval flows
+
+ACP-backed terminal sessions can run with explicit approval policies.
+
+The current product supports:
+
+- `approve-all`
+- `approve-reads`
+- `deny-all`
+
+When the policy does not auto-approve an action, the session can emit a `permission_request` event.
+
+Depending on where the runtime is being consumed, that request can surface:
+
+- in the RealTimeX chat history
+- in the terminal-linked session UI
+- over Local Apps ACP session streams and sync APIs
+
+Use `approve-reads` when you want read access to flow freely but still want review over writes and higher-risk tool actions.
+
 ## Agent Authentication
 
-`Agent Authentication` stores provider API keys that RealTimeX injects into launched agent runtimes such as `Claude Code`, `Codex CLI`, `Gemini CLI`, `Qwen CLI`, `OpenCode`, and `Ambient Agent`.
+`Agent Authentication` stores provider API keys that RealTimeX injects into launched agent runtimes such as `Claude Code`, `Codex CLI`, `Gemini CLI`, `Grok CLI`, `Qwen CLI`, `OpenCode`, and `Ambient Agent`.
 
 - Use it when the runtime needs a provider key at launch time.
 - This is separate from [Agentic CLIs](/agentic-clis), which track tool readiness.

@@ -1,0 +1,34 @@
+---
+title: "Novita AI"
+description: "Use Novita-hosted models in RealTimeX with grouped model selection and optional stream-timeout tuning."
+---
+
+import { Callout } from "nextra/components";
+
+# Novita AI
+
+`Novita AI` lets RealTimeX use Novita-hosted models through a dedicated provider integration.
+
+Open it from `Settings > AI Providers > LLM`, then choose `Novita AI`.
+
+## What you configure
+
+The current Novita page exposes:
+
+- an API key
+- a grouped model selector
+- an advanced `Stream timeout` field
+
+## Current setup flow
+
+1. Open `Settings > AI Providers > LLM`.
+2. Choose `Novita AI`.
+3. Paste your Novita API key.
+4. Select the model you want to use.
+5. Expand `Advanced controls` if you need to tune the stream timeout.
+6. Save the provider settings.
+7. Test a normal chat.
+
+<Callout type="info" emoji="💡">
+  The model selector groups models by organization, which is useful when the Novita catalog spans multiple upstream model families.
+</Callout>
