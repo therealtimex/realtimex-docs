@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-07-03",
+  "updatedAt": "2026-07-10",
   "runtimeOptions": {
     "claude.effort.fable5-opus48-opus47": {
       "id": "effort",
@@ -62,17 +62,80 @@
         "flag": "-c",
         "template": "model_reasoning_effort=\"${value}\""
       }
+    },
+    "codex.reasoning.gpt56-sol": {
+      "id": "reasoning_effort",
+      "label": "Reasoning",
+      "category": "reasoning",
+      "type": "select",
+      "default": "low",
+      "values": ["low", "medium", "high", "xhigh", "max", "ultra"],
+      "launch": {
+        "kind": "flag-value",
+        "flag": "-c",
+        "template": "model_reasoning_effort=\"${value}\""
+      }
+    },
+    "codex.reasoning.gpt56-terra": {
+      "id": "reasoning_effort",
+      "label": "Reasoning",
+      "category": "reasoning",
+      "type": "select",
+      "default": "medium",
+      "values": ["low", "medium", "high", "xhigh", "max", "ultra"],
+      "launch": {
+        "kind": "flag-value",
+        "flag": "-c",
+        "template": "model_reasoning_effort=\"${value}\""
+      }
+    },
+    "codex.reasoning.gpt56-luna": {
+      "id": "reasoning_effort",
+      "label": "Reasoning",
+      "category": "reasoning",
+      "type": "select",
+      "default": "medium",
+      "values": ["low", "medium", "high", "xhigh", "max"],
+      "launch": {
+        "kind": "flag-value",
+        "flag": "-c",
+        "template": "model_reasoning_effort=\"${value}\""
+      }
     }
   },
   "agents": {
     "codex-cli": {
       "models": [
         {
+          "id": "gpt-5.6-sol",
+          "label": "GPT-5.6 Sol",
+          "description": "OpenAI's latest frontier agentic coding model. Best for complex code changes, research, polished documents, and ambitious long-horizon work. Supports ultra reasoning for automatic task delegation. 372k token context.",
+          "badges": ["recommended", "372k context"],
+          "default": true,
+          "metadata": { "contextWindow": "372k" },
+          "runtimeOptionRefs": ["codex.reasoning.gpt56-sol"]
+        },
+        {
+          "id": "gpt-5.6-terra",
+          "label": "GPT-5.6 Terra",
+          "description": "Balanced GPT-5.6 model for everyday agentic coding and professional work. Strong default choice when you want newer GPT-5.6 capability with a more efficient profile than Sol. 372k token context.",
+          "badges": ["balanced", "372k context"],
+          "metadata": { "contextWindow": "372k" },
+          "runtimeOptionRefs": ["codex.reasoning.gpt56-terra"]
+        },
+        {
+          "id": "gpt-5.6-luna",
+          "label": "GPT-5.6 Luna",
+          "description": "Fast and affordable GPT-5.6 model for lighter agentic coding, high-volume tasks, and quick iteration. 372k token context.",
+          "badges": ["fast", "372k context"],
+          "metadata": { "contextWindow": "372k" },
+          "runtimeOptionRefs": ["codex.reasoning.gpt56-luna"]
+        },
+        {
           "id": "gpt-5.5",
           "label": "GPT-5.5",
-          "description": "OpenAI's newest frontier model. Best for complex coding, computer use, knowledge work, and multi-step agentic workflows. Delivers better results with fewer tokens than GPT-5.4.",
-          "badges": ["recommended"],
-          "default": true,
+          "description": "Previous frontier model for complex coding, computer use, knowledge work, and multi-step agentic workflows. Delivers better results with fewer tokens than GPT-5.4.",
+          "badges": ["legacy"],
           "runtimeOptionRefs": ["codex.reasoning.standard"]
         },
         {
