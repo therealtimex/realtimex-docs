@@ -1,5 +1,6 @@
 {
   "schemaVersion": 2,
+  "revision": "sha256:2dd21cc7e5a30c0486b3bd23c70af4157a4a56d94bfe76b84e80674cbb00c789",
   "updatedAt": "2026-07-10",
   "runtimeOptions": {
     "claude.effort.fable5-opus48-opus47": {
