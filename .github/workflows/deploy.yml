@@ -32,6 +32,11 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
+      - name: Validate published registries
+        run: yarn test:registries
+        env:
+          AGENT_MODELS_BASELINE_URL: https://docs.realtimex.ai/data/agent-models.v2.json
+
       - name: Build and export
         run: yarn build
 
