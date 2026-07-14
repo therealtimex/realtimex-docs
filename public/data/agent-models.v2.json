@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "revision": "sha256:2dd21cc7e5a30c0486b3bd23c70af4157a4a56d94bfe76b84e80674cbb00c789",
+  "revision": "sha256:8917372d9c1107a7b32da776a9f25def816aa4fb07e36c549f5959289c168a85",
   "updatedAt": "2026-07-10",
   "runtimeOptions": {
     "claude.effort.fable5-opus48-opus47": {
@@ -8,6 +8,7 @@
       "label": "Effort",
       "category": "reasoning",
       "type": "select",
+      "compatibility": { "requiresCapability": ["--effort"] },
       "default": "xhigh",
       "values": ["low", "medium", "high", "xhigh", "max"],
       "launch": {
@@ -20,6 +21,7 @@
       "label": "Effort",
       "category": "reasoning",
       "type": "select",
+      "compatibility": { "requiresCapability": ["--effort"] },
       "default": "xhigh",
       "values": ["low", "medium", "high", "xhigh", "max"],
       "launch": {
@@ -32,6 +34,7 @@
       "label": "Effort",
       "category": "reasoning",
       "type": "select",
+      "compatibility": { "requiresCapability": ["--effort"] },
       "default": "high",
       "values": ["low", "medium", "high", "xhigh", "max"],
       "launch": {
@@ -44,6 +47,7 @@
       "label": "Effort",
       "category": "reasoning",
       "type": "select",
+      "compatibility": { "requiresCapability": ["--effort"] },
       "default": "high",
       "values": ["low", "medium", "high", "max"],
       "launch": {
@@ -56,6 +60,7 @@
       "label": "Reasoning",
       "category": "reasoning",
       "type": "select",
+      "compatibility": { "requiresCapability": ["-c"] },
       "default": "medium",
       "values": ["minimal", "low", "medium", "high", "xhigh"],
       "launch": {
@@ -69,6 +74,7 @@
       "label": "Reasoning",
       "category": "reasoning",
       "type": "select",
+      "compatibility": { "requiresCapability": ["-c"] },
       "default": "low",
       "values": ["low", "medium", "high", "xhigh", "max", "ultra"],
       "launch": {
@@ -82,6 +88,7 @@
       "label": "Reasoning",
       "category": "reasoning",
       "type": "select",
+      "compatibility": { "requiresCapability": ["-c"] },
       "default": "medium",
       "values": ["low", "medium", "high", "xhigh", "max", "ultra"],
       "launch": {
@@ -95,6 +102,7 @@
       "label": "Reasoning",
       "category": "reasoning",
       "type": "select",
+      "compatibility": { "requiresCapability": ["-c"] },
       "default": "medium",
       "values": ["low", "medium", "high", "xhigh", "max"],
       "launch": {
@@ -106,6 +114,7 @@
   },
   "agents": {
     "codex-cli": {
+      "compatibility": { "requiresCapability": ["--model"] },
       "models": [
         {
           "id": "gpt-5.6-sol",
@@ -191,6 +200,7 @@
       ]
     },
     "gemini-cli": {
+      "compatibility": { "requiresCapability": ["--model"] },
       "models": [
         {
           "id": "gemini-3-pro",
@@ -236,6 +246,7 @@
       ]
     },
     "claude-cli": {
+      "compatibility": { "requiresCapability": ["--model"] },
       "models": [
         {
           "id": "claude-fable-5",
