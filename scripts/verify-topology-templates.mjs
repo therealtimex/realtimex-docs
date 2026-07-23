@@ -5,6 +5,11 @@ import { fileURLToPath } from "url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = path.resolve(__dirname, "../public/data");
 const BASE_PATH = path.join(DATA_DIR, "topology-templates.v1.json");
+// Mirrors LOCALE_TAG_PATTERN in realtimex-ai-app's server/models/loopTopology.js.
+// A locale tag that doesn't match this is silently dropped by the importer
+// (never fetched, never merged) rather than failing import — so catching a
+// malformed tag here, at publish time, is the only place it gets a loud error.
+const LOCALE_TAG_PATTERN = /^[a-z]{2,3}(?:[_-][a-zA-Z0-9]{2,8})*$/;
 
 function assert(condition, message) {
   if (!condition) {
@@ -46,6 +51,10 @@ function main() {
   // unlike a translation backlog, a missing locale entry here fails the
   // build rather than silently falling back to English at render time.
   for (const locale of base.locales) {
+    assert(
+      typeof locale === "string" && LOCALE_TAG_PATTERN.test(locale),
+      `"${locale}" is not a valid locale tag — the importer would silently drop it and every template's translation for it`
+    );
     const siblingPath = localeSiblingPath(locale);
     assert(fs.existsSync(siblingPath), `missing locale file for "${locale}": ${path.basename(siblingPath)}`);
     const localeFile = readJson(siblingPath);
