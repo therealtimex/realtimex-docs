@@ -11,6 +11,7 @@
     "import:petdex-collections": "node scripts/import-petdex-collections.mjs",
     "sync:companions:all": "node scripts/import-petdex-collections.mjs && node scripts/sync-companion-registry.mjs --prune",
     "test:companions": "node scripts/test-companion-registry.mjs",
+    "test:topology-templates": "node scripts/verify-topology-templates.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "yarn prettier --ignore-path .prettierignore --write ./pages"

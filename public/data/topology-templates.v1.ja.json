@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "locale": "ja",
+  "templates": {
+    "incident-response": {
+      "name": "インシデント対応",
+      "description": "本番インシデントをトリアージ、調査、修正、レビューします。"
+    },
+    "sales-proposal": {
+      "name": "営業提案",
+      "description": "営業提案を作成し、レビューを経て承認します。"
+    }
+  }
+}

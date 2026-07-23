@@ -32,6 +32,9 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
+      - name: Verify hosted topology templates
+        run: yarn test:topology-templates
+
       - name: Build and export
         run: yarn build
 
