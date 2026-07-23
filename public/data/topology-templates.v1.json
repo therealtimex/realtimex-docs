@@ -1,0 +1,167 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-23",
+  "locales": ["ja", "vi"],
+  "templates": [
+    {
+      "id": "incident-response",
+      "name": "Incident response",
+      "description": "Triage, investigate, fix, and review production incidents.",
+      "content": {
+        "version": 3,
+        "preset": "incident-response",
+        "sharedContextRoleKind": "resolve",
+        "roles": {
+          "triage": {
+            "enabled": true,
+            "roleLabel": "Triage",
+            "workspaceSlug": "realtimex-support",
+            "workspaceName": "RealtimeX Support",
+            "workspaceSlugAliases": [],
+            "doctrineTemplateRef": "builtin:support",
+            "doctrineTemplateVersion": "1"
+          },
+          "investigate": {
+            "enabled": true,
+            "roleLabel": "Investigate",
+            "workspaceSlug": "realtimex-security",
+            "workspaceName": "RealtimeX Security",
+            "workspaceSlugAliases": [],
+            "doctrineTemplateRef": "builtin:security",
+            "doctrineTemplateVersion": "1"
+          },
+          "resolve": {
+            "enabled": true,
+            "roleLabel": "Resolve",
+            "workspaceSlug": "realtimex-dev",
+            "workspaceName": "RealtimeX Dev",
+            "workspaceSlugAliases": [],
+            "doctrineTemplateRef": "builtin:dev",
+            "doctrineTemplateVersion": "1"
+          },
+          "retro": {
+            "enabled": true,
+            "roleLabel": "Retro",
+            "workspaceSlug": "realtimex-manager",
+            "workspaceName": "RealtimeX Manager",
+            "workspaceSlugAliases": [],
+            "doctrineTemplateRef": "builtin:manager",
+            "doctrineTemplateVersion": "1"
+          }
+        },
+        "workflow": {
+          "initialState": "triaging",
+          "terminalStates": ["resolved"],
+          "transitions": {
+            "triaging": ["triaging", "investigating", "blocked"],
+            "investigating": ["investigating", "triaging", "fixing", "blocked"],
+            "fixing": ["fixing", "investigating", "awaiting_retro", "blocked"],
+            "awaiting_retro": ["awaiting_retro", "fixing", "resolved", "blocked"],
+            "blocked": [
+              "blocked",
+              "triaging",
+              "investigating",
+              "fixing",
+              "awaiting_retro",
+              "resolved"
+            ],
+            "resolved": ["resolved"]
+          },
+          "statusStateMap": {
+            "triage.escalated": "investigating",
+            "triage.blocked": "blocked",
+            "investigate.diagnosed": "fixing",
+            "investigate.blocked": "blocked",
+            "resolve.fixed": "awaiting_retro",
+            "resolve.blocked": "blocked",
+            "retro.completed": "resolved",
+            "retro.blocked": "blocked"
+          }
+        }
+      }
+    },
+    {
+      "id": "sales-proposal",
+      "name": "Sales proposal",
+      "description": "Draft a sales proposal, route it through review, and approve it.",
+      "content": {
+        "version": 3,
+        "preset": "sales-proposal",
+        "sharedContextRoleKind": "draft",
+        "roles": {
+          "draft": {
+            "enabled": true,
+            "roleLabel": "Draft",
+            "workspaceSlug": "realtimex-sales",
+            "workspaceName": "RealtimeX Sales",
+            "workspaceSlugAliases": [],
+            "doctrineTemplateRef": "builtin:sales",
+            "doctrineTemplateVersion": "1"
+          },
+          "review": {
+            "enabled": true,
+            "roleLabel": "Review",
+            "workspaceSlug": "realtimex-review",
+            "workspaceName": "RealtimeX Review",
+            "workspaceSlugAliases": [],
+            "doctrineTemplateRef": "builtin:review",
+            "doctrineTemplateVersion": "1"
+          },
+          "approve": {
+            "enabled": true,
+            "roleLabel": "Approve",
+            "workspaceSlug": "realtimex-approver",
+            "workspaceName": "RealtimeX Approver",
+            "workspaceSlugAliases": [],
+            "doctrineTemplateRef": "builtin:approver",
+            "doctrineTemplateVersion": "1"
+          }
+        },
+        "workflow": {
+          "initialState": "drafting",
+          "terminalStates": ["approved"],
+          "transitions": {
+            "drafting": ["drafting", "awaiting_review", "blocked"],
+            "awaiting_review": [
+              "awaiting_review",
+              "revision_requested",
+              "awaiting_approval",
+              "blocked"
+            ],
+            "revision_requested": [
+              "revision_requested",
+              "drafting",
+              "awaiting_review",
+              "blocked"
+            ],
+            "awaiting_approval": [
+              "awaiting_approval",
+              "revision_requested",
+              "approved",
+              "blocked"
+            ],
+            "blocked": [
+              "blocked",
+              "drafting",
+              "awaiting_review",
+              "revision_requested",
+              "awaiting_approval",
+              "approved"
+            ],
+            "approved": ["approved"]
+          },
+          "statusStateMap": {
+            "draft.ready": "awaiting_review",
+            "draft.blocked": "blocked",
+            "review.needs_fix": "revision_requested",
+            "review.approved": "awaiting_approval",
+            "review.escalate": "blocked",
+            "approve.needs_revision": "revision_requested",
+            "approve.approved": "approved",
+            "approve.blocked": "blocked"
+          }
+        }
+      }
+    }
+  ]
+}

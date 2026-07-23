@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "locale": "vi",
+  "templates": {
+    "incident-response": {
+      "name": "Xử lý sự cố",
+      "description": "Phân loại, điều tra, khắc phục và đánh giá lại sự cố production."
+    },
+    "sales-proposal": {
+      "name": "Đề xuất bán hàng",
+      "description": "Soạn thảo đề xuất bán hàng, chuyển qua đánh giá và phê duyệt."
+    }
+  }
+}
