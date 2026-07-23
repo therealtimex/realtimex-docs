@@ -39,7 +39,14 @@ function main() {
     assert(template.id, "each template must have an id");
     assert(!templateIds.has(template.id), `duplicate template id: ${template.id}`);
     templateIds.add(template.id);
-    assert(template.name, `template ${template.id} missing name`);
+    assert(
+      typeof template.name === "string" && template.name.trim(),
+      `template ${template.id} missing a non-empty name`
+    );
+    assert(
+      typeof template.description === "string" && template.description.trim(),
+      `template ${template.id} missing a non-empty description`
+    );
     assert(template.content && typeof template.content === "object", `template ${template.id} missing content`);
     assert(template.content.roles && typeof template.content.roles === "object", `template ${template.id} content missing roles`);
     assert(template.content.workflow && typeof template.content.workflow === "object", `template ${template.id} content missing workflow`);
