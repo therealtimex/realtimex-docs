@@ -1,7 +1,29 @@
 {
   "schemaVersion": 1,
   "updatedAt": "2026-07-24",
-  "locales": ["ja", "vi"],
+  "locales": [
+    "ar",
+    "da",
+    "de",
+    "es",
+    "et",
+    "fa",
+    "fr",
+    "he",
+    "it",
+    "ja",
+    "ko",
+    "lv",
+    "nl",
+    "pl",
+    "pt_BR",
+    "ro",
+    "ru",
+    "tr",
+    "vi",
+    "zh",
+    "zh_TW"
+  ],
   "templates": [
     {
       "id": "incident-response",

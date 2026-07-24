@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "locale": "it",
+  "templates": {
+    "incident-response": {
+      "name": "Gestione incidenti",
+      "description": "Classificare, analizzare, correggere e revisionare gli incidenti in produzione."
+    },
+    "sales-proposal": {
+      "name": "Proposta commerciale",
+      "description": "Redigere una proposta commerciale, inviarla in revisione e approvarla."
+    },
+    "pentest-engagement": {
+      "name": "Incarico di penetration test",
+      "description": "Definire l'ambito ed eseguire un penetration test autorizzato, verificare i risultati per la conformità e approvare il report."
+    },
+    "site-geospatial-analysis": {
+      "name": "Analisi geospaziale del sito",
+      "description": "Preparare e trasformare i dati spaziali, eseguire l'analisi e validare i risultati in modo indipendente."
+    },
+    "financial-model-review": {
+      "name": "Revisione del modello finanziario",
+      "description": "Costruire un modello finanziario, farlo revisionare in modo indipendente e ottenere l'approvazione della direzione."
+    },
+    "worldbuilding-research-brief": {
+      "name": "Brief di ricerca per il worldbuilding",
+      "description": "Ricercare le basi storiche e culturali di un'ambientazione fittizia o di gioco, redigere il brief e verificarne la coerenza."
+    },
+    "game-feature-design-pass": {
+      "name": "Passaggio di design di una feature di gioco",
+      "description": "Progettare una feature di gioco, collocarla nel livello e sottoporla a una revisione tecnico-artistica."
+    },
+    "product-visual-design-pass": {
+      "name": "Passaggio di design visivo del prodotto",
+      "description": "Basare il design sulla ricerca utente, produrre l'interfaccia e verificarla rispetto alle linee guida del brand prima dell'approvazione."
+    },
+    "paid-media-campaign-flight": {
+      "name": "Flight di campagna a pagamento",
+      "description": "Costruire un flight media a pagamento, verificarlo rispetto alle policy di piattaforma e budget e approvarlo per il lancio."
+    },
+    "delivery-shepherd-loop": {
+      "name": "Ciclo di pastorizia della delivery",
+      "description": "Pianificare il lavoro, monitorarlo fino all'esecuzione e mantenere una registrazione duratura di decisioni e domande aperte."
+    },
+    "xr-prototype-build": {
+      "name": "Costruzione di un prototipo XR",
+      "description": "Progettare un'interazione XR, costruire il prototipo immersivo e approvarlo dopo un passaggio di QA."
+    },
+    "support-escalation-handling": {
+      "name": "Gestione delle escalation del supporto",
+      "description": "Classificare un'escalation del cliente, seguire la relazione fino alla risoluzione, risolvere il problema e riferire in seguito."
+    },
+    "legal-document-review": {
+      "name": "Revisione di documenti legali",
+      "description": "Qualificare e accogliere una richiesta di documento legale, revisionarlo e approvarlo per l'uso."
+    },
+    "recruitment-pipeline": {
+      "name": "Pipeline di reclutamento",
+      "description": "Selezionare e valutare i candidati, estendere un'offerta e inserire la persona assunta una volta approvata."
+    },
+    "ma-integration": {
+      "name": "Integrazione M&A",
+      "description": "Pianificare un'integrazione post-fusione, eseguire il change management e ottenere l'approvazione della direzione."
+    },
+    "realtor-buyer-seller-transaction": {
+      "name": "Team immobiliare: transazione acquirente/venditore",
+      "description": "Rappresentare un acquirente o un venditore in una transazione immobiliare: avviare l'operazione, coordinare il finanziamento, revisionare i documenti di chiusura e approvare al closing."
+    }
+  }
+}

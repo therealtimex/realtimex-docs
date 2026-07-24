@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "locale": "fr",
+  "templates": {
+    "incident-response": {
+      "name": "Réponse à un incident",
+      "description": "Trier, examiner, corriger et revoir les incidents de production."
+    },
+    "sales-proposal": {
+      "name": "Proposition commerciale",
+      "description": "Rédiger une proposition commerciale, la soumettre à relecture et l'approuver."
+    },
+    "pentest-engagement": {
+      "name": "Mission de test d'intrusion",
+      "description": "Définir le périmètre et réaliser un test d'intrusion autorisé, auditer les constats pour la conformité et valider le rapport."
+    },
+    "site-geospatial-analysis": {
+      "name": "Analyse géospatiale de site",
+      "description": "Préparer et transformer les données spatiales, effectuer l'analyse et valider les résultats de manière indépendante."
+    },
+    "financial-model-review": {
+      "name": "Revue du modèle financier",
+      "description": "Construire un modèle financier, le faire relire de manière indépendante et obtenir la validation de la direction."
+    },
+    "worldbuilding-research-brief": {
+      "name": "Note de recherche pour la création d'univers",
+      "description": "Rechercher les fondements historiques et culturels d'un univers fictif ou de jeu, rédiger la note et en vérifier la cohérence."
+    },
+    "game-feature-design-pass": {
+      "name": "Passage de conception d'une fonctionnalité de jeu",
+      "description": "Concevoir une fonctionnalité de jeu, l'intégrer au niveau et la soumettre à une revue technique artistique."
+    },
+    "product-visual-design-pass": {
+      "name": "Passage de design visuel produit",
+      "description": "Ancrer le design dans la recherche utilisateur, produire l'interface et la vérifier par rapport à la charte de marque avant validation."
+    },
+    "paid-media-campaign-flight": {
+      "name": "Flight de campagne média payant",
+      "description": "Construire un flight média payant, l'auditer selon la politique de plateforme et de budget, puis l'approuver pour lancement."
+    },
+    "delivery-shepherd-loop": {
+      "name": "Boucle de pilotage de livraison",
+      "description": "Planifier le travail, en suivre l'exécution et conserver un historique durable des décisions et questions ouvertes."
+    },
+    "xr-prototype-build": {
+      "name": "Construction d'un prototype XR",
+      "description": "Concevoir une interaction XR, construire le prototype immersif et le valider après une passe QA."
+    },
+    "support-escalation-handling": {
+      "name": "Traitement des escalades support",
+      "description": "Trier une escalade client, porter la relation jusqu'à la résolution, résoudre le problème et en rendre compte ensuite."
+    },
+    "legal-document-review": {
+      "name": "Revue de document juridique",
+      "description": "Qualifier et prendre en charge une demande de document juridique, le relire et l'approuver pour utilisation."
+    },
+    "recruitment-pipeline": {
+      "name": "Pipeline de recrutement",
+      "description": "Sourcer et présélectionner les candidats, faire une offre et intégrer la recrue une fois approuvée."
+    },
+    "ma-integration": {
+      "name": "Intégration post-fusion",
+      "description": "Planifier une intégration post-fusion, mener la conduite du changement et obtenir la validation de la direction."
+    },
+    "realtor-buyer-seller-transaction": {
+      "name": "Équipe immobilière : transaction acheteur/vendeur",
+      "description": "Représenter un acheteur ou un vendeur dans une transaction immobilière : initier l'affaire, coordonner le financement, revoir les documents de clôture et valider à la signature."
+    }
+  }
+}

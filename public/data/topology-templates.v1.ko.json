@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "locale": "ko",
+  "templates": {
+    "incident-response": {
+      "name": "인시던트 대응",
+      "description": "프로덕션 인시던트를 분류, 조사, 수정 및 검토합니다."
+    },
+    "sales-proposal": {
+      "name": "영업 제안서",
+      "description": "영업 제안서를 작성하여 검토를 거쳐 승인합니다."
+    },
+    "pentest-engagement": {
+      "name": "모의침투 테스트 수행",
+      "description": "승인된 모의침투 테스트의 범위를 정하고 실행하며, 발견 사항을 컴플라이언스 관점에서 감사하고 보고서를 승인합니다."
+    },
+    "site-geospatial-analysis": {
+      "name": "부지 지리공간 분석",
+      "description": "공간 데이터를 준비 및 변환하고, 분석을 실행하며, 결과를 독립적으로 검증합니다."
+    },
+    "financial-model-review": {
+      "name": "재무 모델 검토",
+      "description": "재무 모델을 구축하고 독립적인 검토를 거쳐 경영진의 승인을 받습니다."
+    },
+    "worldbuilding-research-brief": {
+      "name": "세계관 구축 리서치 브리프",
+      "description": "가상 또는 게임 세계관의 역사적·문화적 배경을 조사하고 브리프를 작성한 뒤 일관성을 검토합니다."
+    },
+    "game-feature-design-pass": {
+      "name": "게임 기능 디자인 패스",
+      "description": "게임 기능을 설계하고 레벨에 배치한 후 테크니컬 아트 리뷰를 거칩니다."
+    },
+    "product-visual-design-pass": {
+      "name": "제품 비주얼 디자인 패스",
+      "description": "사용자 리서치를 바탕으로 디자인을 정립하고 UI를 제작하며, 승인 전에 브랜드 가이드라인과 대조합니다."
+    },
+    "paid-media-campaign-flight": {
+      "name": "유료 미디어 캠페인 플라이트",
+      "description": "유료 미디어 플라이트를 구성하고 플랫폼 및 예산 정책에 따라 감사한 뒤 출시를 승인합니다."
+    },
+    "delivery-shepherd-loop": {
+      "name": "딜리버리 셰퍼드 루프",
+      "description": "작업을 계획하고 실행까지 추적하며, 결정 사항과 미해결 질문에 대한 지속적인 기록을 유지합니다."
+    },
+    "xr-prototype-build": {
+      "name": "XR 프로토타입 제작",
+      "description": "XR 상호작용을 설계하고 몰입형 프로토타입을 제작한 뒤 QA 통과 후 승인합니다."
+    },
+    "support-escalation-handling": {
+      "name": "지원 에스컬레이션 처리",
+      "description": "고객 에스컬레이션을 분류하고 해결될 때까지 관계를 책임지며, 문제를 해결한 뒤 보고합니다."
+    },
+    "legal-document-review": {
+      "name": "법률 문서 검토",
+      "description": "법률 문서 요청을 자격 검토 및 접수하고, 문서를 검토한 뒤 사용을 승인합니다."
+    },
+    "recruitment-pipeline": {
+      "name": "채용 파이프라인",
+      "description": "후보자를 소싱 및 스크리닝하고 오퍼를 제시한 뒤 승인 후 신규 입사자를 온보딩합니다."
+    },
+    "ma-integration": {
+      "name": "M&A 통합",
+      "description": "합병 후 통합을 계획하고 변화 관리를 실행하며 경영진의 승인을 받습니다."
+    },
+    "realtor-buyer-seller-transaction": {
+      "name": "부동산 팀: 매수인/매도인 거래",
+      "description": "부동산 거래에서 매수인 또는 매도인을 대리합니다: 거래를 개시하고, 자금 조달을 조율하며, 클로징 서류를 검토하고 클로징 시 승인합니다."
+    }
+  }
+}

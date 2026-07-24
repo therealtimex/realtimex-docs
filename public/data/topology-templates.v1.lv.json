@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "locale": "lv",
+  "templates": {
+    "incident-response": {
+      "name": "Incidentu reaģēšana",
+      "description": "Ražošanas incidentu triāža, izmeklēšana, novēršana un pārskatīšana."
+    },
+    "sales-proposal": {
+      "name": "Pārdošanas piedāvājums",
+      "description": "Sagatavo pārdošanas piedāvājumu, novirzi to pārskatīšanai un apstiprini to."
+    },
+    "pentest-engagement": {
+      "name": "Ielaušanās testa uzdevums",
+      "description": "Nosaki apjomu un veic autorizētu ielaušanās testu, auditē konstatējumus atbilstības nolūkos un apstiprini ziņojumu."
+    },
+    "site-geospatial-analysis": {
+      "name": "Objekta ģeotelpiskā analīze",
+      "description": "Sagatavo un pārveido telpiskos datus, veic analīzi un neatkarīgi validē rezultātus."
+    },
+    "financial-model-review": {
+      "name": "Finanšu modeļa pārskatīšana",
+      "description": "Izveido finanšu modeli, nodod to neatkarīgai pārskatīšanai un saņem vadības apstiprinājumu."
+    },
+    "worldbuilding-research-brief": {
+      "name": "Pasaules veidošanas izpētes apraksts",
+      "description": "Izpēti izdomātas vai spēles vides vēsturisko un kultūras pamatu, sagatavo aprakstu un pārbaudi tā saskaņotību."
+    },
+    "game-feature-design-pass": {
+      "name": "Spēles funkcijas dizaina posms",
+      "description": "Izstrādā spēles funkciju, izvieto to līmenī un nodod tehniskās mākslas pārskatīšanai."
+    },
+    "product-visual-design-pass": {
+      "name": "Produkta vizuālā dizaina posms",
+      "description": "Pamato dizainu ar lietotāju izpēti, izveido lietotāja saskarni un pārbaudi to atbilstoši zīmola vadlīnijām pirms apstiprināšanas."
+    },
+    "paid-media-campaign-flight": {
+      "name": "Maksas mediju kampaņas flaits",
+      "description": "Izveido maksas mediju flaitu, auditē to atbilstoši platformas un budžeta politikai un apstiprini palaišanai."
+    },
+    "delivery-shepherd-loop": {
+      "name": "Piegādes vadības cikls",
+      "description": "Plāno darbu, seko tā izpildei un uzturi noturīgu lēmumu un atklāto jautājumu uzskaiti."
+    },
+    "xr-prototype-build": {
+      "name": "XR prototipa izstrāde",
+      "description": "Izstrādā XR mijiedarbības arhitektūru, izveido iesaistošo prototipu un apstiprini to pēc kvalitātes pārbaudes."
+    },
+    "support-escalation-handling": {
+      "name": "Atbalsta eskalāciju apstrāde",
+      "description": "Triāžē klienta eskalāciju, uzņemies atbildību par attiecībām līdz atrisinājumam, atrisini problēmu un pēc tam sniedz atskaiti."
+    },
+    "legal-document-review": {
+      "name": "Juridiskā dokumenta pārskatīšana",
+      "description": "Kvalificē un pieņem juridiskā dokumenta pieprasījumu, pārskati dokumentu un apstiprini to lietošanai."
+    },
+    "recruitment-pipeline": {
+      "name": "Personāla atlases process",
+      "description": "Meklē un vērtē kandidātus, izsaki piedāvājumu un ievieto jauno darbinieku pēc apstiprināšanas."
+    },
+    "ma-integration": {
+      "name": "M&A integrācija",
+      "description": "Plāno integrāciju pēc apvienošanās, veic pārmaiņu vadību un saņem vadības apstiprinājumu."
+    },
+    "realtor-buyer-seller-transaction": {
+      "name": "Nekustamā īpašuma komanda: pircēja/pārdevēja darījums",
+      "description": "Pārstāvi pircēju vai pārdevēju nekustamā īpašuma darījumā: uzsāc darījumu, koordinē finansējumu, pārskati darījuma slēgšanas dokumentus un apstiprini slēgšanas brīdī."
+    }
+  }
+}
