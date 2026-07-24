@@ -9,6 +9,62 @@
     "sales-proposal": {
       "name": "営業提案",
       "description": "営業提案を作成し、レビューを経て承認します。"
+    },
+    "pentest-engagement": {
+      "name": "ペネトレーションテスト実施",
+      "description": "許可されたペネトレーションテストの範囲を定めて実施し、発見事項をコンプライアンス観点で監査し、レポートを承認します。"
+    },
+    "site-geospatial-analysis": {
+      "name": "サイト地理空間分析",
+      "description": "空間データを準備・変換し、分析を実行して、結果を独立して検証します。"
+    },
+    "financial-model-review": {
+      "name": "財務モデルレビュー",
+      "description": "財務モデルを作成し、独立したレビューを受けて、経営陣の承認を得ます。"
+    },
+    "worldbuilding-research-brief": {
+      "name": "世界観構築リサーチブリーフ",
+      "description": "架空またはゲームの舞台設定における歴史的・文化的背景を調査し、ブリーフを作成して、一貫性をレビューします。"
+    },
+    "game-feature-design-pass": {
+      "name": "ゲーム機能デザインパス",
+      "description": "ゲーム機能を設計し、レベルに配置して、テクニカルアートレビューを実施します。"
+    },
+    "product-visual-design-pass": {
+      "name": "プロダクトビジュアルデザインパス",
+      "description": "ユーザーリサーチに基づいてデザインの根拠を固め、UIを制作し、承認前にブランドガイドラインと照合します。"
+    },
+    "paid-media-campaign-flight": {
+      "name": "有料メディアキャンペーンフライト",
+      "description": "有料メディアのフライトを作成し、プラットフォームおよび予算ポリシーに照らして監査し、開始を承認します。"
+    },
+    "delivery-shepherd-loop": {
+      "name": "デリバリーシェパードループ",
+      "description": "作業を計画し、実行状況を追跡し、決定事項と未解決の課題を継続的に記録します。"
+    },
+    "xr-prototype-build": {
+      "name": "XRプロトタイプ構築",
+      "description": "XRインタラクションを設計し、没入型プロトタイプを構築して、QAパス後に承認します。"
+    },
+    "support-escalation-handling": {
+      "name": "サポートエスカレーション対応",
+      "description": "顧客からのエスカレーションをトリアージし、解決に至るまで関係を担当し、問題を解決した後にレポートします。"
+    },
+    "legal-document-review": {
+      "name": "法務文書レビュー",
+      "description": "法務文書のリクエストを確認・受け付け、文書をレビューして、使用を承認します。"
+    },
+    "recruitment-pipeline": {
+      "name": "採用パイプライン",
+      "description": "候補者をソーシングして審査し、オファーを提示して、承認後にオンボーディングします。"
+    },
+    "ma-integration": {
+      "name": "M&Aインテグレーション",
+      "description": "合併後の統合を計画し、チェンジマネジメントを実行して、経営陣の承認を得ます。"
+    },
+    "realtor-buyer-seller-transaction": {
+      "name": "不動産チーム：買主・売主取引",
+      "description": "不動産取引において買主または売主を代理します：取引を組成し、融資を調整し、クロージング書類をレビューし、成約時に承認します。"
     }
   }
 }
