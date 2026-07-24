@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "locale": "et",
+  "templates": {
+    "incident-response": {
+      "name": "Intsidendile reageerimine",
+      "description": "Tootmiskeskkonna intsidentide triaaž, uurimine, parandamine ja ülevaatus."
+    },
+    "sales-proposal": {
+      "name": "Müügipakkumine",
+      "description": "Koosta müügipakkumine, suuna see ülevaatusele ja kinnita see."
+    },
+    "pentest-engagement": {
+      "name": "Pentesti tellimus",
+      "description": "Määra ulatus ja vii läbi volitatud sissetungimistest, auditeeri leiud vastavuse osas ja kinnita aruanne."
+    },
+    "site-geospatial-analysis": {
+      "name": "Ala geoinfoanalüüs",
+      "description": "Valmista ette ja teisenda ruumiandmed, tee analüüs ning valideeri tulemused sõltumatult."
+    },
+    "financial-model-review": {
+      "name": "Finantsmudeli ülevaatus",
+      "description": "Koosta finantsmudel, lase see sõltumatult üle vaadata ja hangi juhtkonna heakskiit."
+    },
+    "worldbuilding-research-brief": {
+      "name": "Maailmaehituse uurimiskokkuvõte",
+      "description": "Uuri väljamõeldud või mängumaailma ajaloolist ja kultuurilist tausta, koosta kokkuvõte ja vaata üle selle sidusus."
+    },
+    "game-feature-design-pass": {
+      "name": "Mängu funktsiooni disainietapp",
+      "description": "Disaini mängu funktsioon, paiguta see tasemele ja lase see tehnilise kunstiülevaatuse läbida."
+    },
+    "product-visual-design-pass": {
+      "name": "Toote visuaalse disaini etapp",
+      "description": "Rajanda disain kasutajauuringule, loo kasutajaliides ja kontrolli seda brändijuhiste alusel enne kinnitamist."
+    },
+    "paid-media-campaign-flight": {
+      "name": "Tasulise meedia kampaania flight",
+      "description": "Koosta tasulise meedia flight, auditeeri see platvormi- ja eelarvepoliitika alusel ning kinnita käivitamiseks."
+    },
+    "delivery-shepherd-loop": {
+      "name": "Tarnimise juhtimistsükkel",
+      "description": "Planeeri töö, jälgi selle täitmist ja pea ülal püsivat ülevaadet otsustest ja lahtistest küsimustest."
+    },
+    "xr-prototype-build": {
+      "name": "XR-prototüübi loomine",
+      "description": "Kavanda XR-interaktsioon, ehita immersiivne prototüüp ja kinnita see pärast kvaliteedikontrolli."
+    },
+    "support-escalation-handling": {
+      "name": "Klienditoe eskalatsioonide käsitlemine",
+      "description": "Triaži kliendi eskalatsioon, vastuta suhte eest kuni lahenduseni, lahenda probleem ja anna hiljem aru."
+    },
+    "legal-document-review": {
+      "name": "Õigusdokumendi ülevaatus",
+      "description": "Kvalifitseeri ja võta vastu õigusdokumendi taotlus, vaata dokument üle ja kinnita see kasutamiseks."
+    },
+    "recruitment-pipeline": {
+      "name": "Värbamise torustik",
+      "description": "Otsi ja sõeluta kandidaate, tee pakkumine ja liida uus töötaja pärast kinnitamist meeskonda."
+    },
+    "ma-integration": {
+      "name": "M&A integratsioon",
+      "description": "Planeeri ühinemisjärgne integratsioon, vii läbi muudatuste juhtimine ja hangi juhtkonna heakskiit."
+    },
+    "realtor-buyer-seller-transaction": {
+      "name": "Kinnisvarameeskond: ostja/müüja tehing",
+      "description": "Esinda ostjat või müüjat kinnisvaratehingus: algata tehing, koordineeri finantseerimist, vaata üle sulgemisdokumendid ja kinnita tehingu sulgemisel."
+    }
+  }
+}

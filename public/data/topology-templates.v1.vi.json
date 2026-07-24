@@ -9,6 +9,62 @@
     "sales-proposal": {
       "name": "Đề xuất bán hàng",
       "description": "Soạn thảo đề xuất bán hàng, chuyển qua đánh giá và phê duyệt."
+    },
+    "pentest-engagement": {
+      "name": "Triển khai kiểm thử xâm nhập",
+      "description": "Xác định phạm vi và thực hiện kiểm thử xâm nhập được ủy quyền, kiểm toán các phát hiện theo yêu cầu tuân thủ, và phê duyệt báo cáo."
+    },
+    "site-geospatial-analysis": {
+      "name": "Phân tích địa không gian khu vực",
+      "description": "Chuẩn bị và chuyển đổi dữ liệu không gian, thực hiện phân tích và xác thực kết quả một cách độc lập."
+    },
+    "financial-model-review": {
+      "name": "Đánh giá mô hình tài chính",
+      "description": "Xây dựng mô hình tài chính, đánh giá độc lập và nhận phê duyệt từ ban điều hành."
+    },
+    "worldbuilding-research-brief": {
+      "name": "Bản tóm tắt nghiên cứu xây dựng thế giới",
+      "description": "Nghiên cứu nền tảng lịch sử và văn hóa cho bối cảnh hư cấu hoặc trò chơi, soạn bản tóm tắt và đánh giá tính nhất quán."
+    },
+    "game-feature-design-pass": {
+      "name": "Vòng thiết kế tính năng trò chơi",
+      "description": "Thiết kế tính năng trò chơi, đặt vào màn chơi và đánh giá kỹ thuật mỹ thuật."
+    },
+    "product-visual-design-pass": {
+      "name": "Vòng thiết kế hình ảnh sản phẩm",
+      "description": "Xây dựng thiết kế dựa trên nghiên cứu người dùng, tạo giao diện UI và kiểm tra theo hướng dẫn thương hiệu trước khi phê duyệt."
+    },
+    "paid-media-campaign-flight": {
+      "name": "Đợt chạy chiến dịch quảng cáo trả phí",
+      "description": "Xây dựng đợt chạy quảng cáo trả phí, kiểm toán theo chính sách nền tảng và ngân sách, rồi phê duyệt để khởi chạy."
+    },
+    "delivery-shepherd-loop": {
+      "name": "Vòng lặp điều phối triển khai",
+      "description": "Lên kế hoạch công việc, theo dõi đến khi thực thi, và lưu giữ hồ sơ lâu dài về các quyết định và vấn đề còn mở."
+    },
+    "xr-prototype-build": {
+      "name": "Xây dựng nguyên mẫu XR",
+      "description": "Thiết kế kiến trúc tương tác XR, xây dựng nguyên mẫu nhập vai và phê duyệt sau khi kiểm tra QA."
+    },
+    "support-escalation-handling": {
+      "name": "Xử lý leo thang hỗ trợ khách hàng",
+      "description": "Phân loại vấn đề leo thang của khách hàng, phụ trách mối quan hệ cho đến khi giải quyết xong, xử lý vấn đề và báo cáo sau đó."
+    },
+    "legal-document-review": {
+      "name": "Đánh giá tài liệu pháp lý",
+      "description": "Sàng lọc và tiếp nhận yêu cầu tài liệu pháp lý, đánh giá tài liệu và phê duyệt để sử dụng."
+    },
+    "recruitment-pipeline": {
+      "name": "Quy trình tuyển dụng",
+      "description": "Tìm kiếm và sàng lọc ứng viên, đưa ra lời mời làm việc, và onboarding nhân sự mới sau khi được phê duyệt."
+    },
+    "ma-integration": {
+      "name": "Tích hợp sau M&A",
+      "description": "Lập kế hoạch tích hợp sau sáp nhập, thực hiện quản lý thay đổi và nhận phê duyệt từ ban điều hành."
+    },
+    "realtor-buyer-seller-transaction": {
+      "name": "Đội môi giới bất động sản: giao dịch mua/bán",
+      "description": "Đại diện cho bên mua hoặc bên bán trong giao dịch bất động sản: khởi tạo giao dịch, điều phối tài chính, đánh giá hồ sơ hoàn tất giao dịch và phê duyệt khi hoàn tất."
     }
   }
 }

@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "locale": "zh_TW",
+  "templates": {
+    "incident-response": {
+      "name": "事件應變",
+      "description": "對正式環境事件進行分診、調查、修復與複核。"
+    },
+    "sales-proposal": {
+      "name": "銷售提案",
+      "description": "撰寫銷售提案，提交審核並核准。"
+    },
+    "pentest-engagement": {
+      "name": "滲透測試任務",
+      "description": "界定並執行經授權的滲透測試範圍，依合規要求稽核發現事項，並核准報告。"
+    },
+    "site-geospatial-analysis": {
+      "name": "現場地理空間分析",
+      "description": "準備並轉換空間資料，執行分析，並獨立驗證結果。"
+    },
+    "financial-model-review": {
+      "name": "財務模型審核",
+      "description": "建立財務模型，交由獨立審核，並取得管理階層核准。"
+    },
+    "worldbuilding-research-brief": {
+      "name": "世界觀建構研究簡報",
+      "description": "研究虛構或遊戲設定的歷史與文化脈絡，撰寫簡報，並審核其一致性。"
+    },
+    "game-feature-design-pass": {
+      "name": "遊戲功能設計環節",
+      "description": "設計遊戲功能，將其配置於關卡，並通過技術美術審查。"
+    },
+    "product-visual-design-pass": {
+      "name": "產品視覺設計環節",
+      "description": "以使用者研究為基礎確立設計，產出介面，並於核准前對照品牌準則進行檢核。"
+    },
+    "paid-media-campaign-flight": {
+      "name": "付費媒體活動排期",
+      "description": "建立付費媒體排期，依平台與預算政策稽核，並核准上線。"
+    },
+    "delivery-shepherd-loop": {
+      "name": "交付督導循環",
+      "description": "規劃工作、追蹤至執行完成，並持續記錄決策與待解決問題。"
+    },
+    "xr-prototype-build": {
+      "name": "XR 原型建置",
+      "description": "設計 XR 互動架構，建置沉浸式原型，並於通過品保審查後核准。"
+    },
+    "support-escalation-handling": {
+      "name": "支援升級處理",
+      "description": "對客戶升級問題進行分診，全程負責客戶關係直到解決，解決問題後提出報告。"
+    },
+    "legal-document-review": {
+      "name": "法律文件審核",
+      "description": "對法律文件請求進行資格審查與受理，審核文件並核准使用。"
+    },
+    "recruitment-pipeline": {
+      "name": "招募流程",
+      "description": "尋源並篩選候選人，提出錄用邀約，並於核准後完成新進人員導入。"
+    },
+    "ma-integration": {
+      "name": "併購整合",
+      "description": "規劃併購後整合，執行變革管理，並取得管理階層核准。"
+    },
+    "realtor-buyer-seller-transaction": {
+      "name": "房地產團隊：買賣雙方交易",
+      "description": "在不動產交易中代表買方或賣方：促成交易、協調融資、審核成交文件，並於成交時核准。"
+    }
+  }
+}

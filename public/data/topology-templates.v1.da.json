@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "locale": "da",
+  "templates": {
+    "incident-response": {
+      "name": "Hændelseshåndtering",
+      "description": "Triager, undersøg, ret og gennemgå produktionshændelser."
+    },
+    "sales-proposal": {
+      "name": "Salgsforslag",
+      "description": "Udarbejd et salgsforslag, send det til gennemgang og godkend det."
+    },
+    "pentest-engagement": {
+      "name": "Pentest-opgave",
+      "description": "Afgræns og udfør en autoriseret penetrationstest, revider fundene for compliance, og godkend rapporten."
+    },
+    "site-geospatial-analysis": {
+      "name": "Geospatial site-analyse",
+      "description": "Klargør og transformer geodata, kør analysen, og validér resultaterne uafhængigt."
+    },
+    "financial-model-review": {
+      "name": "Gennemgang af finansiel model",
+      "description": "Byg en finansiel model, få den gennemgået uafhængigt, og opnå ledelsens godkendelse."
+    },
+    "worldbuilding-research-brief": {
+      "name": "Research-brief til worldbuilding",
+      "description": "Undersøg det historiske og kulturelle grundlag for et fiktivt eller spilunivers, udarbejd briefet, og gennemgå det for sammenhæng."
+    },
+    "game-feature-design-pass": {
+      "name": "Designforløb for spilfunktion",
+      "description": "Design en spilfunktion, placer den i banen, og send den til teknisk artgennemgang."
+    },
+    "product-visual-design-pass": {
+      "name": "Visuelt designforløb for produkt",
+      "description": "Forankr designet i brugerresearch, producer UI'et, og tjek det mod brandretningslinjerne før godkendelse."
+    },
+    "paid-media-campaign-flight": {
+      "name": "Betalt medie-kampagneflight",
+      "description": "Byg en betalt medieflight, revider den mod platform- og budgetpolitik, og godkend den til lancering."
+    },
+    "delivery-shepherd-loop": {
+      "name": "Delivery shepherd-loop",
+      "description": "Planlæg arbejdet, følg det til udførelse, og hold en varig registrering af beslutninger og åbne spørgsmål."
+    },
+    "xr-prototype-build": {
+      "name": "XR-prototypebygning",
+      "description": "Arkitekt en XR-interaktion, byg den immersive prototype, og godkend den efter en QA-runde."
+    },
+    "support-escalation-handling": {
+      "name": "Håndtering af supporteskalering",
+      "description": "Triager en kundeeskalering, ejer relationen frem til løsning, løs problemet, og rapporter bagefter."
+    },
+    "legal-document-review": {
+      "name": "Gennemgang af juridisk dokument",
+      "description": "Kvalificer og modtag en anmodning om et juridisk dokument, gennemgå dokumentet, og godkend det til brug."
+    },
+    "recruitment-pipeline": {
+      "name": "Rekrutteringspipeline",
+      "description": "Find og screen kandidater, giv et tilbud, og onboard den ansatte, når det er godkendt."
+    },
+    "ma-integration": {
+      "name": "M&A-integration",
+      "description": "Planlæg en integration efter en fusion, udfør forandringsledelsen, og opnå ledelsens godkendelse."
+    },
+    "realtor-buyer-seller-transaction": {
+      "name": "Ejendomsmæglerteam: køber-/sælgertransaktion",
+      "description": "Repræsenter en køber eller sælger gennem en ejendomshandel: igangsæt handlen, koordiner finansieringen, gennemgå closingdokumenterne, og godkend ved closing."
+    }
+  }
+}

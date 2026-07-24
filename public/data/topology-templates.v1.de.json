@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "locale": "de",
+  "templates": {
+    "incident-response": {
+      "name": "Incident-Response",
+      "description": "Vorfälle in der Produktion triagieren, untersuchen, beheben und überprüfen."
+    },
+    "sales-proposal": {
+      "name": "Verkaufsangebot",
+      "description": "Ein Verkaufsangebot erstellen, zur Prüfung weiterleiten und freigeben."
+    },
+    "pentest-engagement": {
+      "name": "Penetrationstest-Auftrag",
+      "description": "Einen autorisierten Penetrationstest planen und durchführen, die Ergebnisse auf Compliance prüfen und den Bericht freigeben."
+    },
+    "site-geospatial-analysis": {
+      "name": "Geodatenanalyse vor Ort",
+      "description": "Raumdaten aufbereiten und transformieren, die Analyse durchführen und die Ergebnisse unabhängig validieren."
+    },
+    "financial-model-review": {
+      "name": "Finanzmodellprüfung",
+      "description": "Ein Finanzmodell erstellen, unabhängig prüfen lassen und die Freigabe der Geschäftsleitung einholen."
+    },
+    "worldbuilding-research-brief": {
+      "name": "Recherchebrief zum Weltenbau",
+      "description": "Den historischen und kulturellen Hintergrund für ein fiktives Setting oder ein Spiel recherchieren, das Briefing verfassen und auf Kohärenz prüfen."
+    },
+    "game-feature-design-pass": {
+      "name": "Design-Durchlauf für Spielfunktionen",
+      "description": "Eine Spielfunktion entwerfen, im Level platzieren und einer technischen Art-Review unterziehen."
+    },
+    "product-visual-design-pass": {
+      "name": "Visueller Design-Durchlauf für Produkte",
+      "description": "Ein Design auf Nutzerforschung stützen, die UI erstellen und vor der Freigabe mit den Markenrichtlinien abgleichen."
+    },
+    "paid-media-campaign-flight": {
+      "name": "Paid-Media-Kampagnenflight",
+      "description": "Einen Paid-Media-Flight erstellen, gegen Plattform- und Budgetrichtlinien prüfen und zum Start freigeben."
+    },
+    "delivery-shepherd-loop": {
+      "name": "Delivery-Shepherd-Loop",
+      "description": "Die Arbeit planen, bis zur Umsetzung verfolgen und Entscheidungen sowie offene Fragen dauerhaft dokumentieren."
+    },
+    "xr-prototype-build": {
+      "name": "XR-Prototyp-Erstellung",
+      "description": "Eine XR-Interaktion konzipieren, den immersiven Prototyp bauen und nach einem QA-Durchlauf freigeben."
+    },
+    "support-escalation-handling": {
+      "name": "Support-Eskalationsbearbeitung",
+      "description": "Eine Kundeneskalation triagieren, die Beziehung bis zur Lösung verantworten, das Problem beheben und anschließend berichten."
+    },
+    "legal-document-review": {
+      "name": "Prüfung juristischer Dokumente",
+      "description": "Eine Anfrage für ein Rechtsdokument qualifizieren und aufnehmen, das Dokument prüfen und zur Nutzung freigeben."
+    },
+    "recruitment-pipeline": {
+      "name": "Recruiting-Pipeline",
+      "description": "Kandidaten sourcen und screenen, ein Angebot unterbreiten und die Einstellung nach Freigabe onboarden."
+    },
+    "ma-integration": {
+      "name": "M&A-Integration",
+      "description": "Eine Post-Merger-Integration planen, das Change Management durchführen und die Freigabe der Geschäftsleitung einholen."
+    },
+    "realtor-buyer-seller-transaction": {
+      "name": "Immobilienteam: Käufer-/Verkäufertransaktion",
+      "description": "Einen Käufer oder Verkäufer bei einer Immobilientransaktion vertreten: das Geschäft anbahnen, die Finanzierung koordinieren, die Abschlussdokumente prüfen und beim Abschluss freigeben."
+    }
+  }
+}

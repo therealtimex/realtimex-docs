@@ -1,7 +1,29 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-23",
-  "locales": ["ja", "vi"],
+  "updatedAt": "2026-07-24",
+  "locales": [
+    "ar",
+    "da",
+    "de",
+    "es",
+    "et",
+    "fa",
+    "fr",
+    "he",
+    "it",
+    "ja",
+    "ko",
+    "lv",
+    "nl",
+    "pl",
+    "pt_BR",
+    "ro",
+    "ru",
+    "tr",
+    "vi",
+    "zh",
+    "zh_TW"
+  ],
   "templates": [
     {
       "id": "incident-response",
@@ -56,7 +78,12 @@
             "triaging": ["triaging", "investigating", "blocked"],
             "investigating": ["investigating", "triaging", "fixing", "blocked"],
             "fixing": ["fixing", "investigating", "awaiting_retro", "blocked"],
-            "awaiting_retro": ["awaiting_retro", "fixing", "resolved", "blocked"],
+            "awaiting_retro": [
+              "awaiting_retro",
+              "fixing",
+              "resolved",
+              "blocked"
+            ],
             "blocked": [
               "blocked",
               "triaging",
@@ -158,6 +185,1132 @@
             "review.escalate": "blocked",
             "approve.needs_revision": "revision_requested",
             "approve.approved": "approved",
+            "approve.blocked": "blocked"
+          }
+        }
+      }
+    },
+    {
+      "id": "pentest-engagement",
+      "name": "Pentest engagement",
+      "description": "Scope and run an authorized penetration test, audit the findings for compliance, and sign off on the report.",
+      "content": {
+        "version": 3,
+        "preset": "pentest-engagement",
+        "sharedContextRoleKind": "security_penetration_tester",
+        "roles": {
+          "security_penetration_tester": {
+            "enabled": true,
+            "roleLabel": "Penetration Tester",
+            "workspaceSlug": "realtimex-pentester",
+            "workspaceName": "RealtimeX Penetration Tester",
+            "workspaceSlugAliases": [],
+            "doctrineTemplateRef": "builtin:security",
+            "doctrineTemplateVersion": "1"
+          },
+          "security_compliance_auditor": {
+            "enabled": true,
+            "roleLabel": "Compliance Auditor",
+            "workspaceSlug": "realtimex-security-compliance",
+            "workspaceName": "RealtimeX Security Compliance",
+            "workspaceSlugAliases": [],
+            "doctrineTemplateRef": "builtin:security",
+            "doctrineTemplateVersion": "1"
+          },
+          "approve": {
+            "enabled": true,
+            "roleLabel": "Approve",
+            "workspaceSlug": "realtimex-approver",
+            "workspaceName": "RealtimeX Approver",
+            "workspaceSlugAliases": [],
+            "doctrineTemplateRef": "builtin:approver",
+            "doctrineTemplateVersion": "1"
+          }
+        },
+        "workflow": {
+          "initialState": "drafting",
+          "terminalStates": ["approved"],
+          "transitions": {
+            "drafting": ["drafting", "awaiting_review", "blocked"],
+            "awaiting_review": [
+              "awaiting_review",
+              "revision_requested",
+              "awaiting_approval",
+              "blocked"
+            ],
+            "revision_requested": [
+              "revision_requested",
+              "drafting",
+              "awaiting_review",
+              "blocked"
+            ],
+            "awaiting_approval": [
+              "awaiting_approval",
+              "revision_requested",
+              "approved",
+              "blocked"
+            ],
+            "blocked": [
+              "blocked",
+              "drafting",
+              "awaiting_review",
+              "revision_requested",
+              "awaiting_approval",
+              "approved"
+            ],
+            "approved": ["approved"]
+          },
+          "statusStateMap": {
+            "security_penetration_tester.ready": "awaiting_review",
+            "security_penetration_tester.blocked": "blocked",
+            "security_compliance_auditor.needs_fix": "revision_requested",
+            "security_compliance_auditor.approved": "awaiting_approval",
+            "security_compliance_auditor.escalate": "blocked",
+            "approve.needs_revision": "revision_requested",
+            "approve.approved": "approved",
+            "approve.blocked": "blocked"
+          }
+        }
+      }
+    },
+    {
+      "id": "site-geospatial-analysis",
+      "name": "Site geospatial analysis",
+      "description": "Prepare and transform spatial data, run the analysis, and independently validate the results.",
+      "content": {
+        "version": 3,
+        "preset": "site-geospatial-analysis",
+        "sharedContextRoleKind": "gis_spatial_data_engineer",
+        "roles": {
+          "gis_spatial_data_engineer": {
+            "enabled": true,
+            "roleLabel": "Spatial Data Engineer",
+            "workspaceSlug": "realtimex-gis-data-engineer",
+            "workspaceName": "RealtimeX GIS Data Engineer",
+            "workspaceSlugAliases": [],
+            "doctrineTemplateRef": "builtin:data",
+            "doctrineTemplateVersion": "1"
+          },
+          "gis_spatial_data_scientist": {
+            "enabled": true,
+            "roleLabel": "Spatial Data Scientist",
+            "workspaceSlug": "realtimex-gis-data-scientist",
+            "workspaceName": "RealtimeX GIS Data Scientist",
+            "workspaceSlugAliases": [],
+            "doctrineTemplateRef": "builtin:researcher",
+            "doctrineTemplateVersion": "1"
+          },
+          "gis_qa_engineer": {
+            "enabled": true,
+            "roleLabel": "GIS QA Engineer",
+            "workspaceSlug": "realtimex-gis-qa",
+            "workspaceName": "RealtimeX GIS QA",
+            "workspaceSlugAliases": [],
+            "doctrineTemplateRef": "builtin:qa",
+            "doctrineTemplateVersion": "1"
+          }
+        },
+        "workflow": {
+          "initialState": "research_in_progress",
+          "terminalStates": ["done"],
+          "transitions": {
+            "research_in_progress": [
+              "research_in_progress",
+              "drafting",
+              "blocked"
+            ],
+            "drafting": ["drafting", "awaiting_review", "blocked"],
+            "awaiting_review": [
+              "awaiting_review",
+              "revision_requested",
+              "done",
+              "blocked"
+            ],
+            "revision_requested": [
+              "revision_requested",
+              "drafting",
+              "awaiting_review",
+              "blocked"
+            ],
+            "blocked": [
+              "blocked",
+              "research_in_progress",
+              "drafting",
+              "awaiting_review",
+              "done"
+            ],
+            "done": ["done"]
+          },
+          "statusStateMap": {
+            "gis_spatial_data_engineer.ready": "drafting",
+            "gis_spatial_data_engineer.blocked": "blocked",
+            "gis_spatial_data_scientist.ready": "awaiting_review",
+            "gis_spatial_data_scientist.blocked": "blocked",
+            "gis_qa_engineer.needs_fix": "revision_requested",
+            "gis_qa_engineer.approved": "done",
+            "gis_qa_engineer.escalate": "blocked"
+          }
+        }
+      }
+    },
+    {
+      "id": "financial-model-review",
+      "name": "Financial model review",
+      "description": "Build a financial model, have it independently reviewed, and get executive sign-off.",
+      "content": {
+        "version": 3,
+        "preset": "financial-model-review",
+        "sharedContextRoleKind": "finance_financial_analyst",
+        "roles": {
+          "finance_financial_analyst": {
+            "enabled": true,
+            "roleLabel": "Financial Analyst",
+            "workspaceSlug": "realtimex-financial-analyst",
+            "workspaceName": "RealtimeX Financial Analyst",
+            "workspaceSlugAliases": [],
+            "doctrineTemplateRef": "builtin:researcher",
+            "doctrineTemplateVersion": "1"
+          },
+          "finance_fpa_analyst": {
+            "enabled": true,
+            "roleLabel": "FP&A Analyst",
+            "workspaceSlug": "realtimex-fpa-analyst",
+            "workspaceName": "RealtimeX FP&A Analyst",
+            "workspaceSlugAliases": [],
+            "doctrineTemplateRef": "builtin:researcher",
+            "doctrineTemplateVersion": "1"
+          },
+          "specialized_chief_financial_officer": {
+            "enabled": true,
+            "roleLabel": "Chief Financial Officer",
+            "workspaceSlug": "realtimex-cfo",
+            "workspaceName": "RealtimeX CFO",
+            "workspaceSlugAliases": [],
+            "doctrineTemplateRef": "builtin:manager",
+            "doctrineTemplateVersion": "1"
+          }
+        },
+        "workflow": {
+          "initialState": "drafting",
+          "terminalStates": ["approved"],
+          "transitions": {
+            "drafting": ["drafting", "awaiting_review", "blocked"],
+            "awaiting_review": [
+              "awaiting_review",
+              "revision_requested",
+              "awaiting_approval",
+              "blocked"
+            ],
+            "revision_requested": [
+              "revision_requested",
+              "drafting",
+              "awaiting_review",
+              "blocked"
+            ],
+            "awaiting_approval": [
+              "awaiting_approval",
+              "revision_requested",
+              "approved",
+              "blocked"
+            ],
+            "blocked": [
+              "blocked",
+              "drafting",
+              "awaiting_review",
+              "revision_requested",
+              "awaiting_approval",
+              "approved"
+            ],
+            "approved": ["approved"]
+          },
+          "statusStateMap": {
+            "finance_financial_analyst.ready": "awaiting_review",
+            "finance_financial_analyst.blocked": "blocked",
+            "finance_fpa_analyst.needs_fix": "revision_requested",
+            "finance_fpa_analyst.approved": "awaiting_approval",
+            "finance_fpa_analyst.escalate": "blocked",
+            "specialized_chief_financial_officer.needs_revision": "revision_requested",
+            "specialized_chief_financial_officer.approved": "approved",
+            "specialized_chief_financial_officer.blocked": "blocked"
+          }
+        }
+      }
+    },
+    {
+      "id": "worldbuilding-research-brief",
+      "name": "Worldbuilding research brief",
+      "description": "Research the historical and cultural grounding for a fictional or game setting, draft the brief, and review it for coherence.",
+      "content": {
+        "version": 3,
+        "preset": "worldbuilding-research-brief",
+        "sharedContextRoleKind": "academic_historian",
+        "roles": {
+          "academic_historian": {
+            "enabled": true,
+            "roleLabel": "Historian",
+            "workspaceSlug": "realtimex-historian",
+            "workspaceName": "RealtimeX Historian",
+            "workspaceSlugAliases": [],
+            "doctrineTemplateRef": "builtin:researcher",
+            "doctrineTemplateVersion": "1"
+          },
+          "academic_anthropologist": {
+            "enabled": true,
+            "roleLabel": "Anthropologist",
+            "workspaceSlug": "realtimex-anthropologist",
+            "workspaceName": "RealtimeX Anthropologist",
+            "workspaceSlugAliases": [],
+            "doctrineTemplateRef": "builtin:researcher",
+            "doctrineTemplateVersion": "1"
+          },
+          "review": {
+            "enabled": true,
+            "roleLabel": "Review",
+            "workspaceSlug": "realtimex-review",
+            "workspaceName": "RealtimeX Review",
+            "workspaceSlugAliases": [],
+            "doctrineTemplateRef": "builtin:review",
+            "doctrineTemplateVersion": "1"
+          }
+        },
+        "workflow": {
+          "initialState": "research_in_progress",
+          "terminalStates": ["done"],
+          "transitions": {
+            "research_in_progress": [
+              "research_in_progress",
+              "drafting",
+              "blocked"
+            ],
+            "drafting": ["drafting", "awaiting_review", "blocked"],
+            "awaiting_review": [
+              "awaiting_review",
+              "revision_requested",
+              "done",
+              "blocked"
+            ],
+            "revision_requested": [
+              "revision_requested",
+              "drafting",
+              "awaiting_review",
+              "blocked"
+            ],
+            "blocked": [
+              "blocked",
+              "research_in_progress",
+              "drafting",
+              "awaiting_review",
+              "done"
+            ],
+            "done": ["done"]
+          },
+          "statusStateMap": {
+            "academic_historian.ready": "drafting",
+            "academic_historian.blocked": "blocked",
+            "academic_anthropologist.ready": "awaiting_review",
+            "academic_anthropologist.blocked": "blocked",
+            "review.needs_fix": "revision_requested",
+            "review.approved": "done",
+            "review.escalate": "blocked"
+          }
+        }
+      }
+    },
+    {
+      "id": "game-feature-design-pass",
+      "name": "Game feature design pass",
+      "description": "Design a game feature, place it in the level, and pass it through a technical art review.",
+      "content": {
+        "version": 3,
+        "preset": "game-feature-design-pass",
+        "sharedContextRoleKind": "game_development_game_designer",
+        "roles": {
+          "game_development_game_designer": {
+            "enabled": true,
+            "roleLabel": "Game Designer",
+            "workspaceSlug": "realtimex-game-designer",
+            "workspaceName": "RealtimeX Game Designer",
+            "workspaceSlugAliases": [],
+            "doctrineTemplateRef": "builtin:design",
+            "doctrineTemplateVersion": "1"
+          },
+          "game_development_level_designer": {
+            "enabled": true,
+            "roleLabel": "Level Designer",
+            "workspaceSlug": "realtimex-level-designer",
+            "workspaceName": "RealtimeX Level Designer",
+            "workspaceSlugAliases": [],
+            "doctrineTemplateRef": "builtin:design",
+            "doctrineTemplateVersion": "1"
+          },
+          "game_development_technical_artist": {
+            "enabled": true,
+            "roleLabel": "Technical Artist",
+            "workspaceSlug": "realtimex-technical-artist",
+            "workspaceName": "RealtimeX Technical Artist",
+            "workspaceSlugAliases": [],
+            "doctrineTemplateRef": "builtin:design",
+            "doctrineTemplateVersion": "1"
+          }
+        },
+        "workflow": {
+          "initialState": "drafting",
+          "terminalStates": ["approved"],
+          "transitions": {
+            "drafting": ["drafting", "awaiting_review", "blocked"],
+            "awaiting_review": [
+              "awaiting_review",
+              "revision_requested",
+              "awaiting_approval",
+              "blocked"
+            ],
+            "revision_requested": [
+              "revision_requested",
+              "drafting",
+              "awaiting_review",
+              "blocked"
+            ],
+            "awaiting_approval": [
+              "awaiting_approval",
+              "revision_requested",
+              "approved",
+              "blocked"
+            ],
+            "blocked": [
+              "blocked",
+              "drafting",
+              "awaiting_review",
+              "revision_requested",
+              "awaiting_approval",
+              "approved"
+            ],
+            "approved": ["approved"]
+          },
+          "statusStateMap": {
+            "game_development_game_designer.ready": "awaiting_review",
+            "game_development_game_designer.blocked": "blocked",
+            "game_development_level_designer.needs_fix": "revision_requested",
+            "game_development_level_designer.approved": "awaiting_approval",
+            "game_development_level_designer.escalate": "blocked",
+            "game_development_technical_artist.needs_revision": "revision_requested",
+            "game_development_technical_artist.approved": "approved",
+            "game_development_technical_artist.blocked": "blocked"
+          }
+        }
+      }
+    },
+    {
+      "id": "product-visual-design-pass",
+      "name": "Product visual design pass",
+      "description": "Ground a design in user research, produce the UI, and check it against brand guidelines before approval.",
+      "content": {
+        "version": 3,
+        "preset": "product-visual-design-pass",
+        "sharedContextRoleKind": "design_ux_researcher",
+        "roles": {
+          "design_ux_researcher": {
+            "enabled": true,
+            "roleLabel": "UX Researcher",
+            "workspaceSlug": "realtimex-ux-researcher",
+            "workspaceName": "RealtimeX UX Researcher",
+            "workspaceSlugAliases": [],
+            "doctrineTemplateRef": "builtin:researcher",
+            "doctrineTemplateVersion": "1"
+          },
+          "design_ui_designer": {
+            "enabled": true,
+            "roleLabel": "UI Designer",
+            "workspaceSlug": "realtimex-ui-designer",
+            "workspaceName": "RealtimeX UI Designer",
+            "workspaceSlugAliases": [],
+            "doctrineTemplateRef": "builtin:design",
+            "doctrineTemplateVersion": "1"
+          },
+          "design_brand_guardian": {
+            "enabled": true,
+            "roleLabel": "Brand Guardian",
+            "workspaceSlug": "realtimex-brand-guardian",
+            "workspaceName": "RealtimeX Brand Guardian",
+            "workspaceSlugAliases": [],
+            "doctrineTemplateRef": "builtin:design",
+            "doctrineTemplateVersion": "1"
+          }
+        },
+        "workflow": {
+          "initialState": "drafting",
+          "terminalStates": ["approved"],
+          "transitions": {
+            "drafting": ["drafting", "awaiting_review", "blocked"],
+            "awaiting_review": [
+              "awaiting_review",
+              "revision_requested",
+              "awaiting_approval",
+              "blocked"
+            ],
+            "revision_requested": [
+              "revision_requested",
+              "drafting",
+              "awaiting_review",
+              "blocked"
+            ],
+            "awaiting_approval": [
+              "awaiting_approval",
+              "revision_requested",
+              "approved",
+              "blocked"
+            ],
+            "blocked": [
+              "blocked",
+              "drafting",
+              "awaiting_review",
+              "revision_requested",
+              "awaiting_approval",
+              "approved"
+            ],
+            "approved": ["approved"]
+          },
+          "statusStateMap": {
+            "design_ux_researcher.ready": "awaiting_review",
+            "design_ux_researcher.blocked": "blocked",
+            "design_ui_designer.needs_fix": "revision_requested",
+            "design_ui_designer.approved": "awaiting_approval",
+            "design_ui_designer.escalate": "blocked",
+            "design_brand_guardian.needs_revision": "revision_requested",
+            "design_brand_guardian.approved": "approved",
+            "design_brand_guardian.blocked": "blocked"
+          }
+        }
+      }
+    },
+    {
+      "id": "paid-media-campaign-flight",
+      "name": "Paid media campaign flight",
+      "description": "Build a paid media flight, audit it against platform and budget policy, and approve it to launch.",
+      "content": {
+        "version": 3,
+        "preset": "paid-media-campaign-flight",
+        "sharedContextRoleKind": "paid_media_ppc_strategist",
+        "roles": {
+          "paid_media_ppc_strategist": {
+            "enabled": true,
+            "roleLabel": "PPC Campaign Strategist",
+            "workspaceSlug": "realtimex-ppc-strategist",
+            "workspaceName": "RealtimeX PPC Strategist",
+            "workspaceSlugAliases": [],
+            "doctrineTemplateRef": "builtin:marketing",
+            "doctrineTemplateVersion": "1"
+          },
+          "paid_media_auditor": {
+            "enabled": true,
+            "roleLabel": "Paid Media Auditor",
+            "workspaceSlug": "realtimex-paid-media-auditor",
+            "workspaceName": "RealtimeX Paid Media Auditor",
+            "workspaceSlugAliases": [],
+            "doctrineTemplateRef": "builtin:review",
+            "doctrineTemplateVersion": "1"
+          },
+          "approve": {
+            "enabled": true,
+            "roleLabel": "Approve",
+            "workspaceSlug": "realtimex-approver",
+            "workspaceName": "RealtimeX Approver",
+            "workspaceSlugAliases": [],
+            "doctrineTemplateRef": "builtin:approver",
+            "doctrineTemplateVersion": "1"
+          }
+        },
+        "workflow": {
+          "initialState": "drafting",
+          "terminalStates": ["approved"],
+          "transitions": {
+            "drafting": ["drafting", "awaiting_review", "blocked"],
+            "awaiting_review": [
+              "awaiting_review",
+              "revision_requested",
+              "awaiting_approval",
+              "blocked"
+            ],
+            "revision_requested": [
+              "revision_requested",
+              "drafting",
+              "awaiting_review",
+              "blocked"
+            ],
+            "awaiting_approval": [
+              "awaiting_approval",
+              "revision_requested",
+              "approved",
+              "blocked"
+            ],
+            "blocked": [
+              "blocked",
+              "drafting",
+              "awaiting_review",
+              "revision_requested",
+              "awaiting_approval",
+              "approved"
+            ],
+            "approved": ["approved"]
+          },
+          "statusStateMap": {
+            "paid_media_ppc_strategist.ready": "awaiting_review",
+            "paid_media_ppc_strategist.blocked": "blocked",
+            "paid_media_auditor.needs_fix": "revision_requested",
+            "paid_media_auditor.approved": "awaiting_approval",
+            "paid_media_auditor.escalate": "blocked",
+            "approve.needs_revision": "revision_requested",
+            "approve.approved": "approved",
+            "approve.blocked": "blocked"
+          }
+        }
+      }
+    },
+    {
+      "id": "delivery-shepherd-loop",
+      "name": "Delivery shepherd loop",
+      "description": "Plan the work, track it to execution, and keep a durable record of decisions and open questions.",
+      "content": {
+        "version": 3,
+        "preset": "delivery-shepherd-loop",
+        "sharedContextRoleKind": "project_management_project_shepherd",
+        "roles": {
+          "project_management_project_shepherd": {
+            "enabled": true,
+            "roleLabel": "Project Shepherd",
+            "workspaceSlug": "realtimex-project-shepherd",
+            "workspaceName": "RealtimeX Project Shepherd",
+            "workspaceSlugAliases": [],
+            "doctrineTemplateRef": "builtin:project_manager",
+            "doctrineTemplateVersion": "1"
+          },
+          "project_management_jira_workflow_steward": {
+            "enabled": true,
+            "roleLabel": "Jira Workflow Steward",
+            "workspaceSlug": "realtimex-jira-steward",
+            "workspaceName": "RealtimeX Jira Workflow Steward",
+            "workspaceSlugAliases": [],
+            "doctrineTemplateRef": "builtin:project_manager",
+            "doctrineTemplateVersion": "1"
+          },
+          "project_management_meeting_notes_specialist": {
+            "enabled": true,
+            "roleLabel": "Meeting Notes Specialist",
+            "workspaceSlug": "realtimex-meeting-notes",
+            "workspaceName": "RealtimeX Meeting Notes",
+            "workspaceSlugAliases": [],
+            "doctrineTemplateRef": "builtin:writer",
+            "doctrineTemplateVersion": "1"
+          }
+        },
+        "workflow": {
+          "initialState": "planning",
+          "terminalStates": ["completed"],
+          "transitions": {
+            "planning": ["planning", "executing", "blocked"],
+            "executing": ["executing", "planning", "recording", "blocked"],
+            "recording": ["recording", "executing", "completed", "blocked"],
+            "blocked": [
+              "blocked",
+              "planning",
+              "executing",
+              "recording",
+              "completed"
+            ],
+            "completed": ["completed"]
+          },
+          "statusStateMap": {
+            "project_management_project_shepherd.ready": "executing",
+            "project_management_project_shepherd.blocked": "blocked",
+            "project_management_jira_workflow_steward.ready": "recording",
+            "project_management_jira_workflow_steward.blocked": "blocked",
+            "project_management_meeting_notes_specialist.completed": "completed",
+            "project_management_meeting_notes_specialist.blocked": "blocked"
+          }
+        }
+      }
+    },
+    {
+      "id": "xr-prototype-build",
+      "name": "XR prototype build",
+      "description": "Architect an XR interaction, build the immersive prototype, and sign it off after a QA pass.",
+      "content": {
+        "version": 3,
+        "preset": "xr-prototype-build",
+        "sharedContextRoleKind": "spatial_computing_xr_interface_architect",
+        "roles": {
+          "spatial_computing_xr_interface_architect": {
+            "enabled": true,
+            "roleLabel": "XR Interface Architect",
+            "workspaceSlug": "realtimex-xr-architect",
+            "workspaceName": "RealtimeX XR Interface Architect",
+            "workspaceSlugAliases": [],
+            "doctrineTemplateRef": "builtin:architect",
+            "doctrineTemplateVersion": "1"
+          },
+          "spatial_computing_xr_immersive_developer": {
+            "enabled": true,
+            "roleLabel": "XR Immersive Developer",
+            "workspaceSlug": "realtimex-xr-developer",
+            "workspaceName": "RealtimeX XR Immersive Developer",
+            "workspaceSlugAliases": [],
+            "doctrineTemplateRef": "builtin:dev",
+            "doctrineTemplateVersion": "1"
+          },
+          "qa": {
+            "enabled": true,
+            "roleLabel": "QA Sign-off",
+            "workspaceSlug": "realtimex-xr-qa",
+            "workspaceName": "RealtimeX XR QA",
+            "workspaceSlugAliases": [],
+            "doctrineTemplateRef": "builtin:qa",
+            "doctrineTemplateVersion": "1"
+          }
+        },
+        "workflow": {
+          "initialState": "drafting",
+          "terminalStates": ["approved"],
+          "transitions": {
+            "drafting": ["drafting", "awaiting_review", "blocked"],
+            "awaiting_review": [
+              "awaiting_review",
+              "revision_requested",
+              "awaiting_approval",
+              "blocked"
+            ],
+            "revision_requested": [
+              "revision_requested",
+              "drafting",
+              "awaiting_review",
+              "blocked"
+            ],
+            "awaiting_approval": [
+              "awaiting_approval",
+              "revision_requested",
+              "approved",
+              "blocked"
+            ],
+            "blocked": [
+              "blocked",
+              "drafting",
+              "awaiting_review",
+              "revision_requested",
+              "awaiting_approval",
+              "approved"
+            ],
+            "approved": ["approved"]
+          },
+          "statusStateMap": {
+            "spatial_computing_xr_interface_architect.ready": "awaiting_review",
+            "spatial_computing_xr_interface_architect.blocked": "blocked",
+            "spatial_computing_xr_immersive_developer.needs_fix": "revision_requested",
+            "spatial_computing_xr_immersive_developer.approved": "awaiting_approval",
+            "spatial_computing_xr_immersive_developer.escalate": "blocked",
+            "qa.needs_revision": "revision_requested",
+            "qa.approved": "approved",
+            "qa.blocked": "blocked"
+          }
+        }
+      }
+    },
+    {
+      "id": "support-escalation-handling",
+      "name": "Support escalation handling",
+      "description": "Triage a customer escalation, own the relationship through resolution, resolve the issue, and report on it afterward.",
+      "content": {
+        "version": 3,
+        "preset": "support-escalation-handling",
+        "sharedContextRoleKind": "resolve",
+        "roles": {
+          "support_support_responder": {
+            "enabled": true,
+            "roleLabel": "Support Responder",
+            "workspaceSlug": "realtimex-support-responder",
+            "workspaceName": "RealtimeX Support Responder",
+            "workspaceSlugAliases": [],
+            "doctrineTemplateRef": "builtin:support",
+            "doctrineTemplateVersion": "1"
+          },
+          "specialized_customer_success_manager": {
+            "enabled": true,
+            "roleLabel": "Customer Success Manager",
+            "workspaceSlug": "realtimex-customer-success",
+            "workspaceName": "RealtimeX Customer Success",
+            "workspaceSlugAliases": [],
+            "doctrineTemplateRef": "builtin:support",
+            "doctrineTemplateVersion": "1"
+          },
+          "resolve": {
+            "enabled": true,
+            "roleLabel": "Resolve",
+            "workspaceSlug": "realtimex-support",
+            "workspaceName": "RealtimeX Support",
+            "workspaceSlugAliases": [],
+            "doctrineTemplateRef": "builtin:support",
+            "doctrineTemplateVersion": "1"
+          },
+          "support_analytics_reporter": {
+            "enabled": true,
+            "roleLabel": "Analytics Reporter",
+            "workspaceSlug": "realtimex-support-analytics",
+            "workspaceName": "RealtimeX Support Analytics",
+            "workspaceSlugAliases": [],
+            "doctrineTemplateRef": "builtin:data",
+            "doctrineTemplateVersion": "1"
+          }
+        },
+        "workflow": {
+          "initialState": "triaging",
+          "terminalStates": ["resolved"],
+          "transitions": {
+            "triaging": ["triaging", "investigating", "blocked"],
+            "investigating": ["investigating", "triaging", "fixing", "blocked"],
+            "fixing": ["fixing", "investigating", "awaiting_retro", "blocked"],
+            "awaiting_retro": [
+              "awaiting_retro",
+              "fixing",
+              "resolved",
+              "blocked"
+            ],
+            "blocked": [
+              "blocked",
+              "triaging",
+              "investigating",
+              "fixing",
+              "awaiting_retro",
+              "resolved"
+            ],
+            "resolved": ["resolved"]
+          },
+          "statusStateMap": {
+            "support_support_responder.escalated": "investigating",
+            "support_support_responder.blocked": "blocked",
+            "specialized_customer_success_manager.diagnosed": "fixing",
+            "specialized_customer_success_manager.blocked": "blocked",
+            "resolve.fixed": "awaiting_retro",
+            "resolve.blocked": "blocked",
+            "support_analytics_reporter.completed": "resolved",
+            "support_analytics_reporter.blocked": "blocked"
+          }
+        }
+      }
+    },
+    {
+      "id": "legal-document-review",
+      "name": "Legal document review",
+      "description": "Qualify and intake a legal document request, review the document, and approve it for use.",
+      "content": {
+        "version": 3,
+        "preset": "legal-document-review",
+        "sharedContextRoleKind": "specialized_legal_client_intake",
+        "roles": {
+          "specialized_legal_client_intake": {
+            "enabled": true,
+            "roleLabel": "Legal Client Intake",
+            "workspaceSlug": "realtimex-legal-intake",
+            "workspaceName": "RealtimeX Legal Intake",
+            "workspaceSlugAliases": [],
+            "doctrineTemplateRef": "builtin:support",
+            "doctrineTemplateVersion": "1"
+          },
+          "specialized_legal_document_review": {
+            "enabled": true,
+            "roleLabel": "Legal Document Review",
+            "workspaceSlug": "realtimex-legal-review",
+            "workspaceName": "RealtimeX Legal Document Review",
+            "workspaceSlugAliases": [],
+            "doctrineTemplateRef": "builtin:review",
+            "doctrineTemplateVersion": "1"
+          },
+          "approve": {
+            "enabled": true,
+            "roleLabel": "Approve",
+            "workspaceSlug": "realtimex-approver",
+            "workspaceName": "RealtimeX Approver",
+            "workspaceSlugAliases": [],
+            "doctrineTemplateRef": "builtin:approver",
+            "doctrineTemplateVersion": "1"
+          }
+        },
+        "workflow": {
+          "initialState": "drafting",
+          "terminalStates": ["approved"],
+          "transitions": {
+            "drafting": ["drafting", "awaiting_review", "blocked"],
+            "awaiting_review": [
+              "awaiting_review",
+              "revision_requested",
+              "awaiting_approval",
+              "blocked"
+            ],
+            "revision_requested": [
+              "revision_requested",
+              "drafting",
+              "awaiting_review",
+              "blocked"
+            ],
+            "awaiting_approval": [
+              "awaiting_approval",
+              "revision_requested",
+              "approved",
+              "blocked"
+            ],
+            "blocked": [
+              "blocked",
+              "drafting",
+              "awaiting_review",
+              "revision_requested",
+              "awaiting_approval",
+              "approved"
+            ],
+            "approved": ["approved"]
+          },
+          "statusStateMap": {
+            "specialized_legal_client_intake.ready": "awaiting_review",
+            "specialized_legal_client_intake.blocked": "blocked",
+            "specialized_legal_document_review.needs_fix": "revision_requested",
+            "specialized_legal_document_review.approved": "awaiting_approval",
+            "specialized_legal_document_review.escalate": "blocked",
+            "approve.needs_revision": "revision_requested",
+            "approve.approved": "approved",
+            "approve.blocked": "blocked"
+          }
+        }
+      }
+    },
+    {
+      "id": "recruitment-pipeline",
+      "name": "Recruitment pipeline",
+      "description": "Source and screen candidates, extend an offer, and onboard the hire once it's approved.",
+      "content": {
+        "version": 3,
+        "preset": "recruitment-pipeline",
+        "sharedContextRoleKind": "specialized_recruitment_specialist",
+        "roles": {
+          "specialized_recruitment_specialist": {
+            "enabled": true,
+            "roleLabel": "Recruitment Specialist",
+            "workspaceSlug": "realtimex-recruitment-specialist",
+            "workspaceName": "RealtimeX Recruitment Specialist",
+            "workspaceSlugAliases": [],
+            "doctrineTemplateRef": "builtin:project_manager",
+            "doctrineTemplateVersion": "1"
+          },
+          "specialized_hr_onboarding": {
+            "enabled": true,
+            "roleLabel": "HR Onboarding",
+            "workspaceSlug": "realtimex-hr-onboarding",
+            "workspaceName": "RealtimeX HR Onboarding",
+            "workspaceSlugAliases": [],
+            "doctrineTemplateRef": "builtin:project_manager",
+            "doctrineTemplateVersion": "1"
+          },
+          "approve": {
+            "enabled": true,
+            "roleLabel": "Approve",
+            "workspaceSlug": "realtimex-approver",
+            "workspaceName": "RealtimeX Approver",
+            "workspaceSlugAliases": [],
+            "doctrineTemplateRef": "builtin:manager",
+            "doctrineTemplateVersion": "1"
+          }
+        },
+        "workflow": {
+          "initialState": "sourcing",
+          "terminalStates": ["hired"],
+          "transitions": {
+            "sourcing": ["sourcing", "offer_extended", "blocked"],
+            "offer_extended": [
+              "offer_extended",
+              "sourcing",
+              "onboarding",
+              "blocked"
+            ],
+            "onboarding": ["onboarding", "offer_extended", "hired", "blocked"],
+            "blocked": [
+              "blocked",
+              "sourcing",
+              "offer_extended",
+              "onboarding",
+              "hired"
+            ],
+            "hired": ["hired"]
+          },
+          "statusStateMap": {
+            "specialized_recruitment_specialist.offer_ready": "offer_extended",
+            "specialized_recruitment_specialist.blocked": "blocked",
+            "specialized_hr_onboarding.ready": "onboarding",
+            "specialized_hr_onboarding.blocked": "blocked",
+            "approve.approved": "hired",
+            "approve.needs_revision": "offer_extended",
+            "approve.blocked": "blocked"
+          }
+        }
+      }
+    },
+    {
+      "id": "ma-integration",
+      "name": "M&A integration",
+      "description": "Plan a post-merger integration, execute the change management, and get executive sign-off.",
+      "content": {
+        "version": 3,
+        "preset": "ma-integration",
+        "sharedContextRoleKind": "specialized_ma_integration_manager",
+        "roles": {
+          "specialized_ma_integration_manager": {
+            "enabled": true,
+            "roleLabel": "M&A Integration Manager",
+            "workspaceSlug": "realtimex-ma-integration-manager",
+            "workspaceName": "RealtimeX M&A Integration Manager",
+            "workspaceSlugAliases": [],
+            "doctrineTemplateRef": "builtin:project_manager",
+            "doctrineTemplateVersion": "1"
+          },
+          "specialized_change_management_consultant": {
+            "enabled": true,
+            "roleLabel": "Change Management Consultant",
+            "workspaceSlug": "realtimex-change-management",
+            "workspaceName": "RealtimeX Change Management Consultant",
+            "workspaceSlugAliases": [],
+            "doctrineTemplateRef": "builtin:project_manager",
+            "doctrineTemplateVersion": "1"
+          },
+          "specialized_chief_of_staff": {
+            "enabled": true,
+            "roleLabel": "Chief of Staff",
+            "workspaceSlug": "realtimex-chief-of-staff",
+            "workspaceName": "RealtimeX Chief of Staff",
+            "workspaceSlugAliases": [],
+            "doctrineTemplateRef": "builtin:project_manager",
+            "doctrineTemplateVersion": "1"
+          }
+        },
+        "workflow": {
+          "initialState": "planning",
+          "terminalStates": ["integrated"],
+          "transitions": {
+            "planning": ["planning", "integrating", "blocked"],
+            "integrating": [
+              "integrating",
+              "planning",
+              "awaiting_signoff",
+              "blocked"
+            ],
+            "awaiting_signoff": [
+              "awaiting_signoff",
+              "integrating",
+              "integrated",
+              "blocked"
+            ],
+            "blocked": [
+              "blocked",
+              "planning",
+              "integrating",
+              "awaiting_signoff",
+              "integrated"
+            ],
+            "integrated": ["integrated"]
+          },
+          "statusStateMap": {
+            "specialized_ma_integration_manager.ready": "integrating",
+            "specialized_ma_integration_manager.blocked": "blocked",
+            "specialized_change_management_consultant.ready": "awaiting_signoff",
+            "specialized_change_management_consultant.blocked": "blocked",
+            "specialized_chief_of_staff.approved": "integrated",
+            "specialized_chief_of_staff.needs_revision": "integrating",
+            "specialized_chief_of_staff.blocked": "blocked"
+          }
+        }
+      }
+    },
+    {
+      "id": "realtor-buyer-seller-transaction",
+      "name": "Realtor team: buyer/seller transaction",
+      "description": "Represent a buyer or seller through a real estate transaction: originate the deal, coordinate financing, review closing documents, and sign off at close.",
+      "content": {
+        "version": 3,
+        "preset": "realtor-buyer-seller-transaction",
+        "sharedContextRoleKind": "specialized_real_estate_buyer_seller",
+        "roles": {
+          "specialized_real_estate_buyer_seller": {
+            "enabled": true,
+            "roleLabel": "Real Estate Agent",
+            "workspaceSlug": "realtimex-real-estate-agent",
+            "workspaceName": "RealtimeX Real Estate Agent",
+            "workspaceSlugAliases": [],
+            "doctrineTemplateRef": "builtin:sales",
+            "doctrineTemplateVersion": "1"
+          },
+          "specialized_loan_officer_assistant": {
+            "enabled": true,
+            "roleLabel": "Loan Officer Assistant",
+            "workspaceSlug": "realtimex-loan-officer",
+            "workspaceName": "RealtimeX Loan Officer Assistant",
+            "workspaceSlugAliases": [],
+            "doctrineTemplateRef": "builtin:support",
+            "doctrineTemplateVersion": "1"
+          },
+          "specialized_legal_document_review": {
+            "enabled": true,
+            "roleLabel": "Closing Document Review",
+            "workspaceSlug": "realtimex-closing-review",
+            "workspaceName": "RealtimeX Closing Document Review",
+            "workspaceSlugAliases": [],
+            "doctrineTemplateRef": "builtin:review",
+            "doctrineTemplateVersion": "1"
+          },
+          "approve": {
+            "enabled": true,
+            "roleLabel": "Approve",
+            "workspaceSlug": "realtimex-approver",
+            "workspaceName": "RealtimeX Approver",
+            "workspaceSlugAliases": [],
+            "doctrineTemplateRef": "builtin:approver",
+            "doctrineTemplateVersion": "1"
+          }
+        },
+        "workflow": {
+          "initialState": "originating",
+          "terminalStates": ["closed"],
+          "transitions": {
+            "originating": ["originating", "financing", "blocked"],
+            "financing": [
+              "financing",
+              "originating",
+              "closing_review",
+              "blocked"
+            ],
+            "closing_review": [
+              "closing_review",
+              "financing",
+              "awaiting_close",
+              "blocked"
+            ],
+            "awaiting_close": [
+              "awaiting_close",
+              "closing_review",
+              "closed",
+              "blocked"
+            ],
+            "blocked": [
+              "blocked",
+              "originating",
+              "financing",
+              "closing_review",
+              "awaiting_close",
+              "closed"
+            ],
+            "closed": ["closed"]
+          },
+          "statusStateMap": {
+            "specialized_real_estate_buyer_seller.ready": "financing",
+            "specialized_real_estate_buyer_seller.blocked": "blocked",
+            "specialized_loan_officer_assistant.ready": "closing_review",
+            "specialized_loan_officer_assistant.blocked": "blocked",
+            "specialized_legal_document_review.ready": "awaiting_close",
+            "specialized_legal_document_review.needs_fix": "financing",
+            "specialized_legal_document_review.blocked": "blocked",
+            "approve.approved": "closed",
+            "approve.needs_revision": "closing_review",
             "approve.blocked": "blocked"
           }
         }

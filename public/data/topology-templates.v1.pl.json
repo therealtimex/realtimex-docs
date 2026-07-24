@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "locale": "pl",
+  "templates": {
+    "incident-response": {
+      "name": "Obsługa incydentu",
+      "description": "Segreguj, badaj, napraw i przeglądaj incydenty produkcyjne."
+    },
+    "sales-proposal": {
+      "name": "Propozycja sprzedażowa",
+      "description": "Przygotuj propozycję sprzedażową, skieruj ją do przeglądu i zatwierdź."
+    },
+    "pentest-engagement": {
+      "name": "Zlecenie testu penetracyjnego",
+      "description": "Określ zakres i przeprowadź autoryzowany test penetracyjny, zaudytuj wyniki pod kątem zgodności i zatwierdź raport."
+    },
+    "site-geospatial-analysis": {
+      "name": "Analiza geoprzestrzenna lokalizacji",
+      "description": "Przygotuj i przekształć dane przestrzenne, wykonaj analizę i niezależnie zwaliduj wyniki."
+    },
+    "financial-model-review": {
+      "name": "Przegląd modelu finansowego",
+      "description": "Zbuduj model finansowy, poddaj go niezależnemu przeglądowi i uzyskaj akceptację zarządu."
+    },
+    "worldbuilding-research-brief": {
+      "name": "Brief badawczy do budowania świata",
+      "description": "Zbadaj historyczne i kulturowe podstawy fikcyjnego lub gamingowego świata, przygotuj brief i sprawdź jego spójność."
+    },
+    "game-feature-design-pass": {
+      "name": "Przejście projektowe funkcji gry",
+      "description": "Zaprojektuj funkcję gry, umieść ją w poziomie i poddaj przeglądowi technicznemu art."
+    },
+    "product-visual-design-pass": {
+      "name": "Przejście wizualnego projektu produktu",
+      "description": "Oprzyj projekt na badaniach użytkowników, stwórz UI i sprawdź je względem wytycznych marki przed zatwierdzeniem."
+    },
+    "paid-media-campaign-flight": {
+      "name": "Flight kampanii płatnych mediów",
+      "description": "Zbuduj flight płatnych mediów, zaudytuj go pod kątem polityki platformy i budżetu, i zatwierdź do uruchomienia."
+    },
+    "delivery-shepherd-loop": {
+      "name": "Pętla opiekuna dostawy",
+      "description": "Zaplanuj pracę, śledź ją aż do realizacji i prowadź trwały zapis decyzji i otwartych pytań."
+    },
+    "xr-prototype-build": {
+      "name": "Budowa prototypu XR",
+      "description": "Zaprojektuj interakcję XR, zbuduj immersyjny prototyp i zatwierdź go po przejściu QA."
+    },
+    "support-escalation-handling": {
+      "name": "Obsługa eskalacji wsparcia",
+      "description": "Zsegreguj eskalację klienta, przejmij odpowiedzialność za relację aż do rozwiązania, rozwiąż problem i zdaj raport."
+    },
+    "legal-document-review": {
+      "name": "Przegląd dokumentu prawnego",
+      "description": "Zakwalifikuj i przyjmij wniosek o dokument prawny, przejrzyj dokument i zatwierdź go do użycia."
+    },
+    "recruitment-pipeline": {
+      "name": "Pipeline rekrutacyjny",
+      "description": "Pozyskaj i przesiej kandydatów, złóż ofertę i wdróż nowo zatrudnioną osobę po zatwierdzeniu."
+    },
+    "ma-integration": {
+      "name": "Integracja M&A",
+      "description": "Zaplanuj integrację po fuzji, przeprowadź zarządzanie zmianą i uzyskaj akceptację zarządu."
+    },
+    "realtor-buyer-seller-transaction": {
+      "name": "Zespół nieruchomości: transakcja kupujący/sprzedający",
+      "description": "Reprezentuj kupującego lub sprzedającego w transakcji nieruchomości: zainicjuj transakcję, koordynuj finansowanie, przejrzyj dokumenty zamknięcia i zatwierdź przy zamknięciu."
+    }
+  }
+}

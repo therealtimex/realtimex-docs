@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "locale": "zh",
+  "templates": {
+    "incident-response": {
+      "name": "事件响应",
+      "description": "对生产事件进行分诊、调查、修复和复查。"
+    },
+    "sales-proposal": {
+      "name": "销售提案",
+      "description": "起草销售提案，提交审核并批准。"
+    },
+    "pentest-engagement": {
+      "name": "渗透测试任务",
+      "description": "确定并执行获授权的渗透测试范围，对发现的问题进行合规审计，并批准报告。"
+    },
+    "site-geospatial-analysis": {
+      "name": "现场地理空间分析",
+      "description": "准备并转换空间数据，运行分析，并独立验证结果。"
+    },
+    "financial-model-review": {
+      "name": "财务模型审核",
+      "description": "构建财务模型，进行独立审核，并获得管理层批准。"
+    },
+    "worldbuilding-research-brief": {
+      "name": "世界观构建研究简报",
+      "description": "研究虚构或游戏设定的历史与文化背景，撰写简报，并审核其一致性。"
+    },
+    "game-feature-design-pass": {
+      "name": "游戏功能设计环节",
+      "description": "设计游戏功能，将其置入关卡，并通过技术美术评审。"
+    },
+    "product-visual-design-pass": {
+      "name": "产品视觉设计环节",
+      "description": "以用户研究为基础确立设计，制作界面，并在批准前对照品牌指南进行核对。"
+    },
+    "paid-media-campaign-flight": {
+      "name": "付费媒体投放排期",
+      "description": "制定付费媒体投放排期，依据平台和预算政策进行审计，并批准上线。"
+    },
+    "delivery-shepherd-loop": {
+      "name": "交付督导循环",
+      "description": "规划工作，跟踪执行进度，并对决策和未解决问题保持持续记录。"
+    },
+    "xr-prototype-build": {
+      "name": "XR 原型构建",
+      "description": "设计 XR 交互架构，构建沉浸式原型，并在通过质量检查后批准。"
+    },
+    "support-escalation-handling": {
+      "name": "支持升级处理",
+      "description": "对客户升级问题进行分诊，全程负责客户关系直至解决，解决问题后进行汇报。"
+    },
+    "legal-document-review": {
+      "name": "法律文件审核",
+      "description": "对法律文件请求进行资质核查与受理，审核文件并批准使用。"
+    },
+    "recruitment-pipeline": {
+      "name": "招聘流程",
+      "description": "寻源并筛选候选人，发出录用邀约，并在获批后完成新员工入职。"
+    },
+    "ma-integration": {
+      "name": "并购整合",
+      "description": "规划并购后整合，执行变革管理，并获得管理层批准。"
+    },
+    "realtor-buyer-seller-transaction": {
+      "name": "房地产团队：买卖双方交易",
+      "description": "在房地产交易中代表买方或卖方：促成交易、协调融资、审核交割文件，并在成交时予以批准。"
+    }
+  }
+}

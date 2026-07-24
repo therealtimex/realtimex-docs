@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "locale": "ro",
+  "templates": {
+    "incident-response": {
+      "name": "Răspuns la incident",
+      "description": "Triaj, investigare, remediere și revizuire a incidentelor din producție."
+    },
+    "sales-proposal": {
+      "name": "Propunere de vânzare",
+      "description": "Redactează o propunere de vânzare, trimite-o spre revizuire și aprob-o."
+    },
+    "pentest-engagement": {
+      "name": "Angajament de testare de penetrare",
+      "description": "Stabilește domeniul și efectuează un test de penetrare autorizat, auditează constatările pentru conformitate și aprobă raportul."
+    },
+    "site-geospatial-analysis": {
+      "name": "Analiză geospațială a amplasamentului",
+      "description": "Pregătește și transformă datele spațiale, rulează analiza și validează independent rezultatele."
+    },
+    "financial-model-review": {
+      "name": "Revizuirea modelului financiar",
+      "description": "Construiește un model financiar, supune-l unei revizuiri independente și obține aprobarea conducerii."
+    },
+    "worldbuilding-research-brief": {
+      "name": "Raport de cercetare pentru construirea universului",
+      "description": "Cercetează fundamentul istoric și cultural al unui univers fictiv sau de joc, redactează raportul și verifică-i coerența."
+    },
+    "game-feature-design-pass": {
+      "name": "Etapă de design pentru o funcție de joc",
+      "description": "Proiectează o funcție de joc, amplasează-o în nivel și supune-o unei revizuiri tehnice de artă."
+    },
+    "product-visual-design-pass": {
+      "name": "Etapă de design vizual de produs",
+      "description": "Fundamentează designul pe cercetarea utilizatorilor, produ interfața și verific-o conform ghidului de brand înainte de aprobare."
+    },
+    "paid-media-campaign-flight": {
+      "name": "Flight de campanie media plătită",
+      "description": "Construiește un flight media plătit, auditează-l conform politicii platformei și bugetului și aprobă-l pentru lansare."
+    },
+    "delivery-shepherd-loop": {
+      "name": "Buclă de coordonare a livrării",
+      "description": "Planifică munca, urmărește-o până la execuție și păstrează o evidență durabilă a deciziilor și întrebărilor deschise."
+    },
+    "xr-prototype-build": {
+      "name": "Construirea unui prototip XR",
+      "description": "Proiectează o interacțiune XR, construiește prototipul imersiv și aprobă-l după o etapă de QA."
+    },
+    "support-escalation-handling": {
+      "name": "Gestionarea escaladărilor de suport",
+      "description": "Triază o escaladare a clientului, preia relația până la rezolvare, rezolvă problema și raportează ulterior."
+    },
+    "legal-document-review": {
+      "name": "Revizuirea documentelor juridice",
+      "description": "Califică și preia o solicitare de document juridic, revizuiește documentul și aprobă-l pentru utilizare."
+    },
+    "recruitment-pipeline": {
+      "name": "Pipeline de recrutare",
+      "description": "Identifică și evaluează candidați, extinde o ofertă și integrează noul angajat după aprobare."
+    },
+    "ma-integration": {
+      "name": "Integrare M&A",
+      "description": "Planifică o integrare post-fuziune, execută managementul schimbării și obține aprobarea conducerii."
+    },
+    "realtor-buyer-seller-transaction": {
+      "name": "Echipă imobiliară: tranzacție cumpărător/vânzător",
+      "description": "Reprezintă un cumpărător sau vânzător într-o tranzacție imobiliară: inițiază afacerea, coordonează finanțarea, revizuiește documentele de închidere și aprobă la finalizare."
+    }
+  }
+}

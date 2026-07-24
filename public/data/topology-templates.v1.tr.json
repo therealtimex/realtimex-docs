@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "locale": "tr",
+  "templates": {
+    "incident-response": {
+      "name": "Olay müdahalesi",
+      "description": "Üretim ortamındaki olayları önceliklendir, araştır, düzelt ve gözden geçir."
+    },
+    "sales-proposal": {
+      "name": "Satış teklifi",
+      "description": "Bir satış teklifi hazırla, incelemeye gönder ve onayla."
+    },
+    "pentest-engagement": {
+      "name": "Sızma testi görevi",
+      "description": "Yetkilendirilmiş bir sızma testinin kapsamını belirle ve gerçekleştir, bulguları uyumluluk açısından denetle ve raporu onayla."
+    },
+    "site-geospatial-analysis": {
+      "name": "Saha jeo-uzamsal analizi",
+      "description": "Uzamsal verileri hazırla ve dönüştür, analizi çalıştır ve sonuçları bağımsız olarak doğrula."
+    },
+    "financial-model-review": {
+      "name": "Finansal model incelemesi",
+      "description": "Bir finansal model oluştur, bağımsız olarak incelet ve yönetici onayı al."
+    },
+    "worldbuilding-research-brief": {
+      "name": "Dünya kurgusu için araştırma özeti",
+      "description": "Kurgusal veya oyun evreninin tarihsel ve kültürel temelini araştır, özeti hazırla ve tutarlılığını gözden geçir."
+    },
+    "game-feature-design-pass": {
+      "name": "Oyun özelliği tasarım aşaması",
+      "description": "Bir oyun özelliği tasarla, bölüme yerleştir ve teknik sanat incelemesinden geçir."
+    },
+    "product-visual-design-pass": {
+      "name": "Ürün görsel tasarım aşaması",
+      "description": "Tasarımı kullanıcı araştırmasına dayandır, arayüzü üret ve onaydan önce marka kurallarıyla karşılaştır."
+    },
+    "paid-media-campaign-flight": {
+      "name": "Ücretli medya kampanya flighti",
+      "description": "Bir ücretli medya flighti oluştur, platform ve bütçe politikasına göre denetle ve lansmana onayla."
+    },
+    "delivery-shepherd-loop": {
+      "name": "Teslimat çoban döngüsü",
+      "description": "İşi planla, uygulamaya kadar takip et ve kararlar ile açık soruların kalıcı kaydını tut."
+    },
+    "xr-prototype-build": {
+      "name": "XR prototip yapımı",
+      "description": "Bir XR etkileşimini tasarla, sürükleyici prototipi oluştur ve QA aşamasından sonra onayla."
+    },
+    "support-escalation-handling": {
+      "name": "Destek eskalasyon yönetimi",
+      "description": "Bir müşteri eskalasyonunu önceliklendir, çözüme kadar ilişkinin sahibi ol, sorunu çöz ve ardından raporla."
+    },
+    "legal-document-review": {
+      "name": "Hukuki belge incelemesi",
+      "description": "Bir hukuki belge talebini nitelendir ve kabul et, belgeyi incele ve kullanım için onayla."
+    },
+    "recruitment-pipeline": {
+      "name": "İşe alım hattı",
+      "description": "Adayları bul ve ele, teklif sun ve onaylandıktan sonra işe alınanı işe başlat."
+    },
+    "ma-integration": {
+      "name": "Birleşme ve satın alma entegrasyonu",
+      "description": "Birleşme sonrası entegrasyonu planla, değişim yönetimini uygula ve yönetici onayı al."
+    },
+    "realtor-buyer-seller-transaction": {
+      "name": "Emlak ekibi: alıcı/satıcı işlemi",
+      "description": "Bir gayrimenkul işleminde alıcıyı veya satıcıyı temsil et: anlaşmayı başlat, finansmanı koordine et, kapanış belgelerini incele ve kapanışta onayla."
+    }
+  }
+}

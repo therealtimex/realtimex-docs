@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "locale": "nl",
+  "templates": {
+    "incident-response": {
+      "name": "Incidentrespons",
+      "description": "Productie-incidenten triëren, onderzoeken, verhelpen en beoordelen."
+    },
+    "sales-proposal": {
+      "name": "Verkoopvoorstel",
+      "description": "Stel een verkoopvoorstel op, laat het beoordelen en keur het goed."
+    },
+    "pentest-engagement": {
+      "name": "Pentest-opdracht",
+      "description": "Bepaal de scope en voer een geautoriseerde penetratietest uit, audit de bevindingen op compliance en keur het rapport goed."
+    },
+    "site-geospatial-analysis": {
+      "name": "Geospatiale locatieanalyse",
+      "description": "Bereid ruimtelijke data voor en transformeer ze, voer de analyse uit en valideer de resultaten onafhankelijk."
+    },
+    "financial-model-review": {
+      "name": "Beoordeling financieel model",
+      "description": "Bouw een financieel model, laat het onafhankelijk beoordelen en krijg goedkeuring van het management."
+    },
+    "worldbuilding-research-brief": {
+      "name": "Onderzoeksbrief voor worldbuilding",
+      "description": "Onderzoek de historische en culturele basis van een fictieve of game-setting, stel de brief op en beoordeel de samenhang."
+    },
+    "game-feature-design-pass": {
+      "name": "Ontwerptraject voor een game-feature",
+      "description": "Ontwerp een game-feature, plaats deze in het level en laat een technische art-review uitvoeren."
+    },
+    "product-visual-design-pass": {
+      "name": "Visueel ontwerptraject voor product",
+      "description": "Baseer het ontwerp op gebruikersonderzoek, maak de UI en toets deze aan de merkrichtlijnen voor goedkeuring."
+    },
+    "paid-media-campaign-flight": {
+      "name": "Betaalde-mediacampagne-flight",
+      "description": "Bouw een betaalde-media-flight, audit deze aan platform- en budgetbeleid en keur hem goed voor lancering."
+    },
+    "delivery-shepherd-loop": {
+      "name": "Delivery-shepherd-lus",
+      "description": "Plan het werk, volg het tot uitvoering en houd een blijvend overzicht van beslissingen en openstaande vragen."
+    },
+    "xr-prototype-build": {
+      "name": "XR-prototype bouwen",
+      "description": "Ontwerp een XR-interactie, bouw het immersieve prototype en keur het goed na een QA-ronde."
+    },
+    "support-escalation-handling": {
+      "name": "Afhandeling van supportescalaties",
+      "description": "Triëer een klantescalatie, draag de relatie tot en met de oplossing, los het probleem op en rapporteer daarna."
+    },
+    "legal-document-review": {
+      "name": "Beoordeling juridisch document",
+      "description": "Kwalificeer en neem een aanvraag voor een juridisch document aan, beoordeel het document en keur het goed voor gebruik."
+    },
+    "recruitment-pipeline": {
+      "name": "Wervingspijplijn",
+      "description": "Werf en screen kandidaten, doe een aanbod en onboard de nieuwe medewerker na goedkeuring."
+    },
+    "ma-integration": {
+      "name": "M&A-integratie",
+      "description": "Plan een integratie na een fusie, voer het changemanagement uit en krijg goedkeuring van het management."
+    },
+    "realtor-buyer-seller-transaction": {
+      "name": "Makelaarsteam: koper-/verkopertransactie",
+      "description": "Vertegenwoordig een koper of verkoper bij een vastgoedtransactie: initieer de deal, coördineer de financiering, beoordeel de afsluitdocumenten en keur goed bij closing."
+    }
+  }
+}
