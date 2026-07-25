@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-07-10",
+  "updatedAt": "2026-07-24",
   "runtimeOptions": {
     "claude.effort.fable5-opus48-opus47": {
       "id": "effort",
@@ -245,11 +245,19 @@
           "runtimeOptionRefs": ["claude.effort.fable5-opus48-opus47"]
         },
         {
-          "id": "claude-opus-4-8",
-          "label": "Claude Opus 4.8",
-          "description": "Anthropic's most capable generally available model. State-of-the-art long-horizon agentic execution, knowledge work, and memory; clearer, warmer writing. Same request surface as Opus 4.7. 1M token context.",
+          "id": "claude-opus-5",
+          "label": "Claude Opus 5",
+          "description": "Anthropic's most capable generally available model, succeeding Opus 4.8. State-of-the-art long-horizon agentic execution, complex reasoning, and knowledge work. 1M token context.",
           "badges": ["recommended"],
           "default": true,
+          "metadata": { "contextWindow": "1M" },
+          "runtimeOptionRefs": ["claude.effort.fable5-opus48-opus47"]
+        },
+        {
+          "id": "claude-opus-4-8",
+          "label": "Claude Opus 4.8",
+          "description": "Previous-generation Opus. State-of-the-art long-horizon agentic execution, knowledge work, and memory; clearer, warmer writing. Same request surface as Opus 4.7. 1M token context.",
+          "badges": ["powerful"],
           "metadata": { "contextWindow": "1M" },
           "runtimeOptionRefs": ["claude.effort.fable5-opus48-opus47"]
         },
