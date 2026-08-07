@@ -575,9 +575,17 @@
           "default": true
         },
         {
-          "id": "claude-sonnet-4.5",
-          "label": "Claude Sonnet 4.5",
+          "id": "claude-sonnet-4.6",
+          "label": "Claude Sonnet 4.6",
           "description": "Anthropic's balanced Sonnet model and Copilot's strong general-purpose coding choice. Fast and reliable for everyday agentic tasks.",
+          "badges": [
+            "balanced"
+          ]
+        },
+        {
+          "id": "claude-sonnet-5",
+          "label": "Claude Sonnet 5",
+          "description": "Anthropic's latest Sonnet generation in Copilot. Balances speed and capability for day-to-day agentic coding.",
           "badges": [
             "balanced"
           ]
@@ -604,17 +612,12 @@
           "description": "OpenAI's latest frontier agentic coding model, available in Copilot. Best for ambitious long-horizon tasks."
         },
         {
-          "id": "gemini-3-pro-preview",
-          "label": "Gemini 3 Pro (Preview)",
-          "description": "Google's most capable Gemini 3 model, available in Copilot as a preview. Best for complex reasoning and multi-step workflows.",
+          "id": "gemini-3.6-flash",
+          "label": "Gemini 3.6 Flash",
+          "description": "Google's fast Gemini 3.6 Flash model in Copilot. Great for quick iterations and high-throughput agentic tasks.",
           "badges": [
-            "preview"
+            "fast"
           ]
-        },
-        {
-          "id": "grok-4.5",
-          "label": "Grok 4.5",
-          "description": "xAI's Grok 4.5 model in Copilot for agentic coding and reasoning."
         }
       ]
     }
