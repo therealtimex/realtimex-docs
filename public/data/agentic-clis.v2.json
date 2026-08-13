@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 2,
+  "updatedAt": "2026-08-13",
+  "clis": [
+    {
+      "id": "github-cli",
+      "displayName": "GitHub CLI",
+      "binary": "gh",
+      "category": "collaboration",
+      "description": "Use for GitHub issues, pull requests, repositories, and Actions workflows.",
+      "installDocsUrl": "https://cli.github.com/",
+      "skillHint": "Use gh for GitHub issues, pull requests, repositories, and Actions.",
+      "version": {
+        "args": ["--version"],
+        "pattern": "gh version ([0-9][\\w.-]*)"
+      },
+      "auth": {
+        "probeArgs": ["auth", "status"],
+        "unauthenticatedPatterns": ["not logged in", "not authenticated"],
+        "instructions": "gh auth login",
+        "docsUrl": "https://cli.github.com/manual/gh_auth_login"
+      },
+      "install": {
+        "methods": [
+          {
+            "id": "brew",
+            "kind": "homebrew",
+            "package": "gh",
+            "platforms": ["darwin", "linux"],
+            "archs": null,
+            "requiresElevation": false
+          },
+          {
+            "id": "winget",
+            "kind": "winget",
+            "package": "GitHub.cli",
+            "platforms": ["win32"],
+            "archs": null,
+            "requiresElevation": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "gitlab-cli",
+      "displayName": "GitLab CLI",
+      "binary": "glab",
+      "category": "collaboration",
+      "description": "Use for GitLab issues, merge requests, pipelines, and repositories.",
+      "installDocsUrl": "https://gitlab.com/gitlab-org/cli",
+      "skillHint": "Use glab for GitLab issues, merge requests, pipelines, and repositories.",
+      "version": {
+        "args": ["--version"],
+        "pattern": "glab ([0-9][\\w.-]*)"
+      },
+      "auth": {
+        "probeArgs": ["auth", "status"],
+        "unauthenticatedPatterns": ["not logged in", "not authenticated"],
+        "instructions": "glab auth login",
+        "docsUrl": "https://gitlab.com/gitlab-org/cli"
+      },
+      "install": {
+        "methods": [
+          {
+            "id": "brew",
+            "kind": "homebrew",
+            "package": "glab",
+            "platforms": ["darwin", "linux"],
+            "archs": null,
+            "requiresElevation": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "google-workspace-cli",
+      "displayName": "Google Workspace CLI",
+      "binary": "gws",
+      "category": "productivity",
+      "description": "Use Google Workspace APIs from the command line.",
+      "installDocsUrl": "https://github.com/googleworkspace/cli",
+      "skillHint": "Use gws for Google Workspace API tasks.",
+      "version": {
+        "args": ["--version"],
+        "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
+      },
+      "auth": {
+        "probeArgs": ["auth", "status"],
+        "unauthenticatedPatterns": [
+          "not authenticated",
+          "not logged in",
+          "credentials"
+        ],
+        "instructions": "gws auth login",
+        "docsUrl": "https://github.com/googleworkspace/cli"
+      },
+      "install": {
+        "methods": [
+          {
+            "id": "brew",
+            "kind": "homebrew",
+            "package": "googleworkspace-cli",
+            "platforms": ["darwin", "linux"],
+            "archs": null,
+            "requiresElevation": false
+          },
+          {
+            "id": "npm",
+            "kind": "npm-global",
+            "package": "@googleworkspace/cli",
+            "platforms": ["darwin", "linux", "win32"],
+            "archs": null,
+            "requiresElevation": false
+          }
+        ]
+      }
+    }
+  ]
+}
