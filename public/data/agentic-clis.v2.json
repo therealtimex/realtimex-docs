@@ -68,18 +68,26 @@
             "platforms": ["darwin", "linux"],
             "archs": null,
             "requiresElevation": false
+          },
+          {
+            "id": "winget",
+            "kind": "winget",
+            "package": "GitLab.glab",
+            "platforms": ["win32"],
+            "archs": null,
+            "requiresElevation": false
           }
         ]
       }
     },
     {
-      "id": "google-workspace-cli",
-      "displayName": "Google Workspace CLI",
-      "binary": "gws",
+      "id": "gogcli",
+      "displayName": "Google CLI (gog)",
+      "binary": "gog",
       "category": "productivity",
-      "description": "Use Google Workspace APIs from the command line.",
-      "installDocsUrl": "https://github.com/googleworkspace/cli",
-      "skillHint": "Use gws for Google Workspace API tasks.",
+      "description": "Use for Google Workspace APIs including Gmail, Calendar, Drive, Docs, Sheets, Slides, Contacts, and YouTube.",
+      "installDocsUrl": "https://gogcli.sh/install.html",
+      "skillHint": "Use gog for Google Workspace and Google API tasks across Gmail, Calendar, Drive, Docs, Sheets, Slides, and Contacts.",
       "version": {
         "args": ["--version"],
         "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
@@ -87,19 +95,52 @@
       "auth": {
         "probeArgs": ["auth", "status"],
         "unauthenticatedPatterns": [
+          "no accounts configured",
           "not authenticated",
           "not logged in",
-          "credentials"
+          "no credentials",
+          "no tokens found"
         ],
-        "instructions": "gws auth login",
-        "docsUrl": "https://github.com/googleworkspace/cli"
+        "instructions": "gog auth add <email>",
+        "docsUrl": "https://gogcli.sh/quickstart.html"
       },
       "install": {
         "methods": [
           {
             "id": "brew",
             "kind": "homebrew",
-            "package": "googleworkspace-cli",
+            "package": "openclaw/tap/gogcli",
+            "platforms": ["darwin", "linux"],
+            "archs": null,
+            "requiresElevation": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "supabase-cli",
+      "displayName": "Supabase CLI",
+      "binary": "supabase",
+      "category": "database",
+      "description": "Use for Supabase projects, branches, database workflows, secrets, and Edge Functions.",
+      "installDocsUrl": "https://supabase.com/docs/reference/cli",
+      "skillHint": "Use for Supabase projects, branches, database migrations, secrets, and Edge Functions.",
+      "version": {
+        "args": ["--version"],
+        "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
+      },
+      "auth": {
+        "probeArgs": ["projects", "list"],
+        "unauthenticatedPatterns": ["not logged in", "access token", "unauthorized"],
+        "instructions": "supabase login",
+        "docsUrl": "https://supabase.com/docs/reference/cli/supabase-login"
+      },
+      "install": {
+        "methods": [
+          {
+            "id": "brew",
+            "kind": "homebrew",
+            "package": "supabase/tap/supabase",
             "platforms": ["darwin", "linux"],
             "archs": null,
             "requiresElevation": false
@@ -107,8 +148,367 @@
           {
             "id": "npm",
             "kind": "npm-global",
-            "package": "@googleworkspace/cli",
+            "package": "supabase",
             "platforms": ["darwin", "linux", "win32"],
+            "archs": null,
+            "requiresElevation": false
+          },
+          {
+            "id": "winget",
+            "kind": "winget",
+            "package": "Supabase.SupabaseCLI",
+            "platforms": ["win32"],
+            "archs": null,
+            "requiresElevation": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "stripe-cli",
+      "displayName": "Stripe CLI",
+      "binary": "stripe",
+      "category": "payments",
+      "description": "Use for Stripe API requests, webhook testing, products, prices, customers, and event workflows.",
+      "installDocsUrl": "https://docs.stripe.com/stripe-cli",
+      "skillHint": "Use for Stripe products, prices, customers, webhooks, logs, and event testing.",
+      "version": {
+        "args": ["version"],
+        "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
+      },
+      "auth": {
+        "probeArgs": ["whoami"],
+        "unauthenticatedPatterns": ["not logged in", "not authenticated", "login"],
+        "instructions": "stripe login",
+        "docsUrl": "https://docs.stripe.com/stripe-cli"
+      },
+      "install": {
+        "methods": [
+          {
+            "id": "brew",
+            "kind": "homebrew",
+            "package": "stripe/stripe-cli/stripe",
+            "platforms": ["darwin", "linux"],
+            "archs": null,
+            "requiresElevation": false
+          },
+          {
+            "id": "winget",
+            "kind": "winget",
+            "package": "Stripe.StripeCLI",
+            "platforms": ["win32"],
+            "archs": null,
+            "requiresElevation": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "vercel-cli",
+      "displayName": "Vercel CLI",
+      "binary": "vercel",
+      "category": "hosting",
+      "description": "Use for Vercel deployments, projects, domains, environment variables, and team resources.",
+      "installDocsUrl": "https://vercel.com/docs/cli",
+      "skillHint": "Use for Vercel deployments, domains, environment variables, logs, and project configuration.",
+      "version": {
+        "args": ["--version"],
+        "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
+      },
+      "auth": {
+        "probeArgs": ["whoami"],
+        "unauthenticatedPatterns": ["not currently logged in", "not logged in", "login"],
+        "instructions": "vercel login",
+        "docsUrl": "https://vercel.com/docs/cli/login"
+      },
+      "install": {
+        "methods": [
+          {
+            "id": "npm",
+            "kind": "npm-global",
+            "package": "vercel",
+            "platforms": ["darwin", "linux", "win32"],
+            "archs": null,
+            "requiresElevation": false
+          },
+          {
+            "id": "brew",
+            "kind": "homebrew",
+            "package": "vercel-cli",
+            "platforms": ["darwin", "linux"],
+            "archs": null,
+            "requiresElevation": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "netlify-cli",
+      "displayName": "Netlify CLI",
+      "binary": "netlify",
+      "category": "hosting",
+      "description": "Use for Netlify sites, deploys, functions, local development, and environment workflows.",
+      "installDocsUrl": "https://docs.netlify.com/api-and-cli-guides/cli-guides/get-started-with-cli/",
+      "skillHint": "Use for Netlify sites, deploys, functions, environment variables, and local development workflows.",
+      "version": {
+        "args": ["--version"],
+        "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
+      },
+      "auth": {
+        "probeArgs": ["status"],
+        "unauthenticatedPatterns": ["not logged in", "not authenticated", "login"],
+        "instructions": "netlify login",
+        "docsUrl": "https://docs.netlify.com/api-and-cli-guides/cli-guides/get-started-with-cli/"
+      },
+      "install": {
+        "methods": [
+          {
+            "id": "npm",
+            "kind": "npm-global",
+            "package": "netlify-cli",
+            "platforms": ["darwin", "linux", "win32"],
+            "archs": null,
+            "requiresElevation": false
+          },
+          {
+            "id": "brew",
+            "kind": "homebrew",
+            "package": "netlify-cli",
+            "platforms": ["darwin", "linux"],
+            "archs": null,
+            "requiresElevation": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "cloudflare-wrangler",
+      "displayName": "Cloudflare Wrangler",
+      "binary": "wrangler",
+      "category": "platform",
+      "description": "Use for Cloudflare Workers, Pages, KV, D1, R2, Queues, and deployment workflows.",
+      "installDocsUrl": "https://developers.cloudflare.com/workers/wrangler/",
+      "skillHint": "Use for Cloudflare Workers, Pages, KV, D1, R2, Queues, and platform deployment tasks.",
+      "version": {
+        "args": ["--version"],
+        "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
+      },
+      "auth": {
+        "probeArgs": ["whoami"],
+        "unauthenticatedPatterns": ["not authenticated", "not logged in", "login"],
+        "instructions": "wrangler login",
+        "docsUrl": "https://developers.cloudflare.com/workers/wrangler/commands/#login"
+      },
+      "install": {
+        "methods": [
+          {
+            "id": "npm",
+            "kind": "npm-global",
+            "package": "wrangler",
+            "platforms": ["darwin", "linux", "win32"],
+            "archs": null,
+            "requiresElevation": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "fly-io-cli",
+      "displayName": "Fly.io CLI",
+      "binary": "fly",
+      "category": "hosting",
+      "description": "Use for Fly.io apps, machines, secrets, logs, regions, and deployment workflows.",
+      "installDocsUrl": "https://fly.io/docs/flyctl/",
+      "skillHint": "Use for Fly.io apps, machines, secrets, logs, regions, and deployment tasks.",
+      "version": {
+        "args": ["version"],
+        "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
+      },
+      "auth": {
+        "probeArgs": ["auth", "whoami"],
+        "unauthenticatedPatterns": ["not logged in", "not authenticated", "login"],
+        "instructions": "fly auth login",
+        "docsUrl": "https://fly.io/docs/flyctl/auth-login/"
+      },
+      "install": {
+        "methods": [
+          {
+            "id": "brew",
+            "kind": "homebrew",
+            "package": "flyctl",
+            "platforms": ["darwin", "linux"],
+            "archs": null,
+            "requiresElevation": false
+          },
+          {
+            "id": "winget",
+            "kind": "winget",
+            "package": "Fly.flyctl",
+            "platforms": ["win32"],
+            "archs": null,
+            "requiresElevation": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "heroku-cli",
+      "displayName": "Heroku CLI",
+      "binary": "heroku",
+      "category": "hosting",
+      "description": "Use for Heroku apps, releases, logs, config vars, add-ons, and dyno operations.",
+      "installDocsUrl": "https://devcenter.heroku.com/articles/heroku-cli",
+      "skillHint": "Use for Heroku apps, releases, logs, config vars, add-ons, and dyno management.",
+      "version": {
+        "args": ["--version"],
+        "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
+      },
+      "auth": {
+        "probeArgs": ["auth:whoami"],
+        "unauthenticatedPatterns": ["not logged in", "not authenticated", "login"],
+        "instructions": "heroku login",
+        "docsUrl": "https://devcenter.heroku.com/articles/heroku-cli"
+      },
+      "install": {
+        "methods": [
+          {
+            "id": "brew",
+            "kind": "homebrew",
+            "package": "heroku/brew/heroku",
+            "platforms": ["darwin", "linux"],
+            "archs": null,
+            "requiresElevation": false
+          },
+          {
+            "id": "npm",
+            "kind": "npm-global",
+            "package": "heroku",
+            "platforms": ["darwin", "linux", "win32"],
+            "archs": null,
+            "requiresElevation": false
+          },
+          {
+            "id": "winget",
+            "kind": "winget",
+            "package": "Heroku.HerokuCLI",
+            "platforms": ["win32"],
+            "archs": null,
+            "requiresElevation": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "azure-cli",
+      "displayName": "Azure CLI",
+      "binary": "az",
+      "category": "cloud",
+      "description": "Use for Azure subscriptions, resource groups, services, identities, and deployment workflows.",
+      "installDocsUrl": "https://learn.microsoft.com/en-us/cli/azure/",
+      "skillHint": "Use for Azure subscriptions, resource groups, networking, storage, compute, and deployment tasks.",
+      "version": {
+        "args": ["version"],
+        "pattern": "\"azure-cli\"\\s*:\\s*\"([0-9][\\w.-]*)\""
+      },
+      "auth": {
+        "probeArgs": ["account", "show"],
+        "unauthenticatedPatterns": ["az login", "not logged in", "authentication"],
+        "instructions": "az login",
+        "docsUrl": "https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli"
+      },
+      "install": {
+        "methods": [
+          {
+            "id": "brew",
+            "kind": "homebrew",
+            "package": "azure-cli",
+            "platforms": ["darwin", "linux"],
+            "archs": null,
+            "requiresElevation": false
+          },
+          {
+            "id": "winget",
+            "kind": "winget",
+            "package": "Microsoft.AzureCLI",
+            "platforms": ["win32"],
+            "archs": null,
+            "requiresElevation": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "npm-cli",
+      "displayName": "npm CLI",
+      "binary": "npm",
+      "category": "package",
+      "description": "Use for npm packages, dist-tags, publishing, access control, and registry management.",
+      "installDocsUrl": "https://docs.npmjs.com/cli/",
+      "skillHint": "Use for npm packages, dist-tags, publishing, access control, and registry workflows.",
+      "version": {
+        "args": ["--version"],
+        "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
+      },
+      "auth": {
+        "probeArgs": ["whoami"],
+        "unauthenticatedPatterns": ["eneedauth", "not logged in", "login"],
+        "instructions": "npm login",
+        "docsUrl": "https://docs.npmjs.com/cli/commands/npm-login"
+      },
+      "install": {
+        "methods": [
+          {
+            "id": "brew",
+            "kind": "homebrew",
+            "package": "node",
+            "platforms": ["darwin", "linux"],
+            "archs": null,
+            "requiresElevation": false
+          },
+          {
+            "id": "winget",
+            "kind": "winget",
+            "package": "OpenJS.NodeJS",
+            "platforms": ["win32"],
+            "archs": null,
+            "requiresElevation": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "onepassword-cli",
+      "displayName": "1Password CLI",
+      "binary": "op",
+      "category": "security",
+      "description": "Use for 1Password vaults, items, secrets, and secure environment workflows.",
+      "installDocsUrl": "https://developer.1password.com/docs/cli",
+      "skillHint": "Use for 1Password vaults, items, secrets, and secure credential workflows.",
+      "version": {
+        "args": ["--version"],
+        "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
+      },
+      "auth": {
+        "probeArgs": ["whoami"],
+        "unauthenticatedPatterns": ["not signed in", "not authenticated", "signin"],
+        "instructions": "op signin",
+        "docsUrl": "https://developer.1password.com/docs/cli/sign-in-manually/"
+      },
+      "install": {
+        "methods": [
+          {
+            "id": "brew",
+            "kind": "homebrew",
+            "package": "1password-cli",
+            "platforms": ["darwin", "linux"],
+            "archs": null,
+            "requiresElevation": false
+          },
+          {
+            "id": "winget",
+            "kind": "winget",
+            "package": "AgileBits.1Password.CLI",
+            "platforms": ["win32"],
             "archs": null,
             "requiresElevation": false
           }
