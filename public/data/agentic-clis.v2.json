@@ -514,6 +514,144 @@
           }
         ]
       }
+    },
+    {
+      "id": "firebase-tools",
+      "displayName": "Firebase CLI",
+      "binary": "firebase",
+      "category": "hosting",
+      "description": "Use for Firebase Hosting, Cloud Functions, Firestore, Realtime Database, and Firebase project deployments.",
+      "installDocsUrl": "https://firebase.google.com/docs/cli",
+      "skillHint": "Use firebase for Firebase Hosting, Cloud Functions, Firestore, rules, emulator, and project management.",
+      "version": {
+        "args": ["--version"],
+        "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
+      },
+      "auth": {
+        "probeArgs": ["projects:list"],
+        "unauthenticatedPatterns": [
+          "not logged in",
+          "not authenticated",
+          "login",
+          "please run firebase login",
+          "unauthenticated",
+          "no active accounts"
+        ],
+        "instructions": "firebase login",
+        "docsUrl": "https://firebase.google.com/docs/cli#sign-in-test-cli"
+      },
+      "install": {
+        "methods": [
+          {
+            "id": "npm",
+            "kind": "npm-global",
+            "package": "firebase-tools",
+            "platforms": ["darwin", "linux", "win32"],
+            "archs": null,
+            "requiresElevation": false
+          },
+          {
+            "id": "brew",
+            "kind": "homebrew",
+            "package": "firebase-cli",
+            "platforms": ["darwin", "linux"],
+            "archs": null,
+            "requiresElevation": false
+          },
+          {
+            "id": "winget",
+            "kind": "winget",
+            "package": "Google.FirebaseCLI",
+            "platforms": ["win32"],
+            "archs": null,
+            "requiresElevation": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "himalaya-cli",
+      "displayName": "Himalaya CLI",
+      "binary": "himalaya",
+      "category": "productivity",
+      "description": "Use for managing emails, IMAP/SMTP accounts, mailboxes, and email triage workflows.",
+      "installDocsUrl": "https://pimalaya.org/himalaya/cli/latest/installation/",
+      "skillHint": "Use himalaya for reading, searching, sending, and managing emails across configured IMAP/SMTP accounts.",
+      "version": {
+        "args": ["--version"],
+        "pattern": "himalaya\\s+v?([0-9][\\w.-]*)"
+      },
+      "auth": {
+        "probeArgs": ["account", "list"],
+        "unauthenticatedPatterns": [
+          "no account found",
+          "not configured",
+          "cannot find account",
+          "error:",
+          "unauthorized",
+          "authentication failed"
+        ],
+        "instructions": "himalaya account configure",
+        "docsUrl": "https://pimalaya.org/himalaya/cli/latest/configuration/"
+      },
+      "install": {
+        "methods": [
+          {
+            "id": "brew",
+            "kind": "homebrew",
+            "package": "himalaya",
+            "platforms": ["darwin", "linux"],
+            "archs": null,
+            "requiresElevation": false
+          },
+          {
+            "id": "winget",
+            "kind": "winget",
+            "package": "pimalaya.himalaya",
+            "platforms": ["win32"],
+            "archs": null,
+            "requiresElevation": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "wacli",
+      "displayName": "WhatsApp CLI (wacli)",
+      "binary": "wacli",
+      "category": "productivity",
+      "description": "Use for WhatsApp chat syncing, searching local message history, downloading media, and sending messages.",
+      "installDocsUrl": "https://wacli.sh",
+      "skillHint": "Use wacli for WhatsApp message syncing, chat search, contacts, media retrieval, and sending messages.",
+      "version": {
+        "args": ["--version"],
+        "pattern": "wacli\\s+([0-9][\\w.-]*)"
+      },
+      "auth": {
+        "probeArgs": ["auth", "status"],
+        "unauthenticatedPatterns": [
+          "not logged in",
+          "not authenticated",
+          "unauthenticated",
+          "no session",
+          "qr",
+          "pair"
+        ],
+        "instructions": "wacli auth",
+        "docsUrl": "https://wacli.sh"
+      },
+      "install": {
+        "methods": [
+          {
+            "id": "brew",
+            "kind": "homebrew",
+            "package": "openclaw/tap/wacli",
+            "platforms": ["darwin", "linux"],
+            "archs": null,
+            "requiresElevation": false
+          }
+        ]
+      }
     }
   ]
 }
