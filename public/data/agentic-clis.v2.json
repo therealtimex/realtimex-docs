@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-08-13",
+  "updatedAt": "2026-08-14",
   "clis": [
     {
       "id": "github-cli",
@@ -11,12 +11,20 @@
       "installDocsUrl": "https://cli.github.com/",
       "skillHint": "Use gh for GitHub issues, pull requests, repositories, and Actions.",
       "version": {
-        "args": ["--version"],
+        "args": [
+          "--version"
+        ],
         "pattern": "gh version ([0-9][\\w.-]*)"
       },
       "auth": {
-        "probeArgs": ["auth", "status"],
-        "unauthenticatedPatterns": ["not logged in", "not authenticated"],
+        "probeArgs": [
+          "auth",
+          "status"
+        ],
+        "unauthenticatedPatterns": [
+          "not logged in",
+          "not authenticated"
+        ],
         "instructions": "gh auth login",
         "docsUrl": "https://cli.github.com/manual/gh_auth_login"
       },
@@ -26,7 +34,10 @@
             "id": "brew",
             "kind": "homebrew",
             "package": "gh",
-            "platforms": ["darwin", "linux"],
+            "platforms": [
+              "darwin",
+              "linux"
+            ],
             "archs": null,
             "requiresElevation": false
           },
@@ -34,7 +45,9 @@
             "id": "winget",
             "kind": "winget",
             "package": "GitHub.cli",
-            "platforms": ["win32"],
+            "platforms": [
+              "win32"
+            ],
             "archs": null,
             "requiresElevation": false
           }
@@ -50,12 +63,20 @@
       "installDocsUrl": "https://gitlab.com/gitlab-org/cli",
       "skillHint": "Use glab for GitLab issues, merge requests, pipelines, and repositories.",
       "version": {
-        "args": ["--version"],
+        "args": [
+          "--version"
+        ],
         "pattern": "glab ([0-9][\\w.-]*)"
       },
       "auth": {
-        "probeArgs": ["auth", "status"],
-        "unauthenticatedPatterns": ["not logged in", "not authenticated"],
+        "probeArgs": [
+          "auth",
+          "status"
+        ],
+        "unauthenticatedPatterns": [
+          "not logged in",
+          "not authenticated"
+        ],
         "instructions": "glab auth login",
         "docsUrl": "https://gitlab.com/gitlab-org/cli"
       },
@@ -65,7 +86,10 @@
             "id": "brew",
             "kind": "homebrew",
             "package": "glab",
-            "platforms": ["darwin", "linux"],
+            "platforms": [
+              "darwin",
+              "linux"
+            ],
             "archs": null,
             "requiresElevation": false
           },
@@ -73,7 +97,9 @@
             "id": "winget",
             "kind": "winget",
             "package": "GitLab.glab",
-            "platforms": ["win32"],
+            "platforms": [
+              "win32"
+            ],
             "archs": null,
             "requiresElevation": false
           }
@@ -89,11 +115,16 @@
       "installDocsUrl": "https://gogcli.sh/install.html",
       "skillHint": "Use gog for Google Workspace and Google API tasks across Gmail, Calendar, Drive, Docs, Sheets, Slides, and Contacts.",
       "version": {
-        "args": ["--version"],
+        "args": [
+          "--version"
+        ],
         "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
       },
       "auth": {
-        "probeArgs": ["auth", "status"],
+        "probeArgs": [
+          "auth",
+          "status"
+        ],
         "unauthenticatedPatterns": [
           "no accounts configured",
           "not authenticated",
@@ -110,7 +141,10 @@
             "id": "brew",
             "kind": "homebrew",
             "package": "openclaw/tap/gogcli",
-            "platforms": ["darwin", "linux"],
+            "platforms": [
+              "darwin",
+              "linux"
+            ],
             "archs": null,
             "requiresElevation": false
           }
@@ -126,12 +160,21 @@
       "installDocsUrl": "https://supabase.com/docs/reference/cli",
       "skillHint": "Use for Supabase projects, branches, database migrations, secrets, and Edge Functions.",
       "version": {
-        "args": ["--version"],
+        "args": [
+          "--version"
+        ],
         "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
       },
       "auth": {
-        "probeArgs": ["projects", "list"],
-        "unauthenticatedPatterns": ["not logged in", "access token", "unauthorized"],
+        "probeArgs": [
+          "projects",
+          "list"
+        ],
+        "unauthenticatedPatterns": [
+          "not logged in",
+          "access token",
+          "unauthorized"
+        ],
         "instructions": "supabase login",
         "docsUrl": "https://supabase.com/docs/reference/cli/supabase-login"
       },
@@ -141,7 +184,10 @@
             "id": "brew",
             "kind": "homebrew",
             "package": "supabase/tap/supabase",
-            "platforms": ["darwin", "linux"],
+            "platforms": [
+              "darwin",
+              "linux"
+            ],
             "archs": null,
             "requiresElevation": false
           },
@@ -149,7 +195,11 @@
             "id": "npm",
             "kind": "npm-global",
             "package": "supabase",
-            "platforms": ["darwin", "linux", "win32"],
+            "platforms": [
+              "darwin",
+              "linux",
+              "win32"
+            ],
             "archs": null,
             "requiresElevation": false
           },
@@ -157,7 +207,9 @@
             "id": "winget",
             "kind": "winget",
             "package": "Supabase.SupabaseCLI",
-            "platforms": ["win32"],
+            "platforms": [
+              "win32"
+            ],
             "archs": null,
             "requiresElevation": false
           }
@@ -173,12 +225,20 @@
       "installDocsUrl": "https://docs.stripe.com/stripe-cli",
       "skillHint": "Use for Stripe products, prices, customers, webhooks, logs, and event testing.",
       "version": {
-        "args": ["version"],
+        "args": [
+          "version"
+        ],
         "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
       },
       "auth": {
-        "probeArgs": ["whoami"],
-        "unauthenticatedPatterns": ["not logged in", "not authenticated", "login"],
+        "probeArgs": [
+          "whoami"
+        ],
+        "unauthenticatedPatterns": [
+          "not logged in",
+          "not authenticated",
+          "login"
+        ],
         "instructions": "stripe login",
         "docsUrl": "https://docs.stripe.com/stripe-cli"
       },
@@ -188,7 +248,10 @@
             "id": "brew",
             "kind": "homebrew",
             "package": "stripe/stripe-cli/stripe",
-            "platforms": ["darwin", "linux"],
+            "platforms": [
+              "darwin",
+              "linux"
+            ],
             "archs": null,
             "requiresElevation": false
           },
@@ -196,7 +259,9 @@
             "id": "winget",
             "kind": "winget",
             "package": "Stripe.StripeCLI",
-            "platforms": ["win32"],
+            "platforms": [
+              "win32"
+            ],
             "archs": null,
             "requiresElevation": false
           }
@@ -212,12 +277,20 @@
       "installDocsUrl": "https://vercel.com/docs/cli",
       "skillHint": "Use for Vercel deployments, domains, environment variables, logs, and project configuration.",
       "version": {
-        "args": ["--version"],
+        "args": [
+          "--version"
+        ],
         "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
       },
       "auth": {
-        "probeArgs": ["whoami"],
-        "unauthenticatedPatterns": ["not currently logged in", "not logged in", "login"],
+        "probeArgs": [
+          "whoami"
+        ],
+        "unauthenticatedPatterns": [
+          "not currently logged in",
+          "not logged in",
+          "login"
+        ],
         "instructions": "vercel login",
         "docsUrl": "https://vercel.com/docs/cli/login"
       },
@@ -227,7 +300,11 @@
             "id": "npm",
             "kind": "npm-global",
             "package": "vercel",
-            "platforms": ["darwin", "linux", "win32"],
+            "platforms": [
+              "darwin",
+              "linux",
+              "win32"
+            ],
             "archs": null,
             "requiresElevation": false
           },
@@ -235,7 +312,10 @@
             "id": "brew",
             "kind": "homebrew",
             "package": "vercel-cli",
-            "platforms": ["darwin", "linux"],
+            "platforms": [
+              "darwin",
+              "linux"
+            ],
             "archs": null,
             "requiresElevation": false
           }
@@ -251,12 +331,20 @@
       "installDocsUrl": "https://docs.netlify.com/api-and-cli-guides/cli-guides/get-started-with-cli/",
       "skillHint": "Use for Netlify sites, deploys, functions, environment variables, and local development workflows.",
       "version": {
-        "args": ["--version"],
+        "args": [
+          "--version"
+        ],
         "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
       },
       "auth": {
-        "probeArgs": ["status"],
-        "unauthenticatedPatterns": ["not logged in", "not authenticated", "login"],
+        "probeArgs": [
+          "status"
+        ],
+        "unauthenticatedPatterns": [
+          "not logged in",
+          "not authenticated",
+          "login"
+        ],
         "instructions": "netlify login",
         "docsUrl": "https://docs.netlify.com/api-and-cli-guides/cli-guides/get-started-with-cli/"
       },
@@ -266,7 +354,11 @@
             "id": "npm",
             "kind": "npm-global",
             "package": "netlify-cli",
-            "platforms": ["darwin", "linux", "win32"],
+            "platforms": [
+              "darwin",
+              "linux",
+              "win32"
+            ],
             "archs": null,
             "requiresElevation": false
           },
@@ -274,7 +366,10 @@
             "id": "brew",
             "kind": "homebrew",
             "package": "netlify-cli",
-            "platforms": ["darwin", "linux"],
+            "platforms": [
+              "darwin",
+              "linux"
+            ],
             "archs": null,
             "requiresElevation": false
           }
@@ -290,12 +385,20 @@
       "installDocsUrl": "https://developers.cloudflare.com/workers/wrangler/",
       "skillHint": "Use for Cloudflare Workers, Pages, KV, D1, R2, Queues, and platform deployment tasks.",
       "version": {
-        "args": ["--version"],
+        "args": [
+          "--version"
+        ],
         "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
       },
       "auth": {
-        "probeArgs": ["whoami"],
-        "unauthenticatedPatterns": ["not authenticated", "not logged in", "login"],
+        "probeArgs": [
+          "whoami"
+        ],
+        "unauthenticatedPatterns": [
+          "not authenticated",
+          "not logged in",
+          "login"
+        ],
         "instructions": "wrangler login",
         "docsUrl": "https://developers.cloudflare.com/workers/wrangler/commands/#login"
       },
@@ -305,7 +408,11 @@
             "id": "npm",
             "kind": "npm-global",
             "package": "wrangler",
-            "platforms": ["darwin", "linux", "win32"],
+            "platforms": [
+              "darwin",
+              "linux",
+              "win32"
+            ],
             "archs": null,
             "requiresElevation": false
           }
@@ -321,12 +428,21 @@
       "installDocsUrl": "https://fly.io/docs/flyctl/",
       "skillHint": "Use for Fly.io apps, machines, secrets, logs, regions, and deployment tasks.",
       "version": {
-        "args": ["version"],
+        "args": [
+          "version"
+        ],
         "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
       },
       "auth": {
-        "probeArgs": ["auth", "whoami"],
-        "unauthenticatedPatterns": ["not logged in", "not authenticated", "login"],
+        "probeArgs": [
+          "auth",
+          "whoami"
+        ],
+        "unauthenticatedPatterns": [
+          "not logged in",
+          "not authenticated",
+          "login"
+        ],
         "instructions": "fly auth login",
         "docsUrl": "https://fly.io/docs/flyctl/auth-login/"
       },
@@ -336,7 +452,10 @@
             "id": "brew",
             "kind": "homebrew",
             "package": "flyctl",
-            "platforms": ["darwin", "linux"],
+            "platforms": [
+              "darwin",
+              "linux"
+            ],
             "archs": null,
             "requiresElevation": false
           },
@@ -344,7 +463,9 @@
             "id": "winget",
             "kind": "winget",
             "package": "Fly.flyctl",
-            "platforms": ["win32"],
+            "platforms": [
+              "win32"
+            ],
             "archs": null,
             "requiresElevation": false
           }
@@ -360,12 +481,20 @@
       "installDocsUrl": "https://devcenter.heroku.com/articles/heroku-cli",
       "skillHint": "Use for Heroku apps, releases, logs, config vars, add-ons, and dyno management.",
       "version": {
-        "args": ["--version"],
+        "args": [
+          "--version"
+        ],
         "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
       },
       "auth": {
-        "probeArgs": ["auth:whoami"],
-        "unauthenticatedPatterns": ["not logged in", "not authenticated", "login"],
+        "probeArgs": [
+          "auth:whoami"
+        ],
+        "unauthenticatedPatterns": [
+          "not logged in",
+          "not authenticated",
+          "login"
+        ],
         "instructions": "heroku login",
         "docsUrl": "https://devcenter.heroku.com/articles/heroku-cli"
       },
@@ -375,7 +504,10 @@
             "id": "brew",
             "kind": "homebrew",
             "package": "heroku/brew/heroku",
-            "platforms": ["darwin", "linux"],
+            "platforms": [
+              "darwin",
+              "linux"
+            ],
             "archs": null,
             "requiresElevation": false
           },
@@ -383,7 +515,11 @@
             "id": "npm",
             "kind": "npm-global",
             "package": "heroku",
-            "platforms": ["darwin", "linux", "win32"],
+            "platforms": [
+              "darwin",
+              "linux",
+              "win32"
+            ],
             "archs": null,
             "requiresElevation": false
           },
@@ -391,7 +527,9 @@
             "id": "winget",
             "kind": "winget",
             "package": "Heroku.HerokuCLI",
-            "platforms": ["win32"],
+            "platforms": [
+              "win32"
+            ],
             "archs": null,
             "requiresElevation": false
           }
@@ -407,12 +545,21 @@
       "installDocsUrl": "https://learn.microsoft.com/en-us/cli/azure/",
       "skillHint": "Use for Azure subscriptions, resource groups, networking, storage, compute, and deployment tasks.",
       "version": {
-        "args": ["version"],
+        "args": [
+          "version"
+        ],
         "pattern": "\"azure-cli\"\\s*:\\s*\"([0-9][\\w.-]*)\""
       },
       "auth": {
-        "probeArgs": ["account", "show"],
-        "unauthenticatedPatterns": ["az login", "not logged in", "authentication"],
+        "probeArgs": [
+          "account",
+          "show"
+        ],
+        "unauthenticatedPatterns": [
+          "az login",
+          "not logged in",
+          "authentication"
+        ],
         "instructions": "az login",
         "docsUrl": "https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli"
       },
@@ -422,7 +569,10 @@
             "id": "brew",
             "kind": "homebrew",
             "package": "azure-cli",
-            "platforms": ["darwin", "linux"],
+            "platforms": [
+              "darwin",
+              "linux"
+            ],
             "archs": null,
             "requiresElevation": false
           },
@@ -430,7 +580,9 @@
             "id": "winget",
             "kind": "winget",
             "package": "Microsoft.AzureCLI",
-            "platforms": ["win32"],
+            "platforms": [
+              "win32"
+            ],
             "archs": null,
             "requiresElevation": false
           }
@@ -446,12 +598,20 @@
       "installDocsUrl": "https://docs.npmjs.com/cli/",
       "skillHint": "Use for npm packages, dist-tags, publishing, access control, and registry workflows.",
       "version": {
-        "args": ["--version"],
+        "args": [
+          "--version"
+        ],
         "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
       },
       "auth": {
-        "probeArgs": ["whoami"],
-        "unauthenticatedPatterns": ["eneedauth", "not logged in", "login"],
+        "probeArgs": [
+          "whoami"
+        ],
+        "unauthenticatedPatterns": [
+          "eneedauth",
+          "not logged in",
+          "login"
+        ],
         "instructions": "npm login",
         "docsUrl": "https://docs.npmjs.com/cli/commands/npm-login"
       },
@@ -461,7 +621,10 @@
             "id": "brew",
             "kind": "homebrew",
             "package": "node",
-            "platforms": ["darwin", "linux"],
+            "platforms": [
+              "darwin",
+              "linux"
+            ],
             "archs": null,
             "requiresElevation": false
           },
@@ -469,7 +632,9 @@
             "id": "winget",
             "kind": "winget",
             "package": "OpenJS.NodeJS",
-            "platforms": ["win32"],
+            "platforms": [
+              "win32"
+            ],
             "archs": null,
             "requiresElevation": false
           }
@@ -485,12 +650,20 @@
       "installDocsUrl": "https://developer.1password.com/docs/cli",
       "skillHint": "Use for 1Password vaults, items, secrets, and secure credential workflows.",
       "version": {
-        "args": ["--version"],
+        "args": [
+          "--version"
+        ],
         "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
       },
       "auth": {
-        "probeArgs": ["whoami"],
-        "unauthenticatedPatterns": ["not signed in", "not authenticated", "signin"],
+        "probeArgs": [
+          "whoami"
+        ],
+        "unauthenticatedPatterns": [
+          "not signed in",
+          "not authenticated",
+          "signin"
+        ],
         "instructions": "op signin",
         "docsUrl": "https://developer.1password.com/docs/cli/sign-in-manually/"
       },
@@ -500,7 +673,10 @@
             "id": "brew",
             "kind": "homebrew",
             "package": "1password-cli",
-            "platforms": ["darwin", "linux"],
+            "platforms": [
+              "darwin",
+              "linux"
+            ],
             "archs": null,
             "requiresElevation": false
           },
@@ -508,7 +684,9 @@
             "id": "winget",
             "kind": "winget",
             "package": "AgileBits.1Password.CLI",
-            "platforms": ["win32"],
+            "platforms": [
+              "win32"
+            ],
             "archs": null,
             "requiresElevation": false
           }
@@ -524,11 +702,15 @@
       "installDocsUrl": "https://firebase.google.com/docs/cli",
       "skillHint": "Use firebase for Firebase Hosting, Cloud Functions, Firestore, rules, emulator, and project management.",
       "version": {
-        "args": ["--version"],
+        "args": [
+          "--version"
+        ],
         "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
       },
       "auth": {
-        "probeArgs": ["projects:list"],
+        "probeArgs": [
+          "projects:list"
+        ],
         "unauthenticatedPatterns": [
           "not logged in",
           "not authenticated",
@@ -546,7 +728,11 @@
             "id": "npm",
             "kind": "npm-global",
             "package": "firebase-tools",
-            "platforms": ["darwin", "linux", "win32"],
+            "platforms": [
+              "darwin",
+              "linux",
+              "win32"
+            ],
             "archs": null,
             "requiresElevation": false
           },
@@ -554,7 +740,10 @@
             "id": "brew",
             "kind": "homebrew",
             "package": "firebase-cli",
-            "platforms": ["darwin", "linux"],
+            "platforms": [
+              "darwin",
+              "linux"
+            ],
             "archs": null,
             "requiresElevation": false
           },
@@ -562,7 +751,9 @@
             "id": "winget",
             "kind": "winget",
             "package": "Google.FirebaseCLI",
-            "platforms": ["win32"],
+            "platforms": [
+              "win32"
+            ],
             "archs": null,
             "requiresElevation": false
           }
@@ -578,11 +769,16 @@
       "installDocsUrl": "https://pimalaya.org/himalaya/cli/latest/installation/",
       "skillHint": "Use himalaya for reading, searching, sending, and managing emails across configured IMAP/SMTP accounts.",
       "version": {
-        "args": ["--version"],
+        "args": [
+          "--version"
+        ],
         "pattern": "himalaya\\s+v?([0-9][\\w.-]*)"
       },
       "auth": {
-        "probeArgs": ["account", "list"],
+        "probeArgs": [
+          "account",
+          "list"
+        ],
         "unauthenticatedPatterns": [
           "no account found",
           "not configured",
@@ -600,7 +796,10 @@
             "id": "brew",
             "kind": "homebrew",
             "package": "himalaya",
-            "platforms": ["darwin", "linux"],
+            "platforms": [
+              "darwin",
+              "linux"
+            ],
             "archs": null,
             "requiresElevation": false
           },
@@ -608,7 +807,9 @@
             "id": "winget",
             "kind": "winget",
             "package": "pimalaya.himalaya",
-            "platforms": ["win32"],
+            "platforms": [
+              "win32"
+            ],
             "archs": null,
             "requiresElevation": false
           }
@@ -624,11 +825,16 @@
       "installDocsUrl": "https://wacli.sh",
       "skillHint": "Use wacli for WhatsApp message syncing, chat search, contacts, media retrieval, and sending messages.",
       "version": {
-        "args": ["--version"],
+        "args": [
+          "--version"
+        ],
         "pattern": "wacli\\s+([0-9][\\w.-]*)"
       },
       "auth": {
-        "probeArgs": ["auth", "status"],
+        "probeArgs": [
+          "auth",
+          "status"
+        ],
         "unauthenticatedPatterns": [
           "not logged in",
           "not authenticated",
@@ -646,11 +852,1036 @@
             "id": "brew",
             "kind": "homebrew",
             "package": "openclaw/tap/wacli",
-            "platforms": ["darwin", "linux"],
+            "platforms": [
+              "darwin",
+              "linux"
+            ],
             "archs": null,
             "requiresElevation": false
           }
         ]
+      }
+    },
+    {
+      "id": "1688-pp-cli",
+      "displayName": "1688 CLI (1688-pp-cli)",
+      "binary": "1688-pp-cli",
+      "category": "commerce",
+      "description": "The free, offline, agent-native 1688 wholesale sourcing CLI — keyword search with the signals the web UI buries (回头率 reorder rate, factory-verified status, supplier trade scores, price drift), persisted to a local store no scraper tracks over time.",
+      "installDocsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/commerce/1688",
+      "skillHint": "Use 1688-pp-cli for 1688 workflows and queries.",
+      "version": {
+        "args": [
+          "--version"
+        ],
+        "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
+      },
+      "auth": {
+        "probeArgs": [
+          "doctor"
+        ],
+        "unauthenticatedPatterns": [],
+        "instructions": "1688-pp-cli doctor",
+        "docsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/commerce/1688"
+      },
+      "install": {
+        "methods": []
+      }
+    },
+    {
+      "id": "clickup-pp-cli",
+      "displayName": "Clickup CLI (clickup-pp-cli)",
+      "binary": "clickup-pp-cli",
+      "category": "project-management",
+      "description": "Every ClickUp v2 + v3 endpoint as a typed CLI plus offline sync, search, and ergonomic chat/docs aliases.",
+      "installDocsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/project-management/clickup",
+      "skillHint": "Use clickup-pp-cli for clickup workflows and queries.",
+      "version": {
+        "args": [
+          "--version"
+        ],
+        "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
+      },
+      "auth": {
+        "probeArgs": [
+          "doctor"
+        ],
+        "unauthenticatedPatterns": [
+          "not configured",
+          "missing",
+          "unauthenticated",
+          "invalid",
+          "unauthorized"
+        ],
+        "instructions": "Set required environment variable(s): CLICKUP_AUTHORIZATION_TOKEN",
+        "docsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/project-management/clickup"
+      },
+      "install": {
+        "methods": []
+      }
+    },
+    {
+      "id": "company-goat-pp-cli",
+      "displayName": "Company Goat CLI (company-goat-pp-cli)",
+      "binary": "company-goat-pp-cli",
+      "category": "developer-tools",
+      "description": "Look up startups across SEC Form D, GitHub, Hacker News, Companies House, YC, Wikidata, and DNS in one command. Built for scouts, founders, BD, and AI agents researching small/midsize startups.",
+      "installDocsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/developer-tools/company-goat",
+      "skillHint": "Use company-goat-pp-cli for company-goat workflows and queries.",
+      "version": {
+        "args": [
+          "--version"
+        ],
+        "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
+      },
+      "auth": {
+        "probeArgs": [
+          "doctor"
+        ],
+        "unauthenticatedPatterns": [],
+        "instructions": "company-goat-pp-cli doctor",
+        "docsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/developer-tools/company-goat"
+      },
+      "install": {
+        "methods": []
+      }
+    },
+    {
+      "id": "discord-pp-cli",
+      "displayName": "Discord CLI (discord-pp-cli)",
+      "binary": "discord-pp-cli",
+      "category": "productivity",
+      "description": "Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.",
+      "installDocsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/productivity/discord",
+      "skillHint": "Use discord-pp-cli for discord workflows and queries.",
+      "version": {
+        "args": [
+          "--version"
+        ],
+        "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
+      },
+      "auth": {
+        "probeArgs": [
+          "doctor"
+        ],
+        "unauthenticatedPatterns": [
+          "not configured",
+          "missing",
+          "unauthenticated",
+          "invalid",
+          "unauthorized"
+        ],
+        "instructions": "Set required environment variable(s): PRINTING_PRESS_CLIENT_PROFILE",
+        "docsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/productivity/discord"
+      },
+      "install": {
+        "methods": []
+      }
+    },
+    {
+      "id": "docker-hub-pp-cli",
+      "displayName": "Docker Hub CLI (docker-hub-pp-cli)",
+      "binary": "docker-hub-pp-cli",
+      "category": "developer-tools",
+      "description": "Docker Hub public API. Search container images, browse tags, check sizes, inspect Dockerfiles, and explore the world's largest container registry. No authentication required for public repositories (rate limited to ~18 req/min).",
+      "installDocsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/developer-tools/docker-hub",
+      "skillHint": "Use docker-hub-pp-cli for docker-hub workflows and queries.",
+      "version": {
+        "args": [
+          "--version"
+        ],
+        "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
+      },
+      "auth": {
+        "probeArgs": [
+          "doctor"
+        ],
+        "unauthenticatedPatterns": [],
+        "instructions": "docker-hub-pp-cli doctor",
+        "docsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/developer-tools/docker-hub"
+      },
+      "install": {
+        "methods": []
+      }
+    },
+    {
+      "id": "elevenlabs-pp-cli",
+      "displayName": "Elevenlabs CLI (elevenlabs-pp-cli)",
+      "binary": "elevenlabs-pp-cli",
+      "category": "ai",
+      "description": "Create and manage ElevenLabs audio workflows: text-to-speech, voice conversion, transcription, dubbing, music, voices, and agents.",
+      "installDocsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/ai/elevenlabs",
+      "skillHint": "Use elevenlabs-pp-cli for elevenlabs workflows and queries.",
+      "version": {
+        "args": [
+          "--version"
+        ],
+        "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
+      },
+      "auth": {
+        "probeArgs": [
+          "doctor"
+        ],
+        "unauthenticatedPatterns": [
+          "not configured",
+          "missing",
+          "unauthenticated",
+          "invalid",
+          "unauthorized"
+        ],
+        "instructions": "Set required environment variable(s): ELEVENLABS_API_KEY",
+        "docsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/ai/elevenlabs"
+      },
+      "install": {
+        "methods": []
+      }
+    },
+    {
+      "id": "espn-pp-cli",
+      "displayName": "Espn CLI (espn-pp-cli)",
+      "binary": "espn-pp-cli",
+      "category": "media-and-entertainment",
+      "description": "Live scores, standings, news, and game history across 17 sports from ESPN",
+      "installDocsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/media-and-entertainment/espn",
+      "skillHint": "Use espn-pp-cli for espn workflows and queries.",
+      "version": {
+        "args": [
+          "--version"
+        ],
+        "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
+      },
+      "auth": {
+        "probeArgs": [
+          "doctor"
+        ],
+        "unauthenticatedPatterns": [],
+        "instructions": "espn-pp-cli doctor",
+        "docsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/media-and-entertainment/espn"
+      },
+      "install": {
+        "methods": []
+      }
+    },
+    {
+      "id": "exa-pp-cli",
+      "displayName": "Exa CLI (exa-pp-cli)",
+      "binary": "exa-pp-cli",
+      "category": "ai",
+      "description": "Every Exa search API feature, plus local history, spend tracking, and diffing no other Exa tool has.",
+      "installDocsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/ai/exa",
+      "skillHint": "Use exa-pp-cli for exa workflows and queries.",
+      "version": {
+        "args": [
+          "--version"
+        ],
+        "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
+      },
+      "auth": {
+        "probeArgs": [
+          "doctor"
+        ],
+        "unauthenticatedPatterns": [
+          "not configured",
+          "missing",
+          "unauthenticated",
+          "invalid",
+          "unauthorized"
+        ],
+        "instructions": "Set required environment variable(s): PRINTING_PRESS_CLIENT_PROFILE",
+        "docsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/ai/exa"
+      },
+      "install": {
+        "methods": []
+      }
+    },
+    {
+      "id": "figma-pp-cli",
+      "displayName": "Figma CLI (figma-pp-cli)",
+      "binary": "figma-pp-cli",
+      "category": "productivity",
+      "description": "Every Figma endpoint, plus codegen-ready frame extracts, comments audit, orphans finder, tokens diff, and webhook...",
+      "installDocsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/productivity/figma",
+      "skillHint": "Use figma-pp-cli for figma workflows and queries.",
+      "version": {
+        "args": [
+          "--version"
+        ],
+        "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
+      },
+      "auth": {
+        "probeArgs": [
+          "doctor"
+        ],
+        "unauthenticatedPatterns": [
+          "not configured",
+          "missing",
+          "unauthenticated",
+          "invalid",
+          "unauthorized"
+        ],
+        "instructions": "Set required environment variable(s): FIGMA_ACCESS_TOKEN, FIGMA_API_TOKEN, FIGMA_API_KEY",
+        "docsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/productivity/figma"
+      },
+      "install": {
+        "methods": []
+      }
+    },
+    {
+      "id": "firecrawl-pp-cli",
+      "displayName": "Firecrawl CLI (firecrawl-pp-cli)",
+      "binary": "firecrawl-pp-cli",
+      "category": "developer-tools",
+      "description": "API for interacting with Firecrawl services to perform web scraping and crawling tasks.",
+      "installDocsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/developer-tools/firecrawl",
+      "skillHint": "Use firecrawl-pp-cli for firecrawl workflows and queries.",
+      "version": {
+        "args": [
+          "--version"
+        ],
+        "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
+      },
+      "auth": {
+        "probeArgs": [
+          "doctor"
+        ],
+        "unauthenticatedPatterns": [
+          "not configured",
+          "missing",
+          "unauthenticated",
+          "invalid",
+          "unauthorized"
+        ],
+        "instructions": "Set required environment variable(s): FIRECRAWL_BEARER_AUTH",
+        "docsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/developer-tools/firecrawl"
+      },
+      "install": {
+        "methods": []
+      }
+    },
+    {
+      "id": "flight-goat-pp-cli",
+      "displayName": "Flight Goat CLI (flight-goat-pp-cli)",
+      "binary": "flight-goat-pp-cli",
+      "category": "travel",
+      "description": "Search Google Flights, scan Kayak long-haul routes, and join FlightAware AeroAPI reliability, alerts, and tracking from one CLI.",
+      "installDocsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/travel/flight-goat",
+      "skillHint": "Use flight-goat-pp-cli for flight-goat workflows and queries.",
+      "version": {
+        "args": [
+          "--version"
+        ],
+        "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
+      },
+      "auth": {
+        "probeArgs": [
+          "doctor"
+        ],
+        "unauthenticatedPatterns": [
+          "not configured",
+          "missing",
+          "unauthenticated",
+          "invalid",
+          "unauthorized"
+        ],
+        "instructions": "Set required environment variable(s): FLIGHT_GOAT_API_KEY",
+        "docsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/travel/flight-goat"
+      },
+      "install": {
+        "methods": []
+      }
+    },
+    {
+      "id": "intercom-pp-cli",
+      "displayName": "Intercom CLI (intercom-pp-cli)",
+      "binary": "intercom-pp-cli",
+      "category": "sales-and-crm",
+      "description": "Every Intercom resource as a typed CLI with offline sync and EU/AU regions.",
+      "installDocsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/sales-and-crm/intercom",
+      "skillHint": "Use intercom-pp-cli for intercom workflows and queries.",
+      "version": {
+        "args": [
+          "--version"
+        ],
+        "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
+      },
+      "auth": {
+        "probeArgs": [
+          "doctor"
+        ],
+        "unauthenticatedPatterns": [
+          "not configured",
+          "missing",
+          "unauthenticated",
+          "invalid",
+          "unauthorized"
+        ],
+        "instructions": "Set required environment variable(s): INTERCOM_ACCESS_TOKEN",
+        "docsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/sales-and-crm/intercom"
+      },
+      "install": {
+        "methods": []
+      }
+    },
+    {
+      "id": "jira-pp-cli",
+      "displayName": "Jira CLI (jira-pp-cli)",
+      "binary": "jira-pp-cli",
+      "category": "project-management",
+      "description": "Jira Cloud platform REST API documentation",
+      "installDocsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/project-management/jira",
+      "skillHint": "Use jira-pp-cli for jira workflows and queries.",
+      "version": {
+        "args": [
+          "--version"
+        ],
+        "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
+      },
+      "auth": {
+        "probeArgs": [
+          "doctor"
+        ],
+        "unauthenticatedPatterns": [],
+        "instructions": "jira-pp-cli doctor",
+        "docsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/project-management/jira"
+      },
+      "install": {
+        "methods": []
+      }
+    },
+    {
+      "id": "linear-pp-cli",
+      "displayName": "Linear CLI (linear-pp-cli)",
+      "binary": "linear-pp-cli",
+      "category": "project-management",
+      "description": "Offline-capable, agent-native CLI for the Linear API with SQLite-backed sync, FTS5 search, cross-cycle comparison, project burndown, and pp_created fixture lifecycle for safe live testing.",
+      "installDocsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/project-management/linear",
+      "skillHint": "Use linear-pp-cli for linear workflows and queries.",
+      "version": {
+        "args": [
+          "--version"
+        ],
+        "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
+      },
+      "auth": {
+        "probeArgs": [
+          "doctor"
+        ],
+        "unauthenticatedPatterns": [
+          "not configured",
+          "missing",
+          "unauthenticated",
+          "invalid",
+          "unauthorized"
+        ],
+        "instructions": "Set required environment variable(s): LINEAR_API_KEY",
+        "docsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/project-management/linear"
+      },
+      "install": {
+        "methods": []
+      }
+    },
+    {
+      "id": "mercury-pp-cli",
+      "displayName": "Mercury CLI (mercury-pp-cli)",
+      "binary": "mercury-pp-cli",
+      "category": "payments",
+      "description": "Inspect Mercury business banking data and build safer payment plans across accounts, transactions, recipients, cards, invoices, and treasury.",
+      "installDocsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/payments/mercury",
+      "skillHint": "Use mercury-pp-cli for mercury workflows and queries.",
+      "version": {
+        "args": [
+          "--version"
+        ],
+        "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
+      },
+      "auth": {
+        "probeArgs": [
+          "doctor"
+        ],
+        "unauthenticatedPatterns": [
+          "not configured",
+          "missing",
+          "unauthenticated",
+          "invalid",
+          "unauthorized"
+        ],
+        "instructions": "Set required environment variable(s): MERCURY_BEARER_AUTH",
+        "docsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/payments/mercury"
+      },
+      "install": {
+        "methods": []
+      }
+    },
+    {
+      "id": "midjourney-pp-cli",
+      "displayName": "Midjourney CLI (midjourney-pp-cli)",
+      "binary": "midjourney-pp-cli",
+      "category": "ai",
+      "description": "Inspect Midjourney jobs, queue, folders, and discovery feeds from the terminal",
+      "installDocsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/ai/midjourney",
+      "skillHint": "Use midjourney-pp-cli for midjourney workflows and queries.",
+      "version": {
+        "args": [
+          "--version"
+        ],
+        "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
+      },
+      "auth": {
+        "probeArgs": [
+          "doctor"
+        ],
+        "unauthenticatedPatterns": [
+          "not configured",
+          "missing",
+          "unauthenticated",
+          "invalid",
+          "unauthorized"
+        ],
+        "instructions": "Set required environment variable(s): MIDJOURNEY_COOKIE_HEADER",
+        "docsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/ai/midjourney"
+      },
+      "install": {
+        "methods": []
+      }
+    },
+    {
+      "id": "monarch-money-pp-cli",
+      "displayName": "Monarch Money CLI (monarch-money-pp-cli)",
+      "binary": "monarch-money-pp-cli",
+      "category": "payments",
+      "description": "Read Monarch Money account balances, tags, transactions, and cashflow summaries from the terminal.",
+      "installDocsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/payments/monarch-money",
+      "skillHint": "Use monarch-money-pp-cli for monarch-money workflows and queries.",
+      "version": {
+        "args": [
+          "--version"
+        ],
+        "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
+      },
+      "auth": {
+        "probeArgs": [
+          "doctor"
+        ],
+        "unauthenticatedPatterns": [],
+        "instructions": "monarch-money-pp-cli doctor",
+        "docsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/payments/monarch-money"
+      },
+      "install": {
+        "methods": []
+      }
+    },
+    {
+      "id": "notion-pp-cli",
+      "displayName": "Notion CLI (notion-pp-cli)",
+      "binary": "notion-pp-cli",
+      "category": "productivity",
+      "description": "Every Notion database queryable offline — cross-workspace SQL joins, stale detection, and relation graph traversal...",
+      "installDocsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/productivity/notion",
+      "skillHint": "Use notion-pp-cli for notion workflows and queries.",
+      "version": {
+        "args": [
+          "--version"
+        ],
+        "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
+      },
+      "auth": {
+        "probeArgs": [
+          "doctor"
+        ],
+        "unauthenticatedPatterns": [
+          "not configured",
+          "missing",
+          "unauthenticated",
+          "invalid",
+          "unauthorized"
+        ],
+        "instructions": "Set required environment variable(s): NOTION_BEARER_AUTH",
+        "docsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/productivity/notion"
+      },
+      "install": {
+        "methods": []
+      }
+    },
+    {
+      "id": "posthog-pp-cli",
+      "displayName": "Posthog CLI (posthog-pp-cli)",
+      "binary": "posthog-pp-cli",
+      "category": "developer-tools",
+      "description": "Every PostHog resource in one CLI — with offline search, agent-native output, and cross-resource analytics no...",
+      "installDocsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/developer-tools/posthog",
+      "skillHint": "Use posthog-pp-cli for posthog workflows and queries.",
+      "version": {
+        "args": [
+          "--version"
+        ],
+        "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
+      },
+      "auth": {
+        "probeArgs": [
+          "doctor"
+        ],
+        "unauthenticatedPatterns": [
+          "not configured",
+          "missing",
+          "unauthenticated",
+          "invalid",
+          "unauthorized"
+        ],
+        "instructions": "Set required environment variable(s): POSTHOG_PERSONAL_APIKEY_AUTH",
+        "docsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/developer-tools/posthog"
+      },
+      "install": {
+        "methods": []
+      }
+    },
+    {
+      "id": "producthunt-pp-cli",
+      "displayName": "Producthunt CLI (producthunt-pp-cli)",
+      "binary": "producthunt-pp-cli",
+      "category": "marketing",
+      "description": "Read Product Hunt from your terminal — works token-free for the daily skim, unlocks a launch-day cockpit and a marketer research desk in one onboarding step.",
+      "installDocsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/marketing/producthunt",
+      "skillHint": "Use producthunt-pp-cli for producthunt workflows and queries.",
+      "version": {
+        "args": [
+          "--version"
+        ],
+        "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
+      },
+      "auth": {
+        "probeArgs": [
+          "doctor"
+        ],
+        "unauthenticatedPatterns": [
+          "not configured",
+          "missing",
+          "unauthenticated",
+          "invalid",
+          "unauthorized"
+        ],
+        "instructions": "Set required environment variable(s): PRODUCT_HUNT_TOKEN",
+        "docsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/marketing/producthunt"
+      },
+      "install": {
+        "methods": []
+      }
+    },
+    {
+      "id": "redfin-pp-cli",
+      "displayName": "Redfin CLI (redfin-pp-cli)",
+      "binary": "redfin-pp-cli",
+      "category": "business-intelligence",
+      "description": "Search Redfin homes for sale via internal Stingray endpoints, sync to local SQLite, and run workflows the website doesn't expose — saved-search diff, $/sqft net-HOA ranking, sold comps, multi-region trends.",
+      "installDocsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/other/redfin",
+      "skillHint": "Use redfin-pp-cli for redfin workflows and queries.",
+      "version": {
+        "args": [
+          "--version"
+        ],
+        "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
+      },
+      "auth": {
+        "probeArgs": [
+          "doctor"
+        ],
+        "unauthenticatedPatterns": [],
+        "instructions": "redfin-pp-cli doctor",
+        "docsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/other/redfin"
+      },
+      "install": {
+        "methods": []
+      }
+    },
+    {
+      "id": "resend-pp-cli",
+      "displayName": "Resend CLI (resend-pp-cli)",
+      "binary": "resend-pp-cli",
+      "category": "productivity",
+      "description": "The full Resend API (100 endpoints across emails, broadcasts, audiences, contacts, domains, templates, webhooks)...",
+      "installDocsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/productivity/resend",
+      "skillHint": "Use resend-pp-cli for resend workflows and queries.",
+      "version": {
+        "args": [
+          "--version"
+        ],
+        "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
+      },
+      "auth": {
+        "probeArgs": [
+          "doctor"
+        ],
+        "unauthenticatedPatterns": [
+          "not configured",
+          "missing",
+          "unauthenticated",
+          "invalid",
+          "unauthorized"
+        ],
+        "instructions": "Set required environment variable(s): RESEND_API_KEY",
+        "docsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/productivity/resend"
+      },
+      "install": {
+        "methods": []
+      }
+    },
+    {
+      "id": "robinhood-pp-cli",
+      "displayName": "Robinhood CLI (robinhood-pp-cli)",
+      "binary": "robinhood-pp-cli",
+      "category": "payments",
+      "description": "Welcome to Robinhood Crypto Trading API documentation for traders and developers!",
+      "installDocsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/payments/robinhood",
+      "skillHint": "Use robinhood-pp-cli for robinhood workflows and queries.",
+      "version": {
+        "args": [
+          "--version"
+        ],
+        "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
+      },
+      "auth": {
+        "probeArgs": [
+          "doctor"
+        ],
+        "unauthenticatedPatterns": [
+          "not configured",
+          "missing",
+          "unauthenticated",
+          "invalid",
+          "unauthorized"
+        ],
+        "instructions": "Set required environment variable(s): ROBINHOOD_API_KEY, ROBINHOOD_PRIVATE_KEY_B64",
+        "docsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/payments/robinhood"
+      },
+      "install": {
+        "methods": []
+      }
+    },
+    {
+      "id": "sentry-pp-cli",
+      "displayName": "Sentry CLI (sentry-pp-cli)",
+      "binary": "sentry-pp-cli",
+      "category": "monitoring",
+      "description": "Inspect Sentry organizations, projects, issues, events, releases, and Seer metadata for error tracking and performance monitoring.",
+      "installDocsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/monitoring/sentry",
+      "skillHint": "Use sentry-pp-cli for sentry workflows and queries.",
+      "version": {
+        "args": [
+          "--version"
+        ],
+        "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
+      },
+      "auth": {
+        "probeArgs": [
+          "doctor"
+        ],
+        "unauthenticatedPatterns": [
+          "not configured",
+          "missing",
+          "unauthenticated",
+          "invalid",
+          "unauthorized"
+        ],
+        "instructions": "Set required environment variable(s): SENTRY_AUTH_TOKEN",
+        "docsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/monitoring/sentry"
+      },
+      "install": {
+        "methods": []
+      }
+    },
+    {
+      "id": "shopify-pp-cli",
+      "displayName": "Shopify CLI (shopify-pp-cli)",
+      "binary": "shopify-pp-cli",
+      "category": "commerce",
+      "description": "Operate a Shopify store with Admin GraphQL commands, local sync, analytics, bulk exports, and ShopifyQL reporting.",
+      "installDocsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/commerce/shopify",
+      "skillHint": "Use shopify-pp-cli for shopify workflows and queries.",
+      "version": {
+        "args": [
+          "--version"
+        ],
+        "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
+      },
+      "auth": {
+        "probeArgs": [
+          "doctor"
+        ],
+        "unauthenticatedPatterns": [
+          "not configured",
+          "missing",
+          "unauthenticated",
+          "invalid",
+          "unauthorized"
+        ],
+        "instructions": "Set required environment variable(s): SHOPIFY_ACCESS_TOKEN",
+        "docsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/commerce/shopify"
+      },
+      "install": {
+        "methods": []
+      }
+    },
+    {
+      "id": "slack-pp-cli",
+      "displayName": "Slack CLI (slack-pp-cli)",
+      "binary": "slack-pp-cli",
+      "category": "productivity",
+      "description": "Send messages, search conversations, monitor channels, and manage your Slack workspace from the terminal",
+      "installDocsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/productivity/slack",
+      "skillHint": "Use slack-pp-cli for slack workflows and queries.",
+      "version": {
+        "args": [
+          "--version"
+        ],
+        "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
+      },
+      "auth": {
+        "probeArgs": [
+          "doctor"
+        ],
+        "unauthenticatedPatterns": [
+          "not configured",
+          "missing",
+          "unauthenticated",
+          "invalid",
+          "unauthorized"
+        ],
+        "instructions": "Set required environment variable(s): SLACK_BOT_TOKEN, SLACK_USER_TOKEN",
+        "docsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/productivity/slack"
+      },
+      "install": {
+        "methods": []
+      }
+    },
+    {
+      "id": "splitwise-pp-cli",
+      "displayName": "Splitwise CLI (splitwise-pp-cli)",
+      "binary": "splitwise-pp-cli",
+      "category": "payments",
+      "description": "Every Splitwise feature, plus an offline SQLite ledger that powers balance, debt-aging, spend analytics",
+      "installDocsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/payments/splitwise",
+      "skillHint": "Use splitwise-pp-cli for splitwise workflows and queries.",
+      "version": {
+        "args": [
+          "--version"
+        ],
+        "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
+      },
+      "auth": {
+        "probeArgs": [
+          "doctor"
+        ],
+        "unauthenticatedPatterns": [
+          "not configured",
+          "missing",
+          "unauthenticated",
+          "invalid",
+          "unauthorized"
+        ],
+        "instructions": "Set required environment variable(s): SPLITWISE_API_KEY",
+        "docsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/payments/splitwise"
+      },
+      "install": {
+        "methods": []
+      }
+    },
+    {
+      "id": "wikipedia-pp-cli",
+      "displayName": "Wikipedia CLI (wikipedia-pp-cli)",
+      "binary": "wikipedia-pp-cli",
+      "category": "media-and-entertainment",
+      "description": "Wikipedia REST API. Get article summaries, search, browse related topics, and access on-this-day events. No authentication required. Uses a polite User-Agent header.",
+      "installDocsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/media-and-entertainment/wikipedia",
+      "skillHint": "Use wikipedia-pp-cli for wikipedia workflows and queries.",
+      "version": {
+        "args": [
+          "--version"
+        ],
+        "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
+      },
+      "auth": {
+        "probeArgs": [
+          "doctor"
+        ],
+        "unauthenticatedPatterns": [],
+        "instructions": "wikipedia-pp-cli doctor",
+        "docsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/media-and-entertainment/wikipedia"
+      },
+      "install": {
+        "methods": []
+      }
+    },
+    {
+      "id": "x-twitter-pp-cli",
+      "displayName": "X Twitter CLI (x-twitter-pp-cli)",
+      "binary": "x-twitter-pp-cli",
+      "category": "social-and-messaging",
+      "description": "Use X/Twitter with local searchable archives, post and conversation resolvers, collections, analytics, MCP tools, and tier diagnostics.",
+      "installDocsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/social-and-messaging/x-twitter",
+      "skillHint": "Use x-twitter-pp-cli for x-twitter workflows and queries.",
+      "version": {
+        "args": [
+          "--version"
+        ],
+        "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
+      },
+      "auth": {
+        "probeArgs": [
+          "doctor"
+        ],
+        "unauthenticatedPatterns": [
+          "not configured",
+          "missing",
+          "unauthenticated",
+          "invalid",
+          "unauthorized"
+        ],
+        "instructions": "Set required environment variable(s): X_BEARER_TOKEN, X_OAUTH2_USER_TOKEN",
+        "docsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/social-and-messaging/x-twitter"
+      },
+      "install": {
+        "methods": []
+      }
+    },
+    {
+      "id": "xai-pp-cli",
+      "displayName": "Xai CLI (xai-pp-cli)",
+      "binary": "xai-pp-cli",
+      "category": "ai",
+      "description": "REST API for xAI compatible with other providers.",
+      "installDocsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/ai/xai",
+      "skillHint": "Use xai-pp-cli for xai workflows and queries.",
+      "version": {
+        "args": [
+          "--version"
+        ],
+        "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
+      },
+      "auth": {
+        "probeArgs": [
+          "doctor"
+        ],
+        "unauthenticatedPatterns": [
+          "not configured",
+          "missing",
+          "unauthenticated",
+          "invalid",
+          "unauthorized"
+        ],
+        "instructions": "Set required environment variable(s): XAI_API_KEY",
+        "docsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/ai/xai"
+      },
+      "install": {
+        "methods": []
+      }
+    },
+    {
+      "id": "yahoo-finance-pp-cli",
+      "displayName": "Yahoo Finance CLI (yahoo-finance-pp-cli)",
+      "binary": "yahoo-finance-pp-cli",
+      "category": "commerce",
+      "description": "Quotes, charts, fundamentals, options chains, and a local portfolio/watchlist tracker against Yahoo Finance — no API key, with Chrome-session fallback for rate-limited IPs",
+      "installDocsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/commerce/yahoo-finance",
+      "skillHint": "Use yahoo-finance-pp-cli for yahoo-finance workflows and queries.",
+      "version": {
+        "args": [
+          "--version"
+        ],
+        "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
+      },
+      "auth": {
+        "probeArgs": [
+          "doctor"
+        ],
+        "unauthenticatedPatterns": [],
+        "instructions": "yahoo-finance-pp-cli doctor",
+        "docsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/commerce/yahoo-finance"
+      },
+      "install": {
+        "methods": []
+      }
+    },
+    {
+      "id": "youtube-pp-cli",
+      "displayName": "Youtube CLI (youtube-pp-cli)",
+      "binary": "youtube-pp-cli",
+      "category": "media-and-entertainment",
+      "description": "Search YouTube in bulk, grab transcripts, get embed snippets — for the photo-keywords-to-blog-post workflow.",
+      "installDocsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/media-and-entertainment/youtube",
+      "skillHint": "Use youtube-pp-cli for youtube workflows and queries.",
+      "version": {
+        "args": [
+          "--version"
+        ],
+        "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
+      },
+      "auth": {
+        "probeArgs": [
+          "doctor"
+        ],
+        "unauthenticatedPatterns": [
+          "not configured",
+          "missing",
+          "unauthenticated",
+          "invalid",
+          "unauthorized"
+        ],
+        "instructions": "Set required environment variable(s): YOUTUBE_API_KEY",
+        "docsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/media-and-entertainment/youtube"
+      },
+      "install": {
+        "methods": []
+      }
+    },
+    {
+      "id": "zillow-pp-cli",
+      "displayName": "Zillow CLI (zillow-pp-cli)",
+      "binary": "zillow-pp-cli",
+      "category": "business-intelligence",
+      "description": "Official Zillow Research data, normalized for explainable housing-market decisions.",
+      "installDocsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/other/zillow",
+      "skillHint": "Use zillow-pp-cli for zillow workflows and queries.",
+      "version": {
+        "args": [
+          "--version"
+        ],
+        "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
+      },
+      "auth": {
+        "probeArgs": [
+          "doctor"
+        ],
+        "unauthenticatedPatterns": [],
+        "instructions": "zillow-pp-cli doctor",
+        "docsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/other/zillow"
+      },
+      "install": {
+        "methods": []
+      }
+    },
+    {
+      "id": "zoom-pp-cli",
+      "displayName": "Zoom CLI (zoom-pp-cli)",
+      "binary": "zoom-pp-cli",
+      "category": "productivity",
+      "description": "The first Zoom CLI that joins your local desktop app, your on-disk recordings, and your cloud account into one...",
+      "installDocsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/productivity/zoom",
+      "skillHint": "Use zoom-pp-cli for zoom workflows and queries.",
+      "version": {
+        "args": [
+          "--version"
+        ],
+        "pattern": "([0-9]+\\.[0-9]+\\.[0-9][\\w.-]*)"
+      },
+      "auth": {
+        "probeArgs": [
+          "doctor"
+        ],
+        "unauthenticatedPatterns": [],
+        "instructions": "zoom-pp-cli doctor",
+        "docsUrl": "https://github.com/mvanhorn/printing-press-library/tree/main/library/productivity/zoom"
+      },
+      "install": {
+        "methods": []
       }
     }
   ]
