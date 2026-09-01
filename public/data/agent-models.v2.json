@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-08-07",
+  "updatedAt": "2026-09-01",
   "runtimeOptions": {
     "claude.effort.fable5-opus48-opus47": {
       "id": "effort",
@@ -370,9 +370,23 @@
     "claude-cli": {
       "models": [
         {
+          "id": "claude-fable-5-1",
+          "label": "Claude Fable 5.1",
+          "description": "Anthropic's most capable model — the newest release in the Fable tier above Opus. Best for the hardest reasoning, long-horizon agentic execution, and demanding knowledge work. Thinking is always on; effort ranges from low to max. 1M token context.",
+          "badges": [
+            "powerful"
+          ],
+          "metadata": {
+            "contextWindow": "1M"
+          },
+          "runtimeOptionRefs": [
+            "claude.effort.fable5-opus48-opus47"
+          ]
+        },
+        {
           "id": "claude-fable-5",
           "label": "Claude Fable 5",
-          "description": "Anthropic's most powerful, most intelligent model — a new tier above Opus. Best for the hardest reasoning, long-horizon agentic, and knowledge-work tasks. 1M token context.",
+          "description": "Previous-generation Fable. Frontier reasoning and long-horizon agentic work in the tier above Opus, superseded by Fable 5.1. 1M token context.",
           "badges": [
             "powerful"
           ],
