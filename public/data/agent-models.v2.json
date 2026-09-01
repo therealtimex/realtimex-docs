@@ -272,28 +272,6 @@
               ]
             }
           }
-        },
-        {
-          "id": "gpt-5.3-codex",
-          "label": "GPT-5.3 Codex",
-          "description": "Most capable agentic coding model from the previous generation, combining Codex and GPT-5 training stacks. Deprecated for ChatGPT sign-in; may remain available via API-key authentication.",
-          "badges": [
-            "deprecated"
-          ],
-          "runtimeOptionRefs": [
-            "codex.reasoning.standard"
-          ]
-        },
-        {
-          "id": "gpt-5.2",
-          "label": "GPT-5.2",
-          "description": "Previous generation baseline. Deprecated for ChatGPT sign-in; may remain available via API-key authentication where newer models are unavailable.",
-          "badges": [
-            "deprecated"
-          ],
-          "runtimeOptionRefs": [
-            "codex.reasoning.standard"
-          ]
         }
       ]
     },
@@ -342,26 +320,6 @@
           "description": "Fastest and most cost-efficient Gemini 3 series model. 2.5× faster time-to-first-token and 45% higher output speed vs Gemini 2.5 Flash. Designed for ultra-low latency, high-volume tasks.",
           "badges": [
             "preview",
-            "fast"
-          ]
-        },
-        {
-          "id": "gemini-2.5-flash",
-          "label": "Gemini 2.5 Flash",
-          "description": "Previous-generation hybrid reasoning model. Toggle thinking on or off with a configurable thinking budget. Fast multimodal with text, image, video, and audio input. 1M token context. Used as a fallback by the Auto router.",
-          "badges": [
-            "legacy"
-          ],
-          "metadata": {
-            "contextWindow": "1M"
-          }
-        },
-        {
-          "id": "gemini-2.5-flash-lite",
-          "label": "Gemini 2.5 Flash-Lite",
-          "description": "Lightweight, high-throughput variant of Gemini 2.5 Flash optimized for cost-efficient, high-volume workloads with minimal latency.",
-          "badges": [
-            "legacy",
             "fast"
           ]
         }
@@ -508,14 +466,6 @@
           "description": "Balanced inference quality, cost, and speed between Qwen Max and Qwen Flash. Supports thinking and non-thinking modes. Tracks the current Plus generation (Qwen3.6-Plus).",
           "badges": [
             "balanced"
-          ]
-        },
-        {
-          "id": "qwen-turbo",
-          "label": "Qwen Turbo",
-          "description": "Legacy model, no longer updated by Alibaba. Consider qwen-plus or qwen3-coder for better performance and continued support.",
-          "badges": [
-            "legacy"
           ]
         },
         {
