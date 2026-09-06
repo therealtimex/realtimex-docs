@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-09-01",
+  "updatedAt": "2026-09-06",
   "runtimeOptions": {
     "claude.effort.fable5-opus48-opus47": {
       "id": "effort",
@@ -92,6 +92,26 @@
         "template": "model_reasoning_effort=\"${value}\""
       }
     },
+    "codex.reasoning.gpt6-astra": {
+      "id": "reasoning_effort",
+      "label": "Reasoning",
+      "category": "reasoning",
+      "type": "select",
+      "default": "low",
+      "values": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max",
+        "ultra"
+      ],
+      "launch": {
+        "kind": "flag-value",
+        "flag": "-c",
+        "template": "model_reasoning_effort=\"${value}\""
+      }
+    },
     "codex.reasoning.gpt56-sol": {
       "id": "reasoning_effort",
       "label": "Reasoning",
@@ -156,16 +176,31 @@
     "codex-cli": {
       "models": [
         {
-          "id": "gpt-5.6-sol",
-          "label": "GPT-5.6 Sol",
-          "description": "OpenAI's latest frontier agentic coding model. Best for complex code changes, research, polished documents, and ambitious long-horizon work. Supports ultra reasoning for automatic task delegation. 372k token context.",
+          "id": "gpt-6-astra",
+          "label": "GPT-6 Astra",
+          "description": "OpenAI's most capable model and Codex's default. Built for the hardest end-to-end work across code, apps, and research, combining advanced reasoning, computer use, and stronger judgment. Keeps searchable notes across context windows instead of lossy summaries; supports ultra reasoning for automatic task delegation. 272k token context in Codex (up to 872k), 1.05M via the API. Requires eligible Pro, Business, or Enterprise accounts.",
           "badges": [
             "recommended",
-            "372k context"
+            "272k context"
           ],
           "default": true,
           "metadata": {
-            "contextWindow": "372k"
+            "contextWindow": "272k"
+          },
+          "runtimeOptionRefs": [
+            "codex.reasoning.gpt6-astra"
+          ]
+        },
+        {
+          "id": "gpt-5.6-sol",
+          "label": "GPT-5.6 Sol",
+          "description": "Most capable GPT-5.6 model for complex coding, computer use, research, and cybersecurity. Reliable agentic workhorse for everyday tasks; supports ultra reasoning for automatic task delegation. 272k token context in Codex (up to 872k).",
+          "badges": [
+            "powerful",
+            "272k context"
+          ],
+          "metadata": {
+            "contextWindow": "272k"
           },
           "runtimeOptionRefs": [
             "codex.reasoning.gpt56-sol"
@@ -174,13 +209,13 @@
         {
           "id": "gpt-5.6-terra",
           "label": "GPT-5.6 Terra",
-          "description": "Balanced GPT-5.6 model for everyday agentic coding and professional work. Strong default choice when you want newer GPT-5.6 capability with a more efficient profile than Sol. 372k token context.",
+          "description": "Balanced GPT-5.6 model for everyday agentic coding and professional work. Strong default choice when you want newer GPT-5.6 capability with a more efficient profile than Sol. 272k token context in Codex (up to 872k).",
           "badges": [
             "balanced",
-            "372k context"
+            "272k context"
           ],
           "metadata": {
-            "contextWindow": "372k"
+            "contextWindow": "272k"
           },
           "runtimeOptionRefs": [
             "codex.reasoning.gpt56-terra"
@@ -189,13 +224,13 @@
         {
           "id": "gpt-5.6-luna",
           "label": "GPT-5.6 Luna",
-          "description": "Fast and affordable GPT-5.6 model for lighter agentic coding, high-volume tasks, and quick iteration. 372k token context.",
+          "description": "Fast and affordable GPT-5.6 model for lighter agentic coding, high-volume tasks, and quick iteration. 272k token context in Codex (up to 872k).",
           "badges": [
             "fast",
-            "372k context"
+            "272k context"
           ],
           "metadata": {
-            "contextWindow": "372k"
+            "contextWindow": "272k"
           },
           "runtimeOptionRefs": [
             "codex.reasoning.gpt56-luna"
