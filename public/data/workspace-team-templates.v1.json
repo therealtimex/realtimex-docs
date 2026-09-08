@@ -1,7 +1,10 @@
 {
   "schemaVersion": 1,
   "updatedAt": "2026-09-08",
-  "locales": ["ja", "vi"],
+  "locales": [
+    "ja",
+    "vi"
+  ],
   "templates": [
     {
       "id": "writer-reviewer",
@@ -27,7 +30,520 @@
           "draft-review": {
             "owner": "writer",
             "reviewer": "reviewer",
-            "verdicts": ["PASS", "REVISE"]
+            "verdicts": [
+              "PASS",
+              "REVISE"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "sales-proposal",
+      "name": "Sales proposal",
+      "description": "Draft a sales proposal, route it through review, and approve it.",
+      "sourceTopology": {
+        "id": "sales-proposal",
+        "registrySchemaVersion": 1,
+        "contentVersion": 3
+      },
+      "team": {
+        "version": 1,
+        "roles": {
+          "draft": {
+            "displayName": "Draft",
+            "doctrine": null,
+            "craftSkills": [],
+            "threadSlug": null
+          },
+          "review": {
+            "displayName": "Review",
+            "doctrine": null,
+            "craftSkills": [],
+            "threadSlug": null
+          },
+          "approve": {
+            "displayName": "Approve",
+            "doctrine": null,
+            "craftSkills": [],
+            "threadSlug": null
+          }
+        },
+        "pipelines": {
+          "proposal-review": {
+            "owner": "draft",
+            "reviewer": "review",
+            "verdicts": [
+              "PASS",
+              "REVISE"
+            ]
+          },
+          "proposal-approval": {
+            "owner": "draft",
+            "reviewer": "approve",
+            "verdicts": [
+              "APPROVE",
+              "REVISE"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "pentest-engagement",
+      "name": "Pentest engagement",
+      "description": "Scope and run an authorized penetration test, audit the findings for compliance, and sign off on the report.",
+      "sourceTopology": {
+        "id": "pentest-engagement",
+        "registrySchemaVersion": 1,
+        "contentVersion": 3
+      },
+      "team": {
+        "version": 1,
+        "roles": {
+          "penetration-tester": {
+            "displayName": "Penetration Tester",
+            "doctrine": null,
+            "craftSkills": [],
+            "threadSlug": null
+          },
+          "compliance-auditor": {
+            "displayName": "Compliance Auditor",
+            "doctrine": null,
+            "craftSkills": [],
+            "threadSlug": null
+          },
+          "approver": {
+            "displayName": "Approve",
+            "doctrine": null,
+            "craftSkills": [],
+            "threadSlug": null
+          }
+        },
+        "pipelines": {
+          "finding-review": {
+            "owner": "penetration-tester",
+            "reviewer": "compliance-auditor",
+            "verdicts": [
+              "PASS",
+              "REVISE"
+            ]
+          },
+          "report-approval": {
+            "owner": "penetration-tester",
+            "reviewer": "approver",
+            "verdicts": [
+              "APPROVE",
+              "REVISE"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "site-geospatial-analysis",
+      "name": "Site geospatial analysis",
+      "description": "Prepare and transform spatial data, run the analysis, and independently validate the results.",
+      "sourceTopology": {
+        "id": "site-geospatial-analysis",
+        "registrySchemaVersion": 1,
+        "contentVersion": 3
+      },
+      "team": {
+        "version": 1,
+        "roles": {
+          "spatial-data-engineer": {
+            "displayName": "Spatial Data Engineer",
+            "doctrine": null,
+            "craftSkills": [],
+            "threadSlug": null
+          },
+          "spatial-data-scientist": {
+            "displayName": "Spatial Data Scientist",
+            "doctrine": null,
+            "craftSkills": [],
+            "threadSlug": null
+          },
+          "gis-qa": {
+            "displayName": "GIS QA Engineer",
+            "doctrine": null,
+            "craftSkills": [],
+            "threadSlug": null
+          }
+        },
+        "pipelines": {
+          "analysis-review": {
+            "owner": "spatial-data-engineer",
+            "reviewer": "spatial-data-scientist",
+            "verdicts": [
+              "PASS",
+              "REVISE"
+            ]
+          },
+          "result-validation": {
+            "owner": "spatial-data-scientist",
+            "reviewer": "gis-qa",
+            "verdicts": [
+              "PASS",
+              "REVISE"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "financial-model-review",
+      "name": "Financial model review",
+      "description": "Build a financial model, have it independently reviewed, and get executive sign-off.",
+      "sourceTopology": {
+        "id": "financial-model-review",
+        "registrySchemaVersion": 1,
+        "contentVersion": 3
+      },
+      "team": {
+        "version": 1,
+        "roles": {
+          "financial-analyst": {
+            "displayName": "Financial Analyst",
+            "doctrine": null,
+            "craftSkills": [],
+            "threadSlug": null
+          },
+          "fpa-analyst": {
+            "displayName": "FP&A Analyst",
+            "doctrine": null,
+            "craftSkills": [],
+            "threadSlug": null
+          },
+          "cfo": {
+            "displayName": "Chief Financial Officer",
+            "doctrine": null,
+            "craftSkills": [],
+            "threadSlug": null
+          }
+        },
+        "pipelines": {
+          "model-review": {
+            "owner": "financial-analyst",
+            "reviewer": "fpa-analyst",
+            "verdicts": [
+              "PASS",
+              "REVISE"
+            ]
+          },
+          "executive-approval": {
+            "owner": "financial-analyst",
+            "reviewer": "cfo",
+            "verdicts": [
+              "APPROVE",
+              "REVISE"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "worldbuilding-research-brief",
+      "name": "Worldbuilding research brief",
+      "description": "Research the historical and cultural grounding for a fictional or game setting, draft the brief, and review it for coherence.",
+      "sourceTopology": {
+        "id": "worldbuilding-research-brief",
+        "registrySchemaVersion": 1,
+        "contentVersion": 3
+      },
+      "team": {
+        "version": 1,
+        "roles": {
+          "historian": {
+            "displayName": "Historian",
+            "doctrine": null,
+            "craftSkills": [],
+            "threadSlug": null
+          },
+          "anthropologist": {
+            "displayName": "Anthropologist",
+            "doctrine": null,
+            "craftSkills": [],
+            "threadSlug": null
+          },
+          "reviewer": {
+            "displayName": "Review",
+            "doctrine": null,
+            "craftSkills": [],
+            "threadSlug": null
+          }
+        },
+        "pipelines": {
+          "research-review": {
+            "owner": "historian",
+            "reviewer": "anthropologist",
+            "verdicts": [
+              "PASS",
+              "REVISE"
+            ]
+          },
+          "brief-review": {
+            "owner": "historian",
+            "reviewer": "reviewer",
+            "verdicts": [
+              "PASS",
+              "REVISE"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "game-feature-design-pass",
+      "name": "Game feature design pass",
+      "description": "Design a game feature, place it in the level, and pass it through a technical art review.",
+      "sourceTopology": {
+        "id": "game-feature-design-pass",
+        "registrySchemaVersion": 1,
+        "contentVersion": 3
+      },
+      "team": {
+        "version": 1,
+        "roles": {
+          "game-designer": {
+            "displayName": "Game Designer",
+            "doctrine": null,
+            "craftSkills": [],
+            "threadSlug": null
+          },
+          "level-designer": {
+            "displayName": "Level Designer",
+            "doctrine": null,
+            "craftSkills": [],
+            "threadSlug": null
+          },
+          "technical-artist": {
+            "displayName": "Technical Artist",
+            "doctrine": null,
+            "craftSkills": [],
+            "threadSlug": null
+          }
+        },
+        "pipelines": {
+          "level-design-review": {
+            "owner": "game-designer",
+            "reviewer": "level-designer",
+            "verdicts": [
+              "PASS",
+              "REVISE"
+            ]
+          },
+          "technical-art-review": {
+            "owner": "game-designer",
+            "reviewer": "technical-artist",
+            "verdicts": [
+              "APPROVE",
+              "REVISE"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "product-visual-design-pass",
+      "name": "Product visual design pass",
+      "description": "Ground a design in user research, produce the UI, and check it against brand guidelines before approval.",
+      "sourceTopology": {
+        "id": "product-visual-design-pass",
+        "registrySchemaVersion": 1,
+        "contentVersion": 3
+      },
+      "team": {
+        "version": 1,
+        "roles": {
+          "ux-researcher": {
+            "displayName": "UX Researcher",
+            "doctrine": null,
+            "craftSkills": [],
+            "threadSlug": null
+          },
+          "ui-designer": {
+            "displayName": "UI Designer",
+            "doctrine": null,
+            "craftSkills": [],
+            "threadSlug": null
+          },
+          "brand-guardian": {
+            "displayName": "Brand Guardian",
+            "doctrine": null,
+            "craftSkills": [],
+            "threadSlug": null
+          }
+        },
+        "pipelines": {
+          "ui-design-review": {
+            "owner": "ux-researcher",
+            "reviewer": "ui-designer",
+            "verdicts": [
+              "PASS",
+              "REVISE"
+            ]
+          },
+          "brand-review": {
+            "owner": "ux-researcher",
+            "reviewer": "brand-guardian",
+            "verdicts": [
+              "APPROVE",
+              "REVISE"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "paid-media-campaign-flight",
+      "name": "Paid media campaign flight",
+      "description": "Build a paid media flight, audit it against platform and budget policy, and approve it to launch.",
+      "sourceTopology": {
+        "id": "paid-media-campaign-flight",
+        "registrySchemaVersion": 1,
+        "contentVersion": 3
+      },
+      "team": {
+        "version": 1,
+        "roles": {
+          "campaign-strategist": {
+            "displayName": "PPC Campaign Strategist",
+            "doctrine": null,
+            "craftSkills": [],
+            "threadSlug": null
+          },
+          "media-auditor": {
+            "displayName": "Paid Media Auditor",
+            "doctrine": null,
+            "craftSkills": [],
+            "threadSlug": null
+          },
+          "approver": {
+            "displayName": "Approve",
+            "doctrine": null,
+            "craftSkills": [],
+            "threadSlug": null
+          }
+        },
+        "pipelines": {
+          "campaign-audit": {
+            "owner": "campaign-strategist",
+            "reviewer": "media-auditor",
+            "verdicts": [
+              "PASS",
+              "REVISE"
+            ]
+          },
+          "launch-approval": {
+            "owner": "campaign-strategist",
+            "reviewer": "approver",
+            "verdicts": [
+              "APPROVE",
+              "REVISE"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "xr-prototype-build",
+      "name": "XR prototype build",
+      "description": "Architect an XR interaction, build the immersive prototype, and sign it off after a QA pass.",
+      "sourceTopology": {
+        "id": "xr-prototype-build",
+        "registrySchemaVersion": 1,
+        "contentVersion": 3
+      },
+      "team": {
+        "version": 1,
+        "roles": {
+          "interface-architect": {
+            "displayName": "XR Interface Architect",
+            "doctrine": null,
+            "craftSkills": [],
+            "threadSlug": null
+          },
+          "immersive-developer": {
+            "displayName": "XR Immersive Developer",
+            "doctrine": null,
+            "craftSkills": [],
+            "threadSlug": null
+          },
+          "qa": {
+            "displayName": "QA Sign-off",
+            "doctrine": null,
+            "craftSkills": [],
+            "threadSlug": null
+          }
+        },
+        "pipelines": {
+          "prototype-review": {
+            "owner": "interface-architect",
+            "reviewer": "immersive-developer",
+            "verdicts": [
+              "PASS",
+              "REVISE"
+            ]
+          },
+          "qa-sign-off": {
+            "owner": "interface-architect",
+            "reviewer": "qa",
+            "verdicts": [
+              "APPROVE",
+              "REVISE"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "legal-document-review",
+      "name": "Legal document review",
+      "description": "Qualify and intake a legal document request, review the document, and approve it for use.",
+      "sourceTopology": {
+        "id": "legal-document-review",
+        "registrySchemaVersion": 1,
+        "contentVersion": 3
+      },
+      "team": {
+        "version": 1,
+        "roles": {
+          "client-intake": {
+            "displayName": "Legal Client Intake",
+            "doctrine": null,
+            "craftSkills": [],
+            "threadSlug": null
+          },
+          "legal-reviewer": {
+            "displayName": "Legal Document Review",
+            "doctrine": null,
+            "craftSkills": [],
+            "threadSlug": null
+          },
+          "approver": {
+            "displayName": "Approve",
+            "doctrine": null,
+            "craftSkills": [],
+            "threadSlug": null
+          }
+        },
+        "pipelines": {
+          "document-review": {
+            "owner": "client-intake",
+            "reviewer": "legal-reviewer",
+            "verdicts": [
+              "PASS",
+              "REVISE"
+            ]
+          },
+          "use-approval": {
+            "owner": "client-intake",
+            "reviewer": "approver",
+            "verdicts": [
+              "APPROVE",
+              "REVISE"
+            ]
           }
         }
       }
