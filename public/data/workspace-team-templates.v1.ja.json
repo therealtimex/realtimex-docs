@@ -5,6 +5,46 @@
     "writer-reviewer": {
       "name": "ライター / レビュアー",
       "description": "執筆とレビューを往復し、PASS または REVISE で判定する2つの役割のチームです。"
+    },
+    "sales-proposal": {
+      "name": "営業提案",
+      "description": "営業提案を作成し、レビューを経て承認します。"
+    },
+    "pentest-engagement": {
+      "name": "ペネトレーションテスト実施",
+      "description": "許可されたペネトレーションテストの範囲を定めて実施し、発見事項をコンプライアンス観点で監査し、レポートを承認します。"
+    },
+    "site-geospatial-analysis": {
+      "name": "サイト地理空間分析",
+      "description": "空間データを準備・変換し、分析を実行して、結果を独立して検証します。"
+    },
+    "financial-model-review": {
+      "name": "財務モデルレビュー",
+      "description": "財務モデルを作成し、独立したレビューを受けて、経営陣の承認を得ます。"
+    },
+    "worldbuilding-research-brief": {
+      "name": "世界観構築リサーチブリーフ",
+      "description": "架空またはゲームの舞台設定における歴史的・文化的背景を調査し、ブリーフを作成して、一貫性をレビューします。"
+    },
+    "game-feature-design-pass": {
+      "name": "ゲーム機能デザインパス",
+      "description": "ゲーム機能を設計し、レベルに配置して、テクニカルアートレビューを実施します。"
+    },
+    "product-visual-design-pass": {
+      "name": "プロダクトビジュアルデザインパス",
+      "description": "ユーザーリサーチに基づいてデザインの根拠を固め、UIを制作し、承認前にブランドガイドラインと照合します。"
+    },
+    "paid-media-campaign-flight": {
+      "name": "有料メディアキャンペーンフライト",
+      "description": "有料メディアのフライトを作成し、プラットフォームおよび予算ポリシーに照らして監査し、開始を承認します。"
+    },
+    "xr-prototype-build": {
+      "name": "XRプロトタイプ構築",
+      "description": "XRインタラクションを設計し、没入型プロトタイプを構築して、QAパス後に承認します。"
+    },
+    "legal-document-review": {
+      "name": "法務文書レビュー",
+      "description": "法務文書のリクエストを確認・受け付け、文書をレビューして、使用を承認します。"
     }
   }
 }
