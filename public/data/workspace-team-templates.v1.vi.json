@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "locale": "vi",
+  "templates": {
+    "writer-reviewer": {
+      "name": "Người viết / Người duyệt",
+      "description": "Hai vai trò cộng tác theo vòng người viết-người duyệt-người viết với kết quả PASS hoặc REVISE."
+    }
+  }
+}

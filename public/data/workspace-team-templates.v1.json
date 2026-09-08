@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-09-08",
+  "locales": ["ja", "vi"],
+  "templates": [
+    {
+      "id": "writer-reviewer",
+      "name": "Writer / Reviewer",
+      "description": "Two roles and one owner-reviewer-owner pipeline with PASS and REVISE verdicts.",
+      "team": {
+        "version": 1,
+        "roles": {
+          "writer": {
+            "displayName": "Writer",
+            "doctrine": null,
+            "craftSkills": [],
+            "threadSlug": null
+          },
+          "reviewer": {
+            "displayName": "Reviewer",
+            "doctrine": null,
+            "craftSkills": [],
+            "threadSlug": null
+          }
+        },
+        "pipelines": {
+          "draft-review": {
+            "owner": "writer",
+            "reviewer": "reviewer",
+            "verdicts": ["PASS", "REVISE"]
+          }
+        }
+      }
+    }
+  ]
+}
