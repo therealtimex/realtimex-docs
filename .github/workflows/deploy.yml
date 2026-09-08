@@ -35,6 +35,9 @@ jobs:
       - name: Verify hosted topology templates
         run: yarn test:topology-templates
 
+      - name: Verify hosted Workspace Team templates
+        run: yarn test:workspace-team-templates
+
       - name: Build and export
         run: yarn build
 

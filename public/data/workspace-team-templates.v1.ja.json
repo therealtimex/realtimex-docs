@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "locale": "ja",
+  "templates": {
+    "writer-reviewer": {
+      "name": "ライター / レビュアー",
+      "description": "執筆とレビューを往復し、PASS または REVISE で判定する2つの役割のチームです。"
+    }
+  }
+}
