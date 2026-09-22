@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-09-06",
+  "updatedAt": "2026-09-22",
   "runtimeOptions": {
     "claude.effort.fable5-opus48-opus47": {
       "id": "effort",
@@ -8,6 +8,24 @@
       "category": "reasoning",
       "type": "select",
       "default": "xhigh",
+      "values": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "launch": {
+        "kind": "flag-value",
+        "flag": "--effort"
+      }
+    },
+    "claude.effort.opus55": {
+      "id": "effort",
+      "label": "Effort",
+      "category": "reasoning",
+      "type": "select",
+      "default": "medium",
       "values": [
         "low",
         "medium",
@@ -391,13 +409,27 @@
           ]
         },
         {
-          "id": "claude-opus-5",
-          "label": "Claude Opus 5",
-          "description": "Anthropic's most capable generally available model, succeeding Opus 4.8. State-of-the-art long-horizon agentic execution, complex reasoning, and knowledge work. 1M token context.",
+          "id": "claude-opus-5-5",
+          "label": "Claude Opus 5.5",
+          "description": "Anthropic's most capable generally available model, succeeding Opus 5. Matches Fable 5.1 on most agentic coding work at a fraction of the cost — roughly 40% cheaper and 30%+ faster than Opus 5, with default effort outperforming Opus 5 at max effort on many benchmarks. Strong for codebase-wide migrations, financial analysis, and complex reasoning. 1M token context.",
           "badges": [
             "recommended"
           ],
           "default": true,
+          "metadata": {
+            "contextWindow": "1M"
+          },
+          "runtimeOptionRefs": [
+            "claude.effort.opus55"
+          ]
+        },
+        {
+          "id": "claude-opus-5",
+          "label": "Claude Opus 5",
+          "description": "Previous-generation Opus, superseded by Opus 5.5. State-of-the-art long-horizon agentic execution, complex reasoning, and knowledge work. 1M token context.",
+          "badges": [
+            "powerful"
+          ],
           "metadata": {
             "contextWindow": "1M"
           },
