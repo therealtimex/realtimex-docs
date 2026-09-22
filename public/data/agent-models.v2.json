@@ -188,6 +188,45 @@
         "flag": "-c",
         "template": "model_reasoning_effort=\"${value}\""
       }
+    },
+    "codex.reasoning.gpt6-sol": {
+      "id": "reasoning_effort",
+      "label": "Reasoning",
+      "category": "reasoning",
+      "type": "select",
+      "default": "medium",
+      "values": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max",
+        "ultra"
+      ],
+      "launch": {
+        "kind": "flag-value",
+        "flag": "-c",
+        "template": "model_reasoning_effort=\"${value}\""
+      }
+    },
+    "codex.reasoning.gpt6-luna": {
+      "id": "reasoning_effort",
+      "label": "Reasoning",
+      "category": "reasoning",
+      "type": "select",
+      "default": "medium",
+      "values": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "launch": {
+        "kind": "flag-value",
+        "flag": "-c",
+        "template": "model_reasoning_effort=\"${value}\""
+      }
     }
   },
   "agents": {
@@ -207,6 +246,36 @@
           },
           "runtimeOptionRefs": [
             "codex.reasoning.gpt6-astra"
+          ]
+        },
+        {
+          "id": "gpt-6-sol",
+          "label": "GPT-6 Sol",
+          "description": "GPT-6 model for complex coding, research, and professional work. Supports reasoning effort settings.",
+          "badges": [
+            "powerful",
+            "272k context"
+          ],
+          "metadata": {
+            "contextWindow": "272k"
+          },
+          "runtimeOptionRefs": [
+            "codex.reasoning.gpt6-sol"
+          ]
+        },
+        {
+          "id": "gpt-6-luna",
+          "label": "GPT-6 Luna",
+          "description": "Fast, cost-efficient GPT-6 model for lighter coding tasks and high-volume work. Supports reasoning effort settings.",
+          "badges": [
+            "fast",
+            "272k context"
+          ],
+          "metadata": {
+            "contextWindow": "272k"
+          },
+          "runtimeOptionRefs": [
+            "codex.reasoning.gpt6-luna"
           ]
         },
         {
