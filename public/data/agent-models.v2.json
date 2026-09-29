@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-09-22",
+  "updatedAt": "2026-09-28",
   "runtimeOptions": {
     "claude.effort.fable5-opus48-opus47": {
       "id": "effort",
@@ -521,12 +521,26 @@
           ]
         },
         {
-          "id": "claude-sonnet-5",
-          "label": "Claude Sonnet 5",
-          "description": "Best combination of speed and intelligence in the current Claude lineup. Fast, cost-efficient upgrade over Sonnet 4.6 for everyday coding, agentic tasks, and knowledge work. Supports adaptive thinking with high default effort and xhigh/max for harder workloads. 1M token context.",
+          "id": "claude-sonnet-5-5",
+          "label": "Claude Sonnet 5.5",
+          "description": "Anthropic's latest Sonnet — the best combination of speed and intelligence in the Claude lineup. Clear upgrade over Sonnet 5: roughly 30%+ faster and up to 30% lower cost for most work. Strong for everyday coding, agentic tasks, and knowledge work with adaptive thinking and high default effort. 1M token context.",
           "badges": [
             "balanced",
             "fast"
+          ],
+          "metadata": {
+            "contextWindow": "1M"
+          },
+          "runtimeOptionRefs": [
+            "claude.effort.sonnet5"
+          ]
+        },
+        {
+          "id": "claude-sonnet-5",
+          "label": "Claude Sonnet 5",
+          "description": "Previous-generation Sonnet, superseded by Sonnet 5.5. Fast, cost-efficient choice for everyday coding, agentic tasks, and knowledge work. Supports adaptive thinking with high default effort and xhigh/max for harder workloads. 1M token context.",
+          "badges": [
+            "balanced"
           ],
           "metadata": {
             "contextWindow": "1M"
@@ -683,9 +697,18 @@
           ]
         },
         {
+          "id": "claude-sonnet-5-5",
+          "label": "Claude Sonnet 5.5",
+          "description": "Anthropic's latest Sonnet in Copilot. Faster and more efficient than Sonnet 5 for day-to-day agentic coding and knowledge work.",
+          "badges": [
+            "balanced",
+            "fast"
+          ]
+        },
+        {
           "id": "claude-sonnet-5",
           "label": "Claude Sonnet 5",
-          "description": "Anthropic's latest Sonnet generation in Copilot. Balances speed and capability for day-to-day agentic coding.",
+          "description": "Previous-generation Sonnet in Copilot, superseded by Sonnet 5.5. Balances speed and capability for everyday agentic coding.",
           "badges": [
             "balanced"
           ]
