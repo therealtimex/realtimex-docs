@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-09-29",
+  "updatedAt": "2026-10-07",
   "runtimeOptions": {
     "claude.effort.fable5-opus48-opus47": {
       "id": "effort",
@@ -21,6 +21,24 @@
       }
     },
     "claude.effort.opus55": {
+      "id": "effort",
+      "label": "Effort",
+      "category": "reasoning",
+      "type": "select",
+      "default": "medium",
+      "values": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "launch": {
+        "kind": "flag-value",
+        "flag": "--effort"
+      }
+    },
+    "claude.effort.haiku55": {
       "id": "effort",
       "label": "Effort",
       "category": "reasoning",
@@ -610,6 +628,20 @@
           },
           "runtimeOptionRefs": [
             "claude.effort.opus46-sonnet46"
+          ]
+        },
+        {
+          "id": "claude-haiku-5-5",
+          "label": "Claude Haiku 5.5",
+          "description": "Anthropic's fastest and most cost-efficient Claude model, and the first Haiku with an adjustable effort setting (low to max, medium by default). Adaptive thinking for quick coding, agentic subtasks, and high-volume work. 1M token context.",
+          "badges": [
+            "fast"
+          ],
+          "metadata": {
+            "contextWindow": "1M"
+          },
+          "runtimeOptionRefs": [
+            "claude.effort.haiku55"
           ]
         },
         {
