@@ -1,0 +1,20 @@
+---
+title: "Upcoming changes"
+description: "Current notes for the next stable RealTimeX desktop release"
+---
+
+import { Callout } from "nextra/components";
+
+# Upcoming changes
+
+<Callout type="info">
+These are the current notes for the next stable release, covering changes since v1.2.40. They're updated as work is merged, so a development build may not include every change listed here. When the release ships, they become its notes.
+</Callout>
+
+## Added
+
+- **Watch It Work can tell RealTimeX windows apart**: RealTimeX now tells plugins which on-screen window is the main window, which belongs to each running RealTimeX Browser session, and which thread started that session. Watch It Work 0.15.0 uses this to ask whether a recording should show the browser an agent is working in or the thread's chat, instead of guessing. Plugins never see tabs, addresses, page titles or terminal sessions. Browser sessions that were already open before this update are labelled after they restart.
+
+## Changed
+
+- **Terminal agents always know who is writing in a channel chat**: every message a terminal agent receives from Telegram, Zalo, Zalo OA, Facebook Messenger, WhatsApp, Discord or Slack now names the sender (their current display name, username where the platform has one, and a stable RealTimeX sender handle) and says whether it is a direct message or a group. Names update when people rename themselves. Raw platform ids, such as a WhatsApp phone number, are never sent to the agent. The **Terminal sender context** setting is removed from channel settings because this is now always on; the API and `realtimex-pp-cli` still accept `terminalExternalUserContext` but ignore it.

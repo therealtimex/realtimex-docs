@@ -66,6 +66,11 @@ This is a short, practical playbook for adding/editing docs in the RealTimeX doc
 - Code blocks: standard Markdown fences (```) with a language tag for highlighting.
 - Images: always use `/images/...` so basePath works across environments.
 
+## Changelog pages are generated
+- Everything in `pages/changelog/` (the version pages, `unreleased.mdx`, `index.mdx` and `_meta.json`) is generated from `CHANGELOG.md` in the RealTimeX app repository by its release pipeline.
+- Don't edit these pages here: the next publication overwrites them. Change the entry in the app's `CHANGELOG.md` instead; a stable release publishes its version page, and merges to the app's development branch refresh Upcoming changes.
+- `realtimex-ci[bot]` pushes these updates straight to `main`, so expect bot commits like `docs(changelog): publish v1.2.41`.
+
 ## Common gotchas
 - If images don’t show: ensure files are under `public/images/` and the path starts with `/images/`.
 - Sidebar not updating: you edited the wrong `_meta.json` or file name doesn’t match the key.

@@ -1,0 +1,23 @@
+---
+title: "v1.1.385"
+description: "What changed in RealTimeX desktop v1.1.385"
+date: "2026-07-29"
+---
+
+# RealTimeX v1.1.385
+
+Released 2026-07-29.
+
+## Added
+
+- **Repetition guard for small local models**: Local models below ~2B parameters frequently replay the previous answer instead of responding to a new question. Such a reply is now detected before anything reaches the screen and the turn is retried once without chat history. Applies to RealTimeX Local models only.
+
+## Changed
+
+- **Chat History and System Prompt now support "Auto"**: leaving either blank lets RealTimeX pick a value per request based on the model you have selected, instead of always using 20 messages. Small local models get a shorter history so they stop confusing an earlier question with the current one; larger models are unchanged.
+
+  **Existing workspaces are migrated.** A Chat History of exactly `20`, and a System Prompt exactly equal to the old built-in default, are treated as never-configured and reset to Auto. Any other value is preserved as an explicit override. If you deliberately pinned `20` or re-typed the default prompt and want it fixed regardless of model, re-enter it in **Workspace Settings → Chat** after upgrading.
+
+- **Small local models now get a system prompt written for them**: when a workspace's System Prompt is on **Auto** and you are chatting with a RealTimeX Local model below roughly 2B parameters, RealtimeX now sends a short, direct instruction to answer your most recent message, instead of the previous wording that described the latest message as "a follow up question". Small models took that description literally and often answered the *previous* question instead. Your current question is also repeated at the end of what the model sees, where these models pay the most attention.
+
+  **This only affects workspaces on Auto.** If you have written your own System Prompt it is sent exactly as you wrote it, unchanged, and the end-of-prompt reminder is not added — your wording is the whole instruction. Larger local models and all cloud providers are unaffected. Nothing about your saved settings changes, and nothing is added to your chat history or exports.
