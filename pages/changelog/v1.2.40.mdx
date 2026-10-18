@@ -1,0 +1,16 @@
+---
+title: "v1.2.40"
+description: "What changed in RealTimeX desktop v1.2.40"
+date: "2026-10-15"
+---
+
+# RealTimeX v1.2.40
+
+Released 2026-10-15.
+
+## Added
+
+- **Questions from any agent chat**: a terminal agent (Claude Code, Codex CLI and others), a workspace agent, an Ambient Agent run, a Local App or an SDK app can now ask you a blocking question. It appears in **Notifications → Needs attention** on the desktop and the phone, opens at the question in its chat, and is answered by typing your next message there when it is the only question waiting. Loop roles now ask in their own thread by default. An answer is only an answer: it never approves an action. **Update RealtimeX Mobile to get questions from agent chats, Ambient Agent and apps on your phone.** Older phone apps show these as a plain row and get no push for them; Loop questions keep working as before.
+- **Text-to-speech for plugins**: built-in plugins can now voice text with the Text-to-Speech provider you configured in Settings. Watch It Work 0.13.0 uses it to narrate exports. The browser-only **Native** voice can't be rendered to a file, so pick another provider for narration.
+- **Your chosen local voice is used everywhere**: audio rendered on the server with Supertonic or Piper now uses the voice, language, speed and quality you chose in **Settings → AI Providers → Voice & Speech**. That covers Telegram voice replies, SDK apps that don't name a voice, and plugins. Before, they got the engine's default voice instead.
+- **Loop highlights in Watch It Work exports**: when Watch It Work follows a loop, RealTimeX now reports where each view it showed was on screen. Watch It Work 0.14.0 uses this to add a caption to each loop step in an export, and a box around the loop overview or handoff details when the position is certain. Recordings themselves never change, and nothing is drawn on screen while recording.
