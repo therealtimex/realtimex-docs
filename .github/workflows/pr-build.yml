@@ -1,0 +1,41 @@
+# .github/workflows/pr-build.yml
+# Builds every pull request the way deploy.yml builds main, without deploying,
+# so a change that would break the site fails before it merges.
+name: Build pull request
+
+on:
+  pull_request:
+    branches:
+      - 'main'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pr-build-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Verify hosted topology templates
+        run: yarn test:topology-templates
+
+      - name: Verify hosted Workspace Team templates
+        run: yarn test:workspace-team-templates
+
+      - name: Build and export
+        run: yarn build
