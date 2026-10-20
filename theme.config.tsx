@@ -33,7 +33,7 @@ const config: DocsThemeConfig = {
     )
   },
   chat: {
-    link: 'https://discord.gg/cVPdVGqy',
+    link: 'https://discord.com/invite/wWGqAjFcCz',
   },
   docsRepositoryBase: 'https://github.com/therealtimex/RealTimeX-docs/tree/main',
   footer: {
