@@ -2,8 +2,8 @@
 title: "Upcoming changes"
 description: "Current notes for the next stable RealTimeX desktop release"
 since: "1.2.197"
-sourceSha: "58df7b65d367aa7fe9389a030d56f227aceb86ba"
-sourceTime: "2026-11-04T19:48:10.000Z"
+sourceSha: "c05e2561e0b6b44526ad03a5489a243275d9e28a"
+sourceTime: "2026-11-04T23:14:09.000Z"
 ---
 
 import { Callout } from "nextra/components";
@@ -14,4 +14,6 @@ import { Callout } from "nextra/components";
 These are the current notes for the next stable release, covering changes since v1.2.197. They're updated as work is merged, so a development build may not include every change listed here. When the release ships, they become its notes.
 </Callout>
 
-No changes are listed yet.
+## Fixed
+
+- **Loop and agent status no longer contradict what the agent is doing**: when a loop hands work to an agent that was asleep, the Loops popover now shows the handoff as started once that agent wakes up and picks it up. Before, it said the handoff "didn't start" while the same popover showed the agent working on it. A loop no longer counts as started just because its first handoff was delivered; it starts when an agent picks the work up. An agent that RealTimeX reopens after a restart no longer shows as exited or "Not running" for its first few seconds; until it is running, its state reads as unknown.
