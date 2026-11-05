@@ -2,8 +2,8 @@
 title: "Upcoming changes"
 description: "Current notes for the next stable RealTimeX desktop release"
 since: "1.2.197"
-sourceSha: "04bc425dcc39a218d4856786ca13ca3759641313"
-sourceTime: "2026-11-05T05:58:45.000Z"
+sourceSha: "ecc77517b084ea193c44eeb0674e92ad007ac467"
+sourceTime: "2026-11-05T06:37:38.000Z"
 ---
 
 import { Callout } from "nextra/components";
@@ -28,4 +28,5 @@ These are the current notes for the next stable release, covering changes since 
 
 ## Fixed
 
+- **Pancake chats no longer stall or lose customer messages after an unreadable message**: when a Pancake customer sent something RealTimeX could not read, such as a card Pancake returns without its text, the chat could get stuck, and everything the customer wrote in the next ten minutes or so was never delivered to the agent, without any error. These messages now pass without blocking the chat, the customer's next message reaches the agent, and the unreadable one appears in the System Log as a warning. Comment conversations no longer make Pancake webhook deliveries fail, and when a Pancake sync fails for a reason other than a Pancake request, the System Log now shows the real error instead of "Pancake request failed".
 - **Loop and agent status no longer contradict what the agent is doing**: when a loop hands work to an agent that was asleep, the Loops popover now shows the handoff as started once that agent wakes up and picks it up. Before, it said the handoff "didn't start" while the same popover showed the agent working on it. A loop no longer counts as started just because its first handoff was delivered; it starts when an agent picks the work up. An agent that RealTimeX reopens after a restart no longer shows as exited or "Not running" for its first few seconds; until it is running, its state reads as unknown.
