@@ -2,8 +2,8 @@
 title: "Upcoming changes"
 description: "Current notes for the next stable RealTimeX desktop release"
 since: "1.2.197"
-sourceSha: "891d555434deb52183cb0bd355a3dc5df8c20eae"
-sourceTime: "2026-11-05T04:00:40.000Z"
+sourceSha: "04bc425dcc39a218d4856786ca13ca3759641313"
+sourceTime: "2026-11-05T05:58:45.000Z"
 ---
 
 import { Callout } from "nextra/components";
@@ -21,6 +21,10 @@ These are the current notes for the next stable release, covering changes since 
 ## Changed
 
 - **RealTimeX now needs macOS 13 Ventura or later**: Macs on macOS 12 Monterey can keep using version 1.2.197, but won't get this update or later ones. A Monterey Mac on an older version may still say "Up to date". It keeps working but won't be updated.
+
+## Removed
+
+- **Agents in groups see every message again**: the **Agent turns per hour per group** limit is gone from Settings › Channels. Before, once a group used its hourly turns, the agent saw only messages that @mentioned it until the hour reset, so in a group where the agent decides when to post it missed what was said. Now every group message that the channel's access and reply settings let through reaches the agent, on every channel. Groups set to answer only @mentions still do. Send rate limits are unchanged. `realtimex-pp-cli update-channel --agent-turn-budget-per-hour` is still accepted but does nothing; agents need `@realtimex/pp-cli` 2.0.64 or later for the updated help.
 
 ## Fixed
 
