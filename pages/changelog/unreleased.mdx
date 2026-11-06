@@ -2,8 +2,8 @@
 title: "Upcoming changes"
 description: "Current notes for the next stable RealTimeX desktop release"
 since: "1.2.197"
-sourceSha: "16bad1a9fb2cbc3f8a5a0f7d8d812eba51b3b6ff"
-sourceTime: "2026-11-06T06:31:22.000Z"
+sourceSha: "92b47815a644ef81ea3078e71b83e5c1d4b39817"
+sourceTime: "2026-11-06T07:47:30.000Z"
 ---
 
 import { Callout } from "nextra/components";
@@ -29,6 +29,7 @@ These are the current notes for the next stable release, covering changes since 
 
 ## Fixed
 
+- **Agents use this computer from chat threads with accented names**: an agent in a thread whose name has letters such as "ó" or "Đ", like a Zalo group's chat, couldn't take screenshots, click or type on this computer, or read apps by their controls. Every command failed with "X-RTX-Caller is required". It now works whatever the thread is called, and RealTimeX Link's activity log shows the thread's name as it is.
 - **QA failures can return directly to Dev in older coding loops**: a failed QA result now keeps its failed state when handed back for fixes. The loop no longer rejects it because Dev has more actions available after a passing result, or suggests reporting a pass instead. A role that cannot act on the result is still refused, with suggestions to send that same result to another role.
 - **Linux updates ask for your password every time**: after an update or a restart, RealTimeX could start again in a state that can't ask for an administrator's password. Its next update then quit without asking and opened again on the old version. RealTimeX now starts itself again in a way that keeps the password prompt, and a copy that was started the old way still asks before it installs. If you cancel the prompt or the install fails, RealTimeX opens again on the version you had and says why: the password prompt was closed, no administrator's permission could be had, or the installer reported an error. The next update asks again.
 - **RealTimeX Link updates itself on Linux** (realtimex-link 0.6.3 and 0.6.4): RealTimeX now includes RealTimeX Link 0.6.4. On Linux, Update in RealTimeX Link now asks for your password and installs the new version in place, instead of opening the download page. If the update can't be installed, RealTimeX Link says why and keeps the version you had. On Windows, links from RealTimeX Link open in your browser more reliably.
