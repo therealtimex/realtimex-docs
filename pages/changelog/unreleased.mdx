@@ -2,8 +2,8 @@
 title: "Upcoming changes"
 description: "Current notes for the next stable RealTimeX desktop release"
 since: "1.2.197"
-sourceSha: "fdce5feb5ee3359f04b2edb3fab6278ab72699c0"
-sourceTime: "2026-11-05T13:00:08.000Z"
+sourceSha: "b3a79e893e09e413d9a51b4267b1d6625af71596"
+sourceTime: "2026-11-06T01:02:55.000Z"
 ---
 
 import { Callout } from "nextra/components";
@@ -30,5 +30,6 @@ These are the current notes for the next stable release, covering changes since 
 
 - **QA failures can return directly to Dev in older coding loops**: a failed QA result now keeps its failed state when handed back for fixes. The loop no longer rejects it because Dev has more actions available after a passing result, or suggests reporting a pass instead. A role that cannot act on the result is still refused, with suggestions to send that same result to another role.
 - **Linux updates ask for your password every time**: after an update or a restart, RealTimeX could start again in a state that can't ask for an administrator's password. Its next update then quit without asking and opened again on the old version. RealTimeX now starts itself again in a way that keeps the password prompt, and a copy that was started the old way still asks before it installs. If you cancel the prompt or the install fails, RealTimeX opens again on the version you had and says why: the password prompt was closed, no administrator's permission could be had, or the installer reported an error. The next update asks again.
+- **RealTimeX Link updates itself on Linux** (realtimex-link 0.6.3 and 0.6.4): RealTimeX now includes RealTimeX Link 0.6.4. On Linux, Update in RealTimeX Link now asks for your password and installs the new version in place, instead of opening the download page. If the update can't be installed, RealTimeX Link says why and keeps the version you had. On Windows, links from RealTimeX Link open in your browser more reliably.
 - **Pancake chats no longer stall or lose customer messages after an unreadable message**: when a Pancake customer sent something RealTimeX could not read, such as a card Pancake returns without its text, the chat could get stuck, and everything the customer wrote in the next ten minutes or so was never delivered to the agent, without any error. These messages now pass without blocking the chat, the customer's next message reaches the agent, and the unreadable one appears in the System Log as a warning. Comment conversations no longer make Pancake webhook deliveries fail, and when a Pancake sync fails for a reason other than a Pancake request, the System Log now shows the real error instead of "Pancake request failed".
 - **Loop and agent status no longer contradict what the agent is doing**: when a loop hands work to an agent that was asleep, the Loops popover now shows the handoff as started once that agent wakes up and picks it up. Before, it said the handoff "didn't start" while the same popover showed the agent working on it. A loop no longer counts as started just because its first handoff was delivered; it starts when an agent picks the work up. An agent that RealTimeX reopens after a restart no longer shows as exited or "Not running" for its first few seconds; until it is running, its state reads as unknown.
