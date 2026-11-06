@@ -2,8 +2,8 @@
 title: "Upcoming changes"
 description: "Current notes for the next stable RealTimeX desktop release"
 since: "1.2.197"
-sourceSha: "b3a79e893e09e413d9a51b4267b1d6625af71596"
-sourceTime: "2026-11-06T01:02:55.000Z"
+sourceSha: "16bad1a9fb2cbc3f8a5a0f7d8d812eba51b3b6ff"
+sourceTime: "2026-11-06T06:31:22.000Z"
 ---
 
 import { Callout } from "nextra/components";
@@ -20,6 +20,7 @@ These are the current notes for the next stable release, covering changes since 
 
 ## Changed
 
+- **Apply a new Loop version while loops are running**: Loop settings no longer asks you to finish or end every loop outside a Project before you upgrade, switch or repair the global Loop. The confirmation now lists how many of those loops are running, the five most recently updated, and what changes for them: they keep the workflow and roles they started with, and their agents read the new version's role guidance from their next turn. Tick the box to confirm. If a loop starts or ends while you're reviewing, nothing is applied and you can review the updated list. Deploy topology, from the Topology editor or from the plugin's Configure, now saves your topology and, while loops are running, opens Loop settings so you can apply that version there. Deploying a topology you didn't change no longer asks you to apply it again. If the Loop's adoption record goes missing or is damaged, Loop settings still shows your current version and offers to apply it again, and starting a loop until then asks you to finish in Loop settings instead of failing with a server error.
 - **RealTimeX now needs macOS 13 Ventura or later**: Macs on macOS 12 Monterey can keep using version 1.2.197, but won't get this update or later ones. A Monterey Mac on an older version may still say "Up to date". It keeps working but won't be updated.
 
 ## Removed
