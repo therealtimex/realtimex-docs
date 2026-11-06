@@ -2,8 +2,8 @@
 title: "Upcoming changes"
 description: "Current notes for the next stable RealTimeX desktop release"
 since: "1.2.197"
-sourceSha: "b44156a25cda143c6cddef3bf87a298f119e1984"
-sourceTime: "2026-11-06T09:39:07.000Z"
+sourceSha: "19fa13dcf3152a6d4a81d5650e27332fdeed816c"
+sourceTime: "2026-11-06T11:14:46.000Z"
 ---
 
 import { Callout } from "nextra/components";
@@ -29,6 +29,7 @@ These are the current notes for the next stable release, covering changes since 
 
 ## Fixed
 
+- **A pasted image reaches the agent on a cloud computer**: in the web page of a RealTimeX Cloud computer or another server without a screen, an image pasted into the message box now reaches the terminal agent as a file it can open. Before, the agent got only "[Image #1]" with no file, because the image was sent without a name and dropped. Files sent the same way were not affected.
 - **Allow remote control off now keeps every computer out**: RealTimeX now includes RealTimeX Link 0.6.5. Before, turning off **Allow remote control** only refused new requests. A computer you had already let in could still connect through the internet for up to a day. Now it ends any live view at once and refuses every computer, including ones you let in before. When you turn it back on, those computers can connect again without asking. Agents in RealTimeX on this computer keep working either way.
 - **Agents use this computer from chat threads with accented names**: an agent in a thread whose name has letters such as "ó" or "Đ", like a Zalo group's chat, couldn't take screenshots, click or type on this computer, or read apps by their controls. Every command failed with "X-RTX-Caller is required". It now works whatever the thread is called, and RealTimeX Link's activity log shows the thread's name as it is.
 - **QA failures can return directly to Dev in older coding loops**: a failed QA result now keeps its failed state when handed back for fixes. The loop no longer rejects it because Dev has more actions available after a passing result, or suggests reporting a pass instead. A role that cannot act on the result is still refused, with suggestions to send that same result to another role.
