@@ -2,8 +2,8 @@
 title: "Upcoming changes"
 description: "Current notes for the next stable RealTimeX desktop release"
 since: "1.2.197"
-sourceSha: "58f0610a64f8a688bd23d93e6b7225cd169a9ebc"
-sourceTime: "2026-11-07T05:20:45.000Z"
+sourceSha: "e91a65f9911467093748edc4541169998edba014"
+sourceTime: "2026-11-07T09:33:34.000Z"
 ---
 
 import { Callout } from "nextra/components";
@@ -16,6 +16,7 @@ These are the current notes for the next stable release, covering changes since 
 
 ## Added
 
+- **See your other desktops' work in the footer**: a desktop can now share its work status with your other desktops signed in to the same account. In Settings → Sharing → Desktop messaging, each connected desktop has a **Work status** block: **Share…** lists exactly what the other desktop will see (its terminal agents, open loops, roles, resources and limits; never whether you're at your desk, messages, questions, terminal output or files), and **Stop sharing** ends it. Turn on **Show your other desktops' work status here** on the desktop you look from. The Terminal agents and Loops popovers then name what needs a look on each other desktop and add a section per desktop, with its agents and loops read-only. When two desktops have a loop for the same issue, both rows say so ("Also on MacBook Air") and the Loops button counts it; nothing is stopped. Agents can ask you to share or stop sharing with `peer allow-status` and `peer deny-status`; nothing changes until you confirm. Before a loop starts, `rtx-loop start` now names the desktop that already has the issue and asks you to decide before starting a second one.
 - **Agents can react, quote, label and hand Messenger chats to your staff**. In a Facebook Messenger chat the agent can react to messages, reply to a specific message, read the conversation, see the customer's name and picture, and add or remove your Page's labels. When a person should take over, the agent hands the conversation to Page Inbox and stays quiet until your staff hand it back or the chat is idle for a day. Creating or deleting labels and changing the Messenger menu or greeting ask you first. To hand over, set RealTimeX as the default app in your Page's Conversation routing settings.
 
 ## Changed
@@ -29,6 +30,7 @@ These are the current notes for the next stable release, covering changes since 
 
 ## Fixed
 
+- **A loop whose agent is waiting on you counts in Needs you**: when the agent whose turn it is waits on a question to you, its loop now joins **Needs you** in the footer's Loops popover and counts in the button's label, after the loops waiting on you by their state. While a footer popover is open, agent and loop states now refresh every 5 seconds.
 - **Agents no longer ask whether to trust their own workspace folder**: every terminal agent RealTimeX starts works in the workspace's folder, which RealTimeX created, and many of them asked "Do you trust this folder?" there the first time, including in a new workspace or on a new computer. The terminal did nothing until someone answered, and answering stopped it from taking automatic messages. RealTimeX now records that yes for that exact folder before the agent starts: Claude Code, Codex, Gemini, Qwen Code, Cursor, Devin, Antigravity, Grok, GitHub Copilot, Kimi Code, Factory Droid, iFlow, Pi and the RealtimeX Agent. Each agent's own trust record is used, in the account it runs on or your own login, and nothing else in those settings changes. A folder you told an agent not to trust stays untrusted. Other folders, including folders you open yourself, still ask as before, except in Cursor, which RealTimeX already starts trusting the folder it opens in. Kiro still asks, even in the workspace folder. Codex is only affected inside a git project, where it would ask. Separately, trust you once gave your whole disk or home folder in one Claude login is no longer copied to your other Claude accounts.
 - **Claude terminals on an added Claude account no longer stop on Claude's setup or trust screens**: after you added a Claude account in Settings, every Claude terminal started on it, including the ones RealTimeX reopens after an update, stopped on Claude Code's first-run screen ("Choose the text style that looks best with your terminal"), and then could ask "Do you trust this folder?" again for folders you had already trusted. The terminal did nothing until someone answered, and answering stopped it from taking automatic messages until it was restarted. RealTimeX now marks Claude's setup as done for each account, and a terminal on an account trusts the folders you already trusted in your other Claude logins on this computer. Folders you never trusted still ask once, as Claude always does. Accounts added earlier are fixed the next time a terminal starts on them. Your Claude sign-in and settings are kept.
 - **A pasted image reaches the agent on a cloud computer**: in the web page of a RealTimeX Cloud computer or another server without a screen, an image pasted into the message box now reaches the terminal agent as a file it can open. Before, the agent got only "[Image #1]" with no file, because the image was sent without a name and dropped. Files sent the same way were not affected.
