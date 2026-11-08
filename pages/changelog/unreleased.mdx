@@ -2,8 +2,8 @@
 title: "Upcoming changes"
 description: "Current notes for the next stable RealTimeX desktop release"
 since: "1.2.197"
-sourceSha: "48246446470583ce3d7f5d48efc2f395e63048c3"
-sourceTime: "2026-11-08T10:04:16.000Z"
+sourceSha: "005c99997eef8d3bcfeab457afb528b24fde2a05"
+sourceTime: "2026-11-08T11:27:44.000Z"
 ---
 
 import { Callout } from "nextra/components";
@@ -16,6 +16,7 @@ These are the current notes for the next stable release, covering changes since 
 
 ## Added
 
+- **Pick workspace skills from the `/` menu**: with a terminal agent such as Claude Code or Codex attached, typing `/` or pressing **Commands** in the chat box now lists the workspace skills that agent can use, next to the commands that work with it. Search by name or description; recently used skills come first. Picking a skill puts it at the start of your message, so you only type the request, and RealTimeX sends it in the form the agent understands: `/name` for Claude Code, `$name` for Codex, and a plain request to use the skill for other agents. The menu now shows only what works for the attached agent: `/image` and presets with the built-in model, `/stop` and `/terminate` with a terminal agent. A skill the agent doesn't have is marked before you send, and with no agent attached a skill can't be sent. **Manage skills** opens the workspace's Skills settings. Skills that only RealTimeX itself runs are not listed.
 - **See your other desktops' work in the footer**: a desktop can now share its work status with your other desktops signed in to the same account. In Settings → Sharing → Desktop messaging, each connected desktop has a **Work status** block: **Share…** lists exactly what the other desktop will see (its terminal agents, open loops, roles, resources and limits; never whether you're at your desk, messages, questions, terminal output or files), and **Stop sharing** ends it. Turn on **Show your other desktops' work status here** on the desktop you look from. The Terminal agents and Loops popovers then name what needs a look on each other desktop and add a section per desktop, with its agents and loops read-only. When two desktops have a loop for the same issue, both rows say so ("Also on MacBook Air") and the Loops button counts it; nothing is stopped. Agents can ask you to share or stop sharing with `peer allow-status` and `peer deny-status`; nothing changes until you confirm. Before a loop starts, `rtx-loop start` now names the desktop that already has the issue and asks you to decide before starting a second one.
 - **Agents can react, quote, label and hand Messenger chats to your staff**. In a Facebook Messenger chat the agent can react to messages, reply to a specific message, read the conversation, see the customer's name and picture, and add or remove your Page's labels. When a person should take over, the agent hands the conversation to Page Inbox and stays quiet until your staff hand it back or the chat is idle for a day. Creating or deleting labels and changing the Messenger menu or greeting ask you first. To hand over, set RealTimeX as the default app in your Page's Conversation routing settings.
 
