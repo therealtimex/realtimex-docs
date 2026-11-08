@@ -2,8 +2,8 @@
 title: "Upcoming changes"
 description: "Current notes for the next stable RealTimeX desktop release"
 since: "1.2.197"
-sourceSha: "5971003a79805059e680c1be2db13c60737139b3"
-sourceTime: "2026-11-07T23:51:29.000Z"
+sourceSha: "48246446470583ce3d7f5d48efc2f395e63048c3"
+sourceTime: "2026-11-08T10:04:16.000Z"
 ---
 
 import { Callout } from "nextra/components";
@@ -30,6 +30,7 @@ These are the current notes for the next stable release, covering changes since 
 
 ## Fixed
 
+- **A message of several lines to a new Cursor terminal is sent, not left typed**: when a new Cursor terminal's first message had more than one line, such as a loop handoff, it often stayed typed in Cursor's message box and was never sent. The terminal then did nothing until someone pressed Enter in it or the next message arrived. RealTimeX sent the message about 2 seconds after starting Cursor, while Cursor could still be starting and ignored the Enter. It now waits until Cursor is ready for your message. If Cursor never says it's ready, the message is sent after 30 seconds. One-line first messages and later messages were not affected.
 - **A loop whose agent is waiting on you counts in Needs you**: when the agent whose turn it is waits on a question to you, its loop now joins **Needs you** in the footer's Loops popover and counts in the button's label, after the loops waiting on you by their state. While a footer popover is open, agent and loop states now refresh every 5 seconds.
 - **Agents no longer ask whether to trust their own workspace folder**: every terminal agent RealTimeX starts works in the workspace's folder, which RealTimeX created, and many of them asked "Do you trust this folder?" there the first time, including in a new workspace or on a new computer. The terminal did nothing until someone answered, and answering stopped it from taking automatic messages. RealTimeX now records that yes for that exact folder before the agent starts: Claude Code, Codex, Gemini, Qwen Code, Cursor, Devin, Antigravity, Grok, GitHub Copilot, Kimi Code, Factory Droid, iFlow, Pi and the RealtimeX Agent. Each agent's own trust record is used, in the account it runs on or your own login, and nothing else in those settings changes. A folder you told an agent not to trust stays untrusted. Other folders, including folders you open yourself, still ask as before, except in Cursor, which RealTimeX already starts trusting the folder it opens in. Kiro still asks, even in the workspace folder. Codex is only affected inside a git project, where it would ask. Separately, trust you once gave your whole disk or home folder in one Claude login is no longer copied to your other Claude accounts.
 - **Claude terminals on an added Claude account no longer stop on Claude's setup or trust screens**: after you added a Claude account in Settings, every Claude terminal started on it, including the ones RealTimeX reopens after an update, stopped on Claude Code's first-run screen ("Choose the text style that looks best with your terminal"), and then could ask "Do you trust this folder?" again for folders you had already trusted. The terminal did nothing until someone answered, and answering stopped it from taking automatic messages until it was restarted. RealTimeX now marks Claude's setup as done for each account, and a terminal on an account trusts the folders you already trusted in your other Claude logins on this computer. Folders you never trusted still ask once, as Claude always does. Accounts added earlier are fixed the next time a terminal starts on them. Your Claude sign-in and settings are kept.
