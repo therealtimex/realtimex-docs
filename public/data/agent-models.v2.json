@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-11-07",
+  "updatedAt": "2026-11-09",
   "runtimeOptions": {
     "claude.effort.fable5-opus48-opus47": {
       "id": "effort",
@@ -8,6 +8,24 @@
       "category": "reasoning",
       "type": "select",
       "default": "xhigh",
+      "values": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "launch": {
+        "kind": "flag-value",
+        "flag": "--effort"
+      }
+    },
+    "claude.effort.fable52": {
+      "id": "effort",
+      "label": "Effort",
+      "category": "reasoning",
+      "type": "select",
+      "default": "medium",
       "values": [
         "low",
         "medium",
@@ -535,9 +553,23 @@
     "claude-cli": {
       "models": [
         {
+          "id": "claude-fable-5-2",
+          "label": "Claude Fable 5.2",
+          "description": "Anthropic's most capable model — the newest release in the Fable tier above Opus, succeeding Fable 5.1. Best for the hardest reasoning, long-horizon agentic execution, and demanding knowledge work, at lower pricing than Fable 5.1. Adaptive thinking with medium default effort; effort ranges from low to max. 1M token context.",
+          "badges": [
+            "powerful"
+          ],
+          "metadata": {
+            "contextWindow": "1M"
+          },
+          "runtimeOptionRefs": [
+            "claude.effort.fable52"
+          ]
+        },
+        {
           "id": "claude-fable-5-1",
           "label": "Claude Fable 5.1",
-          "description": "Anthropic's most capable model — the newest release in the Fable tier above Opus. Best for the hardest reasoning, long-horizon agentic execution, and demanding knowledge work. Thinking is always on; effort ranges from low to max. 1M token context.",
+          "description": "Previous-generation Fable, superseded by Fable 5.2. Frontier reasoning and long-horizon agentic work in the tier above Opus. Thinking is always on; effort ranges from low to max. 1M token context.",
           "badges": [
             "powerful"
           ],
