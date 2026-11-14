@@ -2,8 +2,8 @@
 title: "Upcoming changes"
 description: "Current notes for the next stable RealTimeX desktop release"
 since: "1.2.235"
-sourceSha: "6a33dc445223de54fa2a6455e4d391ad584a98d8"
-sourceTime: "2026-11-11T21:35:24.000Z"
+sourceSha: "a2f1b432751dc6931210143d3ad1d498bc05f94a"
+sourceTime: "2026-11-14T07:09:07.000Z"
 ---
 
 import { Callout } from "nextra/components";
@@ -14,4 +14,7 @@ import { Callout } from "nextra/components";
 These are the current notes for the next stable release, covering changes since v1.2.235. They're updated as work is merged, so a development build may not include every change listed here. When the release ships, they become its notes.
 </Callout>
 
-No changes are listed yet.
+## Fixed
+
+- **RealTimeX starts normally after it was opened as administrator**: if RealTimeX had been opened as administrator and was then opened normally, the normal copy couldn't stop the old one's background processes. The loading screen waited and ended with "Max reconnection attempts reached". The normal copy now stops them and starts as usual. If Windows still refuses (for example, the old copy runs in another Windows session), RealTimeX says at once that it couldn't stop a background process and how to recover, instead of waiting. It still never starts a second copy of its server next to the old one. Startup error cards also no longer run off the side of the window when the device ID is long.
+- **BizOps CRM steps use the `gog` on your PATH first**: BizOps CRM and briefing steps always ran Homebrew's `gog` (`/opt/homebrew/bin/gog`) when it was installed, even if you had another `gog` earlier on your PATH. They now use the first `gog` on the PATH they run with, and fall back to Homebrew's only when none is found there.
