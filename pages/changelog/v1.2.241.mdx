@@ -1,0 +1,19 @@
+---
+title: "v1.2.241"
+description: "What changed in RealTimeX desktop v1.2.241"
+date: "2026-11-14"
+---
+
+# RealTimeX v1.2.241
+
+Released 2026-11-14.
+
+## Added
+
+- **Messenger pages can answer only the people you pick**: a Messenger channel now offers "Only people I pick", as Pancake does. In Access, pick people from the page's recent Messenger conversations, or create an invite code testers send to the page to be picked. Everyone else gets no reply, no read mark and no typing, and you can still answer them yourself from Page Inbox. "People I approve" is no longer offered for Messenger: pages that used it switch to "Only people I pick", and the people you had approved keep access as customers. Messenger customers can no longer run chat commands or answer permission prompts, and the agent no longer marks Messenger conversations as read. If Meta won't list the page's conversations, you can replace the page token without leaving Access. Agents can pick people and create invite codes with `@realtimex/pp-cli` 2.0.70 or later.
+
+## Fixed
+
+- **Terminals keep starting on a Mac that runs RealTimeX for days**: on macOS, every terminal RealTimeX started (an agent session, a task, a channel reply) left one of the Mac's pseudo-terminals in use after it ended. After a few days a busy Mac ran out of them, and every new terminal, task and channel reply failed with "Failed to start PTY session: posix_spawnp failed" until RealTimeX was restarted. Ended terminals now give their pseudo-terminal back, so RealTimeX no longer needs a restart for this. The fix comes from a newer version of the terminal library RealTimeX uses. On Windows, terminals now always use the Windows console (ConPTY); Windows 10 version 1809 used an older fallback before and now uses ConPTY too.
+- **RealTimeX starts normally after it was opened as administrator**: if RealTimeX had been opened as administrator and was then opened normally, the normal copy couldn't stop the old one's background processes. The loading screen waited and ended with "Max reconnection attempts reached". The normal copy now stops them and starts as usual. If Windows still refuses (for example, the old copy runs in another Windows session), RealTimeX says at once that it couldn't stop a background process and how to recover, instead of waiting. It still never starts a second copy of its server next to the old one. Startup error cards also no longer run off the side of the window when the device ID is long.
+- **BizOps CRM steps use the `gog` on your PATH first**: BizOps CRM and briefing steps always ran Homebrew's `gog` (`/opt/homebrew/bin/gog`) when it was installed, even if you had another `gog` earlier on your PATH. They now use the first `gog` on the PATH they run with, and fall back to Homebrew's only when none is found there.

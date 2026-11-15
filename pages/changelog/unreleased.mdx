@@ -1,9 +1,9 @@
 ---
 title: "Upcoming changes"
 description: "Current notes for the next stable RealTimeX desktop release"
-since: "1.2.235"
-sourceSha: "84cd28e87f7d06e1afa996bb1f212687fd394550"
-sourceTime: "2026-11-14T22:12:13.000Z"
+since: "1.2.241"
+sourceSha: "41b5bbe6e08fd989bb1e9b845aac3c6b640ee75b"
+sourceTime: "2026-11-14T22:37:19.000Z"
 ---
 
 import { Callout } from "nextra/components";
@@ -11,11 +11,7 @@ import { Callout } from "nextra/components";
 # Upcoming changes
 
 <Callout type="info">
-These are the current notes for the next stable release, covering changes since v1.2.235. They're updated as work is merged, so a development build may not include every change listed here. When the release ships, they become its notes.
+These are the current notes for the next stable release, covering changes since v1.2.241. They're updated as work is merged, so a development build may not include every change listed here. When the release ships, they become its notes.
 </Callout>
 
-## Fixed
-
-- **Terminals keep starting on a Mac that runs RealTimeX for days**: on macOS, every terminal RealTimeX started (an agent session, a task, a channel reply) left one of the Mac's pseudo-terminals in use after it ended. After a few days a busy Mac ran out of them, and every new terminal, task and channel reply failed with "Failed to start PTY session: posix_spawnp failed" until RealTimeX was restarted. Ended terminals now give their pseudo-terminal back, so RealTimeX no longer needs a restart for this. The fix comes from a newer version of the terminal library RealTimeX uses. On Windows, terminals now always use the Windows console (ConPTY); Windows 10 version 1809 used an older fallback before and now uses ConPTY too.
-- **RealTimeX starts normally after it was opened as administrator**: if RealTimeX had been opened as administrator and was then opened normally, the normal copy couldn't stop the old one's background processes. The loading screen waited and ended with "Max reconnection attempts reached". The normal copy now stops them and starts as usual. If Windows still refuses (for example, the old copy runs in another Windows session), RealTimeX says at once that it couldn't stop a background process and how to recover, instead of waiting. It still never starts a second copy of its server next to the old one. Startup error cards also no longer run off the side of the window when the device ID is long.
-- **BizOps CRM steps use the `gog` on your PATH first**: BizOps CRM and briefing steps always ran Homebrew's `gog` (`/opt/homebrew/bin/gog`) when it was installed, even if you had another `gog` earlier on your PATH. They now use the first `gog` on the PATH they run with, and fall back to Homebrew's only when none is found there.
+No changes are listed yet.
