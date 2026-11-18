@@ -2,8 +2,8 @@
 title: "Upcoming changes"
 description: "Current notes for the next stable RealTimeX desktop release"
 since: "1.2.241"
-sourceSha: "160af412b506cc5674172195d4a57c5627d6a189"
-sourceTime: "2026-11-18T09:40:35.000Z"
+sourceSha: "7d64b1eacb1a92a2e743cb07a882d70c00d9ca08"
+sourceTime: "2026-11-18T11:43:23.000Z"
 ---
 
 import { Callout } from "nextra/components";
@@ -22,7 +22,7 @@ These are the current notes for the next stable release, covering changes since 
 
 ## Fixed
 
-- **Terminal agents keep reporting after running for days**: on macOS, a terminal agent such as Claude Code that ran for about three days stopped reporting to RealTimeX. Its replies, permission cards and activity no longer reached the chat, and messages could wait behind a turn that never ended. macOS clears old files from its temporary folder, and RealTimeX kept the small helper each agent calls there. RealTimeX now keeps those files in its own data folder for Claude Code and Gemini, and puts back any that go missing while the terminal runs. Codex and Cursor already kept theirs elsewhere; Qwen Code, Copilot, Devin, Grok and Antigravity follow in a later update. Terminals started before you update keep the old behavior until they restart. A reply that was already lost is not recovered. RealTimeX also removes these folders when the RealTimeX that made them has closed and they are more than a week old.
+- **Terminal agents keep reporting after running for days**: on macOS, a terminal agent such as Claude Code that ran for about three days stopped reporting to RealTimeX. Its replies, permission cards and activity no longer reached the chat, and messages could wait behind a turn that never ended. macOS clears old files from its temporary folder, and RealTimeX kept the small helper each agent calls there. RealTimeX now keeps those files in its own data folder, and puts back any that go missing while the terminal runs. This covers Claude Code, Gemini, Qwen Code, Copilot, Devin, Grok and Antigravity; Codex and Cursor already kept theirs elsewhere. Terminals started before you update keep the old behavior until they restart. A reply that was already lost is not recovered. RealTimeX also removes these folders when the RealTimeX that made them has closed and they are more than a week old.
 - **Agents no longer talk over staff, send twice, or report garbled text as sent**:
   - On Pancake, a send is refused when staff wrote in the chat after the agent last read it. The agent gets the staff's new messages instead, and its next send goes through.
   - Every message or file an agent sends has a send id. When the channel doesn't confirm a send, the agent can check later whether it arrived (Pancake looks it up in the conversation), and a retry never posts it twice. Each channel shows how many sends went unconfirmed and how they ended.
