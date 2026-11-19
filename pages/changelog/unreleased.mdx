@@ -2,8 +2,8 @@
 title: "Upcoming changes"
 description: "Current notes for the next stable RealTimeX desktop release"
 since: "1.2.241"
-sourceSha: "635a43af98a2f0e74ac2aa24434032c6732d491b"
-sourceTime: "2026-11-19T12:42:04.000Z"
+sourceSha: "8d73b3396f76e95cedb3314f98d22e95a3eac056"
+sourceTime: "2026-11-19T18:40:12.000Z"
 ---
 
 import { Callout } from "nextra/components";
@@ -23,6 +23,7 @@ These are the current notes for the next stable release, covering changes since 
 
 ## Changed
 
+- **The Terminals panel shows only the terminal**: when a terminal isn't taking automatic messages, or is waiting for you before it starts, the yellow box no longer sits above it in the Terminals panel, so the terminal keeps the panel's full height. That box, with Restart or End, the waiting messages and **Trust folder**, is now only on the terminal's card in the chat, and reviewing a waiting message starts there. The terminal's tab still marks it, with its icon, **Waiting for you** or **Start not confirmed**.
 - **A held Claude terminal frees itself**: when a Claude terminal is held because Claude was busy, RealTimeX now frees it in place once Claude is done, on any Claude version, so waiting messages are delivered without a Restart. This is on in every build, stable releases included, while Claude versions are still being qualified. It now also works with Claude accounts in a Team or Enterprise organization, whose security plugin kept RealTimeX from seeing when Claude finished, and on Windows when Claude Code was installed with npm. Terminals that load their own Claude plugins or hooks keep today's behavior. It applies to terminals started after the update, so restart a terminal that was already open. To turn it off, set `REALTIMEX_CLAUDE_READINESS_OBSERVER=0`.
 
 ## Fixed
